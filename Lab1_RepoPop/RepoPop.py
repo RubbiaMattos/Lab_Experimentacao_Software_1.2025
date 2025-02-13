@@ -23,6 +23,7 @@ import pandas as pd
 import requests
 import matplotlib.pyplot as plt
 import time
+import traceback
 from collections import Counter
 
 
@@ -45,8 +46,12 @@ class GitHubDataCollector:
                 Raises:
                     ValueError: Se o token for inválido ou muito curto
         """
-        self.headers = {"Authorization": f"Bearer {token}"}
         self.url = "https://api.github.com/graphql"
+        self.headers = {
+            'Authorization': f'Bearer {token}',
+            'Accept': 'application/vnd.github.v4.idl',
+            'Content-Type': 'application/json',
+        }
 
         if not token or len(token) < 40:
             raise ValueError("Token inválido: muito curto ou vazio")
@@ -68,48 +73,66 @@ class GitHubDataCollector:
                Raises:
                    Exception: Se todas as tentativas falharem
         """
-        for attempt in range(max_retries):
-            try:
-                response = requests.post(
-                    self.url,
-                    json={'query': query, 'variables': variables},
-                    headers=self.headers,
-                    timeout=30
-                )
 
-                if response.status_code == 200:
-                    return response.json()
-                elif response.status_code == 502:
+        def execute_query(self, query, variables=None, max_retries=3, retry_delay=5):
+            """
+            Executa uma consulta GraphQL na API do GitHub.
+            """
+            for attempt in range(max_retries):
+                try:
+                    print(f"Tentativa {attempt + 1} de {max_retries}")
+
+                    response = requests.post(
+                        self.url,
+                        json={'query': query, 'variables': variables},
+                        headers=self.headers,
+                        timeout=30
+                    )
+
+                    print(f"Status code: {response.status_code}")
+
+                    if response.status_code == 200:
+                        json_response = response.json()
+                        if 'errors' in json_response:
+                            print(f"Erros na resposta: {json_response['errors']}")
+                        return json_response
+
+                    elif response.status_code == 401:
+                        print("Erro de autenticação - Token inválido ou expirado")
+                        raise Exception("Token inválido ou expirado")
+
+                    elif response.status_code == 403:
+                        print("Erro de permissão - Limite de taxa excedido ou permissões insuficientes")
+                        if attempt < max_retries - 1:
+                            time.sleep(retry_delay)
+                            continue
+
+                    elif response.status_code == 502:
+                        print("Erro 502 - Bad Gateway")
+                        if attempt < max_retries - 1:
+                            time.sleep(retry_delay)
+                            retry_delay *= 2
+                            continue
+
+                    print(f"Resposta inesperada: {response.text}")
+                    raise Exception(f"Erro na consulta: {response.status_code}")
+
+                except requests.exceptions.RequestException as e:
+                    print(f"Erro na requisição: {str(e)}")
                     if attempt < max_retries - 1:
-                        print(f"Erro 502. Tentativa {attempt + 1} de {max_retries}")
                         time.sleep(retry_delay)
-                        retry_delay *= 2
                         continue
+                    raise
 
-                raise Exception(f"Erro na consulta: {response.status_code}")
-
-            except requests.exceptions.RequestException as e:
-                if attempt < max_retries - 1:
-                    print(f"Erro na requisição. Tentativa {attempt + 1} de {max_retries}")
-                    time.sleep(retry_delay)
-                    continue
-                raise
+            raise Exception("Todas as tentativas falharam")
 
     def get_top_repos(self, limit=1000):
         """
-                Coleta dados dos repositórios mais populares do GitHub.
-
-                Args:
-                    limit (int): Número máximo de repositórios a serem coletados
-
-                Returns:
-                    list: Lista de dicionários com dados dos repositórios
-
-                Raises:
-                    Exception: Caso haja erro durante a coleta dos dados
+        Coleta dados dos repositórios mais populares do GitHub.
         """
         repos_data = []
         cursor = None
+        page = 1
 
         query = """
         query($cursor: String) {
@@ -121,6 +144,7 @@ class GitHubDataCollector:
             nodes {
               ... on Repository {
                 nameWithOwner
+                url
                 stargazerCount
                 forkCount
                 primaryLanguage {
@@ -140,46 +164,97 @@ class GitHubDataCollector:
                 closedIssues: issues(states: CLOSED) {
                   totalCount
                 }
-                defaultBranchRef {
-                  target {
-                    ... on Commit {
-                      history {
-                        totalCount
-                      }
-                    }
-                  }
-                }
               }
             }
           }
         }
         """
 
+        print("\nIniciando coleta de repositórios...")
+
         while len(repos_data) < limit:
             try:
                 variables = {"cursor": cursor}
+                print(f"\nBuscando página {page}...")
+
+                # Executa a query
                 result = self.execute_query(query, variables)
 
-                if not result or 'data' not in result:
+                # Verifica se há resultado
+                if not result:
+                    print("Erro: Resultado vazio da API")
+                    break
+
+                # Verifica se há erros na resposta
+                if 'errors' in result:
+                    print(f"Erros na resposta da API: {result['errors']}")
+                    break
+
+                # Verifica se há dados na resposta
+                if 'data' not in result:
+                    print(f"Erro: Resposta sem dados: {result}")
                     break
 
                 search_data = result['data']['search']
-                current_repos = [repo for repo in search_data['nodes'] if repo]
-                repos_data.extend(current_repos)
 
-                print(f"Coletados {len(repos_data)} repositórios de {limit}")
+                # Filtra repositórios válidos
+                current_repos = [
+                    repo for repo in search_data['nodes']
+                    if repo and 'nameWithOwner' in repo
+                ]
+
+                print(f"Repositórios encontrados nesta página: {len(current_repos)}")
+                if current_repos:
+                    print("Primeiro repositório da página:", current_repos[0]['nameWithOwner'])
+
+                repos_data.extend(current_repos)
+                print(f"Total acumulado: {len(repos_data)} repositórios")
 
                 if not search_data['pageInfo']['hasNextPage']:
+                    print("Não há mais páginas para buscar")
                     break
 
                 cursor = search_data['pageInfo']['endCursor']
+                page += 1
+
+                # Pausa para respeitar limites da API
                 time.sleep(2)
 
             except Exception as e:
                 print(f"Erro durante a coleta: {str(e)}")
+                traceback.print_exc()
                 break
 
+        print(f"\nColeta finalizada. Total de repositórios: {len(repos_data)}")
         return repos_data[:limit]
+
+    def execute_query(self, query, variables=None):
+        """
+        Executa uma consulta GraphQL na API do GitHub.
+        """
+        try:
+            print("Enviando requisição para API do GitHub...")
+
+            response = requests.post(
+                self.url,
+                json={'query': query, 'variables': variables},
+                headers=self.headers,
+                timeout=30
+            )
+
+            print(f"Status da resposta: {response.status_code}")
+
+            if response.status_code == 200:
+                return response.json()
+            else:
+                print(f"Erro na requisição: {response.status_code}")
+                print(f"Resposta: {response.text}")
+                return None
+
+        except Exception as e:
+            print(f"Erro na execução da query: {str(e)}")
+            traceback.print_exc()
+            return None
 
 
 def analyze_data(repos_data):
@@ -346,77 +421,74 @@ def generate_research_report(df):
         print(f"Mediana da taxa de issues fechadas: {df['issues_ratio'].median() * 100:.1f}%")
         print(f"Média da taxa de issues fechadas: {df['issues_ratio'].mean() * 100:.1f}%")
 
-        def generate_research_report(df):
+        # [código anterior permanece igual até RQ 06]
 
-            try:
-                # [código anterior permanece igual até RQ 06]
+        # RQ 07: Análise por Linguagem - RQ Bônus
+        print("\nRQ 07: Sistemas escritos em linguagens mais populares recebem mais contribuição externa,")
+        print("lançam mais releases e são atualizados com mais frequência?\n")
 
-                # RQ 07: Análise por Linguagem
-                print("\nRQ 07: Sistemas escritos em linguagens mais populares recebem mais contribuição externa,")
-                print("lançam mais releases e são atualizados com mais frequência?\n")
+        # Seleciona top 5 linguagens mais populares
+        top_langs = df['language'].value_counts().head(5).index.tolist()
 
-                # Seleciona top 5 linguagens mais populares
-                top_langs = df['language'].value_counts().head(5).index.tolist()
+        # Filtra apenas repositórios das top 5 linguagens
+        df_top_langs = df[df['language'].isin(top_langs)]
 
-                # Filtra apenas repositórios das top 5 linguagens
-                df_top_langs = df[df['language'].isin(top_langs)]
+        # Calcula métricas por linguagem
+        metrics_by_lang = df_top_langs.groupby('language').agg({
+            'merged_prs': ['median', 'mean'],
+            'releases': ['median', 'mean'],
+            'days_since_update': ['median', 'mean']
+        }).round(2)
 
-                # Calcula métricas por linguagem
-                metrics_by_lang = df_top_langs.groupby('language').agg({
-                    'merged_prs': ['median', 'mean'],
-                    'releases': ['median', 'mean'],
-                    'days_since_update': ['median', 'mean']
-                }).round(2)
+        # Renomeia as colunas para melhor legibilidade
+        metrics_by_lang.columns = [
+            'PRs (mediana)', 'PRs (média)',
+            'Releases (mediana)', 'Releases (média)',
+            'Dias desde update (mediana)', 'Dias desde update (média)'
+        ]
 
-                # Renomeia as colunas para melhor legibilidade
-                metrics_by_lang.columns = [
-                    'PRs (mediana)', 'PRs (média)',
-                    'Releases (mediana)', 'Releases (média)',
-                    'Dias desde update (mediana)', 'Dias desde update (média)'
-                ]
+        print("Análise por Linguagem:")
+        print(metrics_by_lang)
 
-                print("Análise por Linguagem:")
-                print(metrics_by_lang)
+        # Visualizações para RQ 07
+        fig, axes = plt.subplots(1, 3, figsize=(18, 6))
 
-                # Visualizações para RQ 07
-                fig, axes = plt.subplots(1, 3, figsize=(18, 6))
+        # Gráfico de PRs por linguagem
+        df_top_langs.boxplot(column='merged_prs', by='language', ax=axes[0])
+        axes[0].set_title('PRs Aceitas por Linguagem')
+        axes[0].set_ylabel('Número de PRs')
+        axes[0].tick_params(axis='x', rotation=45)
 
-                # Gráfico de PRs por linguagem
-                df_top_langs.boxplot(column='merged_prs', by='language', ax=axes[0])
-                axes[0].set_title('PRs Aceitas por Linguagem')
-                axes[0].set_ylabel('Número de PRs')
-                axes[0].tick_params(axis='x', rotation=45)
+        # Gráfico de releases por linguagem
+        df_top_langs.boxplot(column='releases', by='language', ax=axes[1])
+        axes[1].set_title('Releases por Linguagem')
+        axes[1].set_ylabel('Número de Releases')
+        axes[1].tick_params(axis='x', rotation=45)
 
-                # Gráfico de releases por linguagem
-                df_top_langs.boxplot(column='releases', by='language', ax=axes[1])
-                axes[1].set_title('Releases por Linguagem')
-                axes[1].set_ylabel('Número de Releases')
-                axes[1].tick_params(axis='x', rotation=45)
+        # Gráfico de tempo desde última atualização por linguagem
+        df_top_langs.boxplot(column='days_since_update', by='language', ax=axes[2])
+        axes[2].set_title('Dias Desde Última Atualização')
+        axes[2].set_ylabel('Dias')
+        axes[2].tick_params(axis='x', rotation=45)
 
-                # Gráfico de tempo desde última atualização por linguagem
-                df_top_langs.boxplot(column='days_since_update', by='language', ax=axes[2])
-                axes[2].set_title('Dias Desde Última Atualização')
-                axes[2].set_ylabel('Dias')
-                axes[2].tick_params(axis='x', rotation=45)
+        plt.tight_layout()
+        plt.show()
 
-                plt.tight_layout()
-                plt.show()
+        # Análise estatística adicional
+        print("\nMétricas adicionais por linguagem:")
+        for lang in top_langs:
+            repos_lang = df_top_langs[df_top_langs['language'] == lang]
+            print(f"\n{lang}:")
+            print(f"Número de repositórios: {len(repos_lang)}")
+            print(
+                f"Média de PRs por mês: {(repos_lang['merged_prs'] / repos_lang['age_years'] / 12).mean():.1f}")
+            print(f"Média de releases por ano: {(repos_lang['releases'] / repos_lang['age_years']).mean():.1f}")
 
-                # Análise estatística adicional
-                print("\nMétricas adicionais por linguagem:")
-                for lang in top_langs:
-                    repos_lang = df_top_langs[df_top_langs['language'] == lang]
-                    print(f"\n{lang}:")
-                    print(f"Número de repositórios: {len(repos_lang)}")
-                    print(
-                        f"Média de PRs por mês: {(repos_lang['merged_prs'] / repos_lang['age_years'] / 12).mean():.1f}")
-                    print(f"Média de releases por ano: {(repos_lang['releases'] / repos_lang['age_years']).mean():.1f}")
+        # rever alterações da Rq 07
 
-                # [resto do código permanece igual]
-
-            except Exception as e:
-                print(f"Erro no relatório: {str(e)}")
-                raise
+    except Exception as e:
+        print(f"Erro no relatório: {str(e)}")
+        raise
 
         # Conclusões gerais
         print("\n=== CONCLUSÕES GERAIS ===")
@@ -435,43 +507,77 @@ def generate_research_report(df):
 
 def main():
     """
-        Função principal que comanda a execução do programa.
-
-        Esta função:
-        1. Configura o token de autenticação
-        2. Inicializa o coletor de dados
-        3. Coleta os dados dos repositórios
-        4. Analisa os dados coletados
-        5. Gera o relatório de pesquisa
-
-        Raises:
-            ValueError: Se o token for inválido
-            Exception: Para outros erros durante a execução
-        """
+    Função principal que comanda a execução do programa.
+    """
     try:
-        token = os.getenv('GITHUB_TOKEN', 'ghp_TOKEN') #Inserir o Token Github aqui
+        # Altere esta linha para seu token real do GitHub
+        token = "ghp_TOKEN GITHUB"  # <---------------------- Substitua pelo seu token válido
+
+        print("Iniciando coleta de dados...")
+        print("Verificando token...")
+
+        # Verificação mais detalhada do token
+        if not token or token == "ghp_SEU_TOKEN_AQUI":
+            raise ValueError("Token não configurado. Por favor, insira um token válido do GitHub.")
 
         if not token.startswith('ghp_'):
-            raise ValueError("Token inválido")
+            raise ValueError("Formato de token inválido. O token deve começar com 'ghp_'")
 
+        if len(token) < 40:
+            raise ValueError("Token muito curto. Verifique se o token está completo.")
+
+        # Teste de conexão básico
+        test_response = requests.get(
+            "https://api.github.com/user",
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        if test_response.status_code != 200:
+            raise ValueError(f"Erro na autenticação. Status: {test_response.status_code}. "
+                             f"Resposta: {test_response.text}")
+
+        print("Token válido. Iniciando coleta...")
+
+        # Inicializa o coletor
         collector = GitHubDataCollector(token)
-        print("Coletando os dados dos repositórios...")
+
+        # Tenta coletar os dados com um limite menor para teste
+        print("Coletando dados de teste (primeiros 10 repositórios)...")
+        test_repos = collector.get_top_repos(limit=10)
+
+        if not test_repos:
+            raise ValueError("Falha no teste inicial de coleta. Nenhum repositório retornado.")
+
+        print(f"Teste bem sucedido. Encontrados {len(test_repos)} repositórios.")
+
+        # Agora coleta todos os dados
+        print("Iniciando coleta completa...")
         repos_data = collector.get_top_repos()
 
         if not repos_data:
-            raise ValueError("Nenhum dado foi coletado")
+            raise ValueError("Nenhum dado foi coletado na coleta completa")
+
+        print(f"Dados coletados com sucesso. Total de repositórios: {len(repos_data)}")
 
         print("Analisando os dados...")
         df = analyze_data(repos_data)
 
+        print("Gerando relatório...")
         generate_research_report(df)
 
         # Salvando dados
-        df.to_csv('github_analysis.csv', index=False)
-        print("\nDados salvos em 'github_analysis.csv'")
+        output_file = 'github_analysis.csv'
+        df.to_csv(output_file, index=False)
+        print(f"\nDados salvos em '{output_file}'")
 
+    except requests.exceptions.RequestException as e:
+        print(f"Erro de conexão com a API do GitHub: {str(e)}")
+        raise
+    except ValueError as e:
+        print(f"Erro de validação: {str(e)}")
+        raise
     except Exception as e:
-        print(f"Erro: {str(e)}")
+        print(f"Erro inesperado: {str(e)}")
         raise
 
 
