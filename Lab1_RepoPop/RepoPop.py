@@ -449,7 +449,7 @@ def main():
             Exception: Para outros erros durante a execução
         """
     try:
-        token = os.getenv('GITHUB_TOKEN', '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') #onde inserir o Token Github
+        token = os.getenv('GITHUB_TOKEN', 'ghp_TOKEN') #Inserir o Token Github aqui
 
         if not token.startswith('ghp_'):
             raise ValueError("Token inválido")
