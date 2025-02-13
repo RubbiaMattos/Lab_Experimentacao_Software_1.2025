@@ -106,7 +106,7 @@ class GitHubDataCollector:
                     list: Lista de dicionários com dados dos repositórios
 
                 Raises:
-                    Exception: Se houver erro durante a coleta dos dados
+                    Exception: Caso haja erro durante a coleta dos dados
         """
         repos_data = []
         cursor = None
