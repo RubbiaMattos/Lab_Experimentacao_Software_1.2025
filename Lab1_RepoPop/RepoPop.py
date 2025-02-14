@@ -25,7 +25,7 @@ import matplotlib.pyplot as plt
 import time
 import traceback
 from collections import Counter
-
+from dotenv import load_dotenv
 
 class GitHubDataCollector:
     """
@@ -510,15 +510,14 @@ def main():
     Função principal que comanda a execução do programa.
     """
     try:
-        # Altere esta linha para seu token real do GitHub
-        token = "ghp_TOKEN GITHUB"  # <---------------------- Substitua pelo seu token válido
+        # Carrega as variáveis do arquivo .env
+        load_dotenv()
 
-        print("Iniciando coleta de dados...")
-        print("Verificando token...")
+        # Obtém o token do ambiente
+        token = os.getenv("GITHUB_TOKEN")
 
-        # Verificação mais detalhada do token
-        if not token or token == "ghp_SEU_TOKEN_AQUI":
-            raise ValueError("Token não configurado. Por favor, insira um token válido do GitHub.")
+        if not token:
+            raise ValueError("Erro: O token do GitHub não foi encontrado no arquivo .env")
 
         if not token.startswith('ghp_'):
             raise ValueError("Formato de token inválido. O token deve começar com 'ghp_'")
@@ -541,21 +540,12 @@ def main():
         # Inicializa o coletor
         collector = GitHubDataCollector(token)
 
-        # Tenta coletar os dados com um limite menor para teste
-        print("Coletando dados de teste (primeiros 10 repositórios)...")
-        test_repos = collector.get_top_repos(limit=10)
-
-        if not test_repos:
-            raise ValueError("Falha no teste inicial de coleta. Nenhum repositório retornado.")
-
-        print(f"Teste bem sucedido. Encontrados {len(test_repos)} repositórios.")
-
-        # Agora coleta todos os dados
-        print("Iniciando coleta completa...")
+        # Coleta os dados
+        print("Coletando dados dos repositórios...")
         repos_data = collector.get_top_repos()
 
         if not repos_data:
-            raise ValueError("Nenhum dado foi coletado na coleta completa")
+            raise ValueError("Nenhum dado foi coletado")
 
         print(f"Dados coletados com sucesso. Total de repositórios: {len(repos_data)}")
 
@@ -580,6 +570,6 @@ def main():
         print(f"Erro inesperado: {str(e)}")
         raise
 
-
 if __name__ == "__main__":
     main()
+
