@@ -136,7 +136,7 @@ class GitHubDataCollector:
 
         query = """
         query($cursor: String) {
-          search(query: "stars:>100 sort:stars-desc", type: REPOSITORY, first: 25, after: $cursor) {
+          search(query: "stars:>100 sort:stars-desc", type: REPOSITORY, first: 10, after: $cursor) {
             pageInfo {
               hasNextPage
               endCursor
