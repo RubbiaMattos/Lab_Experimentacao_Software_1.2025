@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76ce9a2c-26cd-4091-9e65-5e359f24eb0e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Lab1_RepoPop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Lab1_RepoPop.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RepoPop.py" beforeDir="false" afterPath="$PROJECT_DIR$/RepoPop.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/github_analysis.csv" beforeDir="false" afterPath="$PROJECT_DIR$/github_analysis.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documentos/~$álise de Repositórios Populares no GitHub.docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +98,7 @@
       <workItem from="1739459134083" duration="2137000" />
       <workItem from="1739485359323" duration="627000" />
       <workItem from="1739486017194" duration="4288000" />
-      <workItem from="1739549734063" duration="8005000" />
+      <workItem from="1739549734063" duration="8772000" />
     </task>
     <servers />
   </component>
