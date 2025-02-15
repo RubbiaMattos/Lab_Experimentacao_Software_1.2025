@@ -218,11 +218,42 @@ def generate_research_report(df):
     print(f"Mediana da idade: {idade_mediana:.2f} anos")
 
     # RQ 02
+
     print("\nRQ 02. Sistemas populares recebem muita contribuição externa?")
-    prs_mean = df['pullRequests'].apply(lambda x: x['totalCount']).mean()
-    prs_median = df['pullRequests'].apply(lambda x: x['totalCount']).median()
-    print(f"Média de PRs aceitas: {prs_mean:.2f}")
-    print(f"Mediana de PRs aceitas: {prs_median:.2f}")
+    try:
+        prs_mean = df['pullRequests'].apply(lambda x: x['totalCount']).mean()
+        prs_median = df['pullRequests'].apply(lambda x: x['totalCount']).median()
+        print(f"Média de PRs aceitas: {prs_mean:.2f}")
+        print(f"Mediana de PRs aceitas: {prs_median:.2f}")
+
+        import seaborn as sns
+        import matplotlib.pyplot as plt
+
+        # Extrai a contagem de PRs aceitos
+        df['pr_count'] = df['pullRequests'].apply(lambda x: x['totalCount'])
+
+        # Configuração do gráfico
+        plt.figure(figsize=(8, 6))
+        sns.boxplot(y=df['pr_count'], color="skyblue")
+
+        # Títulos e rótulos
+        plt.title("Distribuição do Número de PRs Aceitos", fontsize=14)
+        plt.ylabel("Quantidade de PRs Aceitos")
+
+        # Salva o gráfico
+        plt.savefig('qtd_PRs_aceitos.png', dpi=300, bbox_inches='tight')
+        print("\nGráfico salvo como 'qtd_PRs_aceitos.png'")
+
+        # Mostra o gráfico no PyCharm Professional (no Community talvez tenha que baixar plugin)
+        plt.show()
+
+        # Fecha a figura para liberar memória
+        plt.close()
+
+    except Exception as e:
+        print(f"\nErro ao gerar o gráfico: {str(e)}")
+        import traceback
+        print(traceback.format_exc())
 
     # RQ 03
     print("\nRQ 03. Sistemas populares lançam releases com frequência?")
@@ -257,9 +288,13 @@ def generate_research_report(df):
         plt.figure(figsize=(10, 6), dpi=100)
 
         # Cria o plot usando Seaborn
-        ax = sns.barplot(x=languages_count.index,
-                         y=languages_count.values,
-                         palette='husl')
+        ax = sns.barplot(
+            x=languages_count.index,
+            y=languages_count.values,
+            hue=languages_count.index,
+            palette='husl',
+            legend=False
+        )
 
         # Configura o gráfico
         plt.title('Top 10 Linguagens de Programação mais Populares no GitHub')
@@ -276,12 +311,12 @@ def generate_research_report(df):
         # Ajusta layout
         plt.tight_layout()
 
-        # Mostra o gráfico no PyCharm Professional (no Community talvez tenha que baixar plugin)
-        plt.show()
-
         # Salva o gráfico
         plt.savefig('top_languages.png', dpi=300, bbox_inches='tight')
         print("\nGráfico salvo como 'top_languages.png'")
+
+        # Mostra o gráfico no PyCharm Professional (no Community talvez tenha que baixar plugin)
+        plt.show()
 
         # Fecha a figura para liberar memória
         plt.close()
