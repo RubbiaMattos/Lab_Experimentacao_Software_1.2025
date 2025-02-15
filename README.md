@@ -6,7 +6,7 @@ Este repositório contém uma série de laboratórios conduzidos na disciplina d
 
 ## 📌 Conteúdo dos Laboratórios
 
-### 🔹Laboratório 01 - Características de Repositórios Populares
+### 🔹[Laboratório 01 - Características de Repositórios Populares](Documentos/LABORATÓRIO_01.pdf)
 Este estudo investiga as principais características dos repositórios mais populares no GitHub, buscando entender:
 - A idade dos repositórios e sua relação com a popularidade.
 - O volume de contribuições externas (Pull Requests aceitos) e seu impacto na evolução do projeto.
@@ -24,7 +24,7 @@ Principais funcionalidades:
 - Geração de relatórios gráficos sobre as linguagens mais utilizadas e PRs aceitos.
 - Processamento e armazenamento dos dados coletados em arquivos CSV.
 
-### 🔹Laboratório 02-Qualidade de Sistemas Java
+### 🔹[Laboratório 02-Qualidade de Sistemas Java](Documentos/LABORATÓRIO_02.pdf)
 Este laboratório explora a qualidade dos sistemas desenvolvidos em Java, analisando:
 - A relação entre popularidade do repositório e qualidade do código.
 - O impacto da maturidade do repositório na legibilidade e manutenibilidade do código.
@@ -32,7 +32,7 @@ Este laboratório explora a qualidade dos sistemas desenvolvidos em Java, analis
 - A influência do tamanho dos repositórios na modularidade e eficiência do código.
 - Avaliação de métricas de qualidade como CBO (acoplamento), DIT (herança) e LCOM (coesão entre métodos).
 
-### 🔹Laboratório 03 - Code Review no GitHub
+### 🔹[Laboratório 03 - Code Review no GitHub](Documentos/LABORATÓRIO_03.pdf)
 Neste estudo, investigamos a importância e os padrões do processo de code review no GitHub:
 - Como o tamanho dos Pull Requests influência a taxa de aprovação ou rejeição.
 - A relação entre tempo médio de revisão e a qualidade do feedback recebido.
@@ -40,7 +40,7 @@ Neste estudo, investigamos a importância e os padrões do processo de code revi
 - O número de interações nos PRs e seu papel no refinamento do código.
 - A influência do nível de engajamento da comunidade na eficiência do processo de revisão.
 
-### 🔹Laboratório 04 - Visualização de Dados com BI
+### 🔹[Laboratório 04 - Visualização de Dados com BI](Documentos/LABORATÓRIO_04.pdf)
 Aplicação de técnicas de **Business Intelligence (BI)** para análise e apresentação de dados:
 - Uso de ferramentas como Microsoft Power BI, Tableau e Google Data Studio para criação de dashboards.
 - Construção de visualizações interativas que auxiliam na interpretação dos dados coletados.
@@ -48,7 +48,7 @@ Aplicação de técnicas de **Business Intelligence (BI)** para análise e apres
 - Estratégias para tornar os dados mais acessíveis e compreensíveis, permitindo insights mais eficazes.
 - Implementação de dashboards dinâmicos que facilitam a tomada de decisão baseada em dados.
 
-### 🔹Laboratório 05 - GraphQL vs REST
+### 🔹[Laboratório 05 - GraphQL vs REST](Documentos/LABORATÓRIO_05.pdf)
 Este experimento controlado compara **GraphQL** e **REST** para avaliar suas diferenças e benefícios:
 - Análise do tempo de resposta entre requisições GraphQL e REST.
 - Comparação do tamanho dos dados trafegados entre as duas abordagens.
@@ -74,13 +74,12 @@ Este experimento controlado compara **GraphQL** e **REST** para avaliar suas dif
 ```
 📂 Lab_Experimentacao_Software_1.2025
  ├── 📂 Documentos
- │   ├── 📄 LABORATORIO_01.pdf
- │   ├── 📄 LABORATORIO_02.pdf
- │   ├── 📄 LABORATORIO_03.pdf
- │   ├── 📄 LABORATORIO_04.pdf
- │   ├── 📄 LABORATORIO_05.pdf
+ │   ├── 📄 LABORATÓRIO_01.pdf
+ │   ├── 📄 LABORATÓRIO_02.pdf
+ │   ├── 📄 LABORATÓRIO_03.pdf
+ │   ├── 📄 LABORATÓRIO_04.pdf
+ │   ├── 📄 LABORATÓRIO_05.pdf
  ├── 📂 Lab1_RepoPop
- │   ├── .idea/
  │   ├── github_analysis.csv
  │   ├── qtd_PRs_aceitos.png
  │   ├── RepoPop.py
@@ -92,6 +91,8 @@ Este experimento controlado compara **GraphQL** e **REST** para avaliar suas dif
 ---
 
 ## 🚀 Como Utilizar
+> **Importante:** O arquivo `.env.config` deve conter o token de autenticação do GitHub. Certifique-se de criar este arquivo na raiz do projeto e adicionar a variável `GITHUB_TOKEN=seu_token_aqui` antes de executar os scripts.
+
 1. Clone o repositório:
    ```sh
    git clone https://github.com/RubbiaMattos/Lab_Experimentacao_Software_1.2025.git
@@ -102,6 +103,7 @@ Este experimento controlado compara **GraphQL** e **REST** para avaliar suas dif
 ---
 
 ## 📖 Referências
+- [Documentação do GitHub](https://docs.github.com/pt)
 - [Octoverse - GitHub Insights](https://octoverse.github.com/)
 - [CK - Código Java Analysis](https://github.com/mauricioaniche/ck)
 - [Power BI Documentation](https://docs.microsoft.com/en-us/power-bi/fundamentals/service-get-started)
@@ -118,3 +120,4 @@ Este experimento controlado compara **GraphQL** e **REST** para avaliar suas dif
 📌 **Curso:** Engenharia de Software  
 📌 **Disciplina:** Laboratório de Experimentação de Software  
 📌 **Instituição:** Pontifícia Universidade Católica de Minas Gerais (PUC Minas)
+
