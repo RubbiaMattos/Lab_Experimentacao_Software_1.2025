@@ -25,8 +25,11 @@ import pandas as pd
 import requests
 from dotenv import load_dotenv
 
-# 🔹 Carregar variáveis do arquivo .env
-load_dotenv()
+# 🔹 Definir o caminho absoluto do arquivo .env.config
+env_path = os.path.join(os.getcwd(), ".env.config")
+
+# 🔹 Carregar as variáveis do arquivo
+load_dotenv(dotenv_path=env_path)
 
 # 🔹 Obter o token do ambiente
 TOKEN = os.getenv("GITHUB_TOKEN")
@@ -285,7 +288,7 @@ def generate_research_report(df):
     try:
         # Configurar o matplotlib especificamente para o PyCharm, IDE usada pelo grupo
         import matplotlib
-        matplotlib.use('module://backend_interagg')  # Backend específico para IDEs
+        matplotlib.use('module://backend_integrate')  # Backend específico para IDEs
         import matplotlib.pyplot as plt
         import seaborn as sns
 
