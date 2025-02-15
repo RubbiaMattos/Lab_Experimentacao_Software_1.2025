@@ -4,6 +4,16 @@ Este repositório contém uma série de laboratórios conduzidos na disciplina d
 
 ---
 
+## 📌 Dependências do Projeto
+
+Para garantir o funcionamento adequado do projeto, instale as seguintes dependências antes de executar os scripts:
+
+```sh
+py -3.12 -m pip install python-dotenv pandas requests matplotlib seaborn
+```
+
+---
+
 ## 📌 Conteúdo dos Laboratórios
 
 ### 🔹[Laboratório 01 - Características de Repositórios Populares](Documentos/LABORATÓRIO_01.pdf)
@@ -116,7 +126,7 @@ GITHUB_TOKEN=seu_token_aqui
 ### 3️⃣ Instale as Dependências
 Antes de executar os scripts, instale a biblioteca necessária para carregar variáveis de ambiente:
 ```sh
-py -3.12 -m pip install python-dotenv
+py -3.12 -m pip install python-dotenv pandas requests matplotlib seaborn
 ```
 
 ### 4️⃣ Execute os Scripts
