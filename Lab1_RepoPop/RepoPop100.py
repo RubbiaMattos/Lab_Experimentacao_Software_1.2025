@@ -9,7 +9,6 @@ Autores:
     - Nelson de Campos Nolasco
     - Rubia Coelho de Matos
 
-
 Data: 16 fevereiro/2025
 
 Dependências:
@@ -17,11 +16,24 @@ Dependências:
     - requests
     - matplotlib
     - seaborn
+    - python-dotenv
 """
+
+import os
 import time
 import pandas as pd
 import requests
+from dotenv import load_dotenv
 
+# 🔹 Carregar variáveis do arquivo .env
+load_dotenv()
+
+# 🔹 Obter o token do ambiente
+TOKEN = os.getenv("GITHUB_TOKEN")
+
+# 🔹 Verificar se o token foi carregado corretamente
+if not TOKEN:
+    raise ValueError("❌ ERRO: O token do GitHub não foi encontrado. Verifique o arquivo .env.")
 
 class GitHubDataCollector:
     """
@@ -64,7 +76,6 @@ class GitHubDataCollector:
                 Raises:
                     Exception: Se houver erro na comunicação com a API ou no processamento dos dados
         """
-
         query = """
         query($cursor: String) {
           search(query: "stars:>100", type: REPOSITORY, first: 25, after: $cursor) {
@@ -106,7 +117,7 @@ class GitHubDataCollector:
         repos_data = []
         cursor = None
 
-        print("\nIniciando coleta de repositórios...")
+        print("\n🔹 Iniciando coleta de repositórios...")
 
         while len(repos_data) < limit:
             try:
@@ -120,17 +131,17 @@ class GitHubDataCollector:
                 print(f"Status da resposta: {response.status_code}")
 
                 if response.status_code != 200:
-                    print(f"Erro na requisição: {response.text}")
+                    print(f"❌ Erro na requisição: {response.text}")
                     break
 
                 result = response.json()
 
                 if 'errors' in result:
-                    print(f"Erros GraphQL: {result['errors']}")
+                    print(f"❌ Erros GraphQL: {result['errors']}")
                     break
 
                 if 'data' not in result:
-                    print(f"Resposta sem dados: {result}")
+                    print(f"❌ Resposta sem dados: {result}")
                     break
 
                 current_repos = result['data']['search']['nodes']
@@ -363,30 +374,26 @@ def main():
             Exception: Para outros erros durante a execução
     """
     try:
-        # Substitua com seu token do GitHub
-        token = "ghp_TOKEN GITHUB" #<-------- Token do Github aqui
-
-        print("Iniciando coleta de dados...")
-        collector = GitHubDataCollector(token)
+        print("\n🔹 Iniciando coleta de dados...")
+        collector = GitHubDataCollector(TOKEN)
         repos_data = collector.get_top_repos(100)
 
         if not repos_data:
-            raise ValueError("Nenhum dado foi coletado")
+            raise ValueError("❌ Nenhum dado foi coletado")
 
-        print(f"\nTotal de repositórios coletados: {len(repos_data)}")
+        print(f"\n✅ Total de repositórios coletados: {len(repos_data)}")
 
-        print("\nAnalisando os dados...")
+        print("\n🔹 Analisando os dados...")
         df = analyze_data(repos_data)
 
         print("\nGerando relatório...")
         generate_research_report(df)
 
         df.to_csv('github_analysis.csv', index=False)
-        print("\nDados salvos em 'github_analysis.csv'")
+        print("\n✅ Dados salvos em 'github_analysis.csv'")
 
     except Exception as e:
-        print(f"Erro: {str(e)}")
-        raise
+        print(f"❌ ERRO: {str(e)}")
 
 
 if __name__ == "__main__":
