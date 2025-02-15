@@ -97,26 +97,39 @@ Este experimento controlado compara **GraphQL** e **REST** para avaliar suas dif
 Para utilizar este repositório, siga os passos abaixo:
 
 ### 1️⃣ Clone o Repositório
+
 Copie e cole o seguinte comando no terminal:
+
 ```sh
  git clone https://github.com/RubbiaMattos/Lab_Experimentacao_Software_1.2025.git
  cd Lab_Experimentacao_Software_1.2025
 ```
 
 ### 2️⃣ Configure a Autenticação
+
 O script precisa de um token do GitHub para acessar a API. Edite o arquivo `.env.config` e adicione:
+
 ```env
 GITHUB_TOKEN=seu_token_aqui
 ```
 
-### 3️⃣ Execute os Scripts
+### 3️⃣ Instale as Dependências
+Antes de executar os scripts, instale a biblioteca necessária para carregar variáveis de ambiente:
+```sh
+py -3.12 -m pip install python-dotenv
+```
+
+### 4️⃣ Execute os Scripts
+
 Acesse a pasta do laboratório desejado e execute o código correspondente. Exemplo para o Lab1:
+
 ```sh
  cd Lab1_RepoPop
  python RepoPop100.py
 ```
 
 ### 4️⃣ Analise os Resultados
+
 Os resultados gerados, como gráficos e arquivos CSV, estarão disponíveis na pasta do laboratório correspondente.
 
 Se precisar de mais detalhes, consulte os PDFs na pasta `Documentos/`.
@@ -141,3 +154,4 @@ Se precisar de mais detalhes, consulte os PDFs na pasta `Documentos/`.
 📌 **Curso:** Engenharia de Software  
 📌 **Disciplina:** Laboratório de Experimentação de Software  
 📌 **Instituição:** Pontifícia Universidade Católica de Minas Gerais (PUC Minas)
+
