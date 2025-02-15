@@ -288,7 +288,7 @@ def generate_research_report(df):
     try:
         # Configurar o matplotlib especificamente para o PyCharm, IDE usada pelo grupo
         import matplotlib
-        matplotlib.use('module://backend_integrate')  # Backend específico para IDEs
+        matplotlib.use('module://backend_interagg')  # Backend específico para IDEs
         import matplotlib.pyplot as plt
         import seaborn as sns
 
