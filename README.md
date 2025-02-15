@@ -4,7 +4,7 @@ Este repositório contém uma série de laboratórios conduzidos na disciplina d
 
 ---
 
-## 📌Conteúdo dos Laboratórios
+## 📌 Conteúdo dos Laboratórios
 
 ### 🔹Laboratório 01 - Características de Repositórios Populares
 Este estudo investiga as principais características dos repositórios mais populares no GitHub, buscando entender:
@@ -13,6 +13,16 @@ Este estudo investiga as principais características dos repositórios mais popu
 - A frequência de lançamento de releases e sua relação com a estabilidade do repositório.
 - As linguagens de programação mais comuns utilizadas nos repositórios mais populares.
 - O percentual de issues fechadas como indicador da manutenção ativa e do suporte da comunidade.
+
+**Implementação:**
+O script `RepoPop100.py` realiza a coleta de dados sobre os repositórios mais populares do GitHub utilizando a API 
+GraphQL. Ele analisa métricas como idade do repositório, contribuições externas, frequência de releases, linguagens utilizadas e fechamento de issues. Além disso, gera relatórios e gráficos estatísticos sobre os dados coletados. 
+
+Principais funcionalidades:
+- Coleta de dados utilizando API GraphQL.
+- Análise estatística e métricas de popularidade dos repositórios.
+- Geração de relatórios gráficos sobre as linguagens mais utilizadas e PRs aceitos.
+- Processamento e armazenamento dos dados coletados em arquivos CSV.
 
 ### 🔹Laboratório 02-Qualidade de Sistemas Java
 Este laboratório explora a qualidade dos sistemas desenvolvidos em Java, analisando:
@@ -53,6 +63,10 @@ Este experimento controlado compara **GraphQL** e **REST** para avaliar suas dif
 - **APIs do GitHub** (REST e GraphQL)
 - **CK** (Ferramenta de análise de métricas de código)
 - **Ferramentas de BI** (Power BI, Tableau, Google Data Studio)
+- **Pandas** (manipulação e análise de dados)
+- **Matplotlib & Seaborn** (visualização de dados)
+- **Jupyter Notebook** (ambiente interativo para análise de dados)
+- **Git** (controle de versão)
 
 ---
 
@@ -65,6 +79,13 @@ Este experimento controlado compara **GraphQL** e **REST** para avaliar suas dif
  │   ├── 📄 LABORATORIO_03.pdf
  │   ├── 📄 LABORATORIO_04.pdf
  │   ├── 📄 LABORATORIO_05.pdf
+ ├── 📂 Lab1_RepoPop
+ │   ├── .idea/
+ │   ├── github_analysis.csv
+ │   ├── qtd_PRs_aceitos.png
+ │   ├── RepoPop.py
+ │   ├── RepoPop100.py
+ │   ├── top_languages.png
  ├── 📜 README.md
 ```
 
@@ -96,3 +117,4 @@ Este experimento controlado compara **GraphQL** e **REST** para avaliar suas dif
 📌 **Professor:** João Paulo Carneiro Aramuni  
 📌 **Curso:** Engenharia de Software  
 📌 **Disciplina:** Laboratório de Experimentação de Software  
+📌 **Instituição:** Pontifícia Universidade Católica de Minas Gerais (PUC Minas)
