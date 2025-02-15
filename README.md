@@ -74,15 +74,17 @@ Este experimento controlado compara **GraphQL** e **REST** para avaliar suas dif
 ```
 📂 Lab_Experimentacao_Software_1.2025
  ├── 📂 Documentos
- │   ├── 📄 LABORATÓRIO_01.pdf
- │   ├── 📄 LABORATÓRIO_02.pdf
- │   ├── 📄 LABORATÓRIO_03.pdf
- │   ├── 📄 LABORATÓRIO_04.pdf
- │   ├── 📄 LABORATÓRIO_05.pdf
+ │   ├── 📄 Análise de Repositórios Populares no GitHub.docx
+ │   ├── 📄 Análise de Repositórios Populares no GitHub.pdf
+ │   ├── 📄 LABORATORIO_01.pdf
+ │   ├── 📄 LABORATORIO_02.pdf
+ │   ├── 📄 LABORATORIO_03.pdf
+ │   ├── 📄 LABORATORIO_04.pdf
+ │   ├── 📄 LABORATORIO_05.pdf
  ├── 📂 Lab1_RepoPop
+ │   ├── .env.config
  │   ├── github_analysis.csv
  │   ├── qtd_PRs_aceitos.png
- │   ├── RepoPop.py
  │   ├── RepoPop100.py
  │   ├── top_languages.png
  ├── 📜 README.md
@@ -91,14 +93,33 @@ Este experimento controlado compara **GraphQL** e **REST** para avaliar suas dif
 ---
 
 ## 🚀 Como Utilizar
-> **Importante:** O arquivo `.env.config` deve conter o token de autenticação do GitHub. Certifique-se de criar este arquivo na raiz do projeto e adicionar a variável `GITHUB_TOKEN=seu_token_aqui` antes de executar os scripts.
 
-1. Clone o repositório:
-   ```sh
-   git clone https://github.com/RubbiaMattos/Lab_Experimentacao_Software_1.2025.git
-   cd Lab_Experimentacao_Software_1.2025
-   ```
-2. Acesse os PDFs para mais detalhes sobre cada laboratório.
+Para utilizar este repositório, siga os passos abaixo:
+
+### 1️⃣ Clone o Repositório
+Copie e cole o seguinte comando no terminal:
+```sh
+ git clone https://github.com/RubbiaMattos/Lab_Experimentacao_Software_1.2025.git
+ cd Lab_Experimentacao_Software_1.2025
+```
+
+### 2️⃣ Configure a Autenticação
+O script precisa de um token do GitHub para acessar a API. Edite o arquivo `.env.config` e adicione:
+```env
+GITHUB_TOKEN=seu_token_aqui
+```
+
+### 3️⃣ Execute os Scripts
+Acesse a pasta do laboratório desejado e execute o código correspondente. Exemplo para o Lab1:
+```sh
+ cd Lab1_RepoPop
+ python RepoPop100.py
+```
+
+### 4️⃣ Analise os Resultados
+Os resultados gerados, como gráficos e arquivos CSV, estarão disponíveis na pasta do laboratório correspondente.
+
+Se precisar de mais detalhes, consulte os PDFs na pasta `Documentos/`.
 
 ---
 
@@ -120,4 +141,3 @@ Este experimento controlado compara **GraphQL** e **REST** para avaliar suas dif
 📌 **Curso:** Engenharia de Software  
 📌 **Disciplina:** Laboratório de Experimentação de Software  
 📌 **Instituição:** Pontifícia Universidade Católica de Minas Gerais (PUC Minas)
-
