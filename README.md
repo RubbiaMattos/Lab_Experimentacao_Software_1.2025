@@ -6,9 +6,10 @@ Este repositório contém uma série de laboratórios conduzidos na disciplina *
 
 ## 📌 Lista de Laboratórios
 
-### 🔹 [Laboratório 01 - Características de Repositórios Populares](Documentos/LABORATÓRIO_01.pdf)
+### 🔹 [Laboratório 01 - Características de Repositórios Populares](Documentos/LABORATÓRIO_01.pdf) 
 
-📌 **Objetivo:** Estudar as principais características dos repositórios mais populares no GitHub, analisando fatores como idade, contribuições externas, frequência de releases e linguagens utilizadas.
+📌 **Objetivo:** 
+Estudar as principais características dos repositórios mais populares no GitHub, analisando fatores como idade, contribuições externas, frequência de releases e linguagens utilizadas.
 
 📂 **Principais Análises:**
 - Relação entre idade e popularidade dos repositórios.
@@ -16,16 +17,25 @@ Este repositório contém uma série de laboratórios conduzidos na disciplina *
 - Frequência de lançamento de releases e estabilidade do repositório.
 - Principais linguagens de programação utilizadas.
 - Percentual de issues fechadas como indicador de manutenção ativa.
+- Comparação entre linguagens populares e sua relação com contribuições externas, releases e atualizações frequentes (RQ 07 - Bônus).
 
-⚙️ **Implementação:**
-- Coleta de dados via API GraphQL do GitHub.
-- Análise estatística e métricas de popularidade dos repositórios.
-- Geração de relatórios gráficos e processamento de dados em CSV.
+⚙️ **Implementação - Lab01S01:**
+- Desenvolvimento de uma consulta **GraphQL** para coletar dados de **100 repositórios** mais populares do GitHub.
+- Coleta de métricas essenciais, incluindo:
+  - **Idade do repositório** (data de criação).
+  - **Total de Pull Requests aceitos**.
+  - **Número total de releases**.
+  - **Data da última atualização**.
+  - **Linguagem primária do repositório**.
+  - **Percentual de issues fechadas**.
+- Armazenamento dos dados coletados em um **arquivo CSV**.
+- Implementação de um **sistema de requisição automática** para recuperar os dados necessários sem o uso de bibliotecas externas que realizem chamadas à API do GitHub.
+- Estruturação do código em **RepoPop100.py**, garantindo modularidade e eficiência na obtenção das informações.
 
 📂 **Estrutura do Diretório:**
 ```
 📂 Lab1_RepoPop
- ├── 📂 Sprint_1
+ ├── 📂 Lab01S01
  │   ├── 📜 .env.config
  │   ├── 📂 Relatórios
  │   │   ├── 📄 Análise de Repositórios Populares no GitHub.docx
@@ -34,17 +44,19 @@ Este repositório contém uma série de laboratórios conduzidos na disciplina *
  │   │   ├── 📊 qtd_PRs_aceitos.png
  │   │   ├── 📊 top_languages.png
  │   ├── 🐍 RepoPop100.py
+ ├── 📂 Lab01S02
+ ├── 📂 Lab01S03
 ```
 
-📌 **Como Executar o Laboratório 01:**
+📌 **Como Executar a Lab01S01:**
 ```sh
 git clone https://github.com/RubbiaMattos/Lab_Experimentacao_Software_1.2025.git
 cd Lab_Experimentacao_Software_1.2025
-cd Lab1_RepoPop/Sprint_1
+cd Lab1_RepoPop/Lab01S01
 ```
 
 🔑 **Configuração da Autenticação:**
-O arquivo `.env.config` já está presente na pasta `Lab1_RepoPop/Sprint_1`. Para utilizá-lo, apenas edite e substitua o token existente por um válido:
+O arquivo `.env.config` já está presente na pasta `Lab1_RepoPop/Lab01S01`. Para utilizá-lo, apenas edite e substitua o token existente por um válido:
 ```env
 GITHUB_TOKEN=seu_novo_token_aqui
 ```
