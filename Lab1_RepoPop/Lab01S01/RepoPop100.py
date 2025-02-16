@@ -12,11 +12,14 @@ Autores:
 Data: 16 fevereiro/2025
 
 Dependências:
-    - pandas
-    - requests
-    - matplotlib
-    - seaborn
-    - python-dotenv
+    - pandas: para manipulação e análise de dados em Python.
+    - requests: faz requisições HTTP.
+    - matplotlib: para criação de gráficos e visualizações.
+    - seaborn: visualização estatística baseada no Matplotlib, oferece uma interface amigável e gráficos atraentes.
+    - python-dotenv: permite carregar variáveis de ambiente a partir de um arquivo .env.
+    - os: fornece funções para interagir com o sistema operacional.
+    - time: fornece várias funções para trabalhar com tempo.
+
 """
 
 import os
