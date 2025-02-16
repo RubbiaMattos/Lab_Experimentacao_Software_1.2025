@@ -39,7 +39,8 @@ if not TOKEN:
     raise ValueError("❌ ERRO: O token do GitHub não foi encontrado. Verifique o arquivo .env.")
 
 # 🔹 Definir diretório de saída para os arquivos gerados
-output_dir = os.path.join(os.getcwd(), "Sprint_1", "Relatórios")
+output_dir = os.path.join(os.getcwd(), "Relatórios")
+
 
 class GitHubDataCollector:
     """
