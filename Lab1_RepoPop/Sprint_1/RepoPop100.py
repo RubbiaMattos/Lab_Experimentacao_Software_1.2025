@@ -38,6 +38,9 @@ TOKEN = os.getenv("GITHUB_TOKEN")
 if not TOKEN:
     raise ValueError("❌ ERRO: O token do GitHub não foi encontrado. Verifique o arquivo .env.")
 
+# 🔹 Definir diretório de saída para os arquivos gerados
+output_dir = os.path.join(os.getcwd(), "Sprint_1", "Relatórios")
+
 class GitHubDataCollector:
     """
         Classe responsável pela coleta dos dados de repositórios do GitHub usando a API GraphQL.
@@ -255,7 +258,7 @@ def generate_research_report(df):
         plt.ylabel("Quantidade de PRs Aceitos")
 
         # Salva o gráfico
-        plt.savefig('qtd_PRs_aceitos.png', dpi=300, bbox_inches='tight')
+        plt.savefig(os.path.join(output_dir, 'qtd_PRs_aceitos.png'), dpi=300, bbox_inches='tight')
         print("\nGráfico salvo como 'qtd_PRs_aceitos.png'")
 
         # Mostra o gráfico no PyCharm Professional (no Community talvez tenha que baixar plugin)
@@ -326,7 +329,7 @@ def generate_research_report(df):
         plt.tight_layout()
 
         # Salva o gráfico
-        plt.savefig('top_languages.png', dpi=300, bbox_inches='tight')
+        plt.savefig(os.path.join(output_dir, 'top_languages.png'), dpi=300, bbox_inches='tight')
         print("\nGráfico salvo como 'top_languages.png'")
 
         # Mostra o gráfico no PyCharm Professional (no Community talvez tenha que baixar plugin)
@@ -392,7 +395,7 @@ def main():
         print("\nGerando relatório...")
         generate_research_report(df)
 
-        df.to_csv('github_analysis.csv', index=False)
+        df.to_csv(os.path.join(output_dir, 'github_analysis.csv'), index=False)
         print("\n✅ Dados salvos em 'github_analysis.csv'")
 
     except Exception as e:
