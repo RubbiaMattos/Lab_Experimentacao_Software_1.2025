@@ -9,7 +9,7 @@ Autores:
     - Nelson de Campos Nolasco
     - Rubia Coelho de Matos
 
-Data: 23 fevereiro/2025
+Data: 28 fevereiro/2025
 
 Dependências:
     - pandas: para manipulação e análise de dados em Python.
@@ -367,6 +367,153 @@ def generate_research_report(df):
     print("\nMédia de métricas por linguagem popular:")
     print(metrics_by_language)
 
+    """
+            Gera um relatório de pesquisa detalhado com base nos dados analisados.
+
+            Analisa diferentes aspectos dos repositórios populares por meio de questões de
+            pesquisa (RQs) específicas, gerando visualizações e métricas estatísticas.
+
+            Args:
+                df (pandas.DataFrame): DataFrame contendo os dados analisados
+
+            Outputs:
+                - Imprime resultados estatísticos na tela
+                - Gera e salva gráficos para cada RQ
+        """
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+
+    print("\nRESULTADOS DA PESQUISA:")
+
+    # RQ 01: Sistemas populares são maduros/antigos?
+    print("\nRQ 01. Sistemas populares são maduros/antigos?")
+    idade_media = df['age_days'].mean() / 365.25
+    idade_mediana = df['age_days'].median() / 365.25
+    print(f"Idade média dos repositórios: {idade_media:.2f} anos")
+    print(f"Mediana da idade: {idade_mediana:.2f} anos")
+
+    plt.figure(figsize=(8, 6))
+    sns.histplot(df['age_days'] / 365.25, kde=True, bins=30, color='blue')
+    plt.title("Distribuição da Idade dos Repositórios (em anos)")
+    plt.xlabel("Idade (anos)")
+    plt.ylabel("Frequência")
+    plt.savefig(os.path.join(output_dir, 'idade_repositorios.png'), dpi=300, bbox_inches='tight')
+    plt.close()
+
+    # RQ 02: Sistemas populares recebem muita contribuição externa?
+    print("\nRQ 02. Sistemas populares recebem muita contribuição externa?")
+    df['pr_count'] = df['pullRequests'].apply(lambda x: x['totalCount'])
+    plt.figure(figsize=(8, 6))
+    sns.boxplot(y=df['pr_count'], color="skyblue")
+    plt.title("Distribuição do Número de PRs Aceitos")
+    plt.ylabel("Quantidade de PRs Aceitos")
+    plt.savefig(os.path.join(output_dir, 'qtd_PRs_aceitos.png'), dpi=300, bbox_inches='tight')
+    plt.close()
+
+    # RQ 03: Sistemas populares lançam releases com frequência?
+    print("\nRQ 03. Sistemas populares lançam releases com frequência?")
+    df['release_count'] = df['releases'].apply(lambda x: x['totalCount'])
+    plt.figure(figsize=(8, 6))
+    sns.histplot(df['release_count'], kde=True, bins=30, color='green')
+    plt.title("Distribuição do Número de Releases")
+    plt.xlabel("Quantidade de Releases")
+    plt.ylabel("Frequência")
+    plt.savefig(os.path.join(output_dir, 'qtd_releases.png'), dpi=300, bbox_inches='tight')
+    plt.close()
+
+    # RQ 04: Sistemas populares são atualizados com frequência?
+    print("\nRQ 04. Sistemas populares são atualizados com frequência?")
+    plt.figure(figsize=(8, 6))
+    sns.histplot(df['days_since_update'], kde=True, bins=30, color='orange')
+    plt.title("Dias desde a Última Atualização")
+    plt.xlabel("Dias")
+    plt.ylabel("Frequência")
+    plt.savefig(os.path.join(output_dir, 'dias_desde_ultima_atualizacao.png'), dpi=300, bbox_inches='tight')
+    plt.close()
+
+    # RQ 05: Sistemas populares são escritos nas linguagens mais populares?
+    print("\nRQ 05. Sistemas populares são escritos nas linguagens mais populares?")
+    languages_count = df['language'].replace('None', pd.NA).dropna().value_counts().head(10)
+    plt.figure(figsize=(10, 6))
+    sns.barplot(x=languages_count.index, y=languages_count.values, palette='husl')
+    plt.title('Top 10 Linguagens Mais Populares')
+    plt.xlabel('Linguagens')
+    plt.ylabel('Número de Repositórios')
+    plt.xticks(rotation=45, ha='right')
+    plt.savefig(os.path.join(output_dir, 'top_languages.png'), dpi=300, bbox_inches='tight')
+    plt.close()
+
+    # RQ 06: Sistemas populares possuem um alto percentual de issues fechadas?
+    print("\nRQ 06. Sistemas populares possuem um alto percentual de issues fechadas?")
+    plt.figure(figsize=(8, 6))
+    sns.histplot(df['issues_closed_ratio'] * 100, kde=True, bins=30, color='purple')
+    plt.title("Distribuição do Percentual de Issues Fechadas")
+    plt.xlabel("Percentual de Issues Fechadas (%)")
+    plt.ylabel("Frequência")
+    plt.savefig(os.path.join(output_dir, 'percentual_issues_fechadas.png'), dpi=300, bbox_inches='tight')
+    plt.close()
+
+    # RQ 07: Análise por linguagem das principais métricas
+    print("\nRQ 07. Análise por linguagem das principais métricas:")
+    top_languages = languages_count.index.tolist()
+    metrics_by_language = df[df['language'].isin(top_languages)].groupby('language').agg({
+        'pullRequests': lambda x: pd.Series([i['totalCount'] for i in x]).mean(),
+        'releases': lambda x: pd.Series([i['totalCount'] for i in x]).mean(),
+        'days_since_update': 'mean'
+    }).round(2)
+
+    metrics_by_language.plot(kind='bar', figsize=(10, 6), colormap='coolwarm')
+    plt.title("Métricas por Linguagem Popular")
+    plt.xlabel("Linguagens")
+    plt.ylabel("Média das Métricas")
+    plt.xticks(rotation=45, ha='right')
+    plt.legend(['PRs Aceitos', 'Releases', 'Dias Desde Última Atualização'])
+    plt.savefig(os.path.join(output_dir, 'metricas_por_linguagem.png'), dpi=300, bbox_inches='tight')
+    plt.close()
+
+    print("\n✅ Relatório gerado com sucesso!")
+
+class GraphPresenter:
+    """
+    Classe responsável por apresentar os gráficos gerados para as RQs.
+
+    Esta classe permite visualizar os gráficos gerados durante a análise dos
+    dados dos repositórios populares do GitHub. Ela organiza a exibição dos
+    gráficos em um único local para facilitar a apresentação dos resultados.
+    """
+
+    @staticmethod
+    def show_graphs():
+        """
+        Apresenta os gráficos gerados para as RQs.
+
+        Os gráficos devem estar localizados no diretório de saída especificado
+        (`output_dir`).
+        """
+        import matplotlib.pyplot as plt
+        import os
+
+        # Lista de arquivos de gráficos a serem apresentados
+        graph_files = [
+            'idade_repositorios.png',
+            'qtd_PRs_aceitos.png',
+            'top_languages.png'
+        ]
+
+        print("\n🔹 Apresentando gráficos...")
+
+        for graph_file in graph_files:
+            graph_path = os.path.join(output_dir, graph_file)
+            if os.path.exists(graph_path):
+                print(f"Exibindo gráfico: {graph_file}")
+                img = plt.imread(graph_path)
+                plt.figure(figsize=(10, 6))
+                plt.imshow(img)
+                plt.axis('off')  # Remove os eixos
+                plt.title(graph_file.replace('_', ' ').replace('.png', '').title())
+                plt.show()
+            else:
+                print(f"❌ Gráfico não encontrado: {graph_file}")
 
 def main():
     """
