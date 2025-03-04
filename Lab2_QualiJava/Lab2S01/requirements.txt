@@ -1,5 +1,0 @@
-requests
-pandas
-matplotlib
-seaborn
-scipy
