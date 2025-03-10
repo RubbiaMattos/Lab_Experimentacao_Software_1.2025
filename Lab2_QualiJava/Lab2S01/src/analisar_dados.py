@@ -12,6 +12,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 def verificar_arquivo_entrada():
     """
     Verifica se o arquivo de entrada 'resultados_totais.csv' existe e não está vazio.
+    Esse arquivo deve ter sido gerado pelo script coletar_dados.py.
     """
     input_file = os.path.join(DATA_DIR, 'resultados_totais.csv')
     if not os.path.exists(input_file):
@@ -25,11 +26,11 @@ def verificar_arquivo_entrada():
 
 def analisar_dados(input_file):
     """
-    Realiza a análise dos dados do arquivo 'resultados_totais.csv':
-      - Converte as colunas de métricas para numérico.
-      - Preenche as colunas do CK (CBO, DIT, LCOM) com 0 caso estejam vazias.
-      - Remove registros com NaN nas colunas obrigatórias (LOC, Comments, Maturity).
-      - Calcula estatísticas descritivas e matriz de correlação.
+    Realiza a análise dos dados do arquivo 'resultados_totais.csv' gerado pelo coletar_dados.py:
+      - Converte as colunas de métricas para valores numéricos.
+      - Preenche as colunas de CK (CBO, DIT, LCOM) com 0 caso estejam vazias.
+      - Remove registros com NaN nas colunas essenciais (LOC, Comments, Maturity).
+      - Calcula estatísticas descritivas e a matriz de correlação.
       - Salva os resultados em 'analise_metrica_ck.csv'.
     """
     output_file = os.path.join(DATA_DIR, 'analise_metrica_ck.csv')
@@ -45,6 +46,7 @@ def analisar_dados(input_file):
         logging.error(f"Erro ao carregar o arquivo '{input_file}': {e}")
         raise
 
+    # Colunas que esperamos (conforme gerado pelo coletar_dados.py)
     colunas_necessarias = ['repo_name', 'clone_url', 'CBO', 'DIT', 'LCOM', 'LOC', 'Comments', 'Maturity']
     if not all(col in df.columns for col in colunas_necessarias):
         logging.warning(f"As colunas necessárias {colunas_necessarias} não foram encontradas no arquivo de entrada.")
@@ -52,15 +54,15 @@ def analisar_dados(input_file):
 
     metricas = ['CBO', 'DIT', 'LCOM', 'LOC', 'Comments', 'Maturity']
 
-    # Converter colunas para numérico
+    # Converter as colunas de métricas para numérico
     for col in ['CBO', 'DIT', 'LCOM']:
         df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
     for col in ['LOC', 'Comments', 'Maturity']:
         df[col] = pd.to_numeric(df[col], errors='coerce')
 
-    # Remover linhas com NaN em LOC, Comments ou Maturity
+    # Remover linhas onde LOC, Comments ou Maturity são NaN
     df_metricas = df[metricas].dropna()
-    logging.info(f"Após conversão e remoção de NaN (para LOC, Comments e Maturity), {len(df_metricas)} registros serão analisados de um total de {len(df)}.")
+    logging.info(f"Após conversão e remoção de NaN, {len(df_metricas)} registros serão analisados de um total de {len(df)}.")
 
     if df_metricas.empty:
         logging.warning("Nenhum dado numérico válido encontrado após a conversão. Verifique o arquivo de entrada.")
@@ -76,6 +78,7 @@ def analisar_dados(input_file):
     logging.info("Matriz de correlação entre as métricas do CK (NaN removidos):")
     logging.info("\n" + correlacoes.to_string())
 
+    # Salvar os resultados da análise em um arquivo CSV
     try:
         stats.to_csv(output_file)
         logging.info(f"Resultados da análise salvos no arquivo: {output_file}")
