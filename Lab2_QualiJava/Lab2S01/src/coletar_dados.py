@@ -20,53 +20,72 @@ CK_JAR = os.path.join(BASE_DIR, 'ck.jar')  # ck.jar deve estar na raiz do projet
 # Configuração do logger
 logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
 
-def run_ck(repo_path, output_path):
+# Timeout para execução do CK (em segundos)
+CK_TIMEOUT = 300
+
+def run_ck(repo_path, output_dir):
     """
     Executa a ferramenta CK para o repositório indicado.
-    O output (CSV) é salvo em output_path.
-    Se a execução falhar, registra um warning e continua.
+    Parâmetros:
+      - repo_path: diretório do repositório a ser analisado.
+      - output_dir: diretório onde os CSV serão gravados (ex.: ck_output_JavaGuide).
+    
+    O comando é:
+      java -jar ck.jar <repo_path> true 0 true <output_dir>
+    
+    Se a execução falhar ou exceder o timeout, registra o erro e continua.
     """
-    command = ['java', '-jar', CK_JAR, repo_path]
+    # Garante que o diretório de saída exista
+    os.makedirs(output_dir, exist_ok=True)
+    if not output_dir.endswith(os.sep):
+        output_dir += os.sep
+
+    command = [
+        'java', '-jar', CK_JAR,
+        repo_path, "true", "0", "true", output_dir
+    ]
     logging.debug(f"Executando comando CK: {' '.join(command)}")
     try:
-        with open(output_path, 'w', encoding='utf-8') as outfile:
-            result = subprocess.run(command, stdout=outfile, stderr=subprocess.PIPE)
+        result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=CK_TIMEOUT)
         if result.returncode != 0:
-            logging.warning(f"Erro ao executar CK em {repo_path}: código de retorno {result.returncode}")
+            logging.warning(f"Erro ao executar CK em {repo_path}: retorno {result.returncode}\nStderr: {result.stderr.decode(errors='ignore')}")
         else:
-            logging.info(f"CK executado para {repo_path}. Saída em {output_path}")
+            logging.info(f"CK executado para {repo_path}. Saída no diretório {output_dir}")
+    except subprocess.TimeoutExpired:
+        logging.warning(f"Timeout ao executar CK em {repo_path} (>{CK_TIMEOUT} segundos). Pulando repositório.")
     except Exception as e:
         logging.error(f"Exceção ao executar CK em {repo_path}: {e}")
 
-def parse_ck_output(output_path):
+def parse_ck_output(output_dir):
     """
-    Lê o arquivo CSV gerado pelo CK e retorna as médias das métricas CBO, DIT e LCOM.
+    Lê o arquivo class.csv gerado pelo CK no diretório output_dir e retorna as médias das métricas CBO, DIT e LCOM.
     Se o arquivo estiver vazio ou não contiver dados, retorna (None, None, None).
     """
+    class_csv = os.path.join(output_dir, "class.csv")
     try:
-        if not os.path.exists(output_path) or os.path.getsize(output_path) == 0:
-            logging.warning(f"Arquivo {output_path} está vazio ou não existe.")
+        if not os.path.exists(class_csv) or os.path.getsize(class_csv) == 0:
+            logging.warning(f"Arquivo {class_csv} está vazio ou não existe.")
             return None, None, None
 
-        df = pd.read_csv(output_path)
-        logging.debug(f"Dados lidos de {output_path} (primeiras 5 linhas):\n{df.head()}")
+        df = pd.read_csv(class_csv)
+        logging.debug(f"Dados lidos de {class_csv} (primeiras 5 linhas):\n{df.head()}")
         if df.empty:
-            logging.warning(f"O arquivo {output_path} não contém dados.")
+            logging.warning(f"O arquivo {class_csv} não contém dados.")
             return None, None, None
 
         avg_cbo = df["CBO"].mean() if "CBO" in df.columns else None
         avg_dit = df["DIT"].mean() if "DIT" in df.columns else None
         avg_lcom = df["LCOM"].mean() if "LCOM" in df.columns else None
-        logging.debug(f"Métricas extraídas de {output_path} -> CBO: {avg_cbo}, DIT: {avg_dit}, LCOM: {avg_lcom}")
+        logging.debug(f"Métricas extraídas de {class_csv} -> CBO: {avg_cbo}, DIT: {avg_dit}, LCOM: {avg_lcom}")
         return avg_cbo, avg_dit, avg_lcom
     except Exception as e:
-        logging.error(f"Erro ao ler CK output {output_path}: {e}")
+        logging.error(f"Erro ao ler CK output {class_csv}: {e}")
         return None, None, None
 
 def count_loc_comments(repo_path):
     """
     Percorre os arquivos .java do repositório para contar:
-      - LOC: número de linhas não vazias
+      - LOC: número de linhas não vazias.
       - Comentários: linhas que começam com '//' ou que estão em blocos de comentário.
     """
     total_loc = 0
@@ -100,7 +119,7 @@ def count_loc_comments(repo_path):
 def calcular_maturidade(created_at_str):
     """
     Calcula a maturidade do repositório (em anos) com base na data de criação.
-    O formato esperado é 'YYYY-MM-DD'. (Aqui usamos um valor dummy se não disponível.)
+    O formato esperado é 'YYYY-MM-DD'. Aqui usamos um valor dummy se não disponível.
     """
     try:
         created_date = datetime.strptime(created_at_str[:10], "%Y-%m-%d")
@@ -114,7 +133,9 @@ def calcular_maturidade(created_at_str):
 def coletar_dados():
     """
     Processa cada repositório listado em repositorios_list.csv:
-      - Executa o CK para extrair métricas (CBO, DIT, LCOM).
+      - Verifica se o repositório foi clonado.
+      - Se já houver saída (arquivo class.csv) no diretório ck_output_<repo_name>, pula o repositório.
+      - Executa o CK para extrair métricas (CBO, DIT, LCOM) usando os parâmetros corretos.
       - Conta LOC e linhas de comentários.
       - Calcula a maturidade (valor dummy neste exemplo).
       - Consolida os dados em resultados_totais.csv.
@@ -142,13 +163,21 @@ def coletar_dados():
             logging.warning(f"Diretório do repositório {repo_name} não encontrado. Pulando...")
             continue
 
-        logging.info(f"Iniciando processamento do repositório: {repo_name}")
-        ck_output_file = os.path.join(DATA_DIR, f"ck_output_{repo_name}.csv")
-        run_ck(repo_path, ck_output_file)
+        # Define o diretório de saída específico para esse repositório
+        ck_output_dir = os.path.join(DATA_DIR, f"ck_output_{repo_name}")
+        # Se o arquivo class.csv já existe e possui dados, assume que os dados já foram coletados e pula
+        class_csv = os.path.join(ck_output_dir, "class.csv")
+        if os.path.exists(class_csv) and os.path.getsize(class_csv) > 0:
+            logging.info(f"Dados do repositório {repo_name} já foram coletados. Pulando...")
+            contador += 1
+            continue
 
-        avg_cbo, avg_dit, avg_lcom = parse_ck_output(ck_output_file)
+        logging.info(f"Iniciando processamento do repositório: {repo_name}")
+        run_ck(repo_path, ck_output_dir)
+
+        avg_cbo, avg_dit, avg_lcom = parse_ck_output(ck_output_dir)
         loc, comentarios = count_loc_comments(repo_path)
-        created_at = "2000-01-01"  # Valor dummy; ajuste se tiver dados reais.
+        created_at = "2000-01-01"  # Valor dummy; ajuste se possuir dados reais.
         maturity = calcular_maturidade(created_at)
 
         contador += 1
@@ -180,3 +209,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
