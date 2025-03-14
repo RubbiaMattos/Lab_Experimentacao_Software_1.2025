@@ -6,15 +6,15 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 
 def clone_repositories():
     logging.info("Iniciando a clonagem dos repositórios...")
-    subprocess.run(["python", "src/automacao_clone.py"], check=True)
+    subprocess.run(["python", "automacao_clone.py"], check=True)
 
 def coletar_dados():
     logging.info("Coletando dados dos repositórios...")
-    subprocess.run(["python", "src/coletar_dados.py"], check=True)
+    subprocess.run(["python", "coletar_dados.py"], check=True)
 
 def analisar_dados():
     logging.info("Analisando os dados coletados...")
-    subprocess.run(["python", "src/analisar_dados.py"], check=True)
+    subprocess.run(["python", "analisar_dados.py"], check=True)
 
 def main():
     parser = argparse.ArgumentParser(description="Pipeline completo do laboratório")
