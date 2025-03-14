@@ -1,218 +1,136 @@
-# 📊 Laboratório de Experimentação de Software
+# 📊 Laboratórios de Experimentação de Software
 
-Este repositório contém uma série de laboratórios realizados na disciplina **Laboratório de Experimentação de Software** do curso de **Engenharia de Software** da **PUC Minas**, ministrada pelo professor **João Paulo Carneiro Aramuni**. Os experimentos exploram boas práticas no desenvolvimento de software, com foco em repositórios open-source e tecnologias emergentes.
+Este repositório contém os **laboratórios de experimentação** realizados na disciplina **Laboratório de Experimentação de Software** do curso de **Engenharia de Software** da **PUC Minas**, com foco em boas práticas de desenvolvimento de software e tecnologias emergentes. Cada laboratório tem um conjunto específico de objetivos, análises e resultados esperados.
 
 ---
 
-## 📌 Lista de Laboratórios
+## 📌 **Laboratórios e Instruções em Cada Pasta**
 
-### 🔹 [Laboratório 01 - Características de Repositórios Populares](Documentos/LABORATÓRIO_01.pdf)
+Cada pasta de laboratório contém um **README** detalhado com as instruções específicas para execução do experimento. Abaixo, você encontrará uma visão geral do que cada pasta contém e o que você pode esperar em cada uma delas.
 
-**Objetivo:**  
-Este laboratório tem como objetivo coletar e analisar dados sobre os repositórios mais populares no GitHub. A análise busca entender as características desses repositórios, como sua **maturidade**, **atividade** e **contribuições externas**. As métricas analisadas incluem idade, linguagens de programação, Pull Requests (PRs), releases e issues (problemas).
+### 🔹 **[Laboratório 01 - Características de Repositórios Populares](Lab1_RepoPop)**
 
-**Principais Análises:**
-- **RQ 01**: Qual a relação entre a idade e a popularidade dos repositórios?
-- **RQ 02**: Repositórios populares recebem muitas contribuições externas? (Pull Requests aceitos)
-- **RQ 03**: Repositórios populares lançam releases frequentemente? Qual sua estabilidade?
-- **RQ 04**: Qual a frequência de atualizações nos repositórios populares?
-- **RQ 05**: Quais as principais linguagens de programação utilizadas nos repositórios populares?
-- **RQ 06**: Os repositórios populares possuem um alto percentual de issues fechadas?
-- **RQ 07**: Como as métricas de contribuições externas, releases e atualizações variam conforme a linguagem utilizada?
+**Objetivo:** Analisar as características dos repositórios mais populares do GitHub, como maturidade, atividade e contribuições externas.
 
-**Implementação - Lab01S01:**  
-Este laboratório utiliza **GraphQL** para coletar dados sobre os 100 repositórios mais populares no GitHub. O processo é automatizado, eliminando a necessidade de bibliotecas externas para realizar chamadas à API.
+**Instruções na pasta:**
+- Como configurar o **token de autenticação** do GitHub.
+- Passos para executar o script `RepoPop100.py`, que coleta dados de repositórios populares utilizando **GraphQL**.
+- Detalhes sobre os arquivos gerados, como gráficos e arquivos CSV com métricas (Pull Requests, Releases, etc.).
+- Como visualizar os resultados utilizando ferramentas como Excel, Google Sheets ou Python.
 
-### Funcionalidades:
-- **Consulta GraphQL** para coletar dados dos 100 repositórios mais populares do GitHub.
-- Coleta de **métricas essenciais**, incluindo:
-  - **Idade do repositório** (data de criação).
-  - **Total de Pull Requests aceitos**.
-  - **Número de releases** do repositório.
-  - **Data da última atualização**.
-  - **Linguagem primária** utilizada.
-  - **Percentual de issues fechadas** como indicador de manutenção ativa.
-- **Armazenamento dos dados** em um arquivo **CSV**.
-- **Requisição automática** para coleta de dados via API do GitHub sem dependências externas.
+---
 
-### Estrutura do Diretório:
-```
-📂 Lab1_RepoPop
- ├── 📂 Lab01S01  → Consulta GraphQL para 100 repositórios + requisição automática
- │   ├── 📜 .env.config
- │   ├── 📂 Relatórios
- │   │   ├── 📄 Análise de Repositórios Populares no GitHub.docx
- │   │   ├── 📄 Análise de Repositórios Populares no GitHub.pdf
- │   │   ├── 📊 github_analysis.csv
- │   │   ├── 📊 qtd_PRs_aceitos.png
- │   │   ├── 📊 top_languages.png
- │   ├── 🐍 RepoPop100.py
- ├── 📂 Lab01S02  → Paginação para 1000 repositórios + dados em CSV + hipóteses iniciais
- ├── 📂 Lab01S03  → Análise e visualização de dados + elaboração do relatório final
-```
+### 🔹 **[Laboratório 02 - Qualidade de Sistemas Java](Lab2_QualiJava)**
 
-### 🔑 Arquivo de Configuração:
-O arquivo `.env.config` contém a variável `GITHUB_TOKEN`, que deve ser configurada com um token de autenticação válido da API do GitHub para permitir a coleta de dados.
+**Objetivo:** Analisar a qualidade de código de repositórios Java open-source utilizando métricas como **acoplamento**, **coesão** e **complexidade**.
 
-### Como Executar:
+**Instruções na pasta:**
+- Como configurar o **token do GitHub** para coletar dados dos repositórios.
+- Passos para rodar os scripts de coleta de repositórios (`coleta_repositorios.py`) e análise de métricas com a ferramenta **CK** (`coletar_dados.py`).
+- Instruções para instalar as dependências e como gerar os arquivos de saída contendo métricas de código (como `class.csv`, `method.csv`, etc.).
+- Como analisar os dados coletados para correlacionar métricas de qualidade com popularidade, maturidade e atividade.
 
-1. **Clone o repositório**:
-   No terminal, clone o repositório e acesse o diretório onde o script será executado:
+---
+
+### 🔹 **[Laboratório 03 - Code Review no GitHub](Lab3_)**
+
+**Objetivo:** Analisar a atividade de **code review** nos repositórios populares do GitHub e identificar fatores que influenciam a aceitação de Pull Requests (PRs).
+
+**Instruções na pasta:**
+- Como configurar o ambiente e o **token GitHub** para acessar os dados dos repositórios.
+- Passos para executar os scripts `coletar_repositorios.py` e `coletar_prs.py` para coletar dados sobre Pull Requests.
+- Como gerar um **dataset completo** contendo métricas sobre os PRs, como tempo de análise, tamanho e interações.
+- Detalhes sobre como realizar análises exploratórias dos dados e testar hipóteses relacionadas aos fatores que influenciam a aceitação de PRs.
+
+---
+
+### 🔹 **[Laboratório 04 - Visualização de Dados com BI](Lab4_)**
+
+**Objetivo:** Utilizar ferramentas de **Business Intelligence (BI)**, como Power BI, Tableau ou Google Data Studio, para criar visualizações interativas dos dados experimentais.
+
+**Instruções na pasta:**
+- Definição do **dataset** utilizado, com informações sobre a origem e as métricas relevantes a serem visualizadas.
+- Como preparar os dados para importar para a ferramenta de BI escolhida.
+- Passos para criar **dashboards** interativos que respondem às questões de pesquisa do laboratório.
+- Detalhes sobre como exportar o dashboard final e gerar relatórios que sintetizam as visualizações e insights.
+
+---
+
+### 🔹 **[Laboratório 05 - GraphQL vs REST](Lab5_)**
+
+**Objetivo:** Comparar as tecnologias **GraphQL** e **REST** em termos de desempenho, eficiência no consumo de dados e complexidade de implementação.
+
+**Instruções na pasta:**
+- Como configurar os **scripts de teste** para avaliar as APIs REST e GraphQL.
+- Passos para realizar experimentos, coletar **tempos de resposta** e medir o **tamanho das respostas**.
+- Como analisar os resultados experimentais, aplicando estatísticas descritivas e testes de hipóteses.
+- Instruções para visualizar os resultados utilizando gráficos e relatórios comparativos.
+
+---
+
+## 🛠️ **Tecnologias e Ferramentas Utilizadas**
+
+### **Linguagens de Programação e Tecnologias**
+- **Python 3.8+ / 3.12**: Linguagem principal utilizada em todos os experimentos para automação, coleta de dados e análise de resultados.
+- **GitHub API (GraphQL/REST)**: Utilizada para coletar dados sobre repositórios, Pull Requests, issues e outros dados dos repositórios do GitHub.
+- **Java**: Para análise de qualidade de código em repositórios Java no Laboratório 02.
+
+### **Ferramentas de BI**
+- **Power BI**: Para criação de dashboards interativos e visualizações dinâmicas de dados experimentais.
+- **Tableau**: Ferramenta alternativa para visualização de dados em tempo real.
+- **Google Data Studio**: Ferramenta de visualização gratuita do Google, utilizada para criar relatórios e dashboards.
+
+### **Ferramentas e Bibliotecas de Análise de Dados**
+- **CK**: Ferramenta para análise de métricas de código Java, utilizada para calcular acoplamento, coesão e complexidade.
+- **Pandas**: Biblioteca essencial para manipulação e análise de dados tabulares (CSV, Excel).
+- **Matplotlib**: Biblioteca para visualização de dados, gerando gráficos como linhas, barras e dispersões.
+- **Seaborn**: Complemento ao **Matplotlib**, facilita a criação de gráficos complexos e estatísticas visuais.
+- **Requests**: Biblioteca para fazer requisições HTTP, fundamental para acessar a API do GitHub e coletar dados.
+- **GitPython**: Biblioteca para interação com repositórios Git, utilizada no Laboratório 02 para clonar repositórios.
+- **Jupyter Notebook**: Ambiente interativo para análise de dados e exploração de resultados.
+
+### **Ferramentas para Análise Estatística e Testes**
+- **SciPy**: Para testes estatísticos avançados, como **teste t** e **análises de correlação** (Pearson, Spearman).
+- **Statsmodels**: Outra ferramenta para análise estatística que pode ser utilizada para modelagem de dados.
+
+### **Gerenciamento de Ambiente e Dependências**
+- **pip**: Gerenciador de pacotes Python utilizado para instalar as dependências necessárias para cada laboratório.
+- **virtualenv**: Para criar ambientes isolados para garantir que as dependências não conflitem com outros projetos.
+- **dotenv**: Para gerenciar variáveis de ambiente de forma segura, como o **token do GitHub** necessário para a API.
+
+---
+
+## 🛠️ **Bibliotecas Externas Usadas**
+
+1. **Pandas**: Para análise de dados estruturados.
+2. **Matplotlib & Seaborn**: Para visualização de gráficos e dados.
+3. **Requests**: Para interagir com APIs externas, como a do GitHub.
+4. **Dotenv**: Para configuração de variáveis de ambiente (como o **GITHUB_TOKEN**).
+5. **GitPython**: Para interagir com repositórios Git programaticamente.
+6. **Jupyter Notebook**: Para trabalhar de forma interativa, principalmente na análise de dados e experimentação.
+7. **SciPy**: Para realizar testes estatísticos e análises avançadas de dados.
+8. **Statsmodels**: Para modelos e testes estatísticos mais complexos.
+
+---
+
+## 📖 **Como Executar os Laboratórios**
+
+Cada laboratório possui instruções detalhadas em seu respectivo **README**. Em geral, os passos para executar são os seguintes:
+
+1. **Clonar o repositório**:
    ```bash
    git clone https://github.com/RubbiaMattos/Lab_Experimentacao_Software_1.2025.git
-   cd Lab_Experimentacao_Software_1.2025/Lab1_RepoPop/Lab01S01
+   cd Lab_Experimentacao_Software_1.2025/[nome_do_laboratorio]
    ```
 
-2. **Configure o token de autenticação**:
-   Abra o arquivo `.env.config` e substitua o valor de `GITHUB_TOKEN` com um token de autenticação do GitHub válido:
-   ```env
-   GITHUB_TOKEN=seu_novo_token_aqui
-   ```
-
-3. **Instale as dependências**:
-   Instale as bibliotecas necessárias para rodar o script:
+2. **Instalar as dependências**:
    ```bash
-   py -3.12 -m pip install pandas requests matplotlib seaborn python-dotenv
+   pip install -r requirements.txt
    ```
 
-4. **Execute o script**:
-   Execute o script Python para iniciar a coleta de dados e gerar os relatórios:
+3. **Executar o script principal**:
    ```bash
-   python RepoPop100.py
+   python [script_principal].py
    ```
 
-### Resultados:
-Após a execução do script, os seguintes arquivos serão gerados na pasta `Relatórios`:
-
-- **`github_analysis.csv`**: Arquivo CSV contendo todos os dados coletados, como número de PRs, releases, idade do repositório, etc.
-- **`qtd_PRs_aceitos.png`**: Gráfico de barras mostrando a distribuição do número de Pull Requests aceitos nos repositórios.
-- **`top_languages.png`**: Gráfico de barras exibindo as 10 linguagens de programação mais utilizadas nos repositórios populares.
-
-Esses arquivos podem ser visualizados usando ferramentas como **Excel**, **Google Sheets** ou **Python**, e usados para análise e geração de insights.
-
-### 🔄 Próximas Etapas:
-- **Lab01S02**: Implementação de paginação para coletar dados de até **1000 repositórios**, além da análise inicial das métricas.
-- **Lab01S03**: Análise e visualização dos dados coletados, com elaboração do relatório final e aprofundamento na análise estatística dos dados.
-
----
-
-### 🔹 [Laboratório 02 - Qualidade de Sistemas Java](Documentos/LABORATÓRIO_02.pdf)
-
-**Objetivo:**  
-Analisar a qualidade do código em repositórios Java open-source, utilizando métricas como **acoplamento**, **coesão** e **complexidade**.
-
-**Principais Análises:**
-- Medição do acoplamento entre classes usando **CBO** (Coupling Between Objects).
-- Avaliação da herança por meio da métrica **DIT** (Depth of Inheritance Tree).
-- Análise da coesão entre métodos usando **LCOM** (Lack of Cohesion of Methods).
-- Correlação entre a popularidade do repositório e a qualidade do código.
-- Influência da frequência de commits e releases na legibilidade e modularidade do código.
-
-**Estrutura do Diretório:**
-```
-📂 Lab2
- ├── 📂 Lab02S01  → Coleta de Dados e Extração de Métricas
- ├── 📂 Lab02S02  → Análise Estatística e Visualização de Dados
- ├── 📂 Lab02S03  → Relatório Final e Conclusões
-```
-
----
-
-### 🔹 [Laboratório 03 - Code Review no GitHub](Documentos/LABORATÓRIO_03.pdf)
-
-**Objetivo:**  
-Analisar a atividade de **code review** em repositórios populares do GitHub e identificar os fatores que influenciam a aceitação ou rejeição de **Pull Requests (PRs)**.
-
-**Principais Análises:**
-- Relação entre o tamanho dos PRs e seu feedback final (aprovado/rejeitado).
-- Impacto do tempo de análise dos PRs no feedback final.
-- Influência da descrição dos PRs na aceitação ou rejeição.
-- Correlação entre interações nos PRs e a decisão final do revisor.
-
-**Estrutura do Diretório:**
-```
-📂 Lab3
- ├── 📂 Lab03S01  → Seleção de repositórios + Script de coleta de PRs  
- ├── 📂 Lab03S02  → Dataset completo + Hipóteses iniciais  
- ├── 📂 Lab03S03  → Análise dos dados + Relatório final  
-```
-
----
-
-### 🔹 [Laboratório 04 - Visualização de Dados com BI](Documentos/LABORATÓRIO_04.pdf)
-
-**Objetivo:**  
-Utilizar ferramentas de **Business Intelligence (BI)** para transformar dados experimentais em visualizações interativas e acessíveis.
-
-**Principais Análises:**
-- Construção de dashboards dinâmicos para análise de dados experimentais.
-- Comparação de diferentes formas de visualização para otimizar a interpretação dos dados.
-- Aplicação de técnicas de sumarização e filtragem para extrair insights relevantes.
-- Demonstração de como a visualização de dados pode auxiliar na tomada de decisões em engenharia de software.
-
-**Estrutura do Projeto:**
-```
-📂 Lab4
- ├── 📂 Lab04S01  → Caracterização do Dataset 
- ├── 📂 Lab04S02  → Visualizações para as Questões de Pesquisa 
- ├── 📂 Lab04S03  → Dashboard Final + Relatório 
-```
-
----
-
-### 🔹 [Laboratório 05 - GraphQL vs REST](Documentos/LABORATÓRIO_05.pdf)
-
-**Objetivo:**  
-Comparar as tecnologias **GraphQL** e **REST** em termos de desempenho, eficiência no consumo de dados e complexidade de implementação.
-
-**Principais Análises:**
-- Comparação do tempo de resposta entre **GraphQL** e **REST**.
-- Análise do tamanho dos dados e ocorrência de **overfetching** e **underfetching**.
-- Avaliação de como **GraphQL** pode ser mais eficiente no consumo de dados em comparação com **REST**.
-
-**Estrutura do Projeto:**
-```
-📂 Lab5
- ├── 📂 Lab05S01  → Desenho e Preparação do Experimento
- ├── 📂 Lab05S02  → Execução e Análise dos Resultados
- ├── 📂 Lab05S03  → Criação do Dashboard de Visualização 
-```
-
----
-
-## 🛠️ Tecnologias Utilizadas
-
-- **Python 3.12**: Linguagem principal.
-- **Git e GitHub**: Controle de versão e repositório.
-- **GraphQL**: Tecnologia para consultas otimizadas na API do GitHub.
-
----
-
-## 🛠️ Bibliotecas Externas
-
-- **Pandas**: Manipulação e análise de dados.
-- **Matplotlib & Seaborn**: Visualização de dados.
-- **Requests**: Requisições HTTP para API do GitHub.
-- **Dotenv**: Gerenciamento de variáveis de ambiente.
-- **Jupyter Notebook**: Ambiente interativo para análise de dados.
-
----
-
-## 📖 Referências
-
-- [Documentação do GitHub](https://docs.github.com/pt)
-- [Octoverse - GitHub Insights](https://octoverse.github.com/)
-- [GraphQL vs REST](https://graphql.org/learn/)
-
----
-
-## 👥 Equipe
-
-- **Nataniel Geraldo Mendes Peixoto**
-- **Nelson de Campos Nolasco**
-- **Rúbia Coelho de Matos**
-
-**Professor:** João Paulo Carneiro Aramuni  
-**Curso:** Engenharia de Software  
-**Disciplina:** Laboratório de Experimentação de Software  
-**Instituição:** Pontifícia Universidade Católica de Minas Gerais (PUC Minas)
+Cada laboratório contém instruções específicas para a execução completa do experimento, coleta de dados e geração dos resultados.
