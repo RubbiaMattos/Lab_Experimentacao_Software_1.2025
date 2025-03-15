@@ -14,19 +14,19 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 repo_root = os.path.abspath(os.path.join(script_dir, ".."))  # Volta um nível
 
 # 🔹 Caminho dinâmico do .env.config.config
-env_path = os.path.join(repo_root, ".env.config.config")
+env_path = os.path.join(repo_root, ".env.config")
 
 # 🔹 Imprimir caminhos para depuração
 print(f"📌 Diretório do script: {script_dir}")
 print(f"📌 Diretório esperado do repositório: {repo_root}")
-print(f"📌 Caminho esperado do .env.config.config: {env_path}")
+print(f"📌 Caminho esperado do .env.config: {env_path}")
 
 # 🔹 Verificar se o arquivo existe antes de carregar
 if os.path.exists(env_path):
     load_dotenv(dotenv_path=env_path)
     print(f"✅ Arquivo .env.config.config carregado de: {env_path}")
 else:
-    raise FileNotFoundError(f"❌ ERRO: O arquivo .env.config.config NÃO foi encontrado no caminho esperado: {env_path}")
+    raise FileNotFoundError(f"❌ ERRO: O arquivo .env.config NÃO foi encontrado no caminho esperado: {env_path}")
 
 # 🔹 Testar se o token foi carregado corretamente
 TOKEN = os.getenv("GITHUB_TOKEN")
@@ -38,7 +38,7 @@ else:
 
 
 # Configuração de diretórios
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, 'data')
 REPOS_DIR = os.path.join(DATA_DIR, 'repos')
 REPOS_LIST_FILE = os.path.join(DATA_DIR, 'repositorios_list.csv')
