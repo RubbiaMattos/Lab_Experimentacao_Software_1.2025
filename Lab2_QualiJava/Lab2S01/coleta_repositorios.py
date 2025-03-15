@@ -29,7 +29,7 @@ else:
     raise ValueError("❌ ERRO: Token GITHUB_TOKEN não foi encontrado no .env.config.config.")
 
 # Configuração de diretórios
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, 'data')
 REPOS_LIST_FILE = os.path.join(DATA_DIR, 'repositorios_list.csv')
 

@@ -4,11 +4,38 @@ import subprocess
 import logging
 from dotenv import load_dotenv
 
-# Carregar as variáveis do arquivo .env.config
-load_dotenv()
+# 🔹 Diretório do script atual
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# 🔹 Subir um nível para tentar encontrar o Lab1_RepoPop
+repo_root = os.path.abspath(os.path.join(script_dir, ".."))  # Volta um nível
+
+# 🔹 Caminho dinâmico do .env.config.config
+env_path = os.path.join(repo_root, ".env.config")
+
+# 🔹 Imprimir caminhos para depuração
+print(f"📌 Diretório do script: {script_dir}")
+print(f"📌 Diretório esperado do repositório: {repo_root}")
+print(f"📌 Caminho esperado do .env.config: {env_path}")
+
+# 🔹 Verificar se o arquivo existe antes de carregar
+if os.path.exists(env_path):
+    load_dotenv(dotenv_path=env_path)
+    print(f"✅ Arquivo .env.config.config carregado de: {env_path}")
+else:
+    raise FileNotFoundError(f"❌ ERRO: O arquivo .env.config NÃO foi encontrado no caminho esperado: {env_path}")
+
+# 🔹 Testar se o token foi carregado corretamente
+TOKEN = os.getenv("GITHUB_TOKEN")
+
+if TOKEN:
+    print("✅ Token carregado com sucesso!")
+else:
+    raise ValueError("❌ ERRO: Token GITHUB_TOKEN não foi encontrado no .env.config.config.")
+
 
 # Configuração de diretórios
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, 'data')
 REPOS_DIR = os.path.join(DATA_DIR, 'repos')  # Diretório onde os repositórios serão clonados
 REPOS_LIST_FILE = os.path.join(DATA_DIR, 'repositorios_list.csv')  # CSV com as URLs dos repositórios
