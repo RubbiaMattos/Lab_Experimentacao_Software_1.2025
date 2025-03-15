@@ -21,11 +21,15 @@ Este laboratório tem como objetivo **analisar a qualidade de repositórios Java
 📂 Lab2_QualiJava
 ├─ 📂 Lab2S01 *(Sprint 1: Coleta e análise de dados)*
 │  ├─ 📂 data *(Repositórios clonados e dados extraídos)*
-│  │  ├─ 📄 repositorios_list.csv *(Lista dos repositórios coletados)*
-│  │  ├─ 📄 class.csv *(Dados sobre classes Java extraídos pelo CK)*
-│  │  ├─ 📄 field.csv *(Dados sobre atributos extraídos pelo CK)*
-│  │  ├─ 📄 method.csv *(Dados sobre métodos extraídos pelo CK)*
-│  │  ├─ 📄 variable.csv *(Dados sobre variáveis extraídas pelo CK)*
+│  │  ├─ 📂 ck_output_LeetCodeAnimation *(Ferramenta de análise de código)*
+│  │  │  ├─  📄 class.csv *(Dados sobre classes Java extraídos pelo CK)*
+│  │  │  ├─ 📄 field.csv *(Dados sobre atributos extraídos pelo CK)*
+│  │  │  ├─ 📄 method.csv *(Dados sobre métodos extraídos pelo CK)*
+│  │  │  ├─ 📄 variable.csv *(Dados sobre variáveis extraídas pelo CK)*
+│  │  ├─ 📂 repos *(Repositórios clonados para análise)*
+│  │  │  ├─ 📂 LeetCodeAnimation *(Exemplo de repositório clonado)*
+│  │  │  │  ├─ 📄 repositorios_list.csv *(Lista dos repositórios coletados)*
+│  │  │  │  ├─ 📄 resultados_totais.csv *(Métricas extraídas dos repositórios)*
 │  ├─ 📄 ck.jar *(Ferramenta CK para análise de código Java)*
 │  ├─ 🐍 coleta_repositorios.py *(Coleta os 1000 repositórios mais populares em Java)*
 │  ├─ 🐍 automacao_clone.py *(Clona os repositórios coletados)*
@@ -79,28 +83,89 @@ GITHUB_TOKEN=seu_token_aqui
 - **Python 3.8+**
 - `requests`, `pandas`, `python-dotenv`, `gitpython`
 
+Segue a atualização do **Como Executar** para a Sprint 1, garantindo que os scripts sejam executados na ordem correta:
+
+---
+
 #### ▶️ **Como Executar**
 
 1️⃣ **Clone o repositório:**
+
 ```bash
 git clone https://github.com/RubbiaMattos/Lab_Experimentacao_Software_1.2025.git
 cd Lab_Experimentacao_Software_1.2025/Lab2_QualiJava
 ```
 
 2️⃣ **Instale as dependências:**
+
 ```bash
 pip install requests pandas python-dotenv gitpython
 ```
 
-3️⃣ **Execute o script principal:**
-```bash
-python main.py --step all
-```
+3️⃣ **Executando os scripts na ordem correta:**
+
+- **Coleta dos repositórios:**  
+  Gere o arquivo com as URLs dos repositórios (caso ainda não exista) executando:
+  
+  ```bash
+  python coleta_repositorios.py
+  ```
+
+- **Clonagem dos repositórios:**  
+  Clone os repositórios listados no arquivo gerado:
+
+  ```bash
+  python automacao_clone.py
+  ```
+
+- **Coleta das métricas:**  
+  Após a clonagem, extraia as métricas utilizando a ferramenta CK:
+
+  ```bash
+  python coletar_dados.py
+  ```
+  
+  Este script gera o arquivo `resultados_totais.csv` com as métricas extraídas.
+
+- **Análise dos dados:**  
+  Finalmente, processe e analise os dados consolidados executando:
+
+  ```bash
+  python analisar_dados.py
+  ```
+
+> **Atenção:** O script de análise (**analisar_dados.py**) deve ser rodado somente após os repositórios terem sido clonados e os dados consolidados coletados com sucesso.
+
+---
 
 #### 📊 **Resultados**
-✔ 1000 repositórios Java coletados e armazenados em `repositorios_list.csv`.\
-✔ Repositórios clonados para análise de código.\
-✔ Métricas de qualidade extraídas e salvas em `resultados_totais.csv`.
+
+- **Organização do Projeto:**  
+  O diretório **Lab2_QualiJava** está estruturado para separar as atividades de cada sprint. Em particular, a Sprint 1 está organizada dentro do diretório **Lab2S01**, que contém:
+
+  - **data:**  
+    - **ck_output_LeetCodeAnimation:**  
+      Aqui são armazenados os dados extraídos pela ferramenta CK, contendo:
+      - **class.csv:** Informações sobre as classes Java.
+      - **field.csv:** Dados dos atributos extraídos.
+      - **method.csv:** Métricas referentes aos métodos.
+      - **variable.csv:** Informações sobre as variáveis do código.
+      
+    - **repos:**  
+      Contém os repositórios clonados para análise. Por exemplo, no subdiretório **LeetCodeAnimation** encontramos:
+      - **repositorios_list.csv:** Lista dos repositórios coletados via API do GitHub.
+      - **resultados_totais.csv:** Arquivo consolidado com as métricas extraídas dos repositórios.
+
+- **Etapas e Resultados Concretos:**
+
+  - **Coleta dos Repositórios:**  
+    Foram coletados 1000 repositórios Java por meio da API do GitHub. As URLs desses repositórios foram armazenadas no arquivo `repositorios_list.csv`, localizado no diretório correspondente.
+
+  - **Clonagem dos Repositórios:**  
+    Todos os repositórios coletados foram clonados com sucesso para a pasta `data/repos`, permitindo o acesso local necessário para a análise.
+
+  - **Extração de Métricas:**  
+    Utilizando a ferramenta CK, os dados referentes à qualidade do código (como acoplamento, herança, coesão e demais métricas) foram extraídos dos repositórios clonados. Os resultados detalhados foram salvos nos arquivos CSV dentro da pasta `data/ck_output_LeetCodeAnimation`, e um arquivo consolidado, `resultados_totais.csv`, foi gerado para facilitar a análise.
 
 ---
 
