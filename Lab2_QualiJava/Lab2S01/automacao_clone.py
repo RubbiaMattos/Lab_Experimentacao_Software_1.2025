@@ -3,14 +3,17 @@ import csv
 import subprocess
 import logging
 from dotenv import load_dotenv
-from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # 🔹 Diretório do script atual
 script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# 🔹 Subir um nível para tentar encontrar o Lab1_RepoPop
 repo_root = os.path.abspath(os.path.join(script_dir, ".."))  # Volta um nível
 
 # 🔹 Caminho dinâmico do .env.config
 env_path = os.path.join(repo_root, ".env.config")
+
+# 🔹 Verificar se o arquivo existe antes de carregar
 if os.path.exists(env_path):
     load_dotenv(dotenv_path=env_path)
     print(f"✅ Arquivo .env.config carregado de: {env_path}")
@@ -19,8 +22,11 @@ else:
 
 # 🔹 Testar se o token foi carregado corretamente
 TOKEN = os.getenv("GITHUB_TOKEN")
-if not TOKEN:
-    raise ValueError("❌ ERRO: Token GITHUB_TOKEN não foi encontrado no .env.config.")
+
+if TOKEN:
+    print("✅ Token carregado com sucesso!")
+else:
+    raise ValueError("❌ ERRO: Token GITHUB_TOKEN não foi encontrado no .env.config")
 
 # Configuração de diretórios
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__)))
@@ -31,58 +37,55 @@ REPOS_LIST_FILE = os.path.join(DATA_DIR, 'repositorios_list.csv')  # CSV com as 
 # Configuração do logger
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
-# Criar diretórios caso não existam
-os.makedirs(REPOS_DIR, exist_ok=True)
-
-# Função para clonar um único repositório
-def clonar_repositorio(repo_url, idx, total_repos):
-    repo_name = repo_url.split('/')[-1].replace('.git', '')
-    repo_path = os.path.join(REPOS_DIR, repo_name)
-
-    # Se o repositório já existe, pula para o próximo
-    if os.path.exists(repo_path) and os.path.isdir(os.path.join(repo_path, '.git')):
-        logging.info(f"({idx}/{total_repos}) Repositório já clonado: {repo_name}. Pulando...")
-        return f"✔️ {repo_name} já existe"
-
-    try:
-        logging.info(f"({idx}/{total_repos}) Clonando repositório: {repo_url}")
-        subprocess.run(['git', 'clone', '--depth=1', repo_url, repo_path], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        return f"✅ {repo_name} clonado com sucesso!"
-    except subprocess.CalledProcessError as e:
-        return f"❌ Erro ao clonar {repo_name}: {e}"
-
-# Função principal para gerenciar a clonagem paralela
 def clonar_repositorios():
+    """
+    Clona os repositórios listados em repositorios_list.csv.
+    Se o processo for interrompido, retoma clonando apenas os repositórios que ainda não foram clonados.
+    """
     if not os.path.exists(REPOS_LIST_FILE):
         raise FileNotFoundError(f"Arquivo não encontrado: {REPOS_LIST_FILE}")
 
+    if not os.path.exists(REPOS_DIR):
+        os.makedirs(REPOS_DIR)
+
     with open(REPOS_LIST_FILE, newline='', encoding='utf-8') as csvfile:
         csv_reader = csv.reader(csvfile)
-        repositorios = [row[0].strip() for row in csv_reader if row]
+        repositorios = list(csv_reader)
 
     total_repos = len(repositorios)
-    logging.info(f"Iniciando clonagem de {total_repos} repositórios...")
+    cloned_count = 0
 
-    # Usando ThreadPoolExecutor para clonar repositórios em paralelo
-    max_workers = min(10, os.cpu_count())  # Define um número adequado de threads
-    results = []
+    for idx, row in enumerate(repositorios, start=1):
+        repo_url = row[0].strip()
+        if not repo_url:
+            continue
 
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        future_to_repo = {executor.submit(clonar_repositorio, repo, idx, total_repos): repo for idx, repo in enumerate(repositorios, start=1)}
-        for future in as_completed(future_to_repo):
-            results.append(future.result())
+        # Extrai o nome do repositório a partir da URL (removendo ".git")
+        repo_name = repo_url.split('/')[-1].replace('.git', '')
+        repo_path = os.path.join(REPOS_DIR, repo_name)
 
-    logging.info("Processo de clonagem concluído.")
-    for result in results:
-        logging.info(result)
+        # Se o repositório já foi clonado (diretório existe e contém a pasta .git), pula para o próximo
+        if os.path.exists(repo_path) and os.path.isdir(os.path.join(repo_path, '.git')):
+            logging.info(f"({idx}/{total_repos}) Repositório já clonado: {repo_name}. Pulando...")
+            continue
 
-# Função principal
+        try:
+            logging.info(f"({idx}/{total_repos}) Clonando repositório: {repo_url}")
+            subprocess.run(['git', 'clone', repo_url, repo_path], check=True)
+            cloned_count += 1
+            logging.info(f"Repositório clonado com sucesso: {repo_name} (Total clonado: {cloned_count})")
+        except subprocess.CalledProcessError as e:
+            logging.error(f"Erro ao clonar repositório '{repo_url}': {e}")
+
+    logging.info(f"Processo de clonagem concluído. Total de repositórios clonados: {cloned_count} de {total_repos}")
+
 def main():
-    logging.info("🚀 Iniciando automação para clonagem de repositórios...")
+    logging.info("Iniciando automação para clonagem de repositórios...")
     try:
         clonar_repositorios()
     except Exception as e:
         logging.error(f"Erro geral no script: {e}")
+        raise
 
 if __name__ == "__main__":
     main()
