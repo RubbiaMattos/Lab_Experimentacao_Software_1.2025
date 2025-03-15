@@ -1,27 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/AndroidUtilCode" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/EventBus" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/Hystrix" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/JCSprout" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/Java" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/JeecgBoot" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/MPAndroidChart" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/Mindustry" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/NewPipe" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/RxJava" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/Sentinel" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/SmartRefreshLayout" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/SmartTube" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/SpringAll" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/advanced-java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/apollo" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/arthas" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/dbeaver" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/bazel" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/butterknife" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/canal" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/druid" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/dubbo" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/easyexcel" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/eladmin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/fastjson" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/flink" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/glide" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/graal" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/gson" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/guava" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/halo" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/hello-algorithm" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/hutool" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/incubator-seata" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/interviews" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/jadx" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/jenkins" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/kafka" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/keycloak" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/leetcode" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/libgdx" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/lottie-android" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/mall" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/miaosha" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/nacos" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/netty" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/openapi-generator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/proxyee-down" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/redisson" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/rocketmq" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/ruoyi-vue-pro" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/selenium" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/skywalking" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/spring-boot-demo" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/spring-framework" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/termux-app" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/tutorials" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/zxing" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/toBeTopJavaer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/xxl-job" vcs="Git" />
   </component>
 </project>
