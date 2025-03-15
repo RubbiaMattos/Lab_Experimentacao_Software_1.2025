@@ -77,9 +77,9 @@ https://github.com/ashishps1/awesome-system-design-resources.git
 https://github.com/elunez/eladmin.git
 https://github.com/iBotPeaches/Apktool.git
 https://github.com/oracle/graal.git
+https://github.com/CodePhiliaX/Chat2DB.git
 https://github.com/openjdk/jdk.git
 https://github.com/CarGuo/GSYVideoPlayer.git
-https://github.com/CodePhiliaX/Chat2DB.git
 https://github.com/conductor-oss/conductor.git
 https://github.com/brettwooldridge/HikariCP.git
 https://github.com/didi/DoKit.git
@@ -251,8 +251,8 @@ https://github.com/OpenFeign/feign.git
 https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh.git
 https://github.com/koral--/android-gif-drawable.git
 https://github.com/bilibili/DanmakuFlameMaster.git
-https://github.com/MyCATApache/Mycat-Server.git
 https://github.com/microg/GmsCore.git
+https://github.com/MyCATApache/Mycat-Server.git
 https://github.com/umano/AndroidSlidingUpPanel.git
 https://github.com/signalapp/Signal-Server.git
 https://github.com/SonarSource/sonarqube.git
@@ -328,6 +328,7 @@ https://github.com/aeron-io/aeron.git
 https://github.com/Graylog2/graylog2-server.git
 https://github.com/gedoor/MyBookshelf.git
 https://github.com/cabaletta/baritone.git
+https://github.com/xpipe-io/xpipe.git
 https://github.com/google/android-classyshark.git
 https://github.com/Tencent/Shadow.git
 https://github.com/kaushikgopal/RxJava-Android-Samples.git
@@ -341,11 +342,10 @@ https://github.com/yuanguangxin/LeetCode.git
 https://github.com/swagger-api/swagger-core.git
 https://github.com/PowerJob/PowerJob.git
 https://github.com/dyc87112/SpringCloud-Learning.git
-https://github.com/abel533/Mapper.git
 https://github.com/lenve/VBlog.git
+https://github.com/abel533/Mapper.git
 https://github.com/leolin310148/ShortcutBadger.git
 https://github.com/HMCL-dev/HMCL.git
-https://github.com/xpipe-io/xpipe.git
 https://github.com/Qihoo360/RePlugin.git
 https://github.com/square/dagger.git
 https://github.com/Bearded-Hen/Android-Bootstrap.git
@@ -402,8 +402,8 @@ https://github.com/Meituan-Dianping/Leaf.git
 https://github.com/NLPchina/ansj_seg.git
 https://github.com/processing/processing.git
 https://github.com/apache/zeppelin.git
-https://github.com/ximsfei/Android-skin-support.git
 https://github.com/ZCShou/GoGoGo.git
+https://github.com/ximsfei/Android-skin-support.git
 https://github.com/quartz-scheduler/quartz.git
 https://github.com/vinc3m1/RoundedImageView.git
 https://github.com/raphw/byte-buddy.git
@@ -538,8 +538,8 @@ https://github.com/XRecyclerView/XRecyclerView.git
 https://github.com/h6ah4i/android-advancedrecyclerview.git
 https://github.com/apache/hbase.git
 https://github.com/mybatis/generator.git
-https://github.com/evant/gradle-retrolambda.git
 https://github.com/alibaba/jetcache.git
+https://github.com/evant/gradle-retrolambda.git
 https://github.com/spring-projects/spring-data-examples.git
 https://github.com/xxv/android-lifecycle.git
 https://github.com/yixia/VitamioBundle.git
@@ -580,11 +580,11 @@ https://github.com/OpenTSDB/opentsdb.git
 https://github.com/Trinea/android-common.git
 https://github.com/CaffeineMC/sodium.git
 https://github.com/brianfrankcooper/YCSB.git
+https://github.com/natario1/CameraView.git
 https://github.com/sofastack/sofa-boot.git
 https://github.com/yipianfengye/android-zxingLibrary.git
-https://github.com/natario1/CameraView.git
-https://github.com/pmd/pmd.git
 https://github.com/j-easy/easy-rules.git
+https://github.com/pmd/pmd.git
 https://github.com/rubensousa/GravitySnapHelper.git
 https://github.com/ikarus23/MifareClassicTool.git
 https://github.com/alibaba/UltraViewPager.git
@@ -645,8 +645,8 @@ https://github.com/saiwu-bigkoo/Android-ConvenientBanner.git
 https://github.com/killme2008/aviatorscript.git
 https://github.com/rstudio/rstudio.git
 https://github.com/apache/calcite.git
-https://github.com/react-native-webrtc/react-native-webrtc.git
 https://github.com/diffplug/spotless.git
+https://github.com/react-native-webrtc/react-native-webrtc.git
 https://github.com/etsy/AndroidStaggeredGrid.git
 https://github.com/google/cameraview.git
 https://github.com/fuzhengwei/small-spring.git
@@ -671,8 +671,8 @@ https://github.com/zq2599/blog_demos.git
 https://github.com/zlt2000/microservices-platform.git
 https://github.com/SPLWare/esProc.git
 https://github.com/cjlin1/libsvm.git
-https://github.com/SplashCodes/JAViewer.git
 https://github.com/spring-cloud/spring-cloud-gateway.git
+https://github.com/SplashCodes/JAViewer.git
 https://github.com/Heeexy/SpringBoot-Shiro-Vue.git
 https://github.com/Netflix/ribbon.git
 https://github.com/apache/rocketmq-externals.git
@@ -691,8 +691,8 @@ https://github.com/square/sqlbrite.git
 https://github.com/go-lang-plugin-org/go-lang-idea-plugin.git
 https://github.com/zhanghai/Douya.git
 https://github.com/jdamcd/android-crop.git
-https://github.com/apache/maven.git
 https://github.com/AutoMQ/automq.git
+https://github.com/apache/maven.git
 https://github.com/981011512/--.git
 https://github.com/alibaba/dexposed.git
 https://github.com/Flipboard/bottomsheet.git
@@ -714,8 +714,8 @@ https://github.com/hussien89aa/AndroidTutorialForBeginners.git
 https://github.com/tiann/epic.git
 https://github.com/janishar/android-mvp-architecture.git
 https://github.com/square/android-times-square.git
-https://github.com/discord-jda/JDA.git
 https://github.com/Meituan-Dianping/Robust.git
+https://github.com/discord-jda/JDA.git
 https://github.com/Tencent/GT.git
 https://github.com/airbnb/DeepLinkDispatch.git
 https://github.com/dreamhead/moco.git
@@ -732,8 +732,8 @@ https://github.com/charles2gan/GDA-android-reversing-Tool.git
 https://github.com/Freeyourgadget/Gadgetbridge.git
 https://github.com/bingoogolapple/BGARefreshLayout-Android.git
 https://github.com/h2database/h2database.git
-https://github.com/pytorch/serve.git
 https://github.com/jeasonlzy/ImagePicker.git
+https://github.com/pytorch/serve.git
 https://github.com/jacoco/jacoco.git
 https://github.com/mcxiaoke/android-volley.git
 https://github.com/eirslett/frontend-maven-plugin.git
@@ -785,8 +785,8 @@ https://github.com/nining377/dolby_beta.git
 https://github.com/oblac/jodd.git
 https://github.com/s4kibs4mi/java-developer-roadmap.git
 https://github.com/qunarcorp/bistoury.git
-https://github.com/luckybilly/CC.git
 https://github.com/mywalkb/LSPosed_mod.git
+https://github.com/luckybilly/CC.git
 https://github.com/pqpo/SmartCropper.git
 https://github.com/DTStack/chunjun.git
 https://github.com/oldmanpushcart/greys-anatomy.git
@@ -816,8 +816,8 @@ https://github.com/201206030/novel-plus.git
 https://github.com/JeremyLiao/LiveEventBus.git
 https://github.com/rovo89/XposedInstaller.git
 https://github.com/jMonkeyEngine/jmonkeyengine.git
-https://github.com/bluelinelabs/Conductor.git
 https://github.com/linyiqun/DataMiningAlgorithm.git
+https://github.com/bluelinelabs/Conductor.git
 https://github.com/alibaba/jstorm.git
 https://github.com/jetty/jetty.project.git
 https://github.com/databricks/learning-spark.git
@@ -851,8 +851,8 @@ https://github.com/mpusher/mpush.git
 https://github.com/roboguice/roboguice.git
 https://github.com/PBH-BTN/PeerBanHelper.git
 https://github.com/andOTP/andOTP.git
-https://github.com/Ereza/CustomActivityOnCrash.git
 https://github.com/ZHENFENG13/My-Blog.git
+https://github.com/Ereza/CustomActivityOnCrash.git
 https://github.com/CameraKit/blurkit-android.git
 https://github.com/timehop/sticky-headers-recyclerview.git
 https://github.com/react-native-share/react-native-share.git
@@ -861,9 +861,9 @@ https://github.com/lilishop/lilishop.git
 https://github.com/googlesamples/mlkit.git
 https://github.com/willowtreeapps/spruce-android.git
 https://github.com/MovingBlocks/Terasology.git
+https://github.com/uber/NullAway.git
 https://github.com/yanzhenjie/NoHttp.git
 https://github.com/Atmosphere/atmosphere.git
-https://github.com/uber/NullAway.git
 https://github.com/stfalcon-studio/ChatKit.git
 https://github.com/ryanhoo/StylishMusicPlayer.git
 https://github.com/kubernetes-client/java.git
@@ -876,8 +876,8 @@ https://github.com/zhpanvip/BannerViewPager.git
 https://github.com/google/rejoiner.git
 https://github.com/lisawray/groupie.git
 https://github.com/shopizer-ecommerce/shopizer.git
-https://github.com/watabou/pixel-dungeon.git
 https://github.com/google/bundletool.git
+https://github.com/watabou/pixel-dungeon.git
 https://github.com/sofastack/sofa-jraft.git
 https://github.com/linkedin/databus.git
 https://github.com/KunMinX/Linkage-RecyclerView.git
@@ -932,9 +932,9 @@ https://github.com/Mojang/brigadier.git
 https://github.com/Querz/mcaselector.git
 https://github.com/yacy/yacy_search_server.git
 https://github.com/baoyongzhang/SwipeMenuListView.git
+https://github.com/karma9874/AndroRAT.git
 https://github.com/codeestX/GeekNews.git
 https://github.com/fyhertz/libstreaming.git
-https://github.com/karma9874/AndroRAT.git
 https://github.com/tchiotludo/akhq.git
 https://github.com/KingJA/LoadSir.git
 https://github.com/spring-cloud/spring-cloud-kubernetes.git
@@ -952,8 +952,8 @@ https://github.com/javahuang/SurveyKing.git
 https://github.com/ferredoxin/QNotified.git
 https://github.com/crossoverJie/SSM.git
 https://github.com/apache/logging-log4j2.git
-https://github.com/phodal/migration.git
 https://github.com/gh0stkey/HaE.git
+https://github.com/phodal/migration.git
 https://github.com/alamkanak/Android-Week-View.git
 https://github.com/xcc3641/SeeWeather.git
 https://github.com/guolindev/giffun.git
@@ -980,8 +980,8 @@ https://github.com/uber/AutoDispose.git
 https://github.com/abel533/MyBatis-Spring-Boot.git
 https://github.com/blossom-editor/blossom.git
 https://github.com/apache/incubator-kie-optaplanner.git
-https://github.com/HelloWorld521/Java.git
 https://github.com/WinterChenS/my-site.git
+https://github.com/HelloWorld521/Java.git
 https://github.com/DataLinkDC/dinky.git
 https://github.com/rom1v/sndcpy.git
 https://github.com/apache/linkis.git
