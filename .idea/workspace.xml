@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d7aaa77-3bb7-4f30-a6cd-fe9d395af648" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Lab_Experimentacao_Software_1.2025.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Lab_Experimentacao_Software_1.2025.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lab1_RepoPop/.env.config" beforeDir="false" afterPath="$PROJECT_DIR$/Lab1_RepoPop/.env.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab1_RepoPop/Lab01S01/RepoPop100.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab1_RepoPop/Lab01S01/RepoPop100.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab1_RepoPop/Lab01S02/RepoPop1000.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab1_RepoPop/Lab01S02/RepoPop1000.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab1_RepoPop/Lab01S03/RepoPop1000Final.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab1_RepoPop/Lab01S03/RepoPop1000Final.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lab2_QualiJava/.env.config" beforeDir="false" afterPath="$PROJECT_DIR$/Lab2_QualiJava/.env.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/automacao_clone.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/automacao_clone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/coleta_repositorios.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/coleta_repositorios.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/coletar_dados.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/coletar_dados.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repositorios_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repositorios_list.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab2_QualiJava/README_Lab2.md" beforeDir="false" afterPath="$PROJECT_DIR$/Lab2_QualiJava/README_Lab2.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +44,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
@@ -69,6 +57,33 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager" selected="dbt.Run dbt build">
+    <configuration name="Run dbt build" type="DbtRunConfiguration" factoryName="DbtRunConfiguration">
+      <option name="dbtCommand" value="build" />
+      <module name="Lab_Experimentacao_Software_1.2025" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Run dbt debug" type="DbtRunConfiguration" factoryName="DbtRunConfiguration">
+      <option name="dbtCommand" value="debug" />
+      <module name="Lab_Experimentacao_Software_1.2025" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Run dbt list" type="DbtRunConfiguration" factoryName="DbtRunConfiguration">
+      <option name="dbtCommand" value="list" />
+      <module name="Lab_Experimentacao_Software_1.2025" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Run dbt run" type="DbtRunConfiguration" factoryName="DbtRunConfiguration">
+      <option name="dbtCommand" value="run" />
+      <module name="Lab_Experimentacao_Software_1.2025" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Run dbt test" type="DbtRunConfiguration" factoryName="DbtRunConfiguration">
+      <option name="dbtCommand" value="test" />
+      <module name="Lab_Experimentacao_Software_1.2025" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -87,11 +102,37 @@
       <updated>1742008423135</updated>
       <workItem from="1742008428949" duration="748000" />
       <workItem from="1742011147338" duration="1326000" />
+      <workItem from="1742014694367" duration="691000" />
+      <workItem from="1742018890336" duration="276000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="javascript:npm:styled-components" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:react" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:angular" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:stylus-loader" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:tailwindcss" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:vite" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:webpack" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:karma" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:graphql" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:tslint" />
+    <option featureType="com.intellij.configurationType" implementationName="GradleRunConfiguration" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:prettier" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:kafkajs" />
+    <option featureType="com.intellij.configurationType" implementationName="JUnit" />
+    <option featureType="com.intellij.configurationType" implementationName="AndroidRunConfigurationType" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:@angular/core" />
+    <option featureType="com.intellij.configurationType" implementationName="MavenRunConfiguration" />
+    <option featureType="com.intellij.configurationType" implementationName="Application" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:vue" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:next" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:cypress" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:postcss" />
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
