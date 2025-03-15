@@ -1,211 +1,305 @@
-# 📌 **Laboratório 02 - Qualidade de Sistemas Java**
-
-## 🎯 **Objetivo**
-
-Este laboratório tem como objetivo **analisar a qualidade de repositórios Java open-source**, correlacionando métricas de qualidade do código com características do processo de desenvolvimento. Utilizaremos a ferramenta **CK** para extrair métricas de acoplamento, herança e coesão, além de coletar dados sobre popularidade, maturidade e atividade dos repositórios.
+Aqui está o **README completo e atualizado** do projeto, considerando a estrutura organizada e o planejamento para a **Sprint 2**.  
 
 ---
 
-## 🔎 **Questões de Pesquisa**
+# 📌 **Laboratório 02 - Qualidade de Sistemas Java**  
 
-1️⃣ **Qual a relação entre a popularidade dos repositórios e suas características de qualidade?** *(Número de estrelas vs. métricas de código)*\
-2️⃣ **Qual a relação entre a maturidade dos repositórios e suas características de qualidade?** *(Idade do repositório vs. métricas de código)*\
-3️⃣ **Qual a relação entre a atividade dos repositórios e suas características de qualidade?** *(Número de releases vs. métricas de código)*\
-4️⃣ **Qual a relação entre o tamanho dos repositórios e suas características de qualidade?** *(Linhas de código vs. métricas de código)*
+## 🎯 **Objetivo**  
+
+Este laboratório tem como objetivo **avaliar a qualidade de repositórios Java open-source**, analisando métricas de código e características do desenvolvimento. Utilizaremos a ferramenta **CK** para extrair métricas como **acoplamento, herança e coesão**, além de coletar dados sobre **popularidade, maturidade e atividade dos repositórios**.  
 
 ---
 
-## 📂 **Estrutura do Projeto**
+## 🔎 **Questões de Pesquisa**  
+
+1️⃣ **Popularidade x Qualidade** → Repositórios com mais estrelas têm código de melhor qualidade?  
+2️⃣ **Maturidade x Qualidade** → Projetos mais antigos são mais bem estruturados?  
+3️⃣ **Atividade x Manutenibilidade** → Repositórios mais ativos têm código mais modular?  
+4️⃣ **Tamanho x Complexidade** → Repositórios maiores possuem mais acoplamento e menor coesão?  
+
+---
+
+## 📂 **Estrutura do Projeto**  
 
 ```
-📂 Lab2_QualiJava
-├─ 📂 Lab2S01 *(Sprint 1: Coleta e análise de dados)*
-│  ├─ 📂 data *(Repositórios clonados e dados extraídos)*
-│  │  ├─ 📂 ck_output_LeetCodeAnimation *(Ferramenta de análise de código)*
-│  │  │  ├─  📄 class.csv *(Dados sobre classes Java extraídos pelo CK)*
-│  │  │  ├─ 📄 field.csv *(Dados sobre atributos extraídos pelo CK)*
-│  │  │  ├─ 📄 method.csv *(Dados sobre métodos extraídos pelo CK)*
-│  │  │  ├─ 📄 variable.csv *(Dados sobre variáveis extraídas pelo CK)*
-│  │  ├─ 📂 repos *(Repositórios clonados para análise)*
-│  │  │  ├─ 📂 LeetCodeAnimation *(Exemplo de repositório clonado)*
-│  │  │  │  ├─ 📄 repositorios_list.csv *(Lista dos repositórios coletados)*
-│  │  │  │  ├─ 📄 resultados_totais.csv *(Métricas extraídas dos repositórios)*
-│  ├─ 📄 ck.jar *(Ferramenta CK para análise de código Java)*
-│  ├─ 🐍 coleta_repositorios.py *(Coleta os 1000 repositórios mais populares em Java)*
-│  ├─ 🐍 automacao_clone.py *(Clona os repositórios coletados)*
-│  ├─ 🐍 coletar_dados.py *(Executa a ferramenta CK e coleta métricas dos repositórios)*
-│  ├─ 🐍 analisar_dados.py *(Analisa as métricas coletadas e gera os resultados)*
-│  ├─ 🐍 main.py *(Pipeline completo do laboratório)*
+📂 Lab2_QualiJava  
+├─ 📂 Lab2S01 *(Sprint 1: Coleta e análise de dados)*  
+│  ├─ 📂 data *(Dados coletados e repositórios clonados)*  
+│  │  ├─ 📂 ck_output *(Métricas extraídas pelo CK)*  
+│  │  │  ├─ 📄 class.csv *(Dados sobre classes Java)*  
+│  │  │  ├─ 📄 field.csv *(Atributos extraídos pelo CK)*  
+│  │  │  ├─ 📄 method.csv *(Métricas sobre métodos)*  
+│  │  │  ├─ 📄 variable.csv *(Informações sobre variáveis)*  
+│  │  ├─ 📂 repos *(Repositórios clonados para análise)*  
+│  │  ├─ 📄 repositorios_list.csv *(Lista dos repositórios coletados)*  
+│  │  ├─ 📄 resultados_totais.csv *(Métricas extraídas dos repositórios)*  
+│  │  ├─ 📄 matriz_correlacao.png *(Gráfico de correlação das métricas)*  
+│  │  ├─ 📄 analise_metrica_ck.csv *(Resumo estatístico das métricas)*  
+│  ├─ 📄 ck.jar *(Ferramenta CK para análise de código Java)*  
+│  ├─ 🐍 coleta_repositorios.py *(Coleta repositórios via API GitHub)*  
+│  ├─ 🐍 automacao_clone.py *(Clona os repositórios listados)*  
+│  ├─ 🐍 coletar_dados.py *(Executa a ferramenta CK e coleta métricas)*  
+│  ├─ 🐍 analisar_dados.py *(Processa e analisa os dados coletados)*  
+│  ├─ 🐍 main.py *(Pipeline completo do laboratório)*  
 │
-├─ 📂 Lab2S02 *(Sprint 2: Relatório Final e Documentação)*
-│  ├─ 📂 Docs *(Relatórios e arquivos auxiliares)*
-│  │  ├─ 📜 relatório_final.txt *(Relatório final do laboratório)*
+├─ 📂 Lab2S02 *(Sprint 2: Relatório Final e Documentação)*  
+│  ├─ 📂 Docs *(Relatórios e arquivos auxiliares)*  
+│  │  ├─ 📜 relatório_final.txt *(Relatório final do laboratório)*  
 │
-├─ 📜 LABORATÓRIO_02.pdf *(Descrição da atividade)*
-├─ 📜 README_Lab2.md *(Arquivo explicativo do laboratório)*
-├─ 📜 .env.config *(Configuração do token GitHub e variáveis do projeto)*
+├─ 📜 LABORATÓRIO_02.pdf *(Descrição da atividade)*  
+├─ 📜 README_Lab2.md *(Instruções detalhadas do laboratório)*  
+├─ 📜 .env.config *(Configuração do token GitHub e variáveis do projeto)*  
 ```
 
 ---
 
-## 🔑 **Configuração do Token da API GitHub**
+## 🔑 **Configuração do Token da API GitHub**  
 
-Para acessar a API do GitHub, é necessário configurar um **token de autenticação**. O token deve ser armazenado em um arquivo `.env.config` na raiz do projeto, com o seguinte formato:
+O script de coleta requer um **token de autenticação** do GitHub. O token pode ser configurado automaticamente via terminal ou salvo em um arquivo `.env.config` na raiz do projeto, no seguinte formato:
 
 ```
 GITHUB_TOKEN=seu_token_aqui
 ```
 
-### Como obter um Token do GitHub:
-1. Acesse [GitHub Developer Settings](https://github.com/settings/tokens).
-2. Clique em **Generate new token (classic)**.
-3. Selecione as permissões necessárias:
-   - `repo` (acesso a repositórios públicos)
-   - `read:org` (para ler informações de organizações, se necessário)
-4. Gere o token e copie-o.
-5. Cole o token no arquivo `.env.config`.
-
-**Importante:** Nunca compartilhe seu token publicamente para evitar riscos de segurança.
+Caso precise gerar um token, siga os passos:  
+1. Acesse [GitHub Developer Settings](https://github.com/settings/tokens).  
+2. Clique em **"Generate new token (classic)"**.  
+3. Selecione as permissões:  
+   - `repo` → Acesso a repositórios públicos  
+   - `read:org` → Acesso a informações organizacionais (se necessário)  
+4. Copie o token gerado e adicione ao projeto.  
 
 ---
 
-## 🚀 **Sprints do Projeto**
+## 🚀 **Sprints do Projeto**  
 
-### 📌 **Sprint 1 - Coleta de Dados e Análise Inicial**
+### 📌 **Sprint 1 - Coleta de Dados e Análise Inicial**  
 
-#### 🔧 **Implementação**
-- Coleta dos 1000 repositórios Java mais populares via **API REST do GitHub**.
-- Clonagem automática dos repositórios coletados.
-- Extração de métricas de código usando a ferramenta **CK**.
-- Organização e armazenamento das métricas para posterior análise.
+🔹 **Objetivos:**  
+- Coletar **1000 repositórios Java** populares via **API do GitHub**.  
+- Clonar os repositórios coletados automaticamente.  
+- Extrair métricas de código usando a ferramenta **CK**.  
+- Organizar e armazenar os dados coletados para análise.  
 
-#### 📦 **Dependências**
-- **Python 3.8+**
-- `requests`, `pandas`, `python-dotenv`, `gitpython`
+🔹 **Dependências:**  
+```bash
+pip install requests pandas python-dotenv gitpython matplotlib seaborn
+```
 
-Segue a atualização do **Como Executar** para a Sprint 1, garantindo que os scripts sejam executados na ordem correta:
+### ▶️ **Como Executar**  
 
----
-
-#### ▶️ **Como Executar**
-
-1️⃣ **Clone o repositório:**
-
+1️⃣ **Clone o repositório:**  
 ```bash
 git clone https://github.com/RubbiaMattos/Lab_Experimentacao_Software_1.2025.git
 cd Lab_Experimentacao_Software_1.2025/Lab2_QualiJava
 ```
 
-2️⃣ **Instale as dependências:**
-
+2️⃣ **Execute todo o pipeline:**  
 ```bash
-pip install requests pandas python-dotenv gitpython
+python main.py --step all
 ```
 
-3️⃣ **Executando os scripts na ordem correta:**
-
-- **Coleta dos repositórios:**  
-  Gere o arquivo com as URLs dos repositórios (caso ainda não exista) executando:
-  
-  ```bash
-  python coleta_repositorios.py
-  ```
-
-- **Clonagem dos repositórios:**  
-  Clone os repositórios listados no arquivo gerado:
-
-  ```bash
-  python automacao_clone.py
-  ```
-
-- **Coleta das métricas:**  
-  Após a clonagem, extraia as métricas utilizando a ferramenta CK:
-
-  ```bash
-  python coletar_dados.py
-  ```
-  
-  Este script gera o arquivo `resultados_totais.csv` com as métricas extraídas.
-
-- **Análise dos dados:**  
-  Finalmente, processe e analise os dados consolidados executando:
-
-  ```bash
-  python analisar_dados.py
-  ```
-
-> **Atenção:** O script de análise (**analisar_dados.py**) deve ser rodado somente após os repositórios terem sido clonados e os dados consolidados coletados com sucesso.
+✅ Coleta dos repositórios via API  
+✅ Clonagem dos repositórios listados  
+✅ Coleta de métricas de qualidade do código  
+✅ Análise inicial dos dados coletados  
 
 ---
 
-#### 📊 **Resultados**
+### 📊 **Resultados da Sprint 1**  
 
-- **Organização do Projeto:**  
-  O diretório **Lab2_QualiJava** está estruturado para separar as atividades de cada sprint. Em particular, a Sprint 1 está organizada dentro do diretório **Lab2S01**, que contém:
+📂 **Lab2S01/data/** gerou os seguintes arquivos:  
+- **📂 ck_output/** → Métricas extraídas pelo CK (**class.csv, method.csv, field.csv, variable.csv**).  
+- **📂 repos/** → Repositórios clonados para análise.  
+- **📄 repositorios_list.csv** → Lista dos 1000 repositórios Java coletados.  
+- **📄 resultados_totais.csv** → Consolidação das métricas extraídas.  
+- **📄 matriz_correlacao.png** → Gráfico de correlação das métricas.  
+- **📄 analise_metrica_ck.csv** → Estatísticas descritivas.  
 
-  - **data:**  
-    - **ck_output_LeetCodeAnimation:**  
-      Aqui são armazenados os dados extraídos pela ferramenta CK, contendo:
-      - **class.csv:** Informações sobre as classes Java.
-      - **field.csv:** Dados dos atributos extraídos.
-      - **method.csv:** Métricas referentes aos métodos.
-      - **variable.csv:** Informações sobre as variáveis do código.
-      
-    - **repos:**  
-      Contém os repositórios clonados para análise. Por exemplo, no subdiretório **LeetCodeAnimation** encontramos:
-      - **repositorios_list.csv:** Lista dos repositórios coletados via API do GitHub.
-      - **resultados_totais.csv:** Arquivo consolidado com as métricas extraídas dos repositórios.
+🔹 **Principais Insights:**  
+📌 Possível relação entre **tamanho do código (LOC)** e **acoplamento (CBO)**.  
+📌 Projetos **mais antigos** tendem a apresentar **menor coesão (LCOM alto)**.  
+📌 Repositórios **mais populares** podem ter código de **melhor qualidade**.  
 
-- **Etapas e Resultados Concretos:**
-
-  - **Coleta dos Repositórios:**  
-    Foram coletados 1000 repositórios Java por meio da API do GitHub. As URLs desses repositórios foram armazenadas no arquivo `repositorios_list.csv`, localizado no diretório correspondente.
-
-  - **Clonagem dos Repositórios:**  
-    Todos os repositórios coletados foram clonados com sucesso para a pasta `data/repos`, permitindo o acesso local necessário para a análise.
-
-  - **Extração de Métricas:**  
-    Utilizando a ferramenta CK, os dados referentes à qualidade do código (como acoplamento, herança, coesão e demais métricas) foram extraídos dos repositórios clonados. Os resultados detalhados foram salvos nos arquivos CSV dentro da pasta `data/ck_output_LeetCodeAnimation`, e um arquivo consolidado, `resultados_totais.csv`, foi gerado para facilitar a análise.
+🚀 *Próximos passos na Sprint 2: análise detalhada e geração de relatórios!*  
 
 ---
 
-### 📌 **Sprint 2 - Análise de Métricas e Hipóteses**
+### 📌 **Sprint 2 - Planejamento e Próximos Passos**  
 
-#### 🔧 **Implementação**
-- Análise exploratória das métricas coletadas.
-- Desenvolvimento de hipóteses sobre as correlações entre popularidade, maturidade, atividade e qualidade do código.
-- Geração de gráficos para visualizar tendências e padrões nos dados coletados.
+🔹 **Objetivos:**  
+- Revisão e organização dos dados coletados.  
+- Definição de hipóteses e padrões a serem analisados.  
+- Aplicação de estatísticas e cálculos de correlação entre métricas.  
+- Geração de gráficos e relatórios detalhados.  
 
-#### 📦 **Dependências**
-- **Todas as dependências da Sprint 1**
-- `matplotlib`, `seaborn`
+🔹 **O que será feito?**  
+1️⃣ **Revisão e limpeza dos dados** → Verificar inconsistências e outliers.  
+2️⃣ **Definição de hipóteses** → Como maturidade, popularidade e qualidade do código se relacionam?  
+3️⃣ **Geração de estatísticas e gráficos** → Correlações, distribuições e padrões.  
+4️⃣ **Documentação dos resultados** → Criar um relatório consolidando insights.  
 
-#### ▶️ **Como Executar**
+🔹 **Ferramentas e Bibliotecas:**  
+- **Linguagem:** Python 3.8+  
+- **Bibliotecas:** `pandas`, `numpy`, `matplotlib`, `seaborn`, `scipy`  
 
-```bash
-python analisar_dados.py
+---
+
+## 📢 **Equipe do Projeto**  
+
+👥 **Nataniel Geraldo Mendes Peixoto**  
+👥 **Nelson de Campos Nolasco**  
+👥 **Rubia Coelho de Matos**  
+
+Aqui está o **README completo e atualizado** do projeto, considerando a estrutura organizada e o planejamento para a **Sprint 2**.  
+
+---
+
+# 📌 **Laboratório 02 - Qualidade de Sistemas Java**  
+
+## 🎯 **Objetivo**  
+
+Este laboratório tem como objetivo **avaliar a qualidade de repositórios Java open-source**, analisando métricas de código e características do desenvolvimento. Utilizaremos a ferramenta **CK** para extrair métricas como **acoplamento, herança e coesão**, além de coletar dados sobre **popularidade, maturidade e atividade dos repositórios**.  
+
+---
+
+## 🔎 **Questões de Pesquisa**  
+
+1️⃣ **Popularidade x Qualidade** → Repositórios com mais estrelas têm código de melhor qualidade?  
+2️⃣ **Maturidade x Qualidade** → Projetos mais antigos são mais bem estruturados?  
+3️⃣ **Atividade x Manutenibilidade** → Repositórios mais ativos têm código mais modular?  
+4️⃣ **Tamanho x Complexidade** → Repositórios maiores possuem mais acoplamento e menor coesão?  
+
+---
+
+## 📂 **Estrutura do Projeto**  
+
+```
+📂 Lab2_QualiJava  
+├─ 📂 Lab2S01 *(Sprint 1: Coleta e análise de dados)*  
+│  ├─ 📂 data *(Dados coletados e repositórios clonados)*  
+│  │  ├─ 📂 ck_output *(Métricas extraídas pelo CK)*  
+│  │  │  ├─ 📄 class.csv *(Dados sobre classes Java)*  
+│  │  │  ├─ 📄 field.csv *(Atributos extraídos pelo CK)*  
+│  │  │  ├─ 📄 method.csv *(Métricas sobre métodos)*  
+│  │  │  ├─ 📄 variable.csv *(Informações sobre variáveis)*  
+│  │  ├─ 📂 repos *(Repositórios clonados para análise)*  
+│  │  ├─ 📄 repositorios_list.csv *(Lista dos repositórios coletados)*  
+│  │  ├─ 📄 resultados_totais.csv *(Métricas extraídas dos repositórios)*  
+│  │  ├─ 📄 matriz_correlacao.png *(Gráfico de correlação das métricas)*  
+│  │  ├─ 📄 analise_metrica_ck.csv *(Resumo estatístico das métricas)*  
+│  ├─ 📄 ck.jar *(Ferramenta CK para análise de código Java)*  
+│  ├─ 🐍 coleta_repositorios.py *(Coleta repositórios via API GitHub)*  
+│  ├─ 🐍 automacao_clone.py *(Clona os repositórios listados)*  
+│  ├─ 🐍 coletar_dados.py *(Executa a ferramenta CK e coleta métricas)*  
+│  ├─ 🐍 analisar_dados.py *(Processa e analisa os dados coletados)*  
+│  ├─ 🐍 main.py *(Pipeline completo do laboratório)*  
+│
+├─ 📂 Lab2S02 *(Sprint 2: Relatório Final e Documentação)*  
+│  ├─ 📂 Docs *(Relatórios e arquivos auxiliares)*  
+│  │  ├─ 📜 relatório_final.txt *(Relatório final do laboratório)*  
+│
+├─ 📜 LABORATÓRIO_02.pdf *(Descrição da atividade)*  
+├─ 📜 README_Lab2.md *(Instruções detalhadas do laboratório)*  
+├─ 📜 .env.config *(Configuração do token GitHub e variáveis do projeto)*  
 ```
 
-#### 📊 **Resultados**
-✔ Expansão dos dados para 1000 repositórios coletados.
-✔ Gráficos preliminares das métricas coletadas.
-✔ Análise inicial de correlação entre métricas.
-✔ Desenvolvimento de hipóteses sobre os padrões identificados.
+---
+
+## 🔑 **Configuração do Token da API GitHub**  
+
+O script de coleta requer um **token de autenticação** do GitHub. O token pode ser configurado automaticamente via terminal ou salvo em um arquivo `.env.config` na raiz do projeto, no seguinte formato:
+
+```
+GITHUB_TOKEN=seu_token_aqui
+```
+
+Caso precise gerar um token, siga os passos:  
+1. Acesse [GitHub Developer Settings](https://github.com/settings/tokens).  
+2. Clique em **"Generate new token (classic)"**.  
+3. Selecione as permissões:  
+   - `repo` → Acesso a repositórios públicos  
+   - `read:org` → Acesso a informações organizacionais (se necessário)  
+4. Copie o token gerado e adicione ao projeto.  
 
 ---
 
-## 🔜 **Próximos Passos**
+## 🚀 **Sprints do Projeto**  
 
-1️⃣ **Aprimorar a análise estatística** das métricas coletadas, incluindo testes de correlação mais robustos (Spearman ou Pearson).
-2️⃣ **Gerar gráficos de correlação mais detalhados** para identificar tendências entre as métricas coletadas.
-3️⃣ **Explorar novas métricas** além do CK, para obter uma visão mais ampla da qualidade do código.
-4️⃣ **Comparar os resultados com benchmarks conhecidos** e estudos prévios sobre qualidade de software.
-5️⃣ **Preparação para apresentação final**, refinando os insights e documentando os principais achados.
+### 📌 **Sprint 1 - Coleta de Dados e Análise Inicial**  
+
+🔹 **Objetivos:**  
+- Coletar **1000 repositórios Java** populares via **API do GitHub**.  
+- Clonar os repositórios coletados automaticamente.  
+- Extrair métricas de código usando a ferramenta **CK**.  
+- Organizar e armazenar os dados coletados para análise.  
+
+🔹 **Dependências:**  
+```bash
+pip install requests pandas python-dotenv gitpython matplotlib seaborn
+```
+
+### ▶️ **Como Executar**  
+
+1️⃣ **Clone o repositório:**  
+```bash
+git clone https://github.com/RubbiaMattos/Lab_Experimentacao_Software_1.2025.git
+cd Lab_Experimentacao_Software_1.2025/Lab2_QualiJava
+```
+
+2️⃣ **Execute todo o pipeline:**  
+```bash
+python main.py --step all
+```
+
+✅ Coleta dos repositórios via API  
+✅ Clonagem dos repositórios listados  
+✅ Coleta de métricas de qualidade do código  
+✅ Análise inicial dos dados coletados  
 
 ---
 
-## 📢 **Equipe do Projeto**
+### 📊 **Resultados da Sprint 1**  
 
-👥 **Nataniel Geraldo Mendes Peixoto**\
-👥 **Nelson de Campos Nolasco**\
-👥 **Rubia Coelho de Matos**
+📂 **Lab2S01/data/** gerou os seguintes arquivos:  
+- **📂 ck_output/** → Métricas extraídas pelo CK (**class.csv, method.csv, field.csv, variable.csv**).  
+- **📂 repos/** → Repositórios clonados para análise.  
+- **📄 repositorios_list.csv** → Lista dos 1000 repositórios Java coletados.  
+- **📄 resultados_totais.csv** → Consolidação das métricas extraídas.  
+- **📄 matriz_correlacao.png** → Gráfico de correlação das métricas.  
+- **📄 analise_metrica_ck.csv** → Estatísticas descritivas.  
+
+🔹 **Principais Insights:**  
+📌 Possível relação entre **tamanho do código (LOC)** e **acoplamento (CBO)**.  
+📌 Projetos **mais antigos** tendem a apresentar **menor coesão (LCOM alto)**.  
+📌 Repositórios **mais populares** podem ter código de **melhor qualidade**.  
+
+🚀 *Próximos passos na Sprint 2: análise detalhada e geração de relatórios!*  
+
+---
+
+### 📌 **Sprint 2 - Planejamento e Próximos Passos**  
+
+🔹 **Objetivos:**  
+- Revisão e organização dos dados coletados.  
+- Definição de hipóteses e padrões a serem analisados.  
+- Aplicação de estatísticas e cálculos de correlação entre métricas.  
+- Geração de gráficos e relatórios detalhados.  
+
+🔹 **O que será feito?**  
+1️⃣ **Revisão e limpeza dos dados** → Verificar inconsistências e outliers.  
+2️⃣ **Definição de hipóteses** → Como maturidade, popularidade e qualidade do código se relacionam?  
+3️⃣ **Geração de estatísticas e gráficos** → Correlações, distribuições e padrões.  
+4️⃣ **Documentação dos resultados** → Criar um relatório consolidando insights.  
+
+🔹 **Ferramentas e Bibliotecas:**  
+- **Linguagem:** Python 3.8+  
+- **Bibliotecas:** `pandas`, `numpy`, `matplotlib`, `seaborn`, `scipy`  
+
+---
+
+## 📢 **Equipe do Projeto**  
+
+👥 **Nataniel Geraldo Mendes Peixoto**  
+👥 **Nelson de Campos Nolasco**  
+👥 **Rubia Coelho de Matos**  

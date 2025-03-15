@@ -13,18 +13,13 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 # 🔹 Subir um nível para tentar encontrar o Lab1_RepoPop
 repo_root = os.path.abspath(os.path.join(script_dir, ".."))  # Volta um nível
 
-# 🔹 Caminho dinâmico do .env.config.config
+# 🔹 Caminho dinâmico do .env.config
 env_path = os.path.join(repo_root, ".env.config")
-
-# 🔹 Imprimir caminhos para depuração
-print(f"📌 Diretório do script: {script_dir}")
-print(f"📌 Diretório esperado do repositório: {repo_root}")
-print(f"📌 Caminho esperado do .env.config: {env_path}")
 
 # 🔹 Verificar se o arquivo existe antes de carregar
 if os.path.exists(env_path):
     load_dotenv(dotenv_path=env_path)
-    print(f"✅ Arquivo .env.config.config carregado de: {env_path}")
+    print(f"✅ Arquivo .env.config carregado de: {env_path}")
 else:
     raise FileNotFoundError(f"❌ ERRO: O arquivo .env.config NÃO foi encontrado no caminho esperado: {env_path}")
 
@@ -34,7 +29,7 @@ TOKEN = os.getenv("GITHUB_TOKEN")
 if TOKEN:
     print("✅ Token carregado com sucesso!")
 else:
-    raise ValueError("❌ ERRO: Token GITHUB_TOKEN não foi encontrado no .env.config.config.")
+    raise ValueError("❌ ERRO: Token GITHUB_TOKEN não foi encontrado no .env.config")
 
 
 # Configuração de diretórios

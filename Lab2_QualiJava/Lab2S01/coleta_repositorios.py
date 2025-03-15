@@ -10,15 +10,15 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 # 🔹 Subir um nível para tentar encontrar o Lab1_RepoPop
 repo_root = os.path.abspath(os.path.join(script_dir, ".."))  # Volta um nível
 
-# 🔹 Caminho dinâmico do .env.config.config
+# 🔹 Caminho dinâmico do .env.config
 env_path = os.path.join(repo_root, ".env.config")
 
 # 🔹 Verificar se o arquivo existe antes de carregar
 if os.path.exists(env_path):
     load_dotenv(dotenv_path=env_path)
-    print(f"✅ Arquivo .env.config.config carregado de: {env_path}")
+    print(f"✅ Arquivo .env.config carregado de: {env_path}")
 else:
-    raise FileNotFoundError(f"❌ ERRO: O arquivo .env.config.config NÃO foi encontrado no caminho esperado: {env_path}")
+    raise FileNotFoundError(f"❌ ERRO: O arquivo .env.config NÃO foi encontrado no caminho esperado: {env_path}")
 
 # 🔹 Testar se o token foi carregado corretamente
 TOKEN = os.getenv("GITHUB_TOKEN")
@@ -26,7 +26,7 @@ TOKEN = os.getenv("GITHUB_TOKEN")
 if TOKEN:
     print("✅ Token carregado com sucesso!")
 else:
-    raise ValueError("❌ ERRO: Token GITHUB_TOKEN não foi encontrado no .env.config.config.")
+    raise ValueError("❌ ERRO: Token GITHUB_TOKEN não foi encontrado no .env.config")
 
 # Configuração de diretórios
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__)))
@@ -40,7 +40,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 GITHUB_API_URL = "https://api.github.com/search/repositories"
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 if not GITHUB_TOKEN:
-    raise ValueError("Você precisa configurar o GITHUB_TOKEN no arquivo .env.config.")
+    raise ValueError("Você precisa configurar o GITHUB_TOKEN no arquivo .env.config")
 HEADERS = {"Authorization": f"Bearer {GITHUB_TOKEN}"}
 
 
