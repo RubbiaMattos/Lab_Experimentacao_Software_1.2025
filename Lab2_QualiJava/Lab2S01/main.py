@@ -13,28 +13,28 @@ def run_subprocess(script_name):
     subprocess.run(["python", script_path])
 
 def buscar_repositorios():
-    logging.info("===== 🌐 ETAPA: BUSCAR REPOSITÓRIOS =====")
+    logging.info("===== 🌐 1ª ETAPA: BUSCAR REPOSITÓRIOS =====")
     start = time.time()
     run_subprocess('coleta_repositorios.py')
     end = time.time()
     logging.info(f"✅ Busca finalizada em {end - start:.2f} segundos\n")
 
 def clone_repositories():
-    logging.info("===== 🐙 ETAPA: CLONAR REPOSITÓRIOS =====")
+    logging.info("===== 🐙 2ª ETAPA: CLONAR REPOSITÓRIOS =====")
     start = time.time()
     run_subprocess('automacao_clone.py')
     end = time.time()
     logging.info(f"✅ Clonagem finalizada em {end - start:.2f} segundos\n")
 
 def coletar_dados():
-    logging.info("===== 📥 ETAPA: COLETAR DADOS =====")
+    logging.info("===== 📥 3ª ETAPA: COLETAR DADOS =====")
     start = time.time()
     run_subprocess('coletar_dados.py')
     end = time.time()
     logging.info(f"✅ Coleta de dados finalizada em {end - start:.2f} segundos\n")
 
 def analisar_dados():
-    logging.info("===== 📊 ETAPA: ANALISAR DADOS =====")
+    logging.info("===== 📊 4ª ETAPA: ANALISAR DADOS =====")
     start = time.time()
     run_subprocess('analisar_dados.py')
     end = time.time()
