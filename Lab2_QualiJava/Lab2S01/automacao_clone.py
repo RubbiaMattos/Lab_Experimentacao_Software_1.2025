@@ -87,7 +87,12 @@ def clonar_repositorios():
 
         try:
             logging.info(f"({idx}/{total_repos}) 🔄 Clonando: {repo_url} 🚀")
-            subprocess.run(['git', 'clone', repo_url, repo_path], check=True)
+            subprocess.run(
+                ['git', 'clone', repo_url, repo_path],
+                check=True,
+                stdout=subprocess.DEVNULL,  # Oculta 'remote:' e outros prints do Git
+                stderr=subprocess.PIPE
+            )
             cloned_count += 1
             logging.info(f"✅ Repositório clonado com sucesso: {repo_name} (Total clonados: {cloned_count}) 🗃️")
         except subprocess.CalledProcessError as e:

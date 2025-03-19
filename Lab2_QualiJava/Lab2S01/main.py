@@ -13,32 +13,32 @@ def run_subprocess(script_name):
     subprocess.run(["python", script_path])
 
 def buscar_repositorios():
-    logging.info("🌐 Buscando os repositórios mais populares...")
+    logging.info("===== 🌐 ETAPA: BUSCAR REPOSITÓRIOS =====")
     start = time.time()
     run_subprocess('coleta_repositorios.py')
     end = time.time()
-    logging.info(f"✅ Busca finalizada em {end - start:.2f} segundos")
+    logging.info(f"✅ Busca finalizada em {end - start:.2f} segundos\n")
 
 def clone_repositories():
-    logging.info("🐙 Iniciando a clonagem dos repositórios...")
+    logging.info("===== 🐙 ETAPA: CLONAR REPOSITÓRIOS =====")
     start = time.time()
     run_subprocess('automacao_clone.py')
     end = time.time()
-    logging.info(f"✅ Clonagem finalizada em {end - start:.2f} segundos")
+    logging.info(f"✅ Clonagem finalizada em {end - start:.2f} segundos\n")
 
 def coletar_dados():
-    logging.info("📥 Coletando dados dos repositórios clonados...")
+    logging.info("===== 📥 ETAPA: COLETAR DADOS =====")
     start = time.time()
     run_subprocess('coletar_dados.py')
     end = time.time()
-    logging.info(f"✅ Coleta de dados finalizada em {end - start:.2f} segundos")
+    logging.info(f"✅ Coleta de dados finalizada em {end - start:.2f} segundos\n")
 
 def analisar_dados():
-    logging.info("📊 Analisando os dados coletados...")
+    logging.info("===== 📊 ETAPA: ANALISAR DADOS =====")
     start = time.time()
     run_subprocess('analisar_dados.py')
     end = time.time()
-    logging.info(f"✅ Análise finalizada em {end - start:.2f} segundos")
+    logging.info(f"✅ Análise finalizada em {end - start:.2f} segundos\n")
 
 def main():
     parser = argparse.ArgumentParser(description="🚀 Pipeline completo do laboratório")
