@@ -16,7 +16,7 @@ else:
 
 TOKEN = os.getenv("GITHUB_TOKEN")
 if not TOKEN:
-    raise ValueError("❌ ERRO: Token GITHUB_TOKEN não foi encontrado no .env.config")
+    raise ValueError("❌ ERRO: Token GITHUB_TOKEN não foi encontrado no .env.config 🔑")
 
 # 📂 Diretórios
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__)))
@@ -33,7 +33,7 @@ ALLOWED_DOMAINS = ["github.com", "gitlab.com"]
 def clonar_repositorios():
     """🚀 Clona os repositórios listados"""
     if not os.path.exists(REPOS_LIST_FILE):
-        raise FileNotFoundError(f"📄❌ Arquivo não encontrado: {REPOS_LIST_FILE}")
+        raise FileNotFoundError(f"📄❌ Arquivo de repositórios não encontrado: {REPOS_LIST_FILE}")
 
     os.makedirs(REPOS_DIR, exist_ok=True)
 
@@ -70,15 +70,15 @@ def clonar_repositorios():
             continue
 
         try:
-            logging.info(f"({idx}/{total_repos}) 🔄 Clonando: {repo_url}")
+            logging.info(f"({idx}/{total_repos}) 🔄 Clonando: {repo_url} 🚀")
             subprocess.run(['git', 'clone', repo_url, repo_path], check=True)
             cloned_count += 1
-            logging.info(f"✅ Clonado: {repo_name} (Total: {cloned_count})")
+            logging.info(f"✅ Repositório clonado com sucesso: {repo_name} (Total clonados: {cloned_count}) 🗃️")
         except subprocess.CalledProcessError as e:
             logging.error(f"❌ Erro ao clonar '{repo_url}': {e}")
 
-    logging.info(f"🎉 Clonagem finalizada! Total clonado: {cloned_count} de {total_repos}")
+    logging.info(f"🎉 Clonagem finalizada! ✅ Total clonado: {cloned_count} de {total_repos} 📦")
 
 if __name__ == "__main__":
-    logging.info("🚀 Iniciando a clonagem dos repositórios...")
+    logging.info("🚀 Iniciando a clonagem dos repositórios... 🧠")
     clonar_repositorios()
