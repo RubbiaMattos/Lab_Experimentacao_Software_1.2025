@@ -55,6 +55,7 @@ def clonar_repositorios():
 
     with open(REPOS_LIST_FILE, newline='', encoding='utf-8') as csvfile:
         csv_reader = csv.reader(csvfile)
+        header = next(csv_reader, None)  # Ignora a primeira linha (cabeçalho)
         repositorios = list(csv_reader)
 
     total_repos = len(repositorios)
