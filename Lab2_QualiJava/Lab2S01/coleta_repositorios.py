@@ -23,7 +23,23 @@ DATA_DIR = os.path.join(BASE_DIR, 'data')
 REPOS_LIST_FILE = os.path.join(DATA_DIR, 'repositorios_list.csv')
 
 # 📝 Configuração do logger
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+# 🔹 Caminho relativo para salvar os logs
+LOG_DIR = os.path.join(script_dir, "Relatórios")
+LOG_FILE = os.path.join(LOG_DIR, "coleta_repositorios_log.log")
+
+# 🔹 Criar diretório de logs, se não existir
+if not os.path.exists(LOG_DIR):
+    os.makedirs(LOG_DIR)
+
+# 🔹 Configuração do logger para salvar logs no arquivo
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.StreamHandler(),  # Exibe no console
+        logging.FileHandler(LOG_FILE, encoding="utf-8")
+    ]
+)
 
 # 🔗 Configuração da API do GitHub
 GITHUB_API_URL = "https://api.github.com/search/repositories"

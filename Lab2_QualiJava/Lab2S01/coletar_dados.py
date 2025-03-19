@@ -27,7 +27,23 @@ REPOS_LIST_FILE = os.path.join(DATA_DIR, 'repositorios_list.csv')
 CK_JAR = os.path.join(BASE_DIR, 'ck.jar')  # ck.jar deve estar na raiz do projeto
 
 # Configuração do logger
-logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
+# 🔹 Caminho relativo para salvar os logs
+LOG_DIR = os.path.join(script_dir, "Relatórios")
+LOG_FILE = os.path.join(LOG_DIR, "coletar_dados_log.log")
+
+# 🔹 Criar diretório de logs, se não existir
+if not os.path.exists(LOG_DIR):
+    os.makedirs(LOG_DIR)
+
+# 🔹 Configuração do logger para salvar logs no arquivo
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.StreamHandler(),  # Exibe no console
+        logging.FileHandler(LOG_FILE, encoding="utf-8")
+    ]
+)
 
 # Timeout para execução do CK (em segundos)
 CK_TIMEOUT = 300
@@ -66,9 +82,9 @@ def parse_ck_output(output_dir):
             logging.warning(f"⚠️ O arquivo {class_csv} não contém dados.")
             return None, None, None
 
-        avg_cbo = df["CBO"].mean() if "CBO" in df.columns else None
-        avg_dit = df["DIT"].mean() if "DIT" in df.columns else None
-        avg_lcom = df["LCOM"].mean() if "LCOM" in df.columns else None
+        avg_cbo = df["cbo"].mean() if "cbo" in df.columns else None
+        avg_dit = df["dit"].mean() if "dit" in df.columns else None
+        avg_lcom = df["lcom"].mean() if "lcom" in df.columns else None
         logging.debug(f"📊 Métricas extraídas -> CBO: {avg_cbo}, DIT: {avg_dit}, LCOM: {avg_lcom}")
         return avg_cbo, avg_dit, avg_lcom
     except Exception as e:
