@@ -17,7 +17,7 @@ def verificar_arquivo_entrada():
     input_file = os.path.join(DATA_DIR, 'resultados_totais.csv')
     if not os.path.exists(input_file):
         logging.error(f"❌ Arquivo de entrada não encontrado: {input_file}")
-        raise FileNotFoundError(f"Arquivo de entrada não encontrado: {input_file}")
+        raise FileNotFoundError(f"❌ Arquivo de entrada não encontrado: {input_file}")
     if os.stat(input_file).st_size == 0:
         logging.warning(f"⚠️ Arquivo de entrada está vazio: {input_file}")
         return None
@@ -81,7 +81,7 @@ def analisar_dados(input_file):
     # 💾 Salvar análise
     try:
         stats.to_csv(output_file)
-        logging.info(f"✅ Resultados da análise salvos no arquivo: {output_file}")
+        logging.info(f"✅ Resultados da análise salvos no arquivo: {output_file} 💾")
     except Exception as e:
         logging.error(f"❌ Erro ao salvar o arquivo de saída '{output_file}': {e}")
         raise
@@ -94,7 +94,7 @@ def main():
             analisar_dados(input_file)
         else:
             logging.info("ℹ️ Nenhuma análise foi realizada, pois o arquivo de entrada está vazio.")
-        logging.info("✅ Script de análise concluído.")
+        logging.info("🎯 Script de análise concluído com sucesso! ✅")
     except Exception as e:
         logging.error(f"❌ Erro durante a execução do script de análise de dados: {e}")
         raise
