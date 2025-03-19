@@ -1,20 +1,26 @@
 import subprocess
 import argparse
 import logging
+import os
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
+BASE_DIR = os.path.dirname(__file__)
+
 def clone_repositories():
     logging.info("🐙 Iniciando a clonagem dos repositórios...")
-    subprocess.run(["python", "automacao_clone.py"], check=True)
+    script_path = os.path.join(BASE_DIR, 'automacao_clone.py')
+    subprocess.run(["python", script_path], check=True)
 
 def coletar_dados():
     logging.info("📥 Coletando dados dos repositórios...")
-    subprocess.run(["python", "coletar_dados.py"], check=True)
+    script_path = os.path.join(BASE_DIR, 'coletar_dados.py')
+    subprocess.run(["python", script_path], check=True)
 
 def analisar_dados():
     logging.info("📊 Analisando os dados coletados...")
-    subprocess.run(["python", "analisar_dados.py"], check=True)
+    script_path = os.path.join(BASE_DIR, 'analisar_dados.py')
+    subprocess.run(["python", script_path], check=True)
 
 def main():
     parser = argparse.ArgumentParser(description="🚀 Pipeline completo do laboratório")
