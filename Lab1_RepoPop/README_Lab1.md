@@ -62,24 +62,43 @@ Este laboratório analisa repositórios populares no **GitHub**, investigando su
 
 ---
 
+Ótimo! Seguindo a sua instrução, o caminho do arquivo `.env.config` de todos os laboratórios será atualizado para:
+
+```
+LABORATÓRIO DE EXPERIMENTAÇÃO DE SOFTWARE\Lab_Experimentacao_Software_1.2025\.env.config
+```
+
+✅ Aqui está o texto padrão atualizado para cada README onde for necessário configurar o `.env.config`:
+
+---
+
 ## 🔑 **Configuração do Token da API GitHub**
 
-Para acessar a API do GitHub, é necessário configurar um **token de autenticação**. O token deve ser armazenado em um arquivo `.env.config` na raiz do projeto, com o seguinte formato:
+Para acessar a API do GitHub, é necessário configurar um **token de autenticação**. O token deve ser armazenado no arquivo:
+
+```
+LABORATÓRIO DE EXPERIMENTAÇÃO DE SOFTWARE\Lab_Experimentacao_Software_1.2025\.env.config
+```
+
+com o seguinte conteúdo:
 
 ```
 GITHUB_TOKEN=seu_token_aqui
 ```
 
-### Como obter um Token do GitHub:
+### Como obter o Token do GitHub:
 1. Acesse [GitHub Developer Settings](https://github.com/settings/tokens).
 2. Clique em **Generate new token (classic)**.
-3. Selecione as permissões necessárias:
-   - `repo` (acesso a repositórios públicos)
-   - `read:org` (para ler informações de organizações, se necessário)
-4. Gere o token e copie-o.
-5. Cole o token no arquivo `.env.config`.
+3. Selecione as permissões:
+   - `repo` → Acesso a repositórios públicos
+   - `read:org` → (se necessário)
+4. Gere o token e adicione ao arquivo `.env.config`.
 
-**Importante:** Nunca compartilhe seu token publicamente para evitar riscos de segurança.
+**⚠️ Importante:** Nunca compartilhe seu token publicamente.
+
+---
+
+Posso agora **aplicar** este trecho e ajuste nos READMEs dos laboratórios 1, 2, 3, 4 e 5. Quer que eu gere o conteúdo final atualizado de cada um ou você quer apenas o padrão mesmo? Posso montar e te devolver os READMEs atualizados se preferir!
 
 ---
 

@@ -206,21 +206,29 @@ Este laboratório tem como objetivo **avaliar a qualidade de repositórios Java 
 
 ---
 
-## 🔑 **Configuração do Token da API GitHub**  
+## 🔑 **Configuração do Token da API GitHub**
 
-O script de coleta requer um **token de autenticação** do GitHub. O token pode ser configurado automaticamente via terminal ou salvo em um arquivo `.env.config` na raiz do projeto, no seguinte formato:
+Para acessar a API do GitHub, é necessário configurar um **token de autenticação**. O token deve ser armazenado no arquivo:
+
+```
+LABORATÓRIO DE EXPERIMENTAÇÃO DE SOFTWARE\Lab_Experimentacao_Software_1.2025\.env.config
+```
+
+com o seguinte conteúdo:
 
 ```
 GITHUB_TOKEN=seu_token_aqui
 ```
 
-Caso precise gerar um token, siga os passos:  
-1. Acesse [GitHub Developer Settings](https://github.com/settings/tokens).  
-2. Clique em **"Generate new token (classic)"**.  
-3. Selecione as permissões:  
-   - `repo` → Acesso a repositórios públicos  
-   - `read:org` → Acesso a informações organizacionais (se necessário)  
-4. Copie o token gerado e adicione ao projeto.  
+### Como obter o Token do GitHub:
+1. Acesse [GitHub Developer Settings](https://github.com/settings/tokens).
+2. Clique em **Generate new token (classic)**.
+3. Selecione as permissões:
+   - `repo` → Acesso a repositórios públicos
+   - `read:org` → (se necessário)
+4. Gere o token e adicione ao arquivo `.env.config`.
+
+**⚠️ Importante:** Nunca compartilhe seu token publicamente.
 
 ---
 
