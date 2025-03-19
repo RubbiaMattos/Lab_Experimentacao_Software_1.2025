@@ -135,7 +135,7 @@ def coletar_dados():
         raise ValueError(f"❌ Arquivo {REPOS_LIST_FILE} não existe ou está vazio.")
 
     logging.info(f"📥 Lendo arquivo de repositórios: {REPOS_LIST_FILE}")
-    df_repos = pd.read_csv(REPOS_LIST_FILE, header=None, names=["clone_url"])
+    df_repos = pd.read_csv(REPOS_LIST_FILE)
     logging.debug(f"🔎 Primeiras 5 linhas do CSV de repositórios:\n{df_repos.head()}")
     resultados = []
     total_repos = len(df_repos)
@@ -143,6 +143,8 @@ def coletar_dados():
 
     for idx, row in df_repos.iterrows():
         repo_url = row["clone_url"].strip()
+        created_at = row["created_at"].strip()
+
         if not repo_url:
             logging.debug("⚠️ Linha vazia encontrada; pulando...")
             continue
@@ -166,7 +168,6 @@ def coletar_dados():
 
         avg_cbo, avg_dit, avg_lcom = parse_ck_output(ck_output_dir)
         loc, comentarios = count_loc_comments(repo_path)
-        created_at = "2000-01-01"  # Valor dummy; ajuste se possuir dados reais.
         maturity = calcular_maturidade(created_at)
 
         contador += 1

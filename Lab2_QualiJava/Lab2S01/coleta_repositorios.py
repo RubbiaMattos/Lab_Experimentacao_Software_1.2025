@@ -73,7 +73,7 @@ def buscar_repositorios_mais_populares():
         items = data.get('items', [])
 
         for repo in items:
-            repositorios.append(repo['clone_url'])
+            repositorios.append((repo['clone_url'], repo['created_at']))
 
         if len(items) < 100:
             logging.info("📉 Menos de 100 repositórios retornados, encerrando a busca.")
@@ -91,8 +91,9 @@ def salvar_repositorios_list_csv(repos):
     try:
         with open(REPOS_LIST_FILE, mode='w', newline='', encoding='utf-8') as csv_file:
             writer = csv.writer(csv_file)
-            for repo_url in repos:
-                writer.writerow([repo_url])
+            writer.writerow(["clone_url", "created_at"])
+            for repo_url, created_at in repos:
+                writer.writerow([repo_url, created_at])
         logging.info(f"📥 Arquivo '{REPOS_LIST_FILE}' atualizado com {len(repos)} repositórios.")
     except Exception as e:
         logging.error(f"❌ Erro ao salvar os repositórios no CSV: {e}")
