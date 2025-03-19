@@ -7,16 +7,15 @@ from datetime import datetime
 import argparse
 from dotenv import load_dotenv
 
-# 🔹 Diretório do script atual
+# Diretório do script atual
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-# 🔹 Subir um nível para tentar encontrar o Lab1_RepoPop
-repo_root = os.path.abspath(os.path.join(script_dir, ".."))  # Volta um nível
+# Caminho direto para o .env.config que você me passou
+env_path = os.path.abspath(
+    os.path.join(script_dir, "..", "..", ".env.config")
+)
 
-# 🔹 Caminho dinâmico do .env.config
-env_path = os.path.join(repo_root, ".env.config")
-
-# 🔹 Verificar se o arquivo existe antes de carregar
+# Carrega o .env se ele existir
 if os.path.exists(env_path):
     load_dotenv(dotenv_path=env_path)
     print(f"✅ Arquivo .env.config carregado de: {env_path}")

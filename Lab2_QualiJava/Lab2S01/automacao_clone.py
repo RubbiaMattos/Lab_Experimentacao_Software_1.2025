@@ -2,25 +2,23 @@ import os
 import csv
 import subprocess
 import logging
+import re
 from dotenv import load_dotenv
 
-# 🔹 Diretório do script atual
+# Diretório do script atual
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-# 🔹 Subir um nível para tentar encontrar o Lab1_RepoPop
-repo_root = os.path.abspath(os.path.join(script_dir, ".."))  # Volta um nível
+# Caminho direto para o .env.config
+env_path = os.path.abspath(os.path.join(script_dir, "..", "..", ".env.config"))
 
-# 🔹 Caminho dinâmico do .env.config
-env_path = os.path.join(repo_root, ".env.config")
-
-# 🔹 Verificar se o arquivo existe antes de carregar
+# Carrega o .env se ele existir
 if os.path.exists(env_path):
     load_dotenv(dotenv_path=env_path)
     print(f"✅ Arquivo .env.config carregado de: {env_path}")
 else:
     raise FileNotFoundError(f"❌ ERRO: O arquivo .env.config NÃO foi encontrado no caminho esperado: {env_path}")
 
-# 🔹 Testar se o token foi carregado corretamente
+# Testa se o token foi carregado corretamente
 TOKEN = os.getenv("GITHUB_TOKEN")
 
 if TOKEN:
@@ -36,6 +34,12 @@ REPOS_LIST_FILE = os.path.join(DATA_DIR, 'repositorios_list.csv')  # CSV com as 
 
 # Configuração do logger
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+
+# Regex básica para validar URLs de repositórios Git
+GIT_URL_PATTERN = re.compile(r'^https://.+\.git$')
+
+# Domínios permitidos
+ALLOWED_DOMAINS = ["github.com", "gitlab.com"]
 
 def clonar_repositorios():
     """
@@ -56,15 +60,31 @@ def clonar_repositorios():
     cloned_count = 0
 
     for idx, row in enumerate(repositorios, start=1):
+        if not row:
+            continue  # Ignora linhas vazias
+
         repo_url = row[0].strip()
-        if not repo_url:
+
+        # Ignora comentários, linhas vazias ou URLs sem .git
+        if not repo_url or repo_url.startswith('#') or not repo_url.endswith('.git'):
+            logging.info(f"({idx}/{total_repos}) Linha inválida ou comentário detectado. Pulando...")
+            continue
+
+        # Valida se a URL corresponde ao padrão Git
+        if not GIT_URL_PATTERN.match(repo_url):
+            logging.warning(f"({idx}/{total_repos}) URL inválida detectada. Pulando: {repo_url}")
+            continue
+
+        # Valida se o domínio é permitido
+        if not any(domain in repo_url for domain in ALLOWED_DOMAINS):
+            logging.info(f"({idx}/{total_repos}) Repositório de domínio não permitido. Pulando: {repo_url}")
             continue
 
         # Extrai o nome do repositório a partir da URL (removendo ".git")
         repo_name = repo_url.split('/')[-1].replace('.git', '')
         repo_path = os.path.join(REPOS_DIR, repo_name)
 
-        # Se o repositório já foi clonado (diretório existe e contém a pasta .git), pula para o próximo
+        # Se o repositório já foi clonado (diretório existe e contém a pasta .git), pula
         if os.path.exists(repo_path) and os.path.isdir(os.path.join(repo_path, '.git')):
             logging.info(f"({idx}/{total_repos}) Repositório já clonado: {repo_name}. Pulando...")
             continue
