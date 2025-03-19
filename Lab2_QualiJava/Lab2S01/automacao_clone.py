@@ -25,7 +25,23 @@ REPOS_DIR = os.path.join(DATA_DIR, 'repos')
 REPOS_LIST_FILE = os.path.join(DATA_DIR, 'repositorios_list.csv')
 
 # 📝 Logger
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+# Caminho relativo para salvar os logs
+LOG_DIR = os.path.join(script_dir, "Relatórios")
+LOG_FILE = os.path.join(LOG_DIR, "clone_repositorios_log.log")
+
+# criar diretório de logs, se não existir
+if not os.path.exists(LOG_DIR):
+    os.makedirs(LOG_DIR)
+
+# Configuração do logger para salvar logs no arquivo
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.StreamHandler(),  # Exibe no console
+        logging.FileHandler(LOG_FILE, encoding="utf-8")
+    ]
+)
 
 GIT_URL_PATTERN = re.compile(r'^https://.+\.git$')
 ALLOWED_DOMAINS = ["github.com", "gitlab.com"]
