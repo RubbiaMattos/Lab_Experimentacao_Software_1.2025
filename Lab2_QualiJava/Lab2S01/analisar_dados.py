@@ -1,70 +1,102 @@
-# analisar_dados.py
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import logging
 import os
-import shutil
+import logging
+import pandas as pd
 
+# 📂 Configuração de diretórios base e pasta de dados
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__)))
+DATA_DIR = os.path.abspath(os.path.join(BASE_DIR, 'data'))
+
+# 📝 Configuração do logger
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 def verificar_arquivo_entrada():
-    pasta_dados = os.path.join('data', 'coletados')
-    arquivos = [f for f in os.listdir(pasta_dados) if f.endswith('.csv')]
-    if arquivos:
-        logging.info(f"📄 Arquivo de entrada encontrado: {arquivos[0]}")
-        return os.path.join(pasta_dados, arquivos[0])
-    else:
-        logging.warning("⚠️ Nenhum arquivo de entrada encontrado na pasta data/coletados.")
+    """
+    ✅ Verifica se o arquivo de entrada 'resultados_totais.csv' existe e não está vazio.
+    Esse arquivo deve ter sido gerado pelo script coletar_dados.py.
+    """
+    input_file = os.path.join(DATA_DIR, 'resultados_totais.csv')
+    if not os.path.exists(input_file):
+        logging.error(f"❌ Arquivo de entrada não encontrado: {input_file}")
+        raise FileNotFoundError(f"Arquivo de entrada não encontrado: {input_file}")
+    if os.stat(input_file).st_size == 0:
+        logging.warning(f"⚠️ Arquivo de entrada está vazio: {input_file}")
         return None
+    logging.info(f"✅ Arquivo de entrada validado: {input_file}")
+    return input_file
 
-def analisar_dados(arquivo):
-    logging.info("🔎 Carregando dados...")
-    df = pd.read_csv(arquivo)
+def analisar_dados(input_file):
+    """
+    📊 Realiza a análise dos dados do arquivo 'resultados_totais.csv':
+      - Converte as colunas de métricas para valores numéricos
+      - Preenche CK (CBO, DIT, LCOM) com 0 se vazios
+      - Remove registros com NaN nas colunas essenciais
+      - Calcula estatísticas descritivas e matriz de correlação
+      - Salva os resultados em 'analise_metrica_ck.csv'
+    """
+    output_file = os.path.join(DATA_DIR, 'analise_metrica_ck.csv')
+    logging.info("🚀 Iniciando a análise de dados...")
 
-    logging.info("🛠 Tratando valores NaN...")
-    df.fillna(0, inplace=True)
+    try:
+        df = pd.read_csv(input_file)
+        logging.info(f"📥 Arquivo de entrada '{input_file}' carregado com sucesso.")
+    except pd.errors.EmptyDataError:
+        logging.warning(f"⚠️ Arquivo de entrada está vazio ou corrompido: {input_file}")
+        return
+    except Exception as e:
+        logging.error(f"❌ Erro ao carregar o arquivo '{input_file}': {e}")
+        raise
 
-    logging.info("📊 Calculando estatísticas básicas...")
-    estatisticas = df.describe()
-    estatisticas.to_csv(os.path.join('data', 'relatorio_estatisticas.csv'))
-    logging.info("✅ Estatísticas básicas salvas em data/relatorio_estatisticas.csv")
+    # 🔎 Colunas esperadas
+    colunas_necessarias = ['repo_name', 'clone_url', 'CBO', 'DIT', 'LCOM', 'LOC', 'Comments', 'Maturity']
+    if not all(col in df.columns for col in colunas_necessarias):
+        logging.warning(f"⚠️ As colunas necessárias {colunas_necessarias} não foram encontradas no arquivo de entrada.")
+        return
 
-    logging.info("📈 Calculando a correlação entre as métricas...")
-    correlacao = df.corr()
-    correlacao.to_csv(os.path.join('data', 'relatorio_correlacao.csv'))
-    logging.info("✅ Matriz de correlação salva em data/relatorio_correlacao.csv")
+    metricas = ['CBO', 'DIT', 'LCOM', 'LOC', 'Comments', 'Maturity']
 
-    logging.info("📉 Gerando o mapa de calor das correlações...")
-    plt.figure(figsize=(12, 10))
-    sns.heatmap(correlacao, annot=True, cmap='coolwarm', fmt=".2f")
-    plt.title('Mapa de Calor da Correlação entre Métricas')
-    plt.tight_layout()
-    plt.savefig(os.path.join('data', 'correlacao_heatmap.png'))
-    plt.close()
-    logging.info("✅ Mapa de calor salvo em data/correlacao_heatmap.png")
+    # 🔄 Conversão de dados
+    for col in ['CBO', 'DIT', 'LCOM']:
+        df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
+    for col in ['LOC', 'Comments', 'Maturity']:
+        df[col] = pd.to_numeric(df[col], errors='coerce')
 
-def remover_repositorios_clonados():
-    repos_dir = os.path.join("C:\\ClonagemRepositorios", "repos")
-    if os.path.exists(repos_dir):
-        logging.info(f"🧹 Removendo repositórios clonados em: {repos_dir}")
-        shutil.rmtree(repos_dir)
-        logging.info("✅ Repositórios removidos com sucesso.")
-    else:
-        logging.info("📂 Nenhuma pasta de repositórios encontrada para remoção.")
+    # 🚮 Remover linhas inválidas
+    df_metricas = df[metricas].dropna()
+    logging.info(f"📈 Após conversão e remoção de NaN, {len(df_metricas)} registros serão analisados de um total de {len(df)}.")
+
+    if df_metricas.empty:
+        logging.warning("⚠️ Nenhum dado numérico válido encontrado após a conversão. Verifique o arquivo de entrada.")
+        return
+
+    # 📊 Estatísticas descritivas
+    stats = df_metricas.describe()
+    logging.info("📉 Estatísticas descritivas das métricas do CK (NaN removidos):")
+    logging.info("\n" + stats.to_string())
+
+    # 📈 Matriz de correlação
+    correlacoes = df_metricas.corr()
+    logging.info("🔗 Matriz de correlação entre as métricas do CK (NaN removidos):")
+    logging.info("\n" + correlacoes.to_string())
+
+    # 💾 Salvar análise
+    try:
+        stats.to_csv(output_file)
+        logging.info(f"✅ Resultados da análise salvos no arquivo: {output_file}")
+    except Exception as e:
+        logging.error(f"❌ Erro ao salvar o arquivo de saída '{output_file}': {e}")
+        raise
 
 def main():
-    logging.info("🚀 Executando o script de análise de dados com métricas do CK...")
+    logging.info("📌 Executando o script de análise de dados com métricas do CK (valores NaN tratados)...")
     try:
         input_file = verificar_arquivo_entrada()
         if input_file:
             analisar_dados(input_file)
         else:
-            logging.info("❌ Nenhuma análise foi realizada, pois o arquivo de entrada está vazio.")
+            logging.info("ℹ️ Nenhuma análise foi realizada, pois o arquivo de entrada está vazio.")
         logging.info("✅ Script de análise concluído.")
-        remover_repositorios_clonados()
     except Exception as e:
-        logging.error(f"❌ Erro durante a execução da análise: {e}")
+        logging.error(f"❌ Erro durante a execução do script de análise de dados: {e}")
         raise
 
 if __name__ == "__main__":
