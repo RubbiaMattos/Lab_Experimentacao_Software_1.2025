@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d7aaa77-3bb7-4f30-a6cd-fe9d395af648" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Lab1_RepoPop/.env.config" beforeDir="false" afterPath="$PROJECT_DIR$/Lab1_RepoPop/.env.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab2_QualiJava/.env.config" beforeDir="false" afterPath="$PROJECT_DIR$/Lab2_QualiJava/.env.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab1_RepoPop/.env.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab2_QualiJava/.env.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repositorios_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repositorios_list.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,24 +46,25 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Python.automacao_clone.executor": "Run",
-    "Python.coleta_repositorios.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Python.automacao_clone.executor&quot;: &quot;Run&quot;,
+    &quot;Python.coleta_repositorios.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="dbt.Run dbt build">
     <configuration name="Run dbt build" type="DbtRunConfiguration" factoryName="DbtRunConfiguration">
       <option name="dbtCommand" value="build" />
       <module name="Lab_Experimentacao_Software_1.2025" />
@@ -106,6 +111,8 @@
       <workItem from="1742011147338" duration="1326000" />
       <workItem from="1742014694367" duration="691000" />
       <workItem from="1742018890336" duration="556000" />
+      <workItem from="1742166166871" duration="3483000" />
+      <workItem from="1742343132967" duration="2015000" />
     </task>
     <servers />
   </component>
@@ -151,5 +158,9 @@
       <path value="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/JavaGuide" />
       <path value="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repos/spring-boot" />
     </ignored-roots>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Lab_Experimentacao_Software_1_2025$coleta_repositorios.coverage" NAME="coleta_repositorios Coverage Results" MODIFIED="1742167797013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01" />
+    <SUITE FILE_PATH="coverage/Lab_Experimentacao_Software_1_2025$automacao_clone.coverage" NAME="automacao_clone Coverage Results" MODIFIED="1742168129799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01" />
   </component>
 </project>
