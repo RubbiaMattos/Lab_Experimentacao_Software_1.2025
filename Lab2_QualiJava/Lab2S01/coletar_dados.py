@@ -94,6 +94,8 @@ def coletar_dados():
 
     for idx, row in df_repos.iterrows():
         repo_url, created_at = row["clone_url"].strip(), row["created_at"].strip()
+        stars = row["stars"] if "stars" in row else 0
+        release = row["releases"] if "releases" in row else 0
         repo_name = repo_url.split('/')[-1].replace('.git', '')
         repo_path = os.path.join(REPOS_DIR, repo_name)
 
@@ -129,7 +131,7 @@ def coletar_dados():
         contador += 1
         logging.info(f"{padding} ✅ Dados coletados: \033[35m{repo_name}\033[0m (Total: {contador})")
 
-        resultados.append({"repo_name": repo_name, "clone_url": repo_url, "CBO": cbo, "DIT": dit,
+        resultados.append({"repo_name": repo_name, "Stars": stars, "clone_url": repo_url, "Release": release, "CBO": cbo, "DIT": dit,
                            "LCOM": lcom, "LOC": loc, "Comments": comentarios, "Maturity": maturidade})
 
     pd.DataFrame(resultados).to_csv(os.path.join(DATA_DIR, "resultados_totais.csv"), index=False)
