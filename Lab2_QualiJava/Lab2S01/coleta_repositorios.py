@@ -4,7 +4,7 @@ import requests
 import logging
 from dotenv import load_dotenv
 
-# 🌍 Configuração do ambiente
+# Configuração do ambiente e logger
 script_dir = os.path.dirname(os.path.abspath(__file__))
 env_path = os.path.abspath(os.path.join(script_dir, "..", "..", ".env.config"))
 
@@ -17,56 +17,41 @@ TOKEN = os.getenv("GITHUB_TOKEN")
 if not TOKEN:
     raise ValueError("❌ ERRO: Token GITHUB_TOKEN não foi encontrado no .env.config 🔑")
 
-# 📂 Configuração de diretórios
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, 'data')
 REPOS_LIST_FILE = os.path.join(DATA_DIR, 'repositorios_list.csv')
 
-# 📝 Configuração do logger
-# 🔹 Caminho relativo para salvar os logs
 LOG_DIR = os.path.join(script_dir, "Relatórios")
 LOG_FILE = os.path.join(LOG_DIR, "coleta_repositorios_log.log")
+os.makedirs(LOG_DIR, exist_ok=True)
 
-# 🔹 Criar diretório de logs, se não existir
-if not os.path.exists(LOG_DIR):
-    os.makedirs(LOG_DIR)
-
-# 🔹 Configuração do logger para salvar logs no arquivo
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
-    handlers=[
-        logging.StreamHandler(),  # Exibe no console
-        logging.FileHandler(LOG_FILE, encoding="utf-8")
-    ]
+    format="%(asctime)s - %(levelname)-8s - %(message)s",
+    handlers=[logging.StreamHandler(), logging.FileHandler(LOG_FILE, encoding="utf-8")]
 )
 
-# 🔗 Configuração da API do GitHub
 GITHUB_API_URL = "https://api.github.com/search/repositories"
 HEADERS = {"Authorization": f"Bearer {TOKEN}"}
 
-def buscar_repositorios_mais_populares():
-    """
-    🌟 Consulta a API do GitHub e retorna os 1000 repositórios mais populares em Java.
-    """
-    logging.info("🚀 Buscando os 1000 repositórios mais populares em Java...")
+def buscar_repositorios_open_source():
+    logging.info("===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====")
     repositorios = []
 
     query_params = {
-        "q": "language:Java",
+        "q": "language:Java license:mit license:apache license:gpl license:bsd",
         "sort": "stars",
         "order": "desc",
         "per_page": 100
     }
 
-    # 🔄 Itera por até 10 páginas para obter até 1000 repositórios
     for page in range(1, 11):
         query_params["page"] = page
-        logging.info(f"📄 Consultando a página {page} da API do GitHub...")
+        logging.info(f"📄 Consultando página {page}/10 da API do GitHub...")
         response = requests.get(GITHUB_API_URL, headers=HEADERS, params=query_params)
 
         if response.status_code != 200:
-            logging.error(f"❌ Erro ao consultar a API: {response.status_code} - {response.json().get('message')}")
+            logging.error(f"❌ Erro na API (Status {response.status_code}): {response.json().get('message')}")
             break
 
         data = response.json()
@@ -76,16 +61,14 @@ def buscar_repositorios_mais_populares():
             repositorios.append((repo['clone_url'], repo['created_at']))
 
         if len(items) < 100:
-            logging.info("📉 Menos de 100 repositórios retornados, encerrando a busca.")
+            logging.info("📉 Menos de 100 resultados obtidos, encerrando busca antecipadamente.")
             break
 
-    logging.info(f"✅ Total de repositórios coletados: {len(repositorios)}")
+    logging.info(f"✅ Busca concluída: {len(repositorios)} repositórios coletados.")
     return repositorios
 
 def salvar_repositorios_list_csv(repos):
-    """
-    💾 Salva a lista de URLs de repositórios no arquivo 'repositorios_list.csv'.
-    """
+    logging.info("💾 Salvando lista de repositórios em CSV...")
     os.makedirs(DATA_DIR, exist_ok=True)
 
     try:
@@ -94,17 +77,16 @@ def salvar_repositorios_list_csv(repos):
             writer.writerow(["clone_url", "created_at"])
             for repo_url, created_at in repos:
                 writer.writerow([repo_url, created_at])
-        logging.info(f"📥 Arquivo '{REPOS_LIST_FILE}' atualizado com {len(repos)} repositórios.")
+        logging.info(f"✅ CSV salvo com sucesso em '{REPOS_LIST_FILE}' ({len(repos)} registros).")
     except Exception as e:
-        logging.error(f"❌ Erro ao salvar os repositórios no CSV: {e}")
+        logging.error(f"❌ Falha ao salvar CSV: {e}")
         raise
 
 def main():
-    logging.info("🚀 Iniciando coleta de repositórios...")
-    repositorios = buscar_repositorios_mais_populares()
+    repositorios = buscar_repositorios_open_source()
     if repositorios:
         salvar_repositorios_list_csv(repositorios)
-        logging.info("🎉 Processo finalizado com sucesso! Repositórios salvos.")
+        logging.info("🎉 Coleta de repositórios concluída com sucesso!")
     else:
         logging.warning("⚠️ Nenhum repositório foi coletado.")
 
