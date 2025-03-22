@@ -88,11 +88,13 @@ def salvar_repositorios_list_csv(repos):
 
     try:
         with open(REPOS_LIST_FILE, mode='w', newline='', encoding='utf-8') as csv_file:
+            output_dir = DATA_DIR
+            relative_output_dir = os.path.relpath(output_dir, BASE_DIR)
             writer = csv.writer(csv_file)
             writer.writerow(["clone_url", "created_at", "stars", "releases"])
             for repo_url, created_at, stars, releases in repos:
                 writer.writerow([repo_url, created_at, stars, releases])
-        logging.info(f"✅ CSV salvo com sucesso em '{REPOS_LIST_FILE}' ({len(repos)} registros).")
+        logging.info(f"✅ CSV salvo com sucesso em '{relative_output_dir}' ({len(repos)} registros).")
     except Exception as e:
         logging.error(f"❌ Falha ao salvar CSV: {e}")
         raise
