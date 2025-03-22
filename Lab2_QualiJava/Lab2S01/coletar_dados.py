@@ -3,6 +3,7 @@ import subprocess
 import pandas as pd
 import logging
 import time
+import shutil
 from datetime import datetime
 from dotenv import load_dotenv
 
@@ -36,18 +37,66 @@ logging.basicConfig(
 
 CK_TIMEOUT = 300
 
-def formatar_tempo(segundos):
-    horas, resto = divmod(int(segundos), 3600)
-    minutos, segundos = divmod(resto, 60)
-    return f"{horas:02d}:{minutos:02d}:{segundos:02d}"
+def run_ck(repo_path, output_dir, idx_display, total_repos):
+    tentativa = 0
+    while tentativa < 2:
+        temp_ck_dir = os.path.join(DATA_DIR, "temp_ck")
+        os.makedirs(temp_ck_dir, exist_ok=True)
+        os.makedirs(output_dir, exist_ok=True)
 
-def run_ck(repo_path, output_dir):
-    os.makedirs(output_dir, exist_ok=True)
-    command = ['java', '-jar', CK_JAR, repo_path, "true", "0", "true", output_dir]
-    try:
-        subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=CK_TIMEOUT)
-    except subprocess.TimeoutExpired:
-        logging.warning(f"⏰ Timeout ao executar CK em {repo_path}.")
+        command = ['java', '-jar', CK_JAR, repo_path, "true", "0", "true"]
+
+        try:
+            subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=CK_TIMEOUT, cwd=temp_ck_dir)
+        except subprocess.TimeoutExpired:
+            logging.warning(f"⏰ Timeout ao executar CK em {repo_path}.")
+            shutil.rmtree(temp_ck_dir, ignore_errors=True)
+            tentativa += 1
+            continue
+
+        expected_files = ["class.csv", "method.csv", "field.csv", "variable.csv"]
+        missing_files = []
+
+        log_prefix = f"({idx_display}/{total_repos})"
+        padding = ' ' * len(log_prefix)
+
+        logging.info(f"{padding} 📊 Coletando métricas CK (CBO, DIT, LCOM)...")
+
+        for file_name in expected_files:
+            src = os.path.join(temp_ck_dir, file_name)  # <-- ALTERADO
+            dst = os.path.join(output_dir, file_name)
+
+
+            if os.path.exists(src) and os.path.getsize(src) > 0:
+                shutil.move(src, dst)
+                if file_name == "class.csv":
+                    logging.info(f"{padding}   📄 \033[36mclass.csv\033[0m - Métricas por classe.")
+                elif file_name == "field.csv":
+                    logging.info(f"{padding}   📄 \033[36mfield.csv\033[0m - Atributos da classe.")
+                elif file_name == "method.csv":
+                    logging.info(f"{padding}   📄 \033[36mmethod.csv\033[0m - Detalhes dos métodos.")
+                elif file_name == "variable.csv":
+                    logging.info(f"{padding}   📄 \033[36mvariable.csv\033[0m - Variáveis locais.")
+            else:
+                logging.error(f"{padding} ❌ Arquivo faltando ou vazio: {file_name} | Repositório: {repo_path}")
+                missing_files.append(file_name)
+
+        shutil.rmtree(temp_ck_dir, ignore_errors=True)
+
+        if missing_files:
+            if tentativa == 0:
+                logging.warning(f"{padding} ⚠️ CK gerou arquivos faltando. Tentando rodar novamente...")
+                tentativa += 1
+                continue
+            else:
+                return False
+
+        relative_output_dir = os.path.relpath(output_dir, BASE_DIR)
+        logging.info(f"{padding} ✅ CK executado com sucesso. Arquivos salvos na pasta {relative_output_dir}")
+        return True
+    
+    return False
+
 
 def parse_ck_output(output_dir):
     class_csv = os.path.join(output_dir, "class.csv")
@@ -94,8 +143,8 @@ def coletar_dados():
 
     for idx, row in df_repos.iterrows():
         repo_url, created_at = row["clone_url"].strip(), row["created_at"].strip()
-        stars = row["stars"] if "stars" in row else 0
-        release = row["releases"] if "releases" in row else 0
+        stars = row.get("stars", 0)
+        release = row.get("releases", 0)
         repo_name = repo_url.split('/')[-1].replace('.git', '')
         repo_path = os.path.join(REPOS_DIR, repo_name)
 
@@ -110,29 +159,45 @@ def coletar_dados():
             continue
 
         ck_output_dir = os.path.join(DATA_DIR, f"ck_output_{repo_name}")
-        class_csv = os.path.join(ck_output_dir, "class.csv")
+        os.makedirs(ck_output_dir, exist_ok=True)
 
-        if os.path.exists(class_csv) and os.path.getsize(class_csv) > 0:
-            logging.info(f"{padding} ✅ CK já coletado: \033[35m{repo_name}\033[0m")
-            continue
+
+        if os.path.exists(ck_output_dir):
+            logging.info(f"{padding} ♻️ Removendo saída anterior do CK para \033[35m{repo_name}\033[0m")
+            shutil.rmtree(ck_output_dir)
+
+        os.makedirs(ck_output_dir, exist_ok=True)
 
         logging.info(f"{padding} 🔨 Executando análise CK...")
-        run_ck(repo_path, ck_output_dir)
+        success = run_ck(repo_path, ck_output_dir, idx_display, total_repos)
 
-        logging.info(f"{padding} 📊 Extraindo métricas CK...")
+        if not success:
+            logging.error(f"{padding} ❌ CK falhou ou arquivos faltando para \033[35m{repo_name}\033[0m. Pulando...")
+            continue
+
         cbo, dit, lcom = parse_ck_output(ck_output_dir)
 
-        logging.info(f"{padding} 📑 Contando LOC e comentários...")
+        logging.info(f"{padding} 📑 Contando Linhas de Código (LOC) e Comentários...")
         loc, comentarios = count_loc_comments(repo_path)
 
-        logging.info(f"{padding} 📅 Calculando maturidade...")
+        logging.info(f"{padding} 📅 Calculando Maturidade do Projeto...")
         maturidade = calcular_maturidade(created_at)
 
         contador += 1
         logging.info(f"{padding} ✅ Dados coletados: \033[35m{repo_name}\033[0m (Total: {contador})")
 
-        resultados.append({"repo_name": repo_name, "Stars": stars, "clone_url": repo_url, "Release": release, "CBO": cbo, "DIT": dit,
-                           "LCOM": lcom, "LOC": loc, "Comments": comentarios, "Maturity": maturidade})
+        resultados.append({
+            "repo_name": repo_name,
+            "Stars": stars,
+            "clone_url": repo_url,
+            "Release": release,
+            "CBO": cbo,
+            "DIT": dit,
+            "LCOM": lcom,
+            "LOC": loc,
+            "Comments": comentarios,
+            "Maturity": maturidade
+        })
 
     pd.DataFrame(resultados).to_csv(os.path.join(DATA_DIR, "resultados_totais.csv"), index=False)
 
