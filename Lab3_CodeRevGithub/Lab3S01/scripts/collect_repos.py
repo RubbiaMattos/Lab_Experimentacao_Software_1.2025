@@ -7,7 +7,7 @@ from datetime import datetime
 
 
 def get_github_token():
-    token = "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"  # Insira seu token diretamente aqui
+    token = "TOKEN GITHUB"  # Insira seu token diretamente aqui
     if not token:
         raise ValueError("Token do GitHub não definido")
     return token
