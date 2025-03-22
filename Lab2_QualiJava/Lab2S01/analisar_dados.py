@@ -111,9 +111,11 @@ def analisar_dados(input_file):
 
     try:
         stats.to_csv(output_file)
-        logging.info(f"💾 Resultados estatísticos salvos no arquivo: {output_file}")      
+        output_dir = DATA_DIR
+        relative_output_dir = os.path.relpath(output_dir, BASE_DIR)
+        logging.info(f"💾 Resultados estatísticos salvos no arquivo: {relative_output_dir}")      
     except Exception as e:
-        logging.error(f"❌ Erro ao salvar resultados no arquivo '{output_file}': {e}")
+        logging.error(f"❌ Erro ao salvar resultados no arquivo '{relative_output_dir}': {e}")
         raise
 
     return df_metricas
