@@ -70,13 +70,13 @@ def run_ck(repo_path, output_dir, idx_display, total_repos):
             if os.path.exists(src) and os.path.getsize(src) > 0:
                 shutil.move(src, dst)
                 if file_name == "class.csv":
-                    logging.info(f"{padding}   📄 \033[36mclass.csv\033[0m - Métricas por classe.")
+                    logging.info(f"{padding}   📄 \033[92mclass.csv\033[0m - Métricas por classe.")
                 elif file_name == "field.csv":
-                    logging.info(f"{padding}   📄 \033[36mfield.csv\033[0m - Atributos da classe.")
+                    logging.info(f"{padding}   📄 \033[92mfield.csv\033[0m - Atributos da classe.")
                 elif file_name == "method.csv":
-                    logging.info(f"{padding}   📄 \033[36mmethod.csv\033[0m - Detalhes dos métodos.")
+                    logging.info(f"{padding}   📄 \033[92mmethod.csv\033[0m - Detalhes dos métodos.")
                 elif file_name == "variable.csv":
-                    logging.info(f"{padding}   📄 \033[36mvariable.csv\033[0m - Variáveis locais.")
+                    logging.info(f"{padding}   📄 \033[92mvariable.csv\033[0m - Variáveis locais.")
             else:
                 logging.error(f"{padding} ❌ Arquivo faltando ou vazio: {file_name} | Repositório: {repo_path}")
                 missing_files.append(file_name)
@@ -152,10 +152,10 @@ def coletar_dados():
         log_prefix = f"({idx_display}/{total_repos})"
         padding = ' ' * len(log_prefix)
 
-        logging.info(f"{log_prefix} 📂 Processando: \033[33m{repo_name}\033[0m")
+        logging.info(f"{log_prefix} \033[4m\033[96m📂 Processando: \033[1m{repo_name}\033[0m")
 
         if not os.path.exists(repo_path):
-            logging.warning(f"{padding} 📁 Diretório não encontrado: \033[35m{repo_name}\033[0m. Pulando...")
+            logging.warning(f"{padding} 📁 Diretório não encontrado: \033[92m{repo_name}\033[0m. Pulando...")
             continue
 
         ck_output_dir = os.path.join(DATA_DIR, f"ck_output_{repo_name}")
@@ -163,7 +163,7 @@ def coletar_dados():
 
 
         if os.path.exists(ck_output_dir):
-            logging.info(f"{padding} ♻️ Removendo saída anterior do CK para \033[35m{repo_name}\033[0m")
+            logging.info(f"{padding} ♻️ Removendo saída anterior do CK para \033[92m{repo_name}\033[0m")
             shutil.rmtree(ck_output_dir)
 
         os.makedirs(ck_output_dir, exist_ok=True)
@@ -172,7 +172,7 @@ def coletar_dados():
         success = run_ck(repo_path, ck_output_dir, idx_display, total_repos)
 
         if not success:
-            logging.error(f"{padding} ❌ CK falhou ou arquivos faltando para \033[35m{repo_name}\033[0m. Pulando...")
+            logging.error(f"{padding} ❌ CK falhou ou arquivos faltando para \033[92m{repo_name}\033[0m. Pulando...")
             continue
 
         cbo, dit, lcom = parse_ck_output(ck_output_dir)
@@ -184,7 +184,7 @@ def coletar_dados():
         maturidade = calcular_maturidade(created_at)
 
         contador += 1
-        logging.info(f"{padding} ✅ Dados coletados: \033[35m{repo_name}\033[0m (Total: {contador})")
+        logging.info(f"{padding} ✅ Dados coletados: \033[92m{repo_name}\033[0m (Total: {contador})")
 
         resultados.append({
             "repo_name": repo_name,
