@@ -20,8 +20,8 @@ if not TOKEN:
     raise ValueError("❌ ERRO: Token GITHUB_TOKEN não encontrado no .env.config 🔑")
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-DATA_DIR = os.path.join(BASE_DIR, 'data')
-REPOS_DIR = os.path.join(DATA_DIR, 'C:\\Repos')
+DATA_DIR = os.path.join(BASE_DIR, 'Data')
+REPOS_DIR = os.path.abspath(os.path.join(BASE_DIR, 'Repos'))
 REPOS_LIST_FILE = os.path.join(DATA_DIR, 'repositorios_list.csv')
 CK_JAR = os.path.join(BASE_DIR, 'ck.jar')
 
