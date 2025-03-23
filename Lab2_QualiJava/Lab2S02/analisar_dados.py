@@ -4,8 +4,9 @@ import pandas as pd
 import statsmodels.api as sm
 import matplotlib.pyplot as plt
 import seaborn as sns
-from scipy.stats import pearsonr, spearmanr
+from scipy.stats import pearsonr, spearmanr, norm
 from tabulate import tabulate
+import numpy as np
 
 
 # Configuração dos diretórios base e da pasta de dados
@@ -75,36 +76,65 @@ def analisar_dados(input_file):
         return
 
     logging.info("📉 Calculando estatísticas descritivas...")
-    stats = df_metricas.describe()
-    logging.info("✅ Estatísticas calculadas com sucesso:\n" + stats.to_string())
+    stats = df_metricas.describe().applymap(lambda x: f"{x:,.0f}".replace(',', '.'))
+    logging.info("✅ Estatísticas calculadas com sucesso:\n" + tabulate(stats, headers='keys', tablefmt='grid'))
 
     logging.info("🔗 Calculando matriz de correlação...")
     correlacoes = df_metricas.corr()
-    logging.info("✅ Matriz de correlação calculada:\n" + correlacoes.to_string())
+    logging.info("✅ Matriz de correlação calculada com sucesso:\n" + tabulate(correlacoes, headers='keys', tablefmt='grid'))
 
     logging.info("🔗 Gerando histogramas das variáveis...")
     plt.figure(figsize=(15, 10))
 
-    # Para cada métrica, cria um histograma
+    # Criar histogramas com curva normal para cada métrica
     for i, metrica in enumerate(metricas, 1):
-        # Exibindo os histogramas agrupados na tela
+        data = df_metricas[metrica].dropna()
+        bins = int(np.ceil(1 + np.log2(len(data))))  # Número de bins padrão
+
         plt.subplot(2, 4, i)
-        plt.hist(df_metricas[metrica], bins=10, edgecolor='black', alpha=0.7)
+        ax = sns.histplot(data, bins=bins, kde=True, stat="count", edgecolor='black', alpha=0.7)
+
+        # Adicionar valores das frequências no topo das barras
+        for p in ax.patches:
+            height = p.get_height()
+            if height > 0:  # Evita mostrar valores para barras vazias
+                plt.text(p.get_x() + p.get_width() / 2, height + 5, f"{int(height)}",
+                        ha='center', va='bottom', fontsize=9)
+
         plt.title(f'Histograma de {metrica}')
         plt.xlabel(metrica)
         plt.ylabel('Frequência')
 
-        # Salva o gráfico com o nome da métrica concatenado
-        fig = plt.figure(figsize=(8, 6))
-        plt.hist(df_metricas[metrica], bins=10, edgecolor='black', alpha=0.7)
-        plt.title(f'Histograma de {metrica}')
-        plt.xlabel(metrica)
-        plt.ylabel('Frequência')
+        # Salvar gráfico individualmente
+        fig, ax = plt.subplots(figsize=(8, 6))
+        sns.histplot(data, bins=bins, kde=True, stat="count", edgecolor='black', alpha=0.7, ax=ax)
+
+        # Adicionar valores das frequências
+        for p in ax.patches:
+            height = p.get_height()
+            if height > 0:
+                ax.text(p.get_x() + p.get_width() / 2, height + 5, f"{int(height)}",
+                        ha='center', va='bottom', fontsize=9)
+
+        ax.set_title(f'Histograma de {metrica}')
+        ax.set_xlabel(metrica)
+        ax.set_ylabel('Frequência')
+
         plt.savefig(os.path.join(LOG_DIR, f'histograma_{metrica}.png'), dpi=300, bbox_inches='tight')
         plt.close(fig)
 
-    # Ajustar o layout para evitar sobreposição
+    # Ajustar layout e exibir gráficos agrupados
     plt.tight_layout()
+    plt.show()
+
+    # BoxPlot específico para LOC
+    fig, ax = plt.subplots(figsize=(8, 6))
+    sns.boxplot(x=df_metricas["LOC"].dropna(), ax=ax)
+    ax.set_xscale("log")
+    ax.set_title("Boxplot de LOC (Escala Logarítmica)")
+    ax.set_xlabel("Linhas de Código (LOC) - Escala Log")
+
+    plt.savefig(os.path.join(LOG_DIR, "boxplot_LOC.png"), dpi=300, bbox_inches="tight")
     plt.show()
 
     logging.info("✅ Histogramas gerados.\n")        
