@@ -95,8 +95,9 @@ def main():
     )
     args = parser.parse_args()
 
-    data_path = os.path.join(BASE_DIR, "data")
-    repos_dir = r"C:\\Repos"
+    data_path = os.path.join(BASE_DIR, "Data")
+    repos_dir = os.path.join(BASE_DIR, "Repos")
+
 
     if args.step == "all":
         print("\n⚠️   ATENÇÃO: Esta ação irá limpar o conteúdo das pastas 'data' e 'C:\\Repos'.\n")
