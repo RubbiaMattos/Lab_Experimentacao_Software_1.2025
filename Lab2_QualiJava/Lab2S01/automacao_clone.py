@@ -22,12 +22,12 @@ if not TOKEN:
     raise ValueError("❌ ERRO: Token GITHUB_TOKEN não foi encontrado no .env.config 🔐")
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-DATA_DIR = os.path.join(BASE_DIR, 'data')
-REPOS_DIR = os.path.join(DATA_DIR, 'C:\\repos')
+DATA_DIR = os.path.join(BASE_DIR, 'Data')
 REPOS_LIST_FILE = os.path.join(DATA_DIR, 'repositorios_list.csv')
 
-LOG_DIR = os.path.join(script_dir, "Relatórios")
-LOG_FILE = os.path.join(LOG_DIR, "clone_repositorios_log.log")
+REPOS_DIR = os.path.join(BASE_DIR, 'Repos')
+LOG_DIR = os.path.join(BASE_DIR, "Relatórios")
+LOG_FILE = os.path.join(LOG_DIR, "automacao_clone.log")
 os.makedirs(LOG_DIR, exist_ok=True)
 
 # ✅ Configuração do LOG sem o nível (INFO/WARNING) pra manter alinhado
