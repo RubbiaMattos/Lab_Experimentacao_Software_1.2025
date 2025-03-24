@@ -252,4 +252,3 @@ python Lab1_RepoPop/Lab01S03/RepoPop1000Final.py
 👥 **Nataniel Geraldo Mendes Peixoto**\
 👥 **Nelson de Campos Nolasco**\
 👥 **Rubia Coelho de Matos**
-
