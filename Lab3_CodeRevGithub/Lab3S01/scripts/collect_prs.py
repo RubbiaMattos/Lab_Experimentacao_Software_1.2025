@@ -10,73 +10,117 @@ from utils import get_github_token
 
 
 def load_selected_repos(file_path):
-    """
-    Carrega a lista de repositórios selecionados a partir de um arquivo CSV.
-
-    Args:
-        file_path (str): Caminho para o arquivo CSV com os repositórios
-
-    Returns:
-        list: Lista com os nomes completos dos repositórios
-    """
+    if not os.path.exists(file_path):
+        print(f"Arquivo {file_path} não encontrado. Criando arquivo de exemplo...")
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        example_repos = [
+            {"full_name": "microsoft/vscode"},
+            {"full_name": "facebook/react"},
+            {"full_name": "torvalds/linux"},
+        ]
+        pd.DataFrame(example_repos).to_csv(file_path, index=False)
+        print(f"Exemplo salvo em {file_path}")
     df = pd.read_csv(file_path)
+    if "full_name" not in df.columns:
+        raise ValueError(f"O arquivo {file_path} precisa da coluna 'full_name'")
     return df["full_name"].tolist()
 
 
+def handle_rate_limit(g):
+    try:
+        rl = g.get_rate_limit().core
+        wait_time = rl.reset.timestamp() - datetime.now().timestamp() + 60
+        print(f"Aguardando {wait_time/60:.1f} minutos (rate limit)...")
+        time.sleep(max(wait_time, 60))
+    except Exception as e:
+        print("Falha ao checar rate limit. Aguardando 10 minutos por segurança...")
+        time.sleep(600)
+
+
+def get_reviews_with_retry(pr, g, max_retries=3):
+    delay = 1
+    for attempt in range(max_retries):
+        try:
+            return list(pr.get_reviews())
+        except GithubException as e:
+            if e.status == 403:
+                print(f"Erro 403 ao obter reviews do PR #{pr.number}. Tentativa {attempt+1}/{max_retries}")
+                handle_rate_limit(g)
+                time.sleep(delay)
+                delay *= 2
+            else:
+                raise
+    raise GithubException(f"Max retries exceeded para reviews do PR #{pr.number}")
+
+
+def get_comments_with_retry(pr, g, max_retries=3):
+    delay = 1
+    for attempt in range(max_retries):
+        try:
+            try:
+                return list(pr.get_issue_comments())
+            except GithubException:
+                # Em alguns casos pode ser necessário usar get_comments()
+                return list(pr.get_comments())
+        except GithubException as e:
+            if e.status == 403:
+                print(f"Erro 403 ao obter comentários do PR #{pr.number}. Tentativa {attempt+1}/{max_retries}")
+                handle_rate_limit(g)
+                time.sleep(delay)
+                delay *= 2
+            else:
+                raise
+    raise GithubException(f"Max retries exceeded para comentários do PR #{pr.number}")
+
+
 def collect_prs_from_repo(g, repo_name, max_prs=500):
-    """
-    Coleta PRs de um repositório.
-
-    Args:
-        g (Github): Instância autenticada da API do Github
-        repo_name (str): Nome completo do repositório (formato: "dono/repo")
-        max_prs (int): Número máximo de PRs a serem coletados por repositório
-
-    Returns:
-        list: Lista de dicionários com informações sobre os PRs coletados
-    """
-    print(f"Coletando PRs do repositório {repo_name}")
-    collected_prs = []
-
+    collected = []
     try:
         repo = g.get_repo(repo_name)
-
-        # Buscar PRs fechados e mesclados (status CLOSED ou MERGED)
         pulls = repo.get_pulls(state="closed", sort="created", direction="desc")
 
-        for pr in tqdm(pulls, total=min(pulls.totalCount, max_prs), desc=f"PRs de {repo_name}"):
-            # Verifica se atingimos o limite máximo de PRs por repositório
-            if len(collected_prs) >= max_prs:
+        for i, pr in enumerate(tqdm(pulls, desc=f"{repo_name}", total=max_prs)):
+            if i >= max_prs:
                 break
 
             try:
-                # Pular PRs sem revisões
-                reviews = list(pr.get_reviews())
+                # Obter reviews com retry
+                reviews = get_reviews_with_retry(pr, g)
                 if len(reviews) == 0:
                     continue
 
-                # Verifica se o PR foi fechado/mesclado pelo menos 1 hora após a criação
-                created_at = pr.created_at
-                closed_at = pr.closed_at
-
-                if not closed_at:
+                if not pr.closed_at:
                     continue
 
-                time_diff = closed_at - created_at
-                if time_diff < timedelta(hours=1):
+                time_diff = pr.closed_at - pr.created_at
+                if time_diff.total_seconds() < 3600:
                     continue
 
-                # Coleta informações sobre o PR
-                pr_info = {
+                # Coleta de participantes (autor, revisores e comentadores)
+                participants = set()
+                if pr.user and pr.user.login:
+                    participants.add(pr.user.login)
+
+                for review in reviews:
+                    if review.user and review.user.login:
+                        participants.add(review.user.login)
+
+                # Obter comentários com retry
+                comments = get_comments_with_retry(pr, g)
+                for comment in comments:
+                    if comment.user and comment.user.login:
+                        participants.add(comment.user.login)
+
+                collected.append({
                     "repo_name": repo_name,
                     "pr_number": pr.number,
                     "title": pr.title,
-                    "body": pr.body,
+                    "body": pr.body or "",
                     "body_length": len(pr.body or ""),
                     "state": pr.state,
                     "merged": pr.merged,
                     "created_at": pr.created_at.isoformat(),
-                    "closed_at": pr.closed_at.isoformat() if pr.closed_at else None,
+                    "closed_at": pr.closed_at.isoformat(),
                     "merged_at": pr.merged_at.isoformat() if pr.merged_at else None,
                     "review_count": len(reviews),
                     "files_changed": pr.changed_files,
@@ -84,88 +128,69 @@ def collect_prs_from_repo(g, repo_name, max_prs=500):
                     "deletions": pr.deletions,
                     "comments": pr.comments,
                     "review_comments": pr.review_comments,
-                    "time_to_close_hours": time_diff.total_seconds() / 3600
-                }
-
-                # Coleta informações sobre os participantes
-                participants = set()
-                participants.add(pr.user.login)
-
-                # Adiciona revisores à lista de participantes
-                for review in reviews:
-                    if review.user and review.user.login:
-                        participants.add(review.user.login)
-
-                # Adiciona comentaristas à lista de participantes
-                comments = list(pr.get_comments())
-                for comment in comments:
-                    if comment.user and comment.user.login:
-                        participants.add(comment.user.login)
-
-                # Adicionar participantes à informação do PR
-                pr_info["participant_count"] = len(participants)
-
-                collected_prs.append(pr_info)
+                    "time_to_close_hours": time_diff.total_seconds() / 3600,
+                    "participant_count": len(participants)
+                })
 
             except GithubException as e:
-                print(f"Erro ao processar PR #{pr.number} do repositório {repo_name}: {e}")
-                # Se atingimos o limite de requisições da API, aguardamos o tempo necessário
-                if e.status == 403 and 'rate limit' in str(e).lower():
-                    handle_rate_limit(g)
+                if e.status == 403:
+                    # Já tentou fazer o tratamento de rate limit dentro dos helpers
+                    print(f"Pulando PR #{pr.number} devido a repetidos erros 403.")
+                continue
+            except Exception as e:
+                print(f"Erro no PR #{pr.number}: {e}")
+                continue
+
+        return collected
 
     except GithubException as e:
-        print(f"Erro ao acessar o repositório {repo_name}: {e}")
-        # Se atingimos o limite de requisições da API, aguardamos o tempo necessário
-        if e.status == 403 and 'rate limit' in str(e).lower():
+        if e.status == 403:
             handle_rate_limit(g)
+    except Exception as e:
+        print(f"Erro geral ao acessar {repo_name}: {e}")
+    return []
 
-    return collected_prs
 
-
-def handle_rate_limit(g):
-    """
-    Gerencia o limite de requisições da API do GitHub.
-
-    Args:
-        g (Github): Instância autenticada da API do Github
-    """
-    rate_limit = g.get_rate_limit()
-    reset_time = rate_limit.core.reset.timestamp()
-    current_time = datetime.now().timestamp()
-    sleep_time = reset_time - current_time + 60  # +60 segundos para garantir
-
-    if sleep_time > 0:
-        print(f"Limite de requisições da API atingido. Aguardando {sleep_time / 60:.2f} minutos...")
-        time.sleep(sleep_time)
+def save_prs_to_csv(prs, output_file):
+    if prs:
+        df = pd.DataFrame(prs)
+        os.makedirs(os.path.dirname(output_file), exist_ok=True)
+        df.to_csv(output_file, index=False, encoding='utf-8')
+        print(f"{len(prs)} PRs salvos em {output_file}")
+    else:
+        print("Nenhum PR para salvar.")
 
 
 def main():
-    # Obter token do GitHub
     token = get_github_token()
-    g = Github(token)
+    g = Github(token, per_page=100)
 
-    # Criar diretório de dados se não existir
     os.makedirs("data", exist_ok=True)
+    repo_file = "data/selected_repos.csv"
+    collected_file = "data/collected_prs.csv"
 
-    # Carregar repositórios selecionados
-    selected_repos = load_selected_repos("data/selected_repos.csv")
-    print(f"Encontrados {len(selected_repos)} repositórios para análise")
-
-    # Coletar PRs de cada repositório
+    selected_repos = load_selected_repos(repo_file)
+    processed_repos = set()
     all_prs = []
 
-    for repo_name in selected_repos:
-        repo_prs = collect_prs_from_repo(g, repo_name)
-        all_prs.extend(repo_prs)
+    if os.path.exists(collected_file):
+        df = pd.read_csv(collected_file)
+        processed_repos = set(df["repo_name"].unique())
+        all_prs = df.to_dict("records")
 
-        # Salvar os dados coletados incrementalmente
-        df = pd.DataFrame(all_prs)
-        df.to_csv("data/collected_prs.csv", index=False)
+    to_process = [r for r in selected_repos if r not in processed_repos]
+    print(f"{len(to_process)} repositórios restantes para coletar...")
 
-        print(f"Total de PRs coletados até agora: {len(all_prs)}")
+    for i, repo_name in enumerate(to_process, 1):
+        print(f"\n[{i}/{len(to_process)}] Coletando PRs de: {repo_name}")
+        prs = collect_prs_from_repo(g, repo_name)
+        if prs:
+            all_prs.extend(prs)
+            save_prs_to_csv(all_prs, collected_file)
 
-    print(f"Coleta concluída! Total de {len(all_prs)} PRs coletados de {len(selected_repos)} repositórios.")
+    print(f"\n✅ Coleta concluída. Total de {len(all_prs)} PRs coletados.")
 
 
 if __name__ == "__main__":
     main()
+
