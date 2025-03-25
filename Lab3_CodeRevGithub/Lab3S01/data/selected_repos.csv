@@ -1,0 +1,190 @@
+id,full_name,description,language,stargazers_count,forks_count,open_issues_count,pr_count
+28457823,freeCodeCamp/freeCodeCamp,freeCodeCamp.org's open-source codebase and curriculum. Learn to code for free.,TypeScript,413987,39475,251,38827
+132750724,codecrafters-io/build-your-own-x,Master programming by recreating your favorite technologies from scratch.,Markdown,361536,33568,363,271
+13491895,EbookFoundation/free-programming-books,:books: Freely available programming books,HTML,353674,63083,86,10133
+21737465,sindresorhus/awesome,😎 Awesome lists about all kinds of interesting topics,,352641,28761,53,2048
+54346799,public-apis/public-apis,A collective list of free APIs,Python,333596,35271,491,2902
+60493101,jwasham/coding-interview-university,A complete computer science study plan to become a software engineer.,,313479,78205,65,988
+85077558,kamranahmedse/developer-roadmap,"Interactive roadmaps, guides and other educational content to help developers grow in their careers.",TypeScript,312316,40674,209,4893
+83222441,donnemartin/system-design-primer,Learn how to design large-scale systems. Prep for the system design interview.  Includes Anki flashcards.,Python,293783,48856,485,322
+177736533,996icu/996.ICU,Repo for counting stars and contributing. Press F to pay respect to glorious developers.,,270457,21109,16698,1902
+21289110,vinta/awesome-python,"An opinionated list of awesome Python frameworks, libraries, software and resources.",Python,237940,25429,450,1517
+10270250,facebook/react,The library for web and native user interfaces.,JavaScript,233533,47948,956,16798
+88011908,practical-tutorials/project-based-learning,Curated list of project-based tutorials,,221831,28979,213,342
+36633370,awesome-selfhosted/awesome-selfhosted,A list of Free Software network services and web applications which can be hosted on your own servers,,221572,10412,0,2985
+11730342,vuejs/vue,"This is the repo for Vue 2. For Vue 3, go to https://github.com/vuejs/core",TypeScript,208513,33735,603,2295
+63476337,TheAlgorithms/Python,All Algorithms implemented in Python,Python,198642,46430,354,10115
+126577260,trekhleb/javascript-algorithms,📝 Algorithms and data structures implemented in JavaScript with explanations and links to further readings,JavaScript,190623,30574,361,535
+2325298,torvalds/linux,Linux kernel source tree,C,190093,55268,454,592
+45717250,tensorflow/tensorflow,An Open Source Machine Learning Framework for Everyone,C++,188788,74599,7726,40469
+14440270,getify/You-Dont-Know-JS,A book series (2 published editions) on the JS language.,,181411,33597,124,832
+121395510,CyC2018/CS-Notes,:books: 技术面试必备基础知识、Leetcode、计算机操作系统、计算机网络、系统设计,,179468,51211,185,550
+291137,ohmyzsh/ohmyzsh,"🙃   A delightful community-driven (with 2,400+ contributors) framework for managing your zsh configuration. Includes 300+ optional plugins (rails, git, macOS, hub, docker, homebrew, node, php, python, etc), 140+ themes to spice up your morning, and an auto-update tool that makes it easy to keep up with the latest updates from the community.",Shell,176894,26021,470,7114
+19415064,ossu/computer-science,🎓 Path to a free self-taught education in Computer Science!,HTML,176674,22442,13,446
+614765452,Significant-Gravitas/AutoGPT,"AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",Python,173675,45415,232,5208
+2126244,twbs/bootstrap,"The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web.",JavaScript,171824,79064,678,15207
+31792824,flutter/flutter,Flutter makes it easy and fast to build beautiful apps for mobile and beyond,Dart,169301,28216,13243,59569
+41881900,microsoft/vscode,Visual Studio Code,TypeScript,169065,31156,9550,37302
+1062897,github/gitignore,A collection of useful .gitignore templates,,165207,83088,499,3934
+123458551,jackfrued/Python-100-Days,Python - 100天从新手到大师,Jupyter Notebook,162759,53228,705,198
+138393139,trimstray/the-book-of-secret-knowledge,"A collection of inspiring lists, manuals, cheatsheets, blogs, hacks, one-liners, cli/web tools and more.",,161265,10144,88,210
+35955666,jlevy/the-art-of-command-line,"Master the command line, in one page",,155244,14635,246,462
+527591471,AUTOMATIC1111/stable-diffusion-webui,Stable Diffusion web UI,Python,149788,27938,2378,3163
+132464395,Snailclimb/JavaGuide,「Java学习+面试指南」一份涵盖大部分 Java 程序员所需要掌握的核心知识。准备 Java 面试，首选 JavaGuide！,Java,148829,45768,66,1456
+6498492,airbnb/javascript,JavaScript Style Guide,JavaScript,146334,26705,170,1554
+155220641,huggingface/transformers,"🤗 Transformers: State-of-the-art Machine Learning for Pytorch, TensorFlow, and JAX.",Python,141741,28364,1632,18864
+21540759,avelino/awesome-go,"A curated list of awesome Go frameworks, libraries and software",Go,140306,12154,121,4650
+1039520,ytdl-org/youtube-dl,Command-line program to download videos from YouTube.com and other video sites,Python,134773,10254,4185,4323
+658928958,ollama/ollama,"Get up and running with Llama 3.3, DeepSeek-R1, Phi-4, Gemma 3, and other large language models.",Go,134258,11105,1697,2972
+70107786,vercel/next.js,The React Framework,JavaScript,130458,27966,3236,27171
+241576270,labuladong/fucking-algorithm,"刷算法全靠套路，认准 labuladong 就够了！English version supported! Crack LeetCode, not only how, but also why. ",Markdown,127304,23325,41,463
+23096959,golang/go,The Go programming language,Go,126655,17902,9502,4079
+62607227,yangshun/tech-interview-handbook,💯 Curated coding interview preparation materials for busy software engineers,TypeScript,124419,15204,52,537
+112507086,Chalarangelo/30-seconds-of-code,Coding articles to level up your development skills,JavaScript,123140,12124,0,1613
+574523116,f/awesome-chatgpt-prompts,This repo includes ChatGPT prompt curation to use ChatGPT and other LLM tools better.,JavaScript,121870,16363,264,397
+29028775,facebook/react-native,A framework for building native applications using React,C++,121170,24557,873,21155
+111583593,Genymobile/scrcpy,Display and control your Android device,C,119406,11280,2308,478
+184456251,microsoft/PowerToys,Windows system utilities to maximize productivity,C#,116497,6881,6051,5801
+9384267,electron/electron,":electron: Build cross-platform desktop apps with JavaScript, HTML, and CSS",C++,116010,15906,969,24538
+20580498,kubernetes/kubernetes,Production-Grade Container Scheduling and Management,Go,113894,40222,2488,82749
+14098069,justjavac/free-programming-books-zh_CN,:books: 免费的计算机编程类中文书籍，欢迎投稿,,113011,28283,31,431
+561730219,krahets/hello-algo,"《Hello 算法》：动画图解、一键运行的数据结构与算法教程。支持 Python, Java, C++, C, C#, JS, Go, Swift, Rust, Ruby, Kotlin, TS, Dart 代码。简体版和繁体版同步更新，English version ongoing",Java,110809,13804,25,1141
+27193779,nodejs/node,Node.js JavaScript runtime ✨🐢🚀✨,JavaScript,110236,31055,2122,35762
+943149,d3/d3,"Bring data to life with SVG, Canvas and HTML. :bar_chart::chart_with_upwards_trend::tada:",Shell,110139,22873,21,1174
+23088740,axios/axios,Promise based HTTP client for the browser and node.js,JavaScript,106556,11044,672,1681
+576201,mrdoob/three.js,JavaScript 3D Library.,JavaScript,105168,35634,562,17465
+307260205,yt-dlp/yt-dlp,A feature-rich command-line audio/video downloader,Python,104915,8242,1868,3191
+552661142,langchain-ai/langchain,🦜🔗 Build context-aware reasoning applications,Jupyter Notebook,103954,16816,402,13233
+20929025,microsoft/TypeScript,TypeScript is a superset of JavaScript that compiles to clean JavaScript output.,TypeScript,103639,12756,6104,17909
+63537249,facebook/create-react-app,Set up a modern web app by running one command.,JavaScript,103109,26984,2301,3792
+133442384,denoland/deno,A modern runtime for JavaScript and TypeScript.,Rust,102297,5525,2134,14866
+724712,rust-lang/rust,Empowering everyone to build reliable and efficient software.,Rust,102188,13196,10867,80161
+103633984,goldbergyoni/nodebestpractices,:white_check_mark:  The Node.js best practices list (July 2024),Dockerfile,102107,10371,80,925
+100060912,microsoft/terminal,"The new Windows Terminal and the original Windows console host, all in the same place!",C++,97476,8499,1658,4531
+24195339,angular/angular,Deliver web apps with confidence 🚀,TypeScript,97257,26016,1717,29592
+15634981,godotengine/godot,Godot Engine – Multi-platform 2D and 3D game engine,C++,95391,21968,15053,43538
+231283452,excalidraw/excalidraw,Virtual whiteboard for sketching hand-drawn like diagrams,TypeScript,95305,9182,2063,4528
+23083156,mui/material-ui,Material UI: Comprehensive React component library that implements Google's Material Design. Free forever.,TypeScript,95121,32526,1830,24212
+34526884,ant-design/ant-design,An enterprise-class UI design language and React UI library,TypeScript,94039,51650,1294,19191
+32484381,ripienaar/free-for-dev,"A list of SaaS, PaaS and IaaS offerings that have free tiers of interest to devops and infradev",HTML,93004,10074,12,3473
+74791366,ryanmcdermott/clean-code-javascript,Clean Code concepts adapted for JavaScript,JavaScript,92638,12394,108,250
+48378947,fatedier/frp,A fast reverse proxy to help you expose a local server behind a NAT or firewall to the internet.,Go,91759,13811,66,942
+15204860,papers-we-love/papers-we-love,Papers from the computer science community to read and discuss.,Shell,91751,5864,2,515
+157616880,iptv-org/iptv,Collection of publicly available IPTV channels from all over the world,JavaScript,91191,3257,425,7076
+33614304,nvbn/thefuck,Magnificent app which corrects your previous console command.,Python,91047,3658,374,607
+22790488,iluwatar/java-design-patterns,Design patterns implemented in Java,Java,91025,26849,137,2205
+196701619,tauri-apps/tauri,"Build smaller, faster, and more secure desktop and mobile applications with a web frontend.",Rust,90744,2778,1045,5521
+55076063,Hack-with-Github/Awesome-Hacking,"A collection of various awesome lists for hackers, pentesters and security researchers",,90325,9176,22,109
+90796663,puppeteer/puppeteer,JavaScript API for Chrome and Firefox,TypeScript,90109,9164,266,6428
+88464704,PanJiaChen/vue-element-admin,:tada: A magical vue admin                                                                https://panjiachen.github.io/vue-element-admin,Vue,88979,30561,1354,479
+65600975,pytorch/pytorch,Tensors and Dynamic neural networks in Python with strong GPU acceleration,Python,88131,23655,15924,98428
+16408992,neovim/neovim,Vim-fork focused on extensibility and usability,Vim Script,87496,5947,1888,19393
+101296881,mtdvio/every-programmer-should-know,A collection of (mostly) technical things every software developer should know about,,86663,7968,54,143
+106017343,tailwindlabs/tailwindcss,A utility-first CSS framework for rapid UI development.,TypeScript,86553,4436,97,3513
+54173593,storybookjs/storybook,"Storybook is the industry standard workshop for building, documenting, and testing UI components in isolation",TypeScript,86184,9477,2203,13400
+311525798,microsoft/Web-Dev-For-Beginners,"24 Lessons, 12 Weeks, Get Started as a Web Developer",JavaScript,86065,12830,128,819
+701547123,open-webui/open-webui,"User-friendly AI Interface (Supports Ollama, OpenAI API, ...)",JavaScript,84944,10357,197,2700
+626805178,langgenius/dify,"Dify is an open-source LLM app development platform. Dify's intuitive interface combines AI workflow, RAG pipeline, agent capabilities, model management, observability features and more, letting you quickly go from prototype to production.",TypeScript,84752,12527,703,6158
+299354207,rustdesk/rustdesk,"An open-source remote desktop application designed for self-hosting, as an alternative to TeamViewer.",Rust,84593,11952,50,3947
+585146387,shadcn-ui/ui,"A set of beautifully-designed, accessible components and a code distribution platform. Works with your favorite frameworks. Open Source. Open Code.",TypeScript,83815,5601,1733,1144
+612230,nvm-sh/nvm,Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions,Shell,82937,8369,345,1061
+4164482,django/django,The Web framework for perfectionists with deadlines.,Python,82825,32400,312,18861
+172562475,florinpop17/app-ideas,A Collection of application ideas which can be used to improve your coding skills.,,82669,9675,481,345
+1181927,bitcoin/bitcoin,Bitcoin Core integration/staging tree,C++,82585,36946,691,21622
+160919119,fastapi/fastapi,"FastAPI framework, high performance, easy to learn, fast to code, ready for production",Python,82342,7112,325,4110
+612344730,ChatGPTNextWeb/NextChat,✨ Light and Fast AI Assistant. Support: Web | iOS | MacOS | Android |  Linux | Windows,TypeScript,82132,61027,701,2412
+74293321,sveltejs/svelte,web development for the rest of us,JavaScript,81899,4433,835,6748
+2561582,animate-css/animate.css,🍿 A cross-browser library of CSS animations. As easy to use as an easy thing.,CSS,81458,16223,53,881
+52631841,gothinkster/realworld,"""The mother of all demo apps"" — Exemplary fullstack Medium.com clone powered by React, Angular, Node, Django, and many more",TypeScript,81338,7413,69,855
+5108051,opencv/opencv,Open Source Computer Vision Library,C++,81244,56052,2717,15679
+63539055,jaywcjlove/awesome-mac," Now we have become very big, Different from the original idea. Collect premium software in various categories.",JavaScript,81144,6451,150,1065
+20904437,gin-gonic/gin,"Gin is a HTTP web framework written in Go (Golang). It features a Martini-like API with much better performance -- up to 40 times faster. If you need smashing performance, get yourself some Gin.",Go,80952,8142,852,1650
+1863329,laravel/laravel,"Laravel is a web application framework with expressive, elegant syntax. We’ve already laid the foundation for your next big idea — freeing you to create without sweating the small things.",Blade,80361,24246,32,4806
+127988011,macrozheng/mall,mall项目是一套电商系统，包括前台商城系统及后台管理系统，基于Spring Boot+MyBatis实现，采用Docker容器化部署。 前台商城系统包含首页门户、商品推荐、商品搜索、商品展示、购物车、订单流程、会员中心、客户服务、帮助中心等模块。 后台管理系统包含商品管理、订单管理、会员管理、促销管理、运营管理、内容管理、统计报表、财务管理、权限管理、设置等模块。,Java,79606,29108,18,122
+214587193,supabase/supabase,"The open source Firebase alternative. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.",TypeScript,79601,8030,572,13300
+11180687,gohugoio/hugo,The world’s fastest framework for building websites.,Go,78923,7706,492,5621
+537603333,openai/whisper,Robust Speech Recognition via Large-Scale Weak Supervision,Python,78670,9429,96,201
+26500787,tonsky/FiraCode,Free monospaced font with programming ligatures,Clojure,78466,3127,407,189
+51117837,tensorflow/models,Models and examples built with TensorFlow,Python,77464,45662,1245,3657
+151834062,doocs/advanced-java,😮 Core Interview Questions & Answers For Experienced Java(Backend) Developers | 互联网 Java 工程师进阶知识完全扫盲：涵盖高并发、分布式、高可用、微服务、海量数据处理等领域知识,Java,77282,19166,5,125
+12888993,home-assistant/core,:house_with_garden: Open source home automation that puts local control and privacy first.,Python,77247,32947,3316,81387
+26066727,mermaid-js/mermaid,Generation of diagrams like flowcharts or sequence diagrams from text in a similar manner as markdown,TypeScript,77133,7210,1297,2691
+612354784,ggml-org/llama.cpp,LLM inference in C/C++,C++,77012,11163,746,5171
+357728969,oven-sh/bun,"Incredibly fast JavaScript runtime, bundler, test runner, and package manager – all in one",Zig,76979,2980,4516,6084
+199570071,2dust/v2rayN,"A GUI client for Windows, Linux and macOS, support Xray and sing-box and others",C#,76968,12372,13,388
+6296790,spring-projects/spring-boot,"Spring Boot helps you to create Spring-powered, production-grade applications and services with absolute minimum fuss.",Java,76515,40999,560,6745
+32689863,3b1b/manim,Animation engine for explanatory math videos,Python,76281,6628,448,851
+655806940,microsoft/generative-ai-for-beginners,"21 Lessons, Get Started Building with Generative AI  🔗 https://microsoft.github.io/generative-ai-for-beginners/",Jupyter Notebook,75488,39098,10,438
+3470471,FortAwesome/Font-Awesome,"The iconic SVG, font, and CSS toolkit",JavaScript,74770,12199,4161,666
+14747598,typicode/json-server,Get a full fake REST API with zero coding in less than 30 seconds (seriously),JavaScript,73886,7107,710,318
+10744183,netdata/netdata,X-Ray Vision for your infrastructure!,C,73874,6032,217,11262
+47018239,DopplerHQ/awesome-interview-questions,:octocat: A curated awesome list of lists of interview questions. Feel free to contribute! :mortar_board: ,,73854,9029,50,210
+619959033,nomic-ai/gpt4all,GPT4All: Run Local LLMs on Any Device. Open-source and available for commercial use.,C++,72884,7943,694,1151
+44571718,vuejs/awesome-vue,🎉 A curated list of awesome things related to Vue.js,,72689,9470,51,3908
+44882201,MunGell/awesome-for-beginners,A list of awesome beginners-friendly projects.,,72583,7205,15,1365
+278335273,anuraghazra/github-readme-stats,:zap: Dynamically generated stats for your github readmes,JavaScript,72115,24133,386,2255
+507775,elastic/elasticsearch,"Free and Open Source, Distributed, RESTful Search Engine",Java,72068,25098,4975,85450
+589831718,comfyanonymous/ComfyUI,"The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface.",Python,71892,7794,2191,1243
+257485422,vitejs/vite,Next generation frontend tooling. It's fast!,TypeScript,71570,6535,595,6640
+343965132,microsoft/ML-For-Beginners,"12 weeks, 26 lessons, 52 quizzes, classic Machine Learning for all",HTML,71508,15295,5,520
+212639071,bregman-arie/devops-exercises,"Linux, Jenkins, AWS, SRE, Prometheus, Docker, Python, Ansible, Git, Kubernetes, Terraform, OpenStack, SQL, NoSQL, Azure, GCP, DNS, Elastic, Network, Virtualization. DevOps Interview Questions",Python,70677,15830,45,376
+221981891,microsoft/playwright,"Playwright is a framework for Web Testing and Automation. It allows testing Chromium, Firefox and WebKit with a single API. ",TypeScript,70622,3982,799,16226
+203587744,hoppscotch/hoppscotch,"Open source API development ecosystem - https://hoppscotch.io (open-source alternative to Postman, Insomnia)",TypeScript,70398,4821,524,2577
+172953845,coder/code-server,VS Code in the browser,TypeScript,70397,5816,148,1952
+80945428,nestjs/nest,"A progressive Node.js framework for building efficient, scalable, and enterprise-grade server-side applications with TypeScript/JavaScript 🚀",TypeScript,70005,7792,59,8868
+107111421,thedaviddias/Front-End-Checklist,🗂 The perfect Front-End Checklist for modern websites and meticulous developers,,69701,6468,1,306
+243950408,Anduin2017/HowToCook,程序员在家做饭方法指南。Programmer's guide about how to cook at home (Simplified Chinese only).,Dockerfile,69652,8858,395,694
+193215554,n8n-io/n8n,"Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",TypeScript,69604,18021,660,10879
+7691631,moby/moby,The Moby Project - a collaborative project for the container ecosystem to assemble container-based systems,Go,69446,18708,3554,25560
+596892,pallets/flask,The Python micro framework for building web applications.,Python,69146,16332,13,2587
+13807606,junegunn/fzf,:cherry_blossom: A command-line fuzzy finder,Go,68785,2479,282,951
+14712850,syncthing/syncthing,Open Source Continuous File Synchronization,Go,68744,4447,410,4274
+1861458,hakimel/reveal.js,The HTML Presentation Framework,JavaScript,68552,16685,847,1004
+596115135,base/node,Everything required to run your own Base node,Shell,68538,2661,56,198
+156018,redis/redis,"Redis is an in-memory database that persists on disk. The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes, Streams, HyperLogLogs, Bitmaps.",C,68417,23924,2556,6372
+71583602,Developer-Y/cs-video-courses,List of Computer Science courses with video lectures.,,68378,9251,3,234
+44838949,swiftlang/swift,The Swift Programming Language,C++,68247,10435,8119,59162
+616372661,binary-husky/gpt_academic,"为GPT/GLM等LLM大语言模型提供实用化交互接口，特别优化论文阅读/润色/写作体验，模块化设计，支持自定义快捷按钮&函数插件，支持Python和C++等项目剖析&自译解功能，PDF/LaTex论文翻译&总结功能，支持并行问询多种LLM模型，支持chatglm3等本地模型。接入通义千问, deepseekcoder, 讯飞星火, 文心一言, llama2, rwkv, claude2, moss等。",Python,67981,8331,269,323
+101138315,d2l-ai/d2l-zh,《动手学深度学习》：面向中文读者、能运行、可讨论。中英文版被70多个国家的500多所大学用于教学。,Python,67454,11440,106,1259
+22670857,enaqx/awesome-react,A collection of awesome things regarding React ecosystem,,67311,7307,16,1297
+21872392,josephmisiti/awesome-machine-learning,"A curated list of awesome Machine Learning frameworks, libraries and software.",Python,67297,14822,3,906
+15111821,grafana/grafana,"The open and composable observability and data visualization platform. Visualize metrics, logs, and traces from multiple sources like Prometheus, Loki, Elasticsearch, InfluxDB, Postgres and many more. ",TypeScript,67139,12477,4085,59993
+23357588,protocolbuffers/protobuf,Protocol Buffers - Google's data interchange format,C++,66919,15644,272,13938
+237159,expressjs/express,"Fast, unopinionated, minimalist web framework for node.",JavaScript,66562,17919,183,1773
+83999700,sdmg15/Best-websites-a-programmer-should-visit,:link: Some useful websites for programmers.,,66404,8095,930,934
+382496361,louislam/uptime-kuma,A fancy self-hosted monitoring tool,JavaScript,66240,5837,835,1604
+81598961,python/cpython,The Python programming language,Python,65888,31358,9005,57279
+43441403,strapi/strapi,"🚀 Strapi is the leading open-source headless CMS. It’s 100% JavaScript/TypeScript, fully customizable, and developer-first.",TypeScript,65705,8431,1043,11183
+246335987,ventoy/Ventoy,A new bootable USB solution.,C,65601,4208,902,405
+22887094,tesseract-ocr/tesseract,Tesseract Open Source OCR Engine (main repository),C++,65557,9760,439,1624
+8843683,chartjs/Chart.js,Simple HTML5 Charts using the <canvas> tag,JavaScript,65545,11934,470,3822
+3678731,webpack/webpack,"A bundler for javascript and friends. Packs many modules into a few bundled assets. Code Splitting allows for loading parts of the application on demand. Through ""loaders"", modules can be CommonJs, AMD, ES6 modules, CSS, Images, JSON, Coffeescript, LESS, ... and your custom stuff.",JavaScript,65133,9019,241,7140
+39464018,apache/superset,Apache Superset is a Data Visualization and Data Exploration Platform,TypeScript,65057,14699,1003,17765
+147350463,leonardomso/33-js-concepts,📜 33 JavaScript concepts every developer should know.,JavaScript,64914,9075,83,392
+3638964,ansible/ansible,"Ansible is a radically simple IT automation platform that makes your applications and systems easier to deploy and maintain. Automate everything from code deployment to network configuration to cloud management, in a language that approaches plain English, using SSH, with no agents to install on remote systems. https://docs.ansible.com.",Python,64371,23997,856,51291
+71220757,swisskyrepo/PayloadsAllTheThings,A list of useful payloads and bypass for Web Application Security and Pentest/CTF,Python,64076,15160,16,664
+22067521,ocornut/imgui,Dear ImGui: Bloat-free Graphical User interface for C++ with minimal dependencies,C++,64006,10694,1094,1324
+620936652,xtekky/gpt4free,"The official gpt4free repository | various collection of powerful language models | o3 and deepseek r1, gpt-4.5",Python,63870,13577,12,929
+191529732,lydiahallie/javascript-questions,"A long list of (advanced) JavaScript questions, and their explanations :sparkles:  ",,63622,9041,38,512
+162998479,sherlock-project/sherlock,Hunt down social media accounts by username across social networks,Python,63182,7285,211,1056
+619859161,twitter/the-algorithm,Source code for Twitter's Recommendation Algorithm,Scala,63014,12164,456,351
+13233158,obsproject/obs-studio,OBS Studio - Free and open source software for live streaming and screen recording,C,62983,8277,893,6804
+33015583,keras-team/keras,Deep Learning for humans,Python,62735,19553,274,7861
+77213120,Eugeny/tabby,A terminal for a more modern age,TypeScript,62588,3540,2221,3933
+26898879,awesomedata/awesome-public-datasets,A topic-centric list of HQ open datasets.,,62533,10065,131,284
+21935031,fffaraz/awesome-cpp,"A curated list of awesome C++ (or C) frameworks, libraries, resources, and shiny things. Inspired by awesome-... stuff.",,62512,7934,413,947
+468576060,openai/openai-cookbook,Examples and guides for using the OpenAI API,MDX,62435,10095,66,984
+331107018,FuelLabs/sway,🌴 Empowering everyone to build reliable and efficient smart contracts.,Rust,62389,5385,861,3746
+29207621,caddyserver/caddy,Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS,Go,62385,4207,167,2475
+1334369,resume/resume.github.com,Resumes generated using the GitHub informations,JavaScript,62322,1357,66,173
+9185792,apache/echarts,"Apache ECharts is a powerful, interactive charting and data visualization library for browser",TypeScript,62180,19698,2135,1797
+455229168,immich-app/immich,High performance self-hosted photo and video management solution.,TypeScript,61880,3241,514,6653
+557980,socketio/socket.io,Realtime application framework (Node.JS server),TypeScript,61800,10143,184,853
+120538304,kelseyhightower/nocode,The best way to write secure and reliable applications. Write nothing; deploy nowhere.,Dockerfile,61786,4728,4513,169
+3482588,danielmiessler/SecLists,"SecLists is the security tester's companion. It's a collection of multiple types of lists used during security assessments, collected in one place. List types include usernames, passwords, URLs, sensitive data patterns, fuzzing payloads, web shells, and many more.",PHP,61566,24223,3,840
+377496562,AppFlowy-IO/AppFlowy,"Bring projects, wikis, and teams together with AI. AppFlowy is the AI collaborative workspace where you achieve more without losing control of your data. The leading open source Notion alternative.",Dart,61561,4122,922,4023
+843222,scikit-learn/scikit-learn,scikit-learn: machine learning in Python,Python,61514,25710,2164,17872
+419347358,PKUFlyingPig/cs-self-learning,计算机自学指南,HTML,61234,7156,125,314
+63477660,TheAlgorithms/Java,All Algorithms implemented in Java,Java,61139,19810,6,4780
+36535156,reduxjs/redux,A JS library for predictable global state management,TypeScript,61123,15254,41,2547
+18408635,chrislgarry/Apollo-11,Original Apollo 11 Guidance Computer (AGC) source code for the command and lunar modules.,Assembly,60904,7162,123,452
