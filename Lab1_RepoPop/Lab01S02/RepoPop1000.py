@@ -26,32 +26,9 @@ import os
 import time
 import pandas as pd
 import requests
-from dotenv import load_dotenv
+from config_token import configurar_token
 
-
-# Diretório do script atual
-script_dir = os.path.dirname(os.path.abspath(__file__))
-
-# Caminho direto para o env.config que você me passou
-env_path = os.path.abspath(
-    os.path.join(script_dir, "..", "..", "env.config")
-)
-
-# Carrega o .env se ele existir
-if os.path.exists(env_path):
-    load_dotenv(dotenv_path=env_path)
-    print(f"✅ Arquivo env.config carregado de: {env_path}")
-else:
-    raise FileNotFoundError(f"❌ ERRO: O arquivo env.config NÃO foi encontrado no caminho esperado: {env_path}")
-
-# 🔹 Testar se o token foi carregado corretamente
-TOKEN = os.getenv("GITHUB_TOKEN")
-
-if TOKEN:
-    print("✅ Token carregado com sucesso!")
-else:
-    raise ValueError("❌ ERRO: Token GITHUB_TOKEN não foi encontrado no env.config")
-
+TOKEN = configurar_token()
 
 # 🔹 Define diretório de saída para os arquivos gerados
 output_dir = os.path.join(os.getcwd(), "Relatórios")

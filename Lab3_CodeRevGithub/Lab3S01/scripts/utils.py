@@ -2,24 +2,9 @@ import os
 import pandas as pd
 import numpy as np
 from scipy import stats
-from dotenv import load_dotenv
+from utils import configurar_token
 
-# Carrega automaticamente variáveis do .env
-load_dotenv()
-
-
-def get_github_token():
-    """
-    Retorna o token do GitHub da variável de ambiente GITHUB_TOKEN.
-    
-    Returns:
-        str: Token de acesso ao GitHub
-    """
-    token = os.getenv("GITHUB_TOKEN")
-    if not token:
-        raise ValueError("Token do GitHub não definido. Verifique seu arquivo .env.")
-    return token
-
+TOKEN = configurar_token()
 
 def calculate_correlation(data, x_column, y_column, method='spearman'):
     """

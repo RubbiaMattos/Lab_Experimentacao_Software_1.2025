@@ -6,7 +6,7 @@ import numpy as np
 from tqdm import tqdm
 from datetime import datetime, timedelta
 from github import Github, GithubException
-from utils import get_github_token
+from config_token import configurar_token
 
 
 def load_selected_repos(file_path):
@@ -162,8 +162,8 @@ def save_prs_to_csv(prs, output_file):
 
 
 def main():
-    token = get_github_token()
-    g = Github(token, per_page=100)
+    TOKEN = configurar_token()
+    g = Github(TOKEN, per_page=100)
 
     os.makedirs("data", exist_ok=True)
     repo_file = "data/selected_repos.csv"

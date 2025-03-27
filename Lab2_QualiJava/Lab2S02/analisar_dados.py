@@ -16,13 +16,16 @@ DATA_DIR = os.path.abspath(os.path.join(BASE_DIR, 'data'))
 # Configuração do logger
 script_dir = os.path.dirname(os.path.abspath(__file__))
 LOG_DIR = os.path.join(script_dir, "Relatórios")
-LOG_FILE = os.path.join(LOG_DIR, "analisar_dados_log.log")
+LOG_FILE = os.path.join(LOG_DIR, "analisar_dados.log")
 os.makedirs(LOG_DIR, exist_ok=True)
 
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)-8s - %(message)s",
-    handlers=[logging.StreamHandler(), logging.FileHandler(LOG_FILE, encoding="utf-8")]
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler(LOG_FILE, encoding="utf-8")
+    ]
 )
 
 def verificar_arquivo_entrada():

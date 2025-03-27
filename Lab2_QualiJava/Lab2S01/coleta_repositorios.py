@@ -2,20 +2,11 @@ import os
 import csv
 import requests
 import logging
-from dotenv import load_dotenv
+from config_token import configurar_token
 
+TOKEN = configurar_token()
 # Configuração do ambiente e logger
 script_dir = os.path.dirname(os.path.abspath(__file__))
-env_path = os.path.abspath(os.path.join(script_dir, "..", "..", "env.config"))
-
-if os.path.exists(env_path):
-    load_dotenv(dotenv_path=env_path)
-else:
-    raise FileNotFoundError(f"❌ ERRO: O arquivo env.config NÃO foi encontrado: {env_path}")
-
-TOKEN = os.getenv("GITHUB_TOKEN")
-if not TOKEN:
-    raise ValueError("❌ ERRO: Token GITHUB_TOKEN não foi encontrado no env.config 🔑")
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, 'data')
@@ -28,7 +19,10 @@ os.makedirs(LOG_DIR, exist_ok=True)
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)-8s - %(message)s",
-    handlers=[logging.StreamHandler(), logging.FileHandler(LOG_FILE, encoding="utf-8")]
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler(LOG_FILE, encoding="utf-8")
+    ]
 )
 
 GITHUB_API_URL = "https://api.github.com/search/repositories"

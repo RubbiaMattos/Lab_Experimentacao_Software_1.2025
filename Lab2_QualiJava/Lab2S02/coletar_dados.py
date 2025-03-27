@@ -5,34 +5,29 @@ import logging
 import time
 import shutil
 from datetime import datetime
-from dotenv import load_dotenv
+from config_token import configurar_token
+
+TOKEN = configurar_token()
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-env_path = os.path.abspath(os.path.join(script_dir, "..", "..", "env.config"))
-
-if os.path.exists(env_path):
-    load_dotenv(dotenv_path=env_path)
-else:
-    raise FileNotFoundError(f"❌ ERRO: Arquivo env.config NÃO encontrado: {env_path}")
-
-TOKEN = os.getenv("GITHUB_TOKEN")
-if not TOKEN:
-    raise ValueError("❌ ERRO: Token GITHUB_TOKEN não encontrado no env.config 🔑")
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-DATA_DIR = os.path.join(BASE_DIR, 'data')
-REPOS_DIR = os.path.join(DATA_DIR, 'C:\\Repos')
+DATA_DIR = os.path.join(BASE_DIR, 'Data')
+REPOS_DIR = os.path.abspath(os.path.join(BASE_DIR, 'Repos'))
 REPOS_LIST_FILE = os.path.join(DATA_DIR, 'repositorios_list.csv')
 CK_JAR = os.path.join(BASE_DIR, 'ck.jar')
 
 LOG_DIR = os.path.join(script_dir, "Relatórios")
-LOG_FILE = os.path.join(LOG_DIR, "coletar_dados_log.log")
+LOG_FILE = os.path.join(LOG_DIR, "coletar_dados.log")
 os.makedirs(LOG_DIR, exist_ok=True)
 
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)-8s - %(message)s",
-    handlers=[logging.StreamHandler(), logging.FileHandler(LOG_FILE, encoding="utf-8")]
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler(LOG_FILE, encoding="utf-8")
+    ]
 )
 
 CK_TIMEOUT = 300
