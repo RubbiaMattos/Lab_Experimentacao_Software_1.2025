@@ -1,22 +1,17 @@
 import os
 import json
+from dotenv import load_dotenv
 import requests
 import pandas as pd
 from tqdm import tqdm
 from datetime import datetime
+from config_token import configurar_token
 
-
-def get_github_token():
-    token = "Token aqui"  # Insira seu token diretamente aqui
-    if not token:
-        raise ValueError("Token do GitHub não definido")
-    return token
-
-
+TOKEN = configurar_token()
 
 def fetch_popular_repos(token, count=200):
     headers = {
-        "Authorization": f"token {token}",
+        "Authorization": f"token {TOKEN}",
         "Accept": "application/vnd.github.v3+json"
     }
     params = {
@@ -41,7 +36,7 @@ def fetch_popular_repos(token, count=200):
 
 def filter_repos_with_min_prs(repos, token, min_prs=100):
     headers = {
-        "Authorization": f"token {token}",
+        "Authorization": f"token {TOKEN}",
         "Accept": "application/vnd.github.v3+json"
     }
     filtered = []
@@ -74,9 +69,9 @@ def main():
     if os.path.exists(output_file):
         print(f"{output_file} já existe. Pulando coleta.")
         return
-    token = get_github_token()
-    repos = fetch_popular_repos(token)
-    filtered = filter_repos_with_min_prs(repos, token)
+    TOKEN = configurar_token()
+    repos = fetch_popular_repos(TOKEN)
+    filtered = filter_repos_with_min_prs(repos, TOKEN)
     save_repos_to_csv(filtered, output_file)
 
 if __name__ == "__main__":
