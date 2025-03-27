@@ -6,16 +6,16 @@ from dotenv import load_dotenv
 
 # Configuração do ambiente e logger
 script_dir = os.path.dirname(os.path.abspath(__file__))
-env_path = os.path.abspath(os.path.join(script_dir, "..", "..", ".env.config"))
+env_path = os.path.abspath(os.path.join(script_dir, "..", "..", "env.config"))
 
 if os.path.exists(env_path):
     load_dotenv(dotenv_path=env_path)
 else:
-    raise FileNotFoundError(f"❌ ERRO: O arquivo .env.config NÃO foi encontrado: {env_path}")
+    raise FileNotFoundError(f"❌ ERRO: O arquivo env.config NÃO foi encontrado: {env_path}")
 
 TOKEN = os.getenv("GITHUB_TOKEN")
 if not TOKEN:
-    raise ValueError("❌ ERRO: Token GITHUB_TOKEN não foi encontrado no .env.config 🔑")
+    raise ValueError("❌ ERRO: Token GITHUB_TOKEN não foi encontrado no env.config 🔑")
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, 'data')

@@ -8,8 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab1_RepoPop/.env.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab2_QualiJava/.env.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab1_RepoPop/env.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab2_QualiJava/env.config" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repositorios_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repositorios_list.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

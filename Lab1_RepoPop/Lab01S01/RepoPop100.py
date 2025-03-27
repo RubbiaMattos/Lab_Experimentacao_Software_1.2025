@@ -16,7 +16,7 @@ Dependências:
     - requests: faz requisições HTTP.
     - matplotlib: para criação de gráficos e visualizações.
     - seaborn: visualização estatística baseada no Matplotlib, oferece uma interface amigável e gráficos atraentes.
-    - python-dotenv: permite carregar variáveis de ambiente a partir de um arquivo .env.config
+    - python-dotenv: permite carregar variáveis de ambiente a partir de um arquivo env.config
     - os: fornece funções para interagir com o sistema operacional.
     - time: fornece várias funções para trabalhar com tempo.
 
@@ -31,17 +31,17 @@ from dotenv import load_dotenv
 # Diretório do script atual
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Caminho direto para o .env.config que você me passou
+# Caminho direto para o env.config que você me passou
 env_path = os.path.abspath(
-    os.path.join(script_dir, "..", "..", ".env.config")
+    os.path.join(script_dir, "..", "..", "env.config")
 )
 
 # Carrega o .env se ele existir
 if os.path.exists(env_path):
     load_dotenv(dotenv_path=env_path)
-    print(f"✅ Arquivo .env.config carregado de: {env_path}")
+    print(f"✅ Arquivo env.config carregado de: {env_path}")
 else:
-    raise FileNotFoundError(f"❌ ERRO: O arquivo .env.config NÃO foi encontrado no caminho esperado: {env_path}")
+    raise FileNotFoundError(f"❌ ERRO: O arquivo env.config NÃO foi encontrado no caminho esperado: {env_path}")
 
 # 🔹 Testar se o token foi carregado corretamente
 TOKEN = os.getenv("GITHUB_TOKEN")
@@ -49,7 +49,7 @@ TOKEN = os.getenv("GITHUB_TOKEN")
 if TOKEN:
     print("✅ Token carregado com sucesso!")
 else:
-    raise ValueError("❌ ERRO: Token GITHUB_TOKEN não foi encontrado no .env.config")
+    raise ValueError("❌ ERRO: Token GITHUB_TOKEN não foi encontrado no env.config")
 
 # 🔹 Definir diretório de saída para os arquivos gerados
 output_dir = os.path.join(os.getcwd(), "Relatórios")

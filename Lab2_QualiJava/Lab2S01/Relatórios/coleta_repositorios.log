@@ -1,0 +1,451 @@
+2025-03-25 22:31:11,121 - INFO     - ===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====
+
+2025-03-25 22:31:11,122 - INFO     - 📄 Consultando página 1/10 da linguagem Java...
+2025-03-25 22:31:44,182 - WARNING  - ⚠️ Repositório alibaba/vlayout está arquivado. Ignorando...
+2025-03-25 22:31:45,069 - WARNING  - ⚠️ Repositório lipangit/JiaoZiVideoPlayer está arquivado. Ignorando...
+2025-03-25 22:31:54,727 - WARNING  - ⚠️ Repositório LSPosed/LSPatch está arquivado. Ignorando...
+2025-03-25 22:31:59,690 - WARNING  - ⚠️ Repositório geeeeeeeeek/WeChatLuckyMoney está arquivado. Ignorando...
+2025-03-25 22:32:01,921 - WARNING  - ⚠️ Repositório zo0r/react-native-push-notification está arquivado. Ignorando...
+2025-03-25 22:32:11,461 - WARNING  - ⚠️ Repositório k0shk0sh/FastHub está arquivado. Ignorando...
+2025-03-25 22:32:19,458 - INFO     - 📄 Consultando página 2/10 da linguagem Java...
+2025-03-25 22:33:14,458 - INFO     - ===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====
+
+2025-03-25 22:33:14,459 - INFO     - 📄 Consultando página 1/10 da linguagem Java...
+2025-03-25 22:33:49,806 - INFO     - 📄 Consultando página 2/10 da linguagem Java...
+2025-03-25 22:34:24,925 - INFO     - 📄 Consultando página 3/10 da linguagem Java...
+2025-03-25 22:34:58,441 - INFO     - 📄 Consultando página 4/10 da linguagem Java...
+2025-03-25 22:35:32,852 - INFO     - 📄 Consultando página 5/10 da linguagem Java...
+2025-03-25 22:36:04,994 - INFO     - ===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====
+
+2025-03-25 22:36:04,994 - INFO     - 📄 Consultando página 1/10 da linguagem Java...
+2025-03-25 22:37:17,317 - INFO     - 📄 Consultando página 2/10 da linguagem Java...
+2025-03-25 22:38:26,734 - INFO     - 📄 Consultando página 3/10 da linguagem Java...
+2025-03-25 22:39:33,507 - INFO     - 📄 Consultando página 4/10 da linguagem Java...
+2025-03-25 22:40:40,905 - INFO     - 📄 Consultando página 5/10 da linguagem Java...
+2025-03-25 22:41:48,198 - INFO     - 📄 Consultando página 6/10 da linguagem Java...
+2025-03-25 22:42:56,276 - INFO     - 📄 Consultando página 7/10 da linguagem Java...
+2025-03-25 22:43:48,047 - INFO     - ===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====
+
+2025-03-25 22:43:48,048 - INFO     - 📄 Consultando página 1/10 da linguagem Java...
+2025-03-25 22:44:59,020 - INFO     - 📄 Consultando página 2/10 da linguagem Java...
+2025-03-25 22:46:11,860 - INFO     - 📄 Consultando página 3/10 da linguagem Java...
+2025-03-25 22:47:20,220 - INFO     - 📄 Consultando página 4/10 da linguagem Java...
+2025-03-25 22:48:28,502 - INFO     - 📄 Consultando página 5/10 da linguagem Java...
+2025-03-25 22:49:36,424 - INFO     - 📄 Consultando página 6/10 da linguagem Java...
+2025-03-25 22:50:46,216 - INFO     - 📄 Consultando página 7/10 da linguagem Java...
+2025-03-25 22:51:56,402 - INFO     - 📄 Consultando página 8/10 da linguagem Java...
+2025-03-25 22:53:03,441 - INFO     - 📄 Consultando página 9/10 da linguagem Java...
+2025-03-25 22:54:10,956 - INFO     - 📄 Consultando página 10/10 da linguagem Java...
+2025-03-25 22:55:14,303 - INFO     - 📄 Consultando página 1/10 da linguagem Python...
+2025-03-25 22:56:05,204 - INFO     - ✅ Requisição atingiu 1000 repositórios válidos. Parando coleta.
+2025-03-25 22:56:05,205 - INFO     - 💾 Salvando lista de repositórios em CSV...
+2025-03-25 22:56:05,210 - INFO     - ✅ CSV salvo com sucesso em 'D:\Lab_Experimentacao_Software_1.2025\Lab2_QualiJava\Lab2S01\data\repositorios_list.csv' (1000 registros).
+2025-03-25 22:56:05,210 - INFO     - 🎉 Coleta de repositórios concluída com sucesso!
+2025-03-25 22:58:42,175 - INFO     - ===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====
+2025-03-25 22:58:42,176 - INFO     - 📄 Consultando página 1/10 da API do GitHub...
+2025-03-25 23:01:01,954 - INFO     - ===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====
+2025-03-25 23:01:01,956 - INFO     - 📄 Consultando página 1/10 da API do GitHub...
+2025-03-25 23:02:09,563 - INFO     - 📄 Consultando página 2/10 da API do GitHub...
+2025-03-25 23:03:16,685 - INFO     - 📄 Consultando página 3/10 da API do GitHub...
+2025-03-25 23:04:22,183 - INFO     - 📄 Consultando página 4/10 da API do GitHub...
+2025-03-25 23:05:25,247 - INFO     - 📄 Consultando página 5/10 da API do GitHub...
+2025-03-25 23:06:04,684 - INFO     - 📄 Consultando página 6/10 da API do GitHub...
+2025-03-25 23:06:29,281 - INFO     - 📄 Consultando página 7/10 da API do GitHub...
+2025-03-25 23:06:53,384 - INFO     - 📄 Consultando página 8/10 da API do GitHub...
+2025-03-25 23:07:17,914 - INFO     - 📄 Consultando página 9/10 da API do GitHub...
+2025-03-25 23:07:42,315 - INFO     - 📄 Consultando página 10/10 da API do GitHub...
+2025-03-25 23:08:06,052 - INFO     - ✅ Busca concluída: 407 repositórios coletados.
+2025-03-25 23:08:06,053 - ERROR    - ❌ Coleta insuficiente! Foram coletados apenas 407 repositórios válidos. Esperado: 1000
+2025-03-25 23:14:21,270 - INFO     - ===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====
+2025-03-25 23:14:21,272 - INFO     - 📄 Consultando página 1/10 da API do GitHub...
+2025-03-25 23:16:00,625 - INFO     - ===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====
+2025-03-25 23:16:00,626 - INFO     - 📄 Consultando página 1/10 da API do GitHub...
+2025-03-25 23:16:25,381 - INFO     - 📄 Consultando página 2/10 da API do GitHub...
+2025-03-25 23:16:49,732 - INFO     - 📄 Consultando página 3/10 da API do GitHub...
+2025-03-25 23:17:14,187 - INFO     - 📄 Consultando página 4/10 da API do GitHub...
+2025-03-25 23:17:38,648 - INFO     - 📄 Consultando página 5/10 da API do GitHub...
+2025-03-25 23:18:03,575 - INFO     - 📄 Consultando página 6/10 da API do GitHub...
+2025-03-25 23:18:28,240 - INFO     - 📄 Consultando página 7/10 da API do GitHub...
+2025-03-25 23:18:52,380 - INFO     - 📄 Consultando página 8/10 da API do GitHub...
+2025-03-25 23:19:16,646 - INFO     - 📄 Consultando página 9/10 da API do GitHub...
+2025-03-25 23:19:40,389 - INFO     - 📄 Consultando página 10/10 da API do GitHub...
+2025-03-25 23:20:27,834 - INFO     - ✅ Busca concluída: 58 repositórios coletados.
+2025-03-25 23:20:27,836 - ERROR    - ❌ Coleta insuficiente! Foram coletados apenas 58 repositórios válidos. Esperado: 1000
+2025-03-25 23:21:46,570 - INFO     - ===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====
+2025-03-25 23:21:46,570 - INFO     - 📄 Consultando página 1/10 da API do GitHub...
+2025-03-25 23:23:50,760 - INFO     - ===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====
+2025-03-25 23:23:50,761 - INFO     - 📄 Consultando página 1/10 da API do GitHub...
+2025-03-25 23:25:00,615 - INFO     - 📄 Consultando página 2/10 da API do GitHub...
+2025-03-25 23:25:27,825 - INFO     - ===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====
+2025-03-25 23:25:27,826 - INFO     - 📄 Consultando página 1 da linguagem Java...
+2025-03-25 23:26:35,126 - INFO     - 📄 Consultando página 2 da linguagem Java...
+2025-03-25 23:26:55,324 - INFO     - ===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====
+2025-03-25 23:26:55,325 - INFO     - 📄 Consultando página 1 da API do GitHub...
+2025-03-25 23:28:05,459 - INFO     - 📄 Consultando página 2 da API do GitHub...
+2025-03-25 23:29:14,111 - INFO     - 📄 Consultando página 3 da API do GitHub...
+2025-03-25 23:30:20,434 - INFO     - 📄 Consultando página 4 da API do GitHub...
+2025-03-25 23:31:28,419 - INFO     - 📄 Consultando página 5 da API do GitHub...
+2025-03-25 23:32:35,490 - INFO     - 📄 Consultando página 6 da API do GitHub...
+2025-03-25 23:33:42,384 - INFO     - 📄 Consultando página 7 da API do GitHub...
+2025-03-25 23:34:50,753 - INFO     - 📄 Consultando página 8 da API do GitHub...
+2025-03-25 23:35:53,630 - INFO     - 📄 Consultando página 9 da API do GitHub...
+2025-03-25 23:37:00,257 - INFO     - 📄 Consultando página 10 da API do GitHub...
+2025-03-25 23:38:04,612 - INFO     - 📄 Consultando página 11 da API do GitHub...
+2025-03-25 23:38:04,886 - ERROR    - ❌ Erro na API (Status 422): Only the first 1000 search results are available
+2025-03-25 23:38:04,888 - ERROR    - ❌ Coleta insuficiente! Foram coletados apenas 933 repositórios válidos. Esperado: 1000
+2025-03-25 23:49:21,111 - INFO     - ===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====
+2025-03-25 23:49:21,112 - INFO     - 📄 Consultando página 1 da API do GitHub...
+2025-03-25 23:52:47,228 - INFO     - ===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====
+2025-03-25 23:52:47,229 - INFO     - 📄 Consultando página 1 da API do GitHub...
+2025-03-25 23:53:57,191 - INFO     - 📄 Consultando página 2 da API do GitHub...
+2025-03-25 23:55:10,460 - INFO     - 📄 Consultando página 3 da API do GitHub...
+2025-03-25 23:56:22,159 - INFO     - 📄 Consultando página 4 da API do GitHub...
+2025-03-25 23:57:32,127 - INFO     - 📄 Consultando página 5 da API do GitHub...
+2025-03-25 23:58:41,835 - INFO     - 📄 Consultando página 6 da API do GitHub...
+2025-03-25 23:59:50,740 - INFO     - 📄 Consultando página 7 da API do GitHub...
+2025-03-26 00:01:00,308 - INFO     - 📄 Consultando página 8 da API do GitHub...
+2025-03-26 00:02:07,357 - INFO     - 📄 Consultando página 9 da API do GitHub...
+2025-03-26 00:02:36,055 - INFO     - ===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====
+2025-03-26 00:02:36,056 - INFO     - 📄 Consultando página 1 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,056 - INFO     - 📄 Consultando página 2 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,056 - INFO     - 📄 Consultando página 3 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,056 - INFO     - 📄 Consultando página 4 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,057 - INFO     - 📄 Consultando página 5 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,057 - INFO     - 📄 Consultando página 6 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,057 - INFO     - 📄 Consultando página 7 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,057 - INFO     - 📄 Consultando página 8 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,058 - INFO     - 📄 Consultando página 9 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,058 - INFO     - 📄 Consultando página 10 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,058 - INFO     - 📄 Consultando página 11 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,058 - INFO     - 📄 Consultando página 12 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,058 - INFO     - 📄 Consultando página 13 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,059 - INFO     - 📄 Consultando página 14 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,059 - INFO     - 📄 Consultando página 15 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,059 - INFO     - 📄 Consultando página 16 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,059 - INFO     - 📄 Consultando página 17 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,060 - INFO     - 📄 Consultando página 18 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,060 - INFO     - 📄 Consultando página 19 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,060 - INFO     - 📄 Consultando página 20 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,060 - INFO     - 📄 Consultando página 21 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,061 - INFO     - 📄 Consultando página 22 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,061 - INFO     - 📄 Consultando página 23 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,061 - INFO     - 📄 Consultando página 24 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,062 - INFO     - 📄 Consultando página 25 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,062 - INFO     - 📄 Consultando página 26 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,062 - INFO     - 📄 Consultando página 27 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,062 - INFO     - 📄 Consultando página 28 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,063 - INFO     - 📄 Consultando página 29 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,063 - INFO     - 📄 Consultando página 30 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,063 - INFO     - 📄 Consultando página 31 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,063 - INFO     - 📄 Consultando página 32 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,064 - INFO     - 📄 Consultando página 33 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,064 - INFO     - 📄 Consultando página 34 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,064 - INFO     - 📄 Consultando página 35 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,064 - INFO     - 📄 Consultando página 36 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,064 - INFO     - 📄 Consultando página 37 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,065 - INFO     - 📄 Consultando página 38 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,065 - INFO     - 📄 Consultando página 39 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,065 - INFO     - 📄 Consultando página 40 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,065 - INFO     - 📄 Consultando página 41 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,065 - INFO     - 📄 Consultando página 42 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,066 - INFO     - 📄 Consultando página 43 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,066 - INFO     - 📄 Consultando página 44 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,066 - INFO     - 📄 Consultando página 45 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,066 - INFO     - 📄 Consultando página 46 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,067 - INFO     - 📄 Consultando página 47 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,067 - INFO     - 📄 Consultando página 48 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,067 - INFO     - 📄 Consultando página 49 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,067 - INFO     - 📄 Consultando página 50 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,067 - INFO     - 📄 Consultando página 51 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,067 - INFO     - 📄 Consultando página 52 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,068 - INFO     - 📄 Consultando página 53 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,068 - INFO     - 📄 Consultando página 54 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,068 - INFO     - 📄 Consultando página 55 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,068 - INFO     - 📄 Consultando página 56 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,068 - INFO     - 📄 Consultando página 57 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,068 - INFO     - 📄 Consultando página 58 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,069 - INFO     - 📄 Consultando página 59 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,069 - INFO     - 📄 Consultando página 60 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,069 - INFO     - 📄 Consultando página 61 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,069 - INFO     - 📄 Consultando página 62 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,069 - INFO     - 📄 Consultando página 63 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,070 - INFO     - 📄 Consultando página 64 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,070 - INFO     - 📄 Consultando página 65 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,070 - INFO     - 📄 Consultando página 66 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,071 - INFO     - 📄 Consultando página 67 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,071 - INFO     - 📄 Consultando página 68 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,071 - INFO     - 📄 Consultando página 69 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,071 - INFO     - 📄 Consultando página 70 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,071 - INFO     - 📄 Consultando página 71 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,072 - INFO     - 📄 Consultando página 72 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,072 - INFO     - 📄 Consultando página 73 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,072 - INFO     - 📄 Consultando página 74 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,072 - INFO     - 📄 Consultando página 75 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,072 - INFO     - 📄 Consultando página 76 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,072 - INFO     - 📄 Consultando página 77 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,073 - INFO     - 📄 Consultando página 78 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,073 - INFO     - 📄 Consultando página 79 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,073 - INFO     - 📄 Consultando página 80 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,073 - INFO     - 📄 Consultando página 81 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,073 - INFO     - 📄 Consultando página 82 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,073 - INFO     - 📄 Consultando página 83 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,073 - INFO     - 📄 Consultando página 84 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,074 - INFO     - 📄 Consultando página 85 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,074 - INFO     - 📄 Consultando página 86 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,074 - INFO     - 📄 Consultando página 87 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,074 - INFO     - 📄 Consultando página 88 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,074 - INFO     - 📄 Consultando página 89 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,075 - INFO     - 📄 Consultando página 90 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,075 - INFO     - 📄 Consultando página 91 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,075 - INFO     - 📄 Consultando página 92 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,075 - INFO     - 📄 Consultando página 93 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,076 - INFO     - 📄 Consultando página 94 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,076 - INFO     - 📄 Consultando página 95 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,076 - INFO     - 📄 Consultando página 96 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,076 - INFO     - 📄 Consultando página 97 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,077 - INFO     - 📄 Consultando página 98 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:02:36,077 - INFO     - 📄 Consultando página 99 da API do GitHub... Total coletado até agora: 0 válidos
+2025-03-26 00:03:44,560 - INFO     - 📄 Consultando página 1 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,561 - INFO     - 📄 Consultando página 2 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,562 - INFO     - 📄 Consultando página 3 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,564 - INFO     - 📄 Consultando página 4 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,565 - INFO     - 📄 Consultando página 5 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,566 - INFO     - 📄 Consultando página 6 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,567 - INFO     - 📄 Consultando página 7 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,568 - INFO     - 📄 Consultando página 8 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,568 - INFO     - 📄 Consultando página 9 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,569 - INFO     - 📄 Consultando página 10 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,570 - INFO     - 📄 Consultando página 11 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,571 - INFO     - 📄 Consultando página 12 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,571 - INFO     - 📄 Consultando página 13 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,572 - INFO     - 📄 Consultando página 14 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,573 - INFO     - 📄 Consultando página 15 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,573 - INFO     - 📄 Consultando página 16 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,574 - INFO     - 📄 Consultando página 17 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,575 - INFO     - 📄 Consultando página 18 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,575 - INFO     - 📄 Consultando página 19 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,576 - INFO     - 📄 Consultando página 20 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,577 - INFO     - 📄 Consultando página 21 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,578 - INFO     - 📄 Consultando página 22 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,579 - INFO     - 📄 Consultando página 23 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,580 - INFO     - 📄 Consultando página 24 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,581 - INFO     - 📄 Consultando página 25 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,582 - INFO     - 📄 Consultando página 26 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,583 - INFO     - 📄 Consultando página 27 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,584 - INFO     - 📄 Consultando página 28 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,584 - INFO     - 📄 Consultando página 29 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,585 - INFO     - 📄 Consultando página 30 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,585 - INFO     - 📄 Consultando página 31 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,586 - INFO     - 📄 Consultando página 32 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,586 - INFO     - 📄 Consultando página 33 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,587 - INFO     - 📄 Consultando página 34 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,587 - INFO     - 📄 Consultando página 35 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,588 - INFO     - 📄 Consultando página 36 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,588 - INFO     - 📄 Consultando página 37 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,589 - INFO     - 📄 Consultando página 38 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,589 - INFO     - 📄 Consultando página 39 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,590 - INFO     - 📄 Consultando página 40 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,590 - INFO     - 📄 Consultando página 41 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,591 - INFO     - 📄 Consultando página 42 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,591 - INFO     - 📄 Consultando página 43 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,592 - INFO     - 📄 Consultando página 44 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,592 - INFO     - 📄 Consultando página 45 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,592 - INFO     - 📄 Consultando página 46 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,593 - INFO     - 📄 Consultando página 47 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,593 - INFO     - 📄 Consultando página 48 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,594 - INFO     - 📄 Consultando página 49 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,594 - INFO     - 📄 Consultando página 50 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,594 - INFO     - 📄 Consultando página 51 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,595 - INFO     - 📄 Consultando página 52 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,595 - INFO     - 📄 Consultando página 53 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,595 - INFO     - 📄 Consultando página 54 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,596 - INFO     - 📄 Consultando página 55 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,596 - INFO     - 📄 Consultando página 56 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,597 - INFO     - 📄 Consultando página 57 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,597 - INFO     - 📄 Consultando página 58 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,597 - INFO     - 📄 Consultando página 59 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,598 - INFO     - 📄 Consultando página 60 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,598 - INFO     - 📄 Consultando página 61 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,598 - INFO     - 📄 Consultando página 62 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,599 - INFO     - 📄 Consultando página 63 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,599 - INFO     - 📄 Consultando página 64 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,599 - INFO     - 📄 Consultando página 65 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,600 - INFO     - 📄 Consultando página 66 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,600 - INFO     - 📄 Consultando página 67 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,601 - INFO     - 📄 Consultando página 68 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,601 - INFO     - 📄 Consultando página 69 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,601 - INFO     - 📄 Consultando página 70 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,601 - INFO     - 📄 Consultando página 71 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,602 - INFO     - 📄 Consultando página 72 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,602 - INFO     - 📄 Consultando página 73 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,602 - INFO     - 📄 Consultando página 74 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,602 - INFO     - 📄 Consultando página 75 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,603 - INFO     - 📄 Consultando página 76 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,603 - INFO     - 📄 Consultando página 77 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,603 - INFO     - 📄 Consultando página 78 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,604 - INFO     - 📄 Consultando página 79 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,604 - INFO     - 📄 Consultando página 80 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,604 - INFO     - 📄 Consultando página 81 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,604 - INFO     - 📄 Consultando página 82 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,604 - INFO     - 📄 Consultando página 83 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,605 - INFO     - 📄 Consultando página 84 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,605 - INFO     - 📄 Consultando página 85 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,605 - INFO     - 📄 Consultando página 86 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,605 - INFO     - 📄 Consultando página 87 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,605 - INFO     - 📄 Consultando página 88 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,605 - INFO     - 📄 Consultando página 89 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,606 - INFO     - 📄 Consultando página 90 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,606 - INFO     - 📄 Consultando página 91 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,606 - INFO     - 📄 Consultando página 92 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,606 - INFO     - 📄 Consultando página 93 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,607 - INFO     - 📄 Consultando página 94 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,607 - INFO     - 📄 Consultando página 95 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,607 - INFO     - 📄 Consultando página 96 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,607 - INFO     - 📄 Consultando página 97 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,607 - INFO     - 📄 Consultando página 98 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,608 - INFO     - 📄 Consultando página 99 da API do GitHub... Total coletado até agora: 94 válidos
+2025-03-26 00:03:44,897 - ERROR    - ❌ Erro na API (Status 422): Only the first 1000 search results are available
+2025-03-26 00:03:44,899 - ERROR    - ❌ Coleta insuficiente! Foram coletados apenas 94 repositórios válidos. Esperado: 1000
+2025-03-26 00:04:36,006 - INFO     - ===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====
+2025-03-26 00:04:36,006 - INFO     - 📄 Consultando página 1 da API do GitHub...
+2025-03-26 00:05:44,694 - INFO     - ✅ Página 1 coletou 94 repositórios VÁLIDOS
+2025-03-26 00:05:44,695 - INFO     - 📄 Consultando página 2 da API do GitHub...
+2025-03-26 00:06:51,495 - WARNING  - ⚠️ Não foi possível obter releases para yusugomori/DeepLearning: 403
+2025-03-26 00:06:52,194 - INFO     - ✅ Página 2 coletou 91 repositórios VÁLIDOS
+2025-03-26 00:06:52,195 - INFO     - 📄 Consultando página 3 da API do GitHub...
+2025-03-26 00:07:18,376 - INFO     - ✅ Página 3 coletou 0 repositórios VÁLIDOS
+2025-03-26 00:07:18,378 - INFO     - 📄 Consultando página 4 da API do GitHub...
+2025-03-26 00:07:43,961 - INFO     - ✅ Página 4 coletou 0 repositórios VÁLIDOS
+2025-03-26 00:07:43,962 - INFO     - 📄 Consultando página 5 da API do GitHub...
+2025-03-26 00:08:09,903 - INFO     - ✅ Página 5 coletou 0 repositórios VÁLIDOS
+2025-03-26 00:08:09,905 - INFO     - 📄 Consultando página 6 da API do GitHub...
+2025-03-26 00:08:35,885 - INFO     - ✅ Página 6 coletou 0 repositórios VÁLIDOS
+2025-03-26 00:08:35,887 - INFO     - 📄 Consultando página 7 da API do GitHub...
+2025-03-26 00:09:01,373 - INFO     - ✅ Página 7 coletou 0 repositórios VÁLIDOS
+2025-03-26 00:09:01,375 - INFO     - 📄 Consultando página 8 da API do GitHub...
+2025-03-26 00:09:27,653 - INFO     - ✅ Página 8 coletou 0 repositórios VÁLIDOS
+2025-03-26 00:09:27,654 - INFO     - 📄 Consultando página 9 da API do GitHub...
+2025-03-26 00:09:53,740 - INFO     - ✅ Página 9 coletou 0 repositórios VÁLIDOS
+2025-03-26 00:09:53,741 - INFO     - 📄 Consultando página 10 da API do GitHub...
+2025-03-26 00:10:18,215 - INFO     - ✅ Página 10 coletou 0 repositórios VÁLIDOS
+2025-03-26 00:10:18,215 - INFO     - 📄 Consultando página 11 da API do GitHub...
+2025-03-26 00:10:18,467 - ERROR    - ❌ Erro na API (Status 422): Only the first 1000 search results are available
+2025-03-26 00:10:18,468 - ERROR    - ❌ Coleta insuficiente! Foram coletados apenas 185 repositórios válidos. Esperado: 1000
+2025-03-26 00:15:01,555 - INFO     - ===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====
+2025-03-26 00:15:01,556 - INFO     - 📄 Consultando página 1/10 da API do GitHub...
+2025-03-26 00:15:04,437 - WARNING  - ⚠️ Não foi possível obter releases para kdn251/interviews: 403
+2025-03-26 00:15:04,663 - WARNING  - ⚠️ Não foi possível obter releases para TheAlgorithms/Java: 403
+2025-03-26 00:15:04,896 - WARNING  - ⚠️ Não foi possível obter releases para Stirling-Tools/Stirling-PDF: 403
+2025-03-26 00:15:05,115 - WARNING  - ⚠️ Não foi possível obter releases para eugenp/tutorials: 403
+2025-03-26 00:15:05,346 - WARNING  - ⚠️ Não foi possível obter releases para halo-dev/halo: 403
+2025-03-26 00:15:05,557 - WARNING  - ⚠️ Não foi possível obter releases para xkcoding/spring-boot-demo: 403
+2025-03-26 00:15:05,784 - WARNING  - ⚠️ Não foi possível obter releases para TeamNewPipe/NewPipe: 403
+2025-03-26 00:15:06,001 - WARNING  - ⚠️ Não foi possível obter releases para YunaiV/ruoyi-vue-pro: 403
+2025-03-26 00:15:06,258 - WARNING  - ⚠️ Não foi possível obter releases para wuyouzhuguli/SpringAll: 403
+2025-03-26 00:15:06,471 - WARNING  - ⚠️ Não foi possível obter releases para xuxueli/xxl-job: 403
+2025-03-26 00:15:06,677 - WARNING  - ⚠️ Não foi possível obter releases para crossoverJie/JCSprout: 403
+2025-03-26 00:15:06,905 - WARNING  - ⚠️ Não foi possível obter releases para DrKLO/Telegram: 403
+2025-03-26 00:15:07,116 - WARNING  - ⚠️ Não foi possível obter releases para jenkinsci/jenkins: 403
+2025-03-26 00:15:07,329 - WARNING  - ⚠️ Não foi possível obter releases para Anuken/Mindustry: 403
+2025-03-26 00:15:07,532 - WARNING  - ⚠️ Não foi possível obter releases para ashishps1/awesome-system-design-resources: 403
+2025-03-26 00:15:07,742 - WARNING  - ⚠️ Não foi possível obter releases para openjdk/jdk: 403
+2025-03-26 00:15:07,958 - WARNING  - ⚠️ Não foi possível obter releases para dataease/dataease: 403
+2025-03-26 00:15:08,165 - WARNING  - ⚠️ Não foi possível obter releases para linlinjava/litemall: 403
+2025-03-26 00:15:08,382 - WARNING  - ⚠️ Não foi possível obter releases para LSPosed/LSPosed: 403
+2025-03-26 00:15:08,642 - WARNING  - ⚠️ Não foi possível obter releases para williamfiset/Algorithms: 403
+2025-03-26 00:15:08,852 - WARNING  - ⚠️ Não foi possível obter releases para facebook/fresco: 403
+2025-03-26 00:15:09,055 - WARNING  - ⚠️ Não foi possível obter releases para YunaiV/yudao-cloud: 403
+2025-03-26 00:15:09,268 - WARNING  - ⚠️ Não foi possível obter releases para justauth/JustAuth: 403
+2025-03-26 00:15:09,474 - WARNING  - ⚠️ Não foi possível obter releases para winterbe/java8-tutorial: 403
+2025-03-26 00:15:09,710 - WARNING  - ⚠️ Não foi possível obter releases para shuzheng/zheng: 403
+2025-03-26 00:15:09,923 - WARNING  - ⚠️ Não foi possível obter releases para android-hacker/VirtualXposed: 403
+2025-03-26 00:15:10,123 - WARNING  - ⚠️ Não foi possível obter releases para gyoogle/tech-interview-for-developer: 403
+2025-03-26 00:15:10,352 - WARNING  - ⚠️ Não foi possível obter releases para mockito/mockito: 403
+2025-03-26 00:15:10,569 - WARNING  - ⚠️ Não foi possível obter releases para Konloch/bytecode-viewer: 403
+2025-03-26 00:15:10,822 - WARNING  - ⚠️ Não foi possível obter releases para java-decompiler/jd-gui: 403
+2025-03-26 00:15:11,039 - WARNING  - ⚠️ Não foi possível obter releases para neo4j/neo4j: 403
+2025-03-26 00:15:11,248 - WARNING  - ⚠️ Não foi possível obter releases para theonedev/onedev: 403
+2025-03-26 00:15:11,454 - WARNING  - ⚠️ Não foi possível obter releases para lgvalle/Material-Animations: 403
+2025-03-26 00:15:11,661 - WARNING  - ⚠️ Não foi possível obter releases para sqshq/piggymetrics: 403
+2025-03-26 00:15:11,878 - WARNING  - ⚠️ Não foi possível obter releases para facebook/stetho: 403
+2025-03-26 00:15:12,094 - WARNING  - ⚠️ Não foi possível obter releases para cryptomator/cryptomator: 403
+2025-03-26 00:15:12,307 - WARNING  - ⚠️ Não foi possível obter releases para daimajia/AndroidViewAnimations: 403
+2025-03-26 00:15:12,522 - WARNING  - ⚠️ Não foi possível obter releases para daimajia/AndroidSwipeLayout: 403
+2025-03-26 00:15:12,778 - WARNING  - ⚠️ Não foi possível obter releases para pagehelper/Mybatis-PageHelper: 403
+2025-03-26 00:15:13,000 - WARNING  - ⚠️ Não foi possível obter releases para redis/jedis: 403
+2025-03-26 00:15:13,224 - WARNING  - ⚠️ Não foi possível obter releases para metersphere/metersphere: 403
+2025-03-26 00:15:13,446 - WARNING  - ⚠️ Não foi possível obter releases para Team-xManager/xManager: 403
+2025-03-26 00:15:13,659 - WARNING  - ⚠️ Não foi possível obter releases para newbee-ltd/newbee-mall: 403
+2025-03-26 00:15:13,875 - WARNING  - ⚠️ Não foi possível obter releases para H07000223/FlycoTabLayout: 403
+2025-03-26 00:15:14,098 - WARNING  - ⚠️ Não foi possível obter releases para jhy/jsoup: 403
+2025-03-26 00:15:14,308 - WARNING  - ⚠️ Não foi possível obter releases para TooTallNate/Java-WebSocket: 403
+2025-03-26 00:15:14,542 - WARNING  - ⚠️ Não foi possível obter releases para beemdevelopment/Aegis: 403
+2025-03-26 00:15:14,781 - WARNING  - ⚠️ Não foi possível obter releases para zfile-dev/zfile: 403
+2025-03-26 00:15:14,992 - WARNING  - ⚠️ Não foi possível obter releases para ssssssss-team/spider-flow: 403
+2025-03-26 00:15:15,210 - WARNING  - ⚠️ Não foi possível obter releases para stanfordnlp/CoreNLP: 403
+2025-03-26 00:15:15,418 - WARNING  - ⚠️ Não foi possível obter releases para liaohuqiu/android-Ultra-Pull-To-Refresh: 403
+2025-03-26 00:15:15,633 - WARNING  - ⚠️ Não foi possível obter releases para MyCATApache/Mycat-Server: 403
+2025-03-26 00:15:15,833 - WARNING  - ⚠️ Não foi possível obter releases para crossoverJie/cim: 403
+2025-03-26 00:15:16,047 - WARNING  - ⚠️ Não foi possível obter releases para xuchengsheng/spring-reading: 403
+2025-03-26 00:15:16,253 - WARNING  - ⚠️ Não foi possível obter releases para ashishps1/awesome-leetcode-resources: 403
+2025-03-26 00:15:16,457 - WARNING  - ⚠️ Não foi possível obter releases para ybq/Android-SpinKit: 403
+2025-03-26 00:15:16,671 - WARNING  - ⚠️ Não foi possível obter releases para react-native-image-picker/react-native-image-picker: 403
+2025-03-26 00:15:16,873 - WARNING  - ⚠️ Não foi possível obter releases para karatelabs/karate: 403
+2025-03-26 00:15:17,132 - WARNING  - ⚠️ Não foi possível obter releases para testcontainers/testcontainers-java: 403
+2025-03-26 00:15:17,338 - WARNING  - ⚠️ Não foi possível obter releases para frohoff/ysoserial: 403
+2025-03-26 00:15:17,551 - WARNING  - ⚠️ Não foi possível obter releases para software-mansion/react-native-svg: 403
+2025-03-26 00:15:17,780 - WARNING  - ⚠️ Não foi possível obter releases para gedoor/MyBookshelf: 403
+2025-03-26 00:15:17,988 - WARNING  - ⚠️ Não foi possível obter releases para kevin-wayne/algs4: 403
+2025-03-26 00:15:18,210 - WARNING  - ⚠️ Não foi possível obter releases para twowaits/SDE-Interview-Questions: 403
+2025-03-26 00:15:18,425 - WARNING  - ⚠️ Não foi possível obter releases para HMCL-dev/HMCL: 403
+2025-03-26 00:15:18,628 - WARNING  - ⚠️ Não foi possível obter releases para abel533/Mapper: 403
+2025-03-26 00:15:18,856 - WARNING  - ⚠️ Não foi possível obter releases para Bearded-Hen/Android-Bootstrap: 403
+2025-03-26 00:15:19,061 - WARNING  - ⚠️ Não foi possível obter releases para Exrick/xmall: 403
+2025-03-26 00:15:19,293 - WARNING  - ⚠️ Não foi possível obter releases para jeecgboot/jimureport: 403
+2025-03-26 00:15:19,508 - WARNING  - ⚠️ Não foi possível obter releases para AntennaPod/AntennaPod: 403
+2025-03-26 00:15:19,714 - WARNING  - ⚠️ Não foi possível obter releases para guardianproject/haven: 403
+2025-03-26 00:15:19,929 - WARNING  - ⚠️ Não foi possível obter releases para ZCShou/GoGoGo: 403
+2025-03-26 00:15:20,137 - WARNING  - ⚠️ Não foi possível obter releases para ximsfei/Android-skin-support: 403
+2025-03-26 00:15:20,374 - WARNING  - ⚠️ Não foi possível obter releases para Col-E/Recaf: 403
+2025-03-26 00:15:20,606 - WARNING  - ⚠️ Não foi possível obter releases para sshahine/JFoenix: 403
+2025-03-26 00:15:20,824 - WARNING  - ⚠️ Não foi possível obter releases para graphql-java/graphql-java: 403
+2025-03-26 00:15:21,028 - WARNING  - ⚠️ Não foi possível obter releases para daimajia/NumberProgressBar: 403
+2025-03-26 00:15:21,232 - WARNING  - ⚠️ Não foi possível obter releases para gephi/gephi: 403
+2025-03-26 00:15:21,447 - WARNING  - ⚠️ Não foi possível obter releases para auth0/java-jwt: 403
+2025-03-26 00:15:21,739 - WARNING  - ⚠️ Não foi possível obter releases para liyifeng1994/ssm: 403
+2025-03-26 00:15:21,962 - WARNING  - ⚠️ Não foi possível obter releases para prolificinteractive/material-calendarview: 403
+2025-03-26 00:15:22,167 - WARNING  - ⚠️ Não foi possível obter releases para dmytrodanylyk/circular-progress-button: 403
+2025-03-26 00:15:22,369 - WARNING  - ⚠️ Não foi possível obter releases para 648540858/wvp-GB28181-pro: 403
+2025-03-26 00:15:22,579 - WARNING  - ⚠️ Não foi possível obter releases para WeiYe-Jing/datax-web: 403
+2025-03-26 00:15:22,801 - WARNING  - ⚠️ Não foi possível obter releases para jpush/aurora-imui: 403
+2025-03-26 00:15:23,000 - WARNING  - ⚠️ Não foi possível obter releases para FongMi/TV: 403
+2025-03-26 00:15:23,221 - WARNING  - ⚠️ Não foi possível obter releases para crazycodeboy/react-native-splash-screen: 403
+2025-03-26 00:15:23,422 - WARNING  - ⚠️ Não foi possível obter releases para daimajia/AndroidImageSlider: 403
+2025-03-26 00:15:23,628 - WARNING  - ⚠️ Não foi possível obter releases para logisim-evolution/logisim-evolution: 403
+2025-03-26 00:15:23,847 - WARNING  - ⚠️ Não foi possível obter releases para redis/lettuce: 403
+2025-03-26 00:15:24,060 - WARNING  - ⚠️ Não foi possível obter releases para ElderDrivers/EdXposed: 403
+2025-03-26 00:15:24,292 - WARNING  - ⚠️ Não foi possível obter releases para TeamAmaze/AmazeFileManager: 403
+2025-03-26 00:19:11,238 - INFO     - ===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====
+2025-03-26 00:19:11,239 - INFO     - 📄 Consultando página 1/10 da API do GitHub...
+2025-03-26 00:19:14,234 - WARNING  - ⚠️ RateLimit Remaining: 0
+2025-03-26 00:19:14,235 - ERROR    - ❌ Rate Limit atingido. Parando.
+2025-03-26 00:20:20,504 - INFO     - ===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====
+2025-03-26 00:20:20,505 - INFO     - 📄 Consultando página 1/10 da API do GitHub...
+2025-03-26 00:20:59,452 - INFO     - 📄 Consultando página 2/10 da API do GitHub...
+2025-03-26 00:21:38,240 - INFO     - 📄 Consultando página 3/10 da API do GitHub...
+2025-03-26 00:22:14,655 - INFO     - 📄 Consultando página 4/10 da API do GitHub...
+2025-03-26 00:22:33,283 - INFO     - ===== 🌐 BUSCANDO REPOSITÓRIOS OPEN SOURCE =====
+2025-03-26 00:22:33,284 - INFO     - 📄 Consultando página 1/10 da API do GitHub...
+2025-03-26 00:23:11,862 - INFO     - 📄 Consultando página 2/10 da API do GitHub...
+2025-03-26 00:23:49,428 - INFO     - 📄 Consultando página 3/10 da API do GitHub...
+2025-03-26 00:24:27,006 - INFO     - 📄 Consultando página 4/10 da API do GitHub...
+2025-03-26 00:25:05,039 - INFO     - 📄 Consultando página 5/10 da API do GitHub...
+2025-03-26 00:25:43,634 - INFO     - 📄 Consultando página 6/10 da API do GitHub...
+2025-03-26 00:26:19,814 - INFO     - 📄 Consultando página 7/10 da API do GitHub...
+2025-03-26 00:26:57,087 - INFO     - 📄 Consultando página 8/10 da API do GitHub...
+2025-03-26 00:27:34,260 - INFO     - 📄 Consultando página 9/10 da API do GitHub...
+2025-03-26 00:28:08,759 - INFO     - 📄 Consultando página 10/10 da API do GitHub...
+2025-03-26 00:28:45,882 - INFO     - ✅ Busca concluída: 1000 repositórios coletados.
+2025-03-26 00:28:45,885 - INFO     - 💾 Salvando lista de repositórios em CSV...
+2025-03-26 00:28:45,891 - INFO     - ✅ CSV salvo com sucesso em 'data' (1000 registros).
+2025-03-26 00:28:45,892 - INFO     - 🎉 Coleta de repositórios concluída com sucesso!
