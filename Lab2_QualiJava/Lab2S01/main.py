@@ -33,9 +33,18 @@ from tqdm import tqdm
 for handler in logging.root.handlers[:]:
     logging.root.removeHandler(handler)
 
+script_dir = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(__file__)
+LOG_DIR = os.path.join(script_dir, "Relatórios")
+LOG_FILE = os.path.join(LOG_DIR, "main.log")
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)-8s - %(message)s",
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler(LOG_FILE, encoding="utf-8")
+    ]
 )
 
 # AQUI SEGUE O TEU PIPELINE COMPLETO NORMAL
@@ -44,13 +53,6 @@ print("\n")
 logging.info("🎯 Ambiente pronto! Dependências verificadas e instaladas.")
 
 print("\n" + "🟰" * 120)
-
-BASE_DIR = os.path.dirname(__file__)
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)-8s - %(message)s",
-)
 
 # Utilitários
 def formatar_tempo(segundos):
