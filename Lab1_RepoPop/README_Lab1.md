@@ -57,18 +57,18 @@ Este laboratório analisa repositórios populares no **GitHub**, investigando su
 │  │  ├─ 📊 github_analysis_S03.csv *(Dados finais analisados)*
 │
 ├─ 📜 README_Lab1.md *(Arquivo explicativo)*
-└─ 📜 .env.config *(Configuração do token GitHub na raiz do projeto)*
+└─ 📜 env.config *(Configuração do token GitHub na raiz do projeto)*
 ```
 
 ---
 
-Ótimo! Seguindo a sua instrução, o caminho do arquivo `.env.config` de todos os laboratórios será atualizado para:
+Ótimo! Seguindo a sua instrução, o caminho do arquivo `env.config` de todos os laboratórios será atualizado para:
 
 ```
-LABORATÓRIO DE EXPERIMENTAÇÃO DE SOFTWARE\Lab_Experimentacao_Software_1.2025\.env.config
+LABORATÓRIO DE EXPERIMENTAÇÃO DE SOFTWARE\Lab_Experimentacao_Software_1.2025\env.config
 ```
 
-✅ Aqui está o texto padrão atualizado para cada README onde for necessário configurar o `.env.config`:
+✅ Aqui está o texto padrão atualizado para cada README onde for necessário configurar o `env.config`:
 
 ---
 
@@ -77,7 +77,7 @@ LABORATÓRIO DE EXPERIMENTAÇÃO DE SOFTWARE\Lab_Experimentacao_Software_1.2025\
 Para acessar a API do GitHub, é necessário configurar um **token de autenticação**. O token deve ser armazenado no arquivo:
 
 ```
-LABORATÓRIO DE EXPERIMENTAÇÃO DE SOFTWARE\Lab_Experimentacao_Software_1.2025\.env.config
+LABORATÓRIO DE EXPERIMENTAÇÃO DE SOFTWARE\Lab_Experimentacao_Software_1.2025\env.config
 ```
 
 com o seguinte conteúdo:
@@ -92,7 +92,7 @@ GITHUB_TOKEN=seu_token_aqui
 3. Selecione as permissões:
    - `repo` → Acesso a repositórios públicos
    - `read:org` → (se necessário)
-4. Gere o token e adicione ao arquivo `.env.config`.
+4. Gere o token e adicione ao arquivo `env.config`.
 
 **⚠️ Importante:** Nunca compartilhe seu token publicamente.
 

@@ -90,7 +90,7 @@ Este laboratório tem como objetivo **avaliar a qualidade de repositórios Java 
 
 ## 🔑 **Configuração do Token da API GitHub**  
 
-O script de coleta requer um **token de autenticação** do GitHub. O token pode ser configurado automaticamente via terminal ou salvo em um arquivo `.env.config` na raiz do projeto, no seguinte formato:
+O script de coleta requer um **token de autenticação** do GitHub. O token pode ser configurado automaticamente via terminal ou salvo em um arquivo `env.config` na raiz do projeto, no seguinte formato:
 
 ```
 GITHUB_TOKEN=seu_token_aqui
@@ -133,7 +133,7 @@ pip install requests pandas python-dotenv gitpython matplotlib seaborn scipy num
 ### ⚙ **2. Configurar o Token GitHub**
 No arquivo:
 ```
-Lab_Experimentacao_Software_1.2025\.env.config
+Lab_Experimentacao_Software_1.2025\env.config
 ```
 Exemplo:
 ```
@@ -212,7 +212,7 @@ pip install requests pandas python-dotenv gitpython matplotlib seaborn scipy num
 ### ⚙ **2. Configurar o Token GitHub**
 No arquivo:
 ```
-Lab_Experimentacao_Software_1.2025\.env.config
+Lab_Experimentacao_Software_1.2025\env.config
 ```
 Exemplo:
 ```
