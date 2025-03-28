@@ -2,6 +2,11 @@ import os
 import csv
 import requests
 import logging
+
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..")))
+
 from config_token import configurar_token
 
 TOKEN = configurar_token()
