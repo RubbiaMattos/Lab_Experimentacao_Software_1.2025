@@ -6,6 +6,11 @@ import psutil
 import shutil
 import stat
 import time
+
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..")))
+
 from config_token import configurar_token
 
 TOKEN = configurar_token()
