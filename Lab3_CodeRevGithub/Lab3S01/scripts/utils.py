@@ -1,8 +1,10 @@
 import os
-import pandas as pd
+import sys
 import numpy as np
 from scipy import stats
-from utils import configurar_token
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..")))
+from config_token import configurar_token
 
 TOKEN = configurar_token()
 

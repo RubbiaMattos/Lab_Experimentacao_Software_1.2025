@@ -108,7 +108,7 @@ def limpar_conteudo_pasta(pasta):
         return
     itens = [item for item in os.listdir(pasta) if os.path.isdir(os.path.join(pasta, item))]
     if itens:
-        with tqdm(total=len(itens), desc=f"{' ' * 37}🧹 Limpando {os.path.basename(pasta)}", unit=" pasta") as pbar:
+        with tqdm(total=len(itens), ncols=120, desc=f"{' ' * 37}🧹 Limpando {os.path.basename(pasta)}", unit=" pasta") as pbar:
             for item in itens:
                 item_path = os.path.join(pasta, item)
                 try:
@@ -135,7 +135,7 @@ def limpeza_completa():
         if os.path.exists(repos_dir):
             logging.info(f"🪛 Limpando {os.path.basename(repos_dir)}")
             itens = [os.path.join(repos_dir, item) for item in os.listdir(repos_dir)]
-            for item in tqdm(itens, desc=f"{' ' * 37}🔧 Permissões {os.path.basename(repos_dir)}", unit=" item"):
+            for item in tqdm(itens, ncols=120, desc=f"{' ' * 37}🔧 Permissões {os.path.basename(repos_dir)}", unit=" item"):
                 try:
                     current_user = os.getlogin()
                 except Exception:

@@ -5,12 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d7aaa77-3bb7-4f30-a6cd-fe9d395af648" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab1_RepoPop/env.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab2_QualiJava/env.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repositorios_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/data/repositorios_list.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab2_QualiJava/Lab2S01/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab2_QualiJava/Lab2S02/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab2_QualiJava/Lab2S02/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/collected_prs.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/report.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/selected_repos.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/selected_repos.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/scripts/analyze_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/scripts/analyze_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/scripts/collect_repos.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/scripts/collect_repos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/scripts/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/scripts/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Relatórios/config_token.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/config_token.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env.config" beforeDir="false" afterPath="$PROJECT_DIR$/env.config" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +121,9 @@
       <workItem from="1742018890336" duration="556000" />
       <workItem from="1742166166871" duration="3483000" />
       <workItem from="1742343132967" duration="2015000" />
+      <workItem from="1743378330247" duration="597000" />
+      <workItem from="1743596649835" duration="145000" />
+      <workItem from="1743596945134" duration="18000" />
     </task>
     <servers />
   </component>
