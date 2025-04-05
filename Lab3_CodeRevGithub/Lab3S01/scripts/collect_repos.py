@@ -210,7 +210,7 @@ def main():
     print("Iniciando o processo de coleta de repositórios...\n")
     start_time = time.time()
 
-    filtered = filter_repos_with_min_prs(TOKEN, min_prs=500, needed=200)
+    filtered = filter_repos_with_min_prs(TOKEN, min_prs=100, needed=200)
     save_repos_to_files(filtered, output_csv)
 
     end_time = time.time()

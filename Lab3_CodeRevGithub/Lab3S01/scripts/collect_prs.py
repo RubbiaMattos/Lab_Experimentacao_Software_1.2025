@@ -13,6 +13,8 @@ import io
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..")))
 from config_token import configurar_token
 
+EXACT_REQUIRED_PRS = 100
+
 BASE_DIR = os.path.join("Lab3_CodeRevGithub", "Lab3S01")
 DATA_DIR = os.path.join(BASE_DIR, "data")
 os.makedirs(DATA_DIR, exist_ok=True)
@@ -110,7 +112,7 @@ def handle_error_and_rate_limit(g, error=None, fallback_wait=600, max_wait=1800)
 
     return False  # Não pausou (não foi erro esperado)
 
-def collect_prs_from_repo(g, repo_name, min_prs=500, max_prs=500):
+def collect_prs_from_repo(g, repo_name, min_prs=100, max_prs=100):
     collected = []
     try:
         repo = g.get_repo(repo_name)
@@ -257,12 +259,10 @@ def load_repos(file_path):
         return empty_df
 
 
-def repo_has_valid_prs(collected_prs_df, repo_name, min_prs=500):
+def repo_has_valid_prs(collected_prs_df, repo_name, exact_prs=100):
     repo_data = collected_prs_df[collected_prs_df['repo_name'] == repo_name]
     valid_prs = repo_data.dropna(subset=["pr_number", "title", "body", "state", "created_at", "closed_at"])
-    return valid_prs.shape[0] >= min_prs
-
-
+    return valid_prs.shape[0] == exact_prs
 
 def compare_repositories(selected_repos_df, collected_prs_df, g):
     selected_repos = selected_repos_df['full_name'].tolist()
@@ -287,7 +287,7 @@ def compare_repositories(selected_repos_df, collected_prs_df, g):
     complete_repos = []
     incomplete_repos = []
     for repo in collected_in_selected:
-        if repo_has_valid_prs(collected_prs_df, repo, min_prs=500):
+        if repo_has_valid_prs(collected_prs_df, repo, exact_prs=EXACT_REQUIRED_PRS):
             complete_repos.append(repo)
         else:
             incomplete_repos.append(repo)
