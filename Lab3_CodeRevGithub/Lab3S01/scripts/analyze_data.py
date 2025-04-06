@@ -16,6 +16,9 @@ from config_token import configurar_token
 
 TOKEN = configurar_token()
 
+BASE_DIR = os.path.join("Lab3_CodeRevGithub", "Lab3S01")
+DATA_DIR = os.path.join(BASE_DIR, "data")
+
 def format_seconds(seconds):
     return time.strftime('%H:%M:%S', time.gmtime(seconds))
 
@@ -35,18 +38,10 @@ def mover_pycache(destino="Lab3_CodeRevGithub/Lab3S01/__pycache__"):
             shutil.rmtree(origem)
             print(f"📦 Pycache movido para: {destino}")
 
-
-# Configurar o estilo das visualizações
-sns.set(style="whitegrid")
-plt.rcParams['figure.figsize'] = (10, 6)
-plt.rcParams['font.size'] = 12
-
-BASE_DIR = os.path.join("Lab3_CodeRevGithub", "Lab3S01")
-DATA_DIR = os.path.join(BASE_DIR, "data")
-VIS_DIR = os.path.join(DATA_DIR, "visualizations")
-os.makedirs(VIS_DIR, exist_ok=True)
-
-collected_path = os.path.join(DATA_DIR, "collected_prs.csv")
+    # Configurar o estilo das visualizações
+    sns.set(style="whitegrid")
+    plt.rcParams['figure.figsize'] = (10, 6)
+    plt.rcParams['font.size'] = 12
 
 def load_data(file_path):
     """
@@ -288,7 +283,8 @@ def analyze_size_vs_status(df):
     corr_fig = create_correlation_heatmap(df, ["files_changed", "additions", "deletions"], "merged",
                                         "Correlação entre Tamanho dos PRs e Status")
     results["correlation_plot"] = figure_to_base64(corr_fig)
-    save_figure_to_file(corr_fig, "data/visualizations/rq01_correlation.png")
+    save_figure_to_file(corr_fig, os.path.join(DATA_DIR, "visualizations", "rq01_correlation.png"))
+
     
     for col, label in [("files_changed", "Número de Arquivos"),
                         ("additions", "Linhas Adicionadas"),
@@ -297,7 +293,7 @@ def analyze_size_vs_status(df):
                             f"Distribuição de {label} por Status",
                             "Status do PR", label)
         results[f"{col}_boxplot"] = figure_to_base64(fig)
-        save_figure_to_file(fig, f"data/visualizations/rq01_{col}_boxplot.png")
+        save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", "rq01_{col}_boxplot.png"))
     
     return results
 
@@ -318,7 +314,7 @@ def analyze_time_vs_status(df):
                         "Distribuição do Tempo de Análise por Status",
                         "Status do PR", "Tempo de Análise (horas)")
     results["time_boxplot"] = figure_to_base64(fig)
-    save_figure_to_file(fig, "data/visualizations/rq02_time_boxplot.png")
+    save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", "rq02_time_boxplot.png"))
     
     fig, ax = plt.subplots()
     for status, color in zip(["MERGED", "CLOSED"], ["green", "red"]):
@@ -330,9 +326,9 @@ def analyze_time_vs_status(df):
     ax.set_ylabel("Contagem")
     ax.legend()
     results["time_histogram"] = figure_to_base64(fig)
-    save_figure_to_file(fig, "data/visualizations/rq02_time_histogram.png")
-    
+    save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", "rq02_time_histogram.png"))
     return results
+
 
 
 def analyze_description_vs_status(df):
@@ -351,8 +347,8 @@ def analyze_description_vs_status(df):
                         "Distribuição do Tamanho da Descrição por Status",
                         "Status do PR", "Tamanho da Descrição (caracteres)")
     results["description_boxplot"] = figure_to_base64(fig)
-    save_figure_to_file(fig, "data/visualizations/rq03_description_boxplot.png")
-    
+    save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", "rq03_description_boxplot.png"))
+
     fig, ax = plt.subplots()
     medians = df.groupby("status")["body_length"].median()
     bars = ax.bar(medians.index, medians.values, color=["green", "red"])
@@ -364,7 +360,7 @@ def analyze_description_vs_status(df):
     ax.set_xlabel("Status do PR")
     ax.set_ylabel("Tamanho Mediano da Descrição (caracteres)")
     results["description_bars"] = figure_to_base64(fig)
-    save_figure_to_file(fig, "data/visualizations/rq03_description_bars.png")
+    save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", "rq03_description_bars.png"))
     
     return results
 
@@ -399,7 +395,7 @@ def analyze_interactions_vs_status(df):
     corr_fig = create_correlation_heatmap(df, ["participant_count", "comments", "review_comments"], "merged",
                                         "Correlação entre Interações e Status")
     results["correlation_plot"] = figure_to_base64(corr_fig)
-    save_figure_to_file(corr_fig, "data/visualizations/rq04_correlation.png")
+    save_figure_to_file(corr_fig, os.path.join(DATA_DIR, "visualizations", "rq04_correlation.png"))
     
     for col, label in [("participant_count", "Número de Participantes"),
                         ("comments", "Número de Comentários"),
@@ -408,7 +404,7 @@ def analyze_interactions_vs_status(df):
                             f"Distribuição de {label} por Status",
                             "Status do PR", label)
         results[f"{col}_boxplot"] = figure_to_base64(fig)
-        save_figure_to_file(fig, f"data/visualizations/rq04_{col}_boxplot.png")
+        save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", "rq04_{col}_boxplot.png"))
     
     return results
 
@@ -441,7 +437,7 @@ def analyze_size_vs_reviews(df):
     corr_fig = create_correlation_heatmap(df, ["files_changed", "additions", "deletions"], "review_count",
                                         "Correlação entre Tamanho dos PRs e Número de Revisões")
     results["correlation_plot"] = figure_to_base64(corr_fig)
-    save_figure_to_file(corr_fig, "data/visualizations/rq05_correlation.png")
+    save_figure_to_file(corr_fig, os.path.join(DATA_DIR, "visualizations", "rq05_correlation.png"))
     
     for col, label in [("files_changed", "Número de Arquivos"),
                         ("additions", "Linhas Adicionadas"),
@@ -450,7 +446,7 @@ def analyze_size_vs_reviews(df):
                                 f"Relação entre {label} e Número de Revisões",
                                 label, "Número de Revisões", log_scale=True)
         results[f"{col}_scatter"] = figure_to_base64(fig)
-        save_figure_to_file(fig, f"data/visualizations/rq05_{col}_scatter.png")
+        save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", "rq05_{col}_scatter.png"))
     
     return results
 
@@ -469,7 +465,7 @@ def analyze_time_vs_reviews(df):
                                 "Relação entre Tempo de Análise e Número de Revisões",
                                 "Tempo de Análise (horas)", "Número de Revisões", log_scale=True)
     results["time_scatter"] = figure_to_base64(fig)
-    save_figure_to_file(fig, "data/visualizations/rq06_time_scatter.png")
+    save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", "rq06_time_scatter.png"))
     
     fig, ax = plt.subplots()
     df['time_bins'] = pd.cut(df['time_to_close_hours'],
@@ -488,7 +484,7 @@ def analyze_time_vs_reviews(df):
     plt.xticks(rotation=45)
     plt.tight_layout()
     results["time_bins_plot"] = figure_to_base64(fig)
-    save_figure_to_file(fig, "data/visualizations/rq06_time_bins.png")
+    save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", "rq06_time_bins.png"))
     
     return results
 
@@ -507,7 +503,7 @@ def analyze_description_vs_reviews(df):
                             "Relação entre Tamanho da Descrição e Número de Revisões",
                             "Tamanho da Descrição (caracteres)", "Número de Revisões", log_scale=True)
     results["description_scatter"] = figure_to_base64(fig)
-    save_figure_to_file(fig, "data/visualizations/rq07_description_scatter.png")
+    save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", "rq07_description_scatter.png"))
     
     fig, ax = plt.subplots()
     df['desc_bins'] = pd.cut(df['body_length'],
@@ -527,7 +523,7 @@ def analyze_description_vs_reviews(df):
     plt.xticks(rotation=45)
     plt.tight_layout()
     results["desc_bins_plot"] = figure_to_base64(fig)
-    save_figure_to_file(fig, "data/visualizations/rq07_desc_bins.png")
+    save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", "rq07_desc_bins.png"))
     
     return results
 
@@ -560,7 +556,7 @@ def analyze_interactions_vs_reviews(df):
     corr_fig = create_correlation_heatmap(df, ["participant_count", "comments", "review_comments"],
                                         "review_count", "Correlação entre Interações e Número de Revisões")
     results["correlation_plot"] = figure_to_base64(corr_fig)
-    save_figure_to_file(corr_fig, "data/visualizations/rq08_correlation.png")
+    save_figure_to_file(corr_fig, os.path.join(DATA_DIR, "visualizations", "rq08_correlation.png"))
     
     for col, label in [("participant_count", "Número de Participantes"),
                         ("comments", "Número de Comentários"),
@@ -569,7 +565,8 @@ def analyze_interactions_vs_reviews(df):
                                 f"Relação entre {label} e Número de Revisões",
                                 label, "Número de Revisões")
         results[f"{col}_scatter"] = figure_to_base64(fig)
-        save_figure_to_file(fig, f"data/visualizations/rq08_{col}_scatter.png")
+        save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", "rq08_{col}_scatter.png"))
+
     
     return results
 
@@ -687,16 +684,15 @@ def generate_report(all_results, output_file="report.md"):
 
 def main():
     # Caminho da pasta atual (Lab3S01/scripts/)
-    base_dir = os.path.join("Lab3_CodeRevGithub", "Lab3S01")
-    data_dir = os.path.join(base_dir, "data")
-    visual_dir = os.path.join(data_dir, "visualizations")
+    os.makedirs(DATA_DIR, exist_ok=True)
+    visual_dir = os.path.join(DATA_DIR, "visualizations")
 
     # Garantir que o diretório de visualizações exista
     os.makedirs(visual_dir, exist_ok=True)
 
     # Caminho para salvar o arquivo CSV com os PRs coletados
-    csv_path = os.path.join(data_dir, "collected_prs.csv")
-    report_path = os.path.join(data_dir, "report.md")
+    csv_path = os.path.join(DATA_DIR, "collected_prs.csv")
+    report_path = os.path.join(DATA_DIR, "report.md")
 
     # Imprimir o caminho onde os dados serão salvos
     print("📂 Arquivos de Dados e Relatórios\n")
@@ -705,7 +701,7 @@ def main():
     print(f"   📊 Visualizações serão salvas em: {visual_dir}\n")
 
     print("📂 Diretórios de Salvamento\n")
-    print(f"   📍 Os dados serão salvos no diretório: {data_dir}")
+    print(f"   📍 Os dados serão salvos no diretório: {DATA_DIR}")
     print(f"   📍 Caminho para o arquivo de PRs coletados: {csv_path}")
     print(f"   📍 Caminho para o relatório final: {report_path}")
     print(f"   📍 Caminho para as visualizações: {visual_dir}\n")
@@ -758,3 +754,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    mover_pycache()
