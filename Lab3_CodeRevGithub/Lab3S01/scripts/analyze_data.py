@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
-from utils import calculate_correlation, interpret_correlation, check_correlation_significance
+from utils import calculate_correlation, interpret_correlation, check_correlation_significance, converter_csv_json
 import base64
 from io import BytesIO
 import shutil
@@ -293,7 +293,7 @@ def analyze_size_vs_status(df):
                             f"Distribuição de {label} por Status",
                             "Status do PR", label)
         results[f"{col}_boxplot"] = figure_to_base64(fig)
-        save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", "rq01_{col}_boxplot.png"))
+        save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", f"rq01_{col}_boxplot.png"))
     
     return results
 
@@ -404,7 +404,7 @@ def analyze_interactions_vs_status(df):
                             f"Distribuição de {label} por Status",
                             "Status do PR", label)
         results[f"{col}_boxplot"] = figure_to_base64(fig)
-        save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", "rq04_{col}_boxplot.png"))
+        save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", f"rq04_{col}_boxplot.png"))
     
     return results
 
@@ -446,7 +446,7 @@ def analyze_size_vs_reviews(df):
                                 f"Relação entre {label} e Número de Revisões",
                                 label, "Número de Revisões", log_scale=True)
         results[f"{col}_scatter"] = figure_to_base64(fig)
-        save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", "rq05_{col}_scatter.png"))
+        save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", f"rq05_{col}_scatter.png"))
     
     return results
 
@@ -565,7 +565,7 @@ def analyze_interactions_vs_reviews(df):
                                 f"Relação entre {label} e Número de Revisões",
                                 label, "Número de Revisões")
         results[f"{col}_scatter"] = figure_to_base64(fig)
-        save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", "rq08_{col}_scatter.png"))
+        save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", f"rq08_{col}_scatter.png"))
 
     
     return results
@@ -683,6 +683,9 @@ def generate_report(all_results, output_file="report.md"):
     print(f"📄 **Relatório gerado com sucesso em** {output_file}")
 
 def main():
+    # Converter .csv dos PRs para JSON
+    converter_csv_json()
+
     # Caminho da pasta atual (Lab3S01/scripts/)
     os.makedirs(DATA_DIR, exist_ok=True)
     visual_dir = os.path.join(DATA_DIR, "visualizations")
