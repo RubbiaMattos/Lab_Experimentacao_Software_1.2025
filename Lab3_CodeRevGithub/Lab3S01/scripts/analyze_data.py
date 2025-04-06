@@ -710,11 +710,6 @@ def main():
     print(f"   📍 Caminho para o relatório final: {report_path}")
     print(f"   📍 Caminho para as visualizações: {visual_dir}\n")
 
-    # 🧹 Remover arquivo antigo (opcional)
-    if os.path.exists(csv_path):
-        os.remove(csv_path)
-        print(f"🗑️ Arquivo antigo {os.path.relpath(csv_path)} removido.\n")
-
     # Carregar dados
     df = load_data(csv_path)
     print(f"📈 Dados carregados com sucesso. Total de {len(df)} PRs.\n")
@@ -760,3 +755,6 @@ def main():
     print("    ↪️ Pasta com os gráficos PNG gerados para cada pergunta de pesquisa (RQ01 a RQ08).\n")
 
     print(f"✅ Análise concluída com sucesso! Relatório salvo em {os.path.relpath(report_path)}")
+
+if __name__ == "__main__":
+    main()
