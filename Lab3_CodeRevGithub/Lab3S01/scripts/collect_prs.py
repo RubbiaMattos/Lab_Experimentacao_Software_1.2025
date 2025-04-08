@@ -1,6 +1,8 @@
+import json
 from github import Github
 import os
 import time
+from statistics import mean, median
 import pandas as pd
 import requests
 from tqdm import tqdm
@@ -13,14 +15,11 @@ import io
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..")))
 from config_token import configurar_token
 
-EXACT_REQUIRED_PRS = 100
-
 BASE_DIR = os.path.join("Lab3_CodeRevGithub", "Lab3S01")
 DATA_DIR = os.path.join(BASE_DIR, "data")
+REPO_FILE = os.path.join(DATA_DIR, "selected_repos.csv")
+COLLECTED_FILE = os.path.join(DATA_DIR, "collected_prs.csv")
 os.makedirs(DATA_DIR, exist_ok=True)
-
-repo_file = os.path.join(DATA_DIR, "selected_repos.csv")
-collected_file = os.path.join(DATA_DIR, "collected_prs.csv")
 
 def format_seconds(seconds):
     return time.strftime('%H:%M:%S', time.gmtime(seconds))
@@ -39,10 +38,9 @@ def mover_pycache(destino="Lab3_CodeRevGithub/Lab3S01/__pycache__"):
                     os.remove(arquivo_destino)
                 shutil.move(os.path.join(origem, arquivo), destino)
             shutil.rmtree(origem)
-            print(f"📦 Pycache movido para: {destino}")
+            tqdm.write(f"📦 Pycache movido para: {destino}")
 
 def handle_error_and_rate_limit(g, error=None, fallback_wait=600, max_wait=1800):
-    import traceback
     wait_seconds = None
     status_info = ""
     handled = False
@@ -112,34 +110,29 @@ def handle_error_and_rate_limit(g, error=None, fallback_wait=600, max_wait=1800)
 
     return False  # Não pausou (não foi erro esperado)
 
-def collect_prs_from_repo(g, repo_name, min_prs=100, max_prs=100):
+def collect_prs_from_repo(g, repo_name, min_valid_prs=100, max_valid_prs=None, max_pages=50):
     collected = []
     try:
         repo = g.get_repo(repo_name)
-        pulls = repo.get_pulls(state="closed", sort="created", direction="desc")
-        pulls_list = list(pulls)
-        collected_count = 0
-        attempts = 0
-        max_attempts = 10
+        page = 0
+        valid_count = 0
+        analisados = 0
 
-        with tqdm(total=max_prs, ncols=120, bar_format="    ⏳{l_bar}{bar}| {n:03d}/{total:03d} {percentage:3.0f}% {remaining}", leave=True) as pbar:
-            while collected_count < max_prs and attempts < max_attempts:
-                for pr in pulls_list:
-                    if collected_count >= max_prs:
-                        break
+        total_prs_fechados = repo.get_pulls(state="closed").totalCount
 
+        with tqdm(ncols=120, bar_format="    ⏳{l_bar}{bar}| {n_fmt} PRs válidos coletados", leave=True, total=total_prs_fechados) as pbar:
+            while page < max_pages:
+                prs = repo.get_pulls(state="closed", sort="created", direction="desc").get_page(page)
+
+                if not prs:
+                    break
+
+                for pr in prs:
+                    if max_valid_prs and valid_count >= max_valid_prs:
+                        break  # Limite máximo atingido
+
+                    analisados += 1
                     try:
-                        while True:
-                            try:
-                                with contextlib.redirect_stdout(io.StringIO()):
-                                    reviews = list(pr.get_reviews())    
-                                break
-                            except Exception as e:
-                                if handle_error_and_rate_limit(g, error=e):
-                                    continue
-                                else:
-                                    raise e
-
                         if not pr.closed_at:
                             continue
 
@@ -147,34 +140,26 @@ def collect_prs_from_repo(g, repo_name, min_prs=100, max_prs=100):
                         if time_diff.total_seconds() < 3600:
                             continue
 
+                        with contextlib.redirect_stdout(io.StringIO()):
+                            reviews = list(pr.get_reviews())
+                        if not reviews:
+                            continue
+
                         participants = set()
                         if pr.user and pr.user.login:
                             participants.add(pr.user.login)
 
-                        for review in reviews:
-                            if review.user and review.user.login:
-                                participants.add(review.user.login)
-
-                        while True:
-                            try:
-                                with contextlib.redirect_stdout(io.StringIO()):
-                                    try:
-                                        comments = list(pr.get_issue_comments())
-                                    except Exception:
-                                        comments = list(pr.get_comments())
-                                break
-                            except Exception as e:
-                                if handle_error_and_rate_limit(g, error=e):
-                                    continue
-                                else:
-                                    raise e
+                        try:
+                            comments = list(pr.get_issue_comments())
+                        except:
+                            comments = list(pr.get_comments())
 
                         for comment in comments:
                             if comment.user and comment.user.login:
                                 participants.add(comment.user.login)
-
-                        if len(reviews) == 0 and len(comments) == 0:
-                            continue
+                        for review in reviews:
+                            if review.user and review.user.login:
+                                participants.add(review.user.login)
 
                         collected.append({
                             "repo_name": repo_name,
@@ -197,7 +182,8 @@ def collect_prs_from_repo(g, repo_name, min_prs=100, max_prs=100):
                             "participant_count": len(participants)
                         })
 
-                        collected_count += 1
+                        valid_count += 1
+                        pbar.total = analisados
                         pbar.update(1)
 
                     except Exception as e:
@@ -206,13 +192,15 @@ def collect_prs_from_repo(g, repo_name, min_prs=100, max_prs=100):
                         else:
                             raise e
 
-                if collected_count < max_prs:
-                    tqdm.write(f"⏳ Coletados {collected_count}/{max_prs} PRs — aguardando antes de tentar novamente...")
-                    time.sleep(60)
-                    attempts += 1
+                if max_valid_prs and valid_count >= max_valid_prs:
+                    break  # Limite máximo atingido
 
-        if collected_count < min_prs:
-            print(f"⚠️ Apenas {collected_count} PRs válidos coletados de '{repo_name}' — abaixo do mínimo ({min_prs}).")
+                page += 1
+
+        tqdm.write(f"🔍 {valid_count} PRs válidos encontrados entre {analisados} PRs avaliados em '{repo_name}'")
+
+        if valid_count < min_valid_prs:
+            tqdm.write(f"⚠️ Apenas {valid_count} PRs válidos encontrados em '{repo_name}' — abaixo do mínimo ({min_valid_prs}).")
             return []
 
         return collected
@@ -223,46 +211,80 @@ def collect_prs_from_repo(g, repo_name, min_prs=100, max_prs=100):
         else:
             raise e
 
-
 # Função para salvar PRs coletados em CSV
-def save_prs_to_csv(prs, output_file):
-    if prs:
-        df = pd.DataFrame(prs)
+def save_prs_to_files(prs, file_path):
+    if not prs:
+        print("🔴 Nenhum PR válido coletado. Arquivos não foram salvos.")
+        return
 
-        # Garantir que o diretório existe antes de salvar
-        directory = os.path.dirname(output_file)
-        if not os.path.exists(directory):
-            print(f"🚧 Diretório {directory} não encontrado. Criando diretório...")
-            os.makedirs(directory, exist_ok=True)
+    # Define colunas e ordem lógica
+    selected = [
+        "repo_name", "pr_number", "title", "body", "language",
+        "created_at", "closed_at", "merged_at", "state", "merged",
+        "review_count", "files_changed", "additions", "deletions",
+        "comments", "review_comments", "time_to_close_hours", "participant_count"
+    ]
+    rows = [{k: r.get(k) for k in selected} for r in prs]
+    df = pd.DataFrame(rows)
 
-        # Agora salvar o arquivo
-        df.to_csv(output_file, index=False, encoding='utf-8')
-        print(f"✅ {len(prs)} PRs salvos em {output_file}")
-    else:
-        print("🔴 Nenhum PR para salvar. Nada foi feito.")
+    # Limita o tamanho do body para facilitar leitura
+    df["body"] = df["body"].apply(
+        lambda x: (x[:300] + "...") if isinstance(x, str) and len(x) > 300 else x
+    )
 
+    print(f"\n🧮 PRs consolidados atualmente: {len(prs)}")
 
-# Função para carregar repositórios do arquivo CSV ou criar arquivo vazio, se necessário
-def load_repos(file_path):
-    if os.path.exists(file_path):
-        return pd.read_csv(file_path)
-    else:
-        print(f"🔴 Arquivo {file_path} não encontrado. Criando arquivo CSV vazio...")
+    try:
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
-        empty_df = pd.DataFrame(columns=[
-            "repo_name", "pr_number", "title", "body", "body_length", "state",
-            "merged", "created_at", "closed_at", "merged_at", "review_count",
-            "files_changed", "additions", "deletions", "comments",
-            "review_comments", "time_to_close_hours", "participant_count"
-        ])
-        empty_df.to_csv(file_path, index=False)
-        return empty_df
 
+        # 👉 Diferente do save_repos: aqui **não removemos arquivos antigos**
 
-def repo_has_valid_prs(collected_prs_df, repo_name, exact_prs=100):
+        # Salva CSV com separador ";"
+        df.to_csv(file_path, index=False, sep=";", encoding="utf-8")
+        print(f"    ✅ Arquivo CSV salvo em {file_path}")
+
+        # Salva como JSON
+        json_path = file_path.replace(".csv", ".json")
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(prs, f, indent=2, ensure_ascii=False)
+        print(f"    ✅ Arquivo JSON salvo em {json_path}")
+
+    except Exception as e:
+        print(f"🔴 Erro ao salvar os arquivos de PRs: {e}\n")
+
+def load_repos(file_path, required_columns=None):
+    # Detecta colunas padrão conforme o tipo de arquivo
+    if required_columns is None:
+        if "selected" in file_path:
+            required_columns = ["full_name"]
+        else:
+            required_columns = [
+                "repo_name", "pr_number", "title", "body", "body_length",
+                "state", "merged", "created_at", "closed_at", "merged_at",
+                "review_count", "files_changed", "additions", "deletions",
+                "comments", "review_comments", "time_to_close_hours", "participant_count"
+            ]
+
+    # Tenta carregar com os separadores mais comuns
+    if os.path.exists(file_path):
+        for sep in [";", ","]:
+            try:
+                df = pd.read_csv(file_path, sep=sep)
+                if all(col in df.columns for col in required_columns):
+                    return df
+            except Exception:
+                continue
+
+    # Se chegou aqui: arquivo não existe ou inválido → recria com colunas corretas
+    df = pd.DataFrame(columns=required_columns)
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    df.to_csv(file_path, index=False, sep=";")
+    return df
+
+def repo_has_valid_prs(collected_prs_df, repo_name, min_prs=100, max_prs=1000):
     repo_data = collected_prs_df[collected_prs_df['repo_name'] == repo_name]
     valid_prs = repo_data.dropna(subset=["pr_number", "title", "body", "state", "created_at", "closed_at"])
-    return valid_prs.shape[0] == exact_prs
+    return min_prs <= valid_prs.shape[0] <= max_prs
 
 def compare_repositories(selected_repos_df, collected_prs_df, g):
     selected_repos = selected_repos_df['full_name'].tolist()
@@ -271,7 +293,7 @@ def compare_repositories(selected_repos_df, collected_prs_df, g):
     valid_repos = []
     invalid_repos = []
 
-    print("    🔍 Verificando Repositórios Selecionados...")
+    tqdm.write("    🔍 Verificando Repositórios Selecionados...")
     with tqdm(total=len(selected_repos), ncols=120, bar_format="    ⏳ {l_bar}{bar}| {n:03d}/{total:03d} {percentage:3.0f}% {remaining}", leave=True, position=0) as pbar:
         for repo_name in selected_repos:
             try:
@@ -286,70 +308,50 @@ def compare_repositories(selected_repos_df, collected_prs_df, g):
 
     complete_repos = []
     incomplete_repos = []
+
     for repo in collected_in_selected:
-        if repo_has_valid_prs(collected_prs_df, repo, exact_prs=EXACT_REQUIRED_PRS):
-            complete_repos.append(repo)
-        else:
-            incomplete_repos.append(repo)
+        try:
+            total_prs_repo = g.get_repo(repo).get_pulls(state="all").totalCount
+            is_valid = repo_has_valid_prs(collected_prs_df, repo, min_prs=100, max_prs=total_prs_repo)
+            if is_valid:
+                complete_repos.append(repo)
+            else:
+                incomplete_repos.append(repo)
+        except Exception as e:
+            pass
 
-    remaining_to_collect_or_complete = len(selected_repos) - len(complete_repos)
-
-    return complete_repos, incomplete_repos, len(removed_repos), len(collected_repos), len(collected_in_selected), remaining_to_collect_or_complete, valid_repos, invalid_repos, removed_repos
-
-def filter_remaining_repos(selected_repos_df, collected_repos_df):
-    selected_repos = selected_repos_df['full_name'].tolist()
-    collected_repos = collected_repos_df['repo_name'].unique().tolist()
-
-    # Repositórios que precisam ser coletados (não estão na lista de coletados)
-    remaining_repos = [repo for repo in selected_repos if repo not in collected_repos]
-
-    return remaining_repos
+    return complete_repos, incomplete_repos, len(removed_repos), len(collected_repos), len(collected_in_selected), valid_repos, invalid_repos, removed_repos
 
 
-from statistics import mean, median
+def filter_remaining_repos(selected_df, collected_df):
+    """
+    Retorna uma lista de repositórios selecionados que ainda não foram coletados.
+    """
+    selected = set(selected_df["full_name"])
+    collected = set(collected_df["repo_name"])
+    return list(selected - collected)
 
-def main():
-    # Configurar o token do GitHub
-    g = Github(configurar_token())
+def show_initial_info():
+    tqdm.write(f"📁 Caminho dos repositórios: {REPO_FILE}")
+    tqdm.write(f"📁 Caminho dos PRs: {COLLECTED_FILE}\n")
+    tqdm.write("-" * 120 + "\n")
 
-    base_dir = os.path.join("Lab3_CodeRevGithub", "Lab3S01")
-    data_dir = os.path.join(base_dir, "data")
+def summarize_collection_results(
+    selected_repos_df, collected_prs_df,
+    complete_repos, incomplete_repos,
+    repos_pendentes_set, removidos_set,
+    collected_file
+):
+    total_collected_repos = len(collected_prs_df["repo_name"].unique())
+    tqdm.write("\n📊 Resumo da Coleta de PRs\n")
+    tqdm.write(f"   📋 Repositórios selecionados: {len(selected_repos_df)}")
+    tqdm.write(f"   📋 Repositórios processados: {total_collected_repos}")
+    tqdm.write(f"   📋 Repositórios com PRs completos: {len(complete_repos)}")
+    tqdm.write(f"   📋 Repositórios com PRs incompletos: {len(incomplete_repos)}")
+    tqdm.write(f"   🗑️  Repositórios anteriormente coletados, mas removidos da lista atual: {len(removidos_set)}")
+    tqdm.write(f"\n   📋 Repositórios pendentes de coleta: {len(repos_pendentes_set)}\n")
+    tqdm.write("-" * 120 + "\n")
 
-    repo_file = os.path.join(data_dir, "selected_repos.csv")
-    collected_file = os.path.join(data_dir, "collected_prs.csv")
-
-    print(f"📁 O caminho para o arquivo de repositórios selecionados é: {repo_file}")
-    print(f"📁 O caminho para salvar os PRs coletados é: {collected_file}\n")
-    print("-" * 120 + "\n")
-
-    selected_repos_df = load_repos(repo_file)
-    collected_prs_df = load_repos(collected_file)
-
-    complete_repos, incomplete_repos, removed_repos_count, total_collected_repos, collected_in_selected_count, _, valid_repos, invalid_repos, removed_repos = compare_repositories(selected_repos_df, collected_prs_df, g)
-
-    selected_set = set(selected_repos_df['full_name'])
-    collected_set = set(collected_prs_df['repo_name'])
-    completos_set = set(complete_repos)
-    incompletos_set = set(incomplete_repos)
-    removidos_set = collected_set - selected_set
-
-    # Pendentes = selecionados que não estão nem completos nem incompletos
-    repos_pendentes_set = selected_set - completos_set - incompletos_set
-    remaining_to_collect_count = len(repos_pendentes_set)
-
-    total_check = len(completos_set) + len(incompletos_set) + len(repos_pendentes_set)
-    assert total_check == len(selected_set), f"Soma de estados incorreta: {total_check} != {len(selected_set)}"
-
-    print("\n📊 Resumo da Coleta de PRs\n")
-    print(f"   📋 Repositórios selecionados: {len(selected_repos_df)}")
-    print(f"   📋 Repositórios processados: {total_collected_repos}")
-    print(f"   📋 Repositórios com PRs completos: {len(complete_repos)}")
-    print(f"   📋 Repositórios com PRs incompletos: {len(incomplete_repos)}")
-    print(f"   🗑️  Repositórios anteriormente coletados, mas removidos da lista atual: {len(removidos_set)}")
-    print(f"\n   📋 Repositórios pendentes de coleta: {remaining_to_collect_count}\n")
-    print("-" * 120 + "\n")
-
-    # 🧹 Limpa os PRs de repositórios que não estão mais nos selecionados
     if not collected_prs_df.empty and len(removidos_set) > 0:
         before = len(collected_prs_df)
         collected_prs_df = collected_prs_df[~collected_prs_df["repo_name"].isin(removidos_set)].reset_index(drop=True)
@@ -358,60 +360,103 @@ def main():
         if before != after:
             collected_prs_df.to_csv(collected_file, index=False, encoding='utf-8')
 
-    # Repositórios que ainda precisam ser coletados (não estão no arquivo ou estão incompletos)
-    remaining_repos = list(repos_pendentes_set)
-    if incomplete_repos:
-        print(f"🔁 Incluindo {len(incomplete_repos)} repositórios incompletos na nova rodada de coleta...")
-        remaining_repos += incomplete_repos
-        remaining_repos = list(set(remaining_repos))
+    return collected_prs_df
+
+
+def coletar_prs_dos_repos(remaining_repos, collected_file, g, incomplete_repos):
+    tqdm.write(f"\n📄 Coletando PRs dos repositórios restantes ({len(remaining_repos)})...")
+    total_prs_collected = 0
+    repo_times = {}
+
+    collected_df = load_repos(collected_file)
+
+    for idx, repo_name in enumerate(remaining_repos):
+        tipo_coleta = "♻️ RECOLETA" if repo_name in incomplete_repos else "🆕 NOVO"
+        tqdm.write(f"\n🔄 {str(idx + 1).zfill(2)}/{len(remaining_repos)} Coletando PRs de repositório: {repo_name} ({tipo_coleta})")
+
+        inicio = time.time()
+        try:
+            prs = collect_prs_from_repo(g, repo_name, min_valid_prs=100)
+        except Exception as e:
+            tqdm.write(f"   ⚠️ Erro ao coletar PRs de '{repo_name}': {e}")
+            continue
+        fim = time.time()
+
+        tempo = fim - inicio
+        repo_times[repo_name] = tempo
+        tempo_str = format_seconds(tempo)
+
+        if prs:
+            validos = len(prs)
+            total_prs_collected += validos
+            tqdm.write(f"   📦 PRs válidos coletados de '{repo_name}': {validos} ⏱️ Tempo: {tempo_str}")
+
+            new_df = pd.DataFrame(prs)
+            collected_df = pd.concat([collected_df, new_df], ignore_index=True)
+
+            antes = collected_df.shape[0]
+            collected_df.drop_duplicates(subset=["repo_name", "pr_number"], inplace=True)
+            depois = collected_df.shape[0]
+            removidos = antes - depois
+            if removidos > 0:
+                tqdm.write(f"   🔍 {removidos} PRs duplicados removidos.")
+
+            save_prs_to_files(collected_df.to_dict(orient="records"), collected_file)
+        else:
+            tqdm.write(f"   ⚠️ Repositório '{repo_name}' ignorado — menos de 100 PRs válidos. ⏱️ Tempo: {tempo_str}")
+
+    tqdm.write(f"\n📊 Total acumulado de PRs válidos coletados nesta execução: {total_prs_collected}")
+
+    tempos = list(repo_times.values())
+    if tempos:
+        media_tempo = mean(tempos)
+        mediana_tempo = median(tempos)
+        tempo_total = sum(tempos)
+
+        tqdm.write(f"\n⏱️ Estatísticas de Tempo da Coleta:")
+        tqdm.write(f"   🔹 Tempo total: {format_seconds(tempo_total)}")
+        tqdm.write(f"   🔹 Tempo médio por repositório: {format_seconds(media_tempo)}")
+        tqdm.write(f"   🔹 Tempo mediano por repositório: {format_seconds(mediana_tempo)}")
+
+def main():
+    g = Github(configurar_token())
+    selected_repos_df = load_repos(REPO_FILE)
+    collected_prs_df = load_repos(COLLECTED_FILE)
+
+    if selected_repos_df.empty or 'full_name' not in selected_repos_df.columns:
+        tqdm.write("❌ Arquivo de repositórios selecionados está vazio ou mal formatado. Verifique o arquivo.")
+        return
+    
+    show_initial_info()
+
+    complete_repos, incomplete_repos, *_ = compare_repositories(
+        selected_repos_df, collected_prs_df, g
+    )
+
+    selected_set = set(selected_repos_df['full_name'])
+    completos_set = set(complete_repos)
+    incompletos_set = set(incomplete_repos)
+    collected_set = set(collected_prs_df['repo_name'])
+
+    repos_pendentes_set = selected_set - completos_set - incompletos_set
+    removidos_set = collected_set - selected_set
+
+    collected_prs_df = summarize_collection_results(
+        selected_repos_df, collected_prs_df,
+        complete_repos, incomplete_repos,
+        repos_pendentes_set, removidos_set,
+        COLLECTED_FILE
+    )
+
+    remaining_repos = list(repos_pendentes_set.union(incompletos_set))
 
     if remaining_repos:
-        print(f"\n📄 Coletando PRs dos repositórios restantes ({len(remaining_repos)})...")
-
-        total_prs_collected = 0
-        repo_times = {}
-
-        if os.path.exists(collected_file):
-            collected_df = pd.read_csv(collected_file)
-        else:
-            collected_df = pd.DataFrame()
-
-        for idx, repo_name in enumerate(remaining_repos):
-            tqdm.write(f"\n🔄 {str(idx + 1).zfill(2)}/{len(remaining_repos)} Coletando PRs de repositório: {repo_name}")
-            inicio = time.time()
-            prs = collect_prs_from_repo(g, repo_name)
-            fim = time.time()
-            tempo = fim - inicio
-            repo_times[repo_name] = tempo
-            tempo_str = format_seconds(tempo)
-
-            if prs:
-                total_prs_collected += len(prs)
-                print(f"   📦 PRs coletados do repositório '{repo_name}': {len(prs)} PRs ⏱️ Tempo: {tempo_str}")
-
-                new_df = pd.DataFrame(prs)
-                collected_df = pd.concat([collected_df, new_df], ignore_index=True)
-                collected_df.to_csv(collected_file, index=False, encoding='utf-8')
-                print(f"   📅 PRs salvos no arquivo: {collected_file}")
-            else:
-                print(f"   ⚠️ Repositório '{repo_name}' ignorado — menos de 500 PRs válidos. ⏱️ Tempo: {tempo_str}")
-
-        print(f"\n📊 Total acumulado de PRs coletados nesta execução: {total_prs_collected}")
-
-        tempos = list(repo_times.values())
-        if tempos:
-            media_tempo = mean(tempos)
-            mediana_tempo = median(tempos)
-            tempo_total = sum(tempos)
-
-            print(f"\n⏱️ Estatísticas de Tempo da Coleta:")
-            print(f"   🔹 Tempo total: {format_seconds(tempo_total)}")
-            print(f"   🔹 Tempo médio por repositório: {format_seconds(media_tempo)}")
-            print(f"   🔹 Tempo mediano por repositório: {format_seconds(mediana_tempo)}")
-
+        coletar_prs_dos_repos(remaining_repos, COLLECTED_FILE, g, incomplete_repos)
     else:
-        print("🔴 Não há repositórios restantes para coletar.")
+        tqdm.write("🔴 Não há repositórios restantes para coletar.")
 
+
+# === EXECUÇÃO PRINCIPAL ===
 if __name__ == "__main__":
     main()
     mover_pycache()

@@ -4,7 +4,7 @@ import importlib.metadata
 
 dependencia = [
     'requests', 'pandas', 'numpy', 'matplotlib', 'seaborn',
-    'scipy', 'tqdm', 'tabulate', 'python-dotenv',
+    'scipy', 'tqdm', 'tabulate', 'python-dotenv', 'openpyxl',
     'PyGithub', 'scikit-learn', 'importlib-metadata'
 ]
 

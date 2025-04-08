@@ -17,8 +17,6 @@ BASE_DIR = os.path.join("Lab3_CodeRevGithub", "Lab3S01")
 DATA_DIR = os.path.join(BASE_DIR, "data")
 
 os.makedirs(DATA_DIR, exist_ok=True)
-LOG_DIR = os.path.join(BASE_DIR, "Logs")
-os.makedirs(LOG_DIR, exist_ok=True)
 
 output_csv = os.path.join(DATA_DIR, "selected_repos.csv")
 output_json = os.path.join(DATA_DIR, "selected_repos.json")
@@ -80,7 +78,7 @@ def handle_rate_limit(response, fallback_wait=600, max_wait=1800, message="", er
 
     return False
 
-def filter_repos_with_min_prs(token, min_prs=500, needed=200):
+def filter_repos_with_min_prs(token, min_prs=100, needed=200):
     headers_rest = {
         "Authorization": f"token {token}",
         "Accept": "application/vnd.github.v3+json"
@@ -92,7 +90,7 @@ def filter_repos_with_min_prs(token, min_prs=500, needed=200):
     all_filtered = []
     page = 1
 
-    print(f"🔍 Coletando repositórios com +1000 stars e pelo menos {min_prs} PRs fechados com comentários ou reviews usando GraphQL...\n")
+    print(f"🔍 Iniciando coleta de repositórios com +1000 estrelas e pelo menos {min_prs} pull requests fechados com *reviews*...\n")
 
     while len(all_filtered) < needed:
         params = {
@@ -116,10 +114,10 @@ def filter_repos_with_min_prs(token, min_prs=500, needed=200):
             break
 
         print(f"🔄 Processando página {page}...")
-
         validos_na_pagina = 0
+        repos_nesta_pagina = []
 
-        for repo in tqdm(repos, desc=f"   ⚙️  Filtrando por PRs (min={min_prs})", ncols=120):
+        for repo in tqdm(repos, desc=f"   ⚙️  Filtrando por PRs com reviews", ncols=120):
             owner, name = repo["full_name"].split("/")
             valid_prs = []
             cursor = None
@@ -131,15 +129,14 @@ def filter_repos_with_min_prs(token, min_prs=500, needed=200):
                 query = {
                     "query": f"""
                     {{
-                      repository(owner: \"{owner}\", name: \"{name}\") {{
-                        pullRequests(states: [MERGED, CLOSED], first: 100{after_clause}, orderBy: {{field: CREATED_AT, direction: DESC}}) {{
-                          nodes {{
-                            comments {{ totalCount }}
-                            reviews {{ totalCount }}
-                          }}
-                          pageInfo {{ hasNextPage endCursor }}
+                        repository(owner: \"{owner}\", name: \"{name}\") {{
+                            pullRequests(states: [MERGED, CLOSED], first: 100{after_clause}, orderBy: {{field: CREATED_AT, direction: DESC}}) {{
+                                nodes {{
+                                    reviews {{ totalCount }}
+                                }}
+                                pageInfo {{ hasNextPage endCursor }}
+                            }}
                         }}
-                      }}
                     }}
                     """
                 }
@@ -155,7 +152,7 @@ def filter_repos_with_min_prs(token, min_prs=500, needed=200):
 
                     pr_data = response_json["data"]["repository"]["pullRequests"]
                     for pr in pr_data["nodes"]:
-                        if pr["comments"]["totalCount"] > 0 or pr["reviews"]["totalCount"] > 0:
+                        if pr["reviews"]["totalCount"] > 0:
                             valid_prs.append(pr)
 
                     fetched += len(pr_data["nodes"])
@@ -166,20 +163,65 @@ def filter_repos_with_min_prs(token, min_prs=500, needed=200):
                 except Exception as e:
                     break
 
-            if len(valid_prs) >= min_prs:
-                repo["pr_count"] = len(valid_prs)
-                all_filtered.append(repo)
+            pr_count = len(valid_prs)
+            if pr_count >= min_prs:
+                repo["pr_count"] = pr_count
                 validos_na_pagina += 1
+                repos_nesta_pagina.append(repo)
 
-        total_validos = len(all_filtered)
+        all_filtered.extend(repos_nesta_pagina)
+
         print(f"   📄 Página {page} finalizada.")
         print(f"      ➕ Extraídos nesta página: {validos_na_pagina}")
-        print(f"      📊 Total acumulado: {total_validos} repositórios válidos.\n")
+        print(f"      📊 Total acumulado: {len(all_filtered)} repositórios válidos.")
+
+        # Estatísticas da página
+        faixas = [
+            (100, 199),
+            (200, 499),
+            (500, 999),
+            (1000, float("inf"))
+        ]
+
+        contexto = f"página {page}"
+        pr_counts = [(repo.get("full_name", "desconhecido"), repo.get("pr_count", 0)) for repo in repos_nesta_pagina if "pr_count" in repo]
+
+        print(f"\n📊 Distribuição dos repositórios por faixas de PRs válidos ({contexto}):")
+        for min_val, max_val in faixas:
+            label = f"{int(min_val)}+" if max_val == float("inf") else f"{int(min_val)}–{int(max_val)}"
+            count = sum(1 for _, pr_count in pr_counts if min_val <= pr_count <= max_val)
+            print(f"   🔹 {label} PRs: {count} repositório(s)")
+
+        if pr_counts:
+            sorted_repos = sorted(pr_counts, key=lambda x: x[1])
+            repo_min = sorted_repos[0]
+            repo_max = sorted_repos[-1]
+
+            print(f"\n📈 Estatísticas de PRs nesta página:")
+            print(f"   🔹 Mínimo: {repo_min[1]} PRs — {repo_min[0]}")
+            print(f"   🔹 Máximo: {repo_max[1]} PRs — {repo_max[0]}")
+        else:
+            print("\n🔴 Nenhum repositório válido nesta página para calcular estatísticas.")
+
+        print("\n" + "-" * 80 + "\n")
+
+        # Salvar resultados parciais
+        if all_filtered:
+            selected = [
+                "id", "full_name", "description", "language",
+                "stargazers_count", "forks_count", "open_issues_count", "pr_count"
+            ]
+            rows = [{k: r.get(k) for k in selected} for r in all_filtered]
+            df = pd.DataFrame(rows)
+            df.to_csv(output_csv, index=False, encoding="utf-8")
+            with open(output_json, "w", encoding="utf-8") as f:
+                json.dump(all_filtered, f, indent=2, ensure_ascii=False)
 
         page += 1
 
     if len(all_filtered) == 0:
         print("🔴 Nenhum repositório válido encontrado.")
+
     return all_filtered[:needed]
 
 def save_repos_to_files(repos, file_path):
@@ -187,6 +229,7 @@ def save_repos_to_files(repos, file_path):
         print("🔴 Nenhum repositório válido coletado. Arquivos não foram salvos.")
         return
 
+    # Define colunas e ordem lógica
     selected = [
         "id", "full_name", "description", "language",
         "stargazers_count", "forks_count", "open_issues_count", "pr_count"
@@ -194,24 +237,79 @@ def save_repos_to_files(repos, file_path):
     rows = [{k: r.get(k) for k in selected} for r in repos]
     df = pd.DataFrame(rows)
 
+    # Limita tamanho da descrição para facilitar visualização
+    df["description"] = df["description"].apply(
+        lambda x: (x[:300] + "...") if isinstance(x, str) and len(x) > 300 else x
+    )
+
     print(f"\n✅ {len(repos)} repositórios válidos salvos:")
+
     try:
-        df.to_csv(file_path, index=False)
+        # Garante que o diretório existe
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+
+        # ⚠️ Remove arquivos antigos (csv, json, xlsx) se existirem
+        for ext in [".csv", ".json"]:
+            path_to_remove = file_path.replace(".csv", ext)
+            if os.path.exists(path_to_remove):
+                os.remove(path_to_remove)
+
+        # Salva CSV com separador ";"
+        df.to_csv(file_path, index=False, sep=";", encoding="utf-8")
         print(f"    ✅ Arquivo CSV salvo em {file_path}")
 
+        # Salva como JSON também
         json_path = file_path.replace(".csv", ".json")
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump(repos, f, indent=2, ensure_ascii=False)
-        print(f"    ✅ Arquivo JSON salvo em {json_path}\n")
+        print(f"    ✅ Arquivo JSON salvo em {json_path}")
+
     except Exception as e:
         print(f"🔴 Erro ao salvar os arquivos: {e}\n")
+
+def print_faixa_distribuicao(repos, contexto="geral"):
+    faixas = [
+        (100, 199),
+        (200, 499),
+        (500, 999),
+        (1000, float("inf"))
+    ]
+
+    pr_counts = [(repo.get("full_name", "desconhecido"), repo.get("pr_count", 0)) for repo in repos if "pr_count" in repo]
+
+    print(f"\n📊 Distribuição dos repositórios por faixas de PRs válidos ({contexto}):")
+    for min_val, max_val in faixas:
+        label = f"{int(min_val)}+" if max_val == float("inf") else f"{int(min_val)}–{int(max_val)}"
+        count = sum(1 for _, pr_count in pr_counts if min_val <= pr_count <= max_val)
+        print(f"   🔹 {label} PRs: {count} repositório(s)")
+
+    if pr_counts:
+        sorted_repos = sorted(pr_counts, key=lambda x: x[1])
+        repo_min = sorted_repos[0]
+        repo_max = sorted_repos[-1]
+
+        minimo = repo_min[1]
+        maximo = repo_max[1]
+
+        print(f"\n📈 Estatísticas dos PRs válidos:")
+        print(f"   🔹 Mínimo: {minimo}  — {repo_min[0]}")
+        print(f"   🔹 Máximo: {maximo}  — {repo_max[0]}")
+    else:
+        print("\n🔴 Nenhuma informação de PRs disponível para estatísticas.")
+
 
 def main():
     print("Iniciando o processo de coleta de repositórios...\n")
     start_time = time.time()
 
     filtered = filter_repos_with_min_prs(TOKEN, min_prs=100, needed=200)
-    save_repos_to_files(filtered, output_csv)
+
+    # ✅ Filtragem final por segurança (mínimo de 100 PRs válidos)
+    filtered_final = [repo for repo in filtered if repo.get("pr_count", 0) >= 100]
+
+    print_faixa_distribuicao(filtered_final, contexto="final")
+
+    save_repos_to_files(filtered_final, output_csv)
 
     end_time = time.time()
     elapsed = end_time - start_time
