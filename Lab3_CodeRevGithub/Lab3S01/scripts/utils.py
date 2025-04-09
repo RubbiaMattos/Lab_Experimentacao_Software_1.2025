@@ -96,7 +96,7 @@ def converter_csv_json():
     with open(csv_file_path, mode='r', encoding='utf-8') as csv_file, \
         open(json_file_path, mode='w', encoding='utf-8') as json_file:
         
-        dados = list(csv.DictReader(csv_file))
+        dados = list(csv.DictReader(csv_file, delimiter=';'))
         json.dump(dados, json_file, indent=4, ensure_ascii=False)
         print(f"Arquivo convertido e salvo como {json_file_path}")
 
