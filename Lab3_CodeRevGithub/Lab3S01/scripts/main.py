@@ -2,12 +2,13 @@ import subprocess
 import sys
 import importlib.metadata
 
-dependencia = [
+# Lista de dependências essenciais para o projeto
+dependencias = [
     'requests', 'pandas', 'numpy', 'matplotlib', 'seaborn',
     'scipy', 'tqdm', 'tabulate', 'python-dotenv', 'openpyxl',
-    'PyGithub', 'scikit-learn', 'importlib-metadata'
+    'PyGithub', 'scikit-learn', 'importlib-metadata', 'plotly', 'polars',
+    'pyarrow', 'pydantic', 'typer', 'rich', 'beautifulsoup4'
 ]
-
 
 print("\n🔍 Verificando e instalando dependências...")
 
@@ -16,6 +17,7 @@ def check_and_install(package):
 
     try:
         # Verificar se o pacote já está instalado
+        
         installed_version = importlib.metadata.version(package)
         print(f"    🎯 {package} (v{installed_version}) já está instalado.")
         
@@ -38,7 +40,7 @@ def check_and_install(package):
         subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
 # Atualizar ou instalar pacotes conforme necessário
-for pacote in dependencia:
+for pacote in dependencias:
     check_and_install(pacote)
 
 import os
@@ -125,10 +127,17 @@ def menu():
             print("\n" + "-" * 120)
         elif escolha == "4":
             print("\n🔄 Executando PIPELINE COMPLETO 🔄")
+            inicio_total = time.time()
+
             collect_repos()
             collect_prs()
             analyze_data()
-            print("\n🎉 Pipeline finalizado com sucesso!")
+
+            fim_total = time.time()
+            tempo_total = formatar_tempo(fim_total - inicio_total)
+
+            print(f"\n🎉 Pipeline finalizado com sucesso!")
+            print(f"⏱️ Tempo total de execução do pipeline: {tempo_total}")
             print("\n" + "-" * 120)
             break
         elif escolha == "0":

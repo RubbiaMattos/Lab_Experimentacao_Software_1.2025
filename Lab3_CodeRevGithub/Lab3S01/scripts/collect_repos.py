@@ -169,6 +169,7 @@ def filter_repos_with_min_prs(token, min_prs=100, needed=200):
                 validos_na_pagina += 1
                 repos_nesta_pagina.append(repo)
 
+
         all_filtered.extend(repos_nesta_pagina)
 
         print(f"   📄 Página {page} finalizada.")
@@ -177,6 +178,7 @@ def filter_repos_with_min_prs(token, min_prs=100, needed=200):
 
         # Estatísticas da página
         faixas = [
+            (0, 99),
             (100, 199),
             (200, 499),
             (500, 999),
