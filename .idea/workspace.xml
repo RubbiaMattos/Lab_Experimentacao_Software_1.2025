@@ -5,12 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d7aaa77-3bb7-4f30-a6cd-fe9d395af648" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/collected_prs.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/collected_prs.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/collected_prs.json" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/collected_prs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/report.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/selected_repos.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/selected_repos.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/selected_repos.json" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/selected_repos.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq01_additions_boxplot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq01_additions_boxplot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq01_correlation.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq01_correlation.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq01_deletions_boxplot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq01_deletions_boxplot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq01_files_changed_boxplot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq01_files_changed_boxplot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq02_time_boxplot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq02_time_boxplot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq02_time_histogram.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq02_time_histogram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq03_description_bars.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq03_description_bars.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq03_description_boxplot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq03_description_boxplot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq04_comments_boxplot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq04_comments_boxplot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq04_correlation.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq04_correlation.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq04_participant_count_boxplot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq04_participant_count_boxplot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq04_review_comments_boxplot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq04_review_comments_boxplot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq05_additions_scatter.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq05_additions_scatter.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq05_correlation.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq05_correlation.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq05_deletions_scatter.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq05_deletions_scatter.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq05_files_changed_scatter.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq05_files_changed_scatter.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq06_time_bins.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq06_time_bins.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq06_time_scatter.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq06_time_scatter.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq07_desc_bins.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq07_desc_bins.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq07_description_scatter.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq07_description_scatter.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq08_comments_scatter.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq08_comments_scatter.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq08_correlation.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq08_correlation.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq08_participant_count_scatter.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq08_participant_count_scatter.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq08_review_comments_scatter.png" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/data/visualizations/rq08_review_comments_scatter.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/scripts/analyze_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/scripts/analyze_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/scripts/collect_prs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/scripts/collect_prs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/scripts/collect_repos.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/scripts/collect_repos.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/scripts/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/Lab3S01/scripts/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/config_token.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env.config" beforeDir="false" afterPath="$PROJECT_DIR$/env.config" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,24 +75,24 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;Python.automacao_clone.executor&quot;: &quot;Run&quot;,
-    &quot;Python.coleta_repositorios.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Python.automacao_clone.executor": "Run",
+    "Python.coleta_repositorios.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="dbt.Run dbt build">
     <configuration name="Run dbt build" type="DbtRunConfiguration" factoryName="DbtRunConfiguration">
       <option name="dbtCommand" value="build" />
@@ -95,8 +123,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.25659.43" />
-        <option value="bundled-python-sdk-181015f7ab06-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.25659.43" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.26053.29" />
+        <option value="bundled-python-sdk-b1dbf8ef85a6-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.26053.29" />
       </set>
     </attachedChunks>
   </component>
@@ -119,6 +147,10 @@
       <workItem from="1743596945134" duration="18000" />
       <workItem from="1744034945540" duration="143000" />
       <workItem from="1744036862122" duration="9000" />
+      <workItem from="1744389889898" duration="38000" />
+      <workItem from="1744422213328" duration="425000" />
+      <workItem from="1744422832179" duration="316000" />
+      <workItem from="1744423657353" duration="203000" />
     </task>
     <servers />
   </component>
