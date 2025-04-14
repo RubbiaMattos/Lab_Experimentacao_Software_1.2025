@@ -1,12 +1,10 @@
 import os
-
-# Impede a criação do __pycache__
-os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
-
-# Agora, importe seus outros módulos
 import logging
 from dotenv import load_dotenv
 from typing import Optional
+
+# Impede a criação do __pycache__
+os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
 
 # Caminho baseado no diretório da sprint
 script_dir = os.path.dirname(os.path.abspath(__file__))

@@ -31,14 +31,12 @@ def mover_pycache(destino="Lab3_CodeRevGithub/Lab3S01/__pycache__"):
             os.makedirs(destino, exist_ok=True)
             for arquivo in os.listdir(origem):
                 arquivo_destino = os.path.join(destino, arquivo)
-                # Force overwrite by removing the existing file before moving
                 if os.path.exists(arquivo_destino):
                     os.remove(arquivo_destino)
                 shutil.move(os.path.join(origem, arquivo), destino)
             shutil.rmtree(origem)
             print(f"📦 Pycache movido para: {destino}")
 
-    # Configurar o estilo das visualizações
     sns.set(style="whitegrid")
     plt.rcParams['figure.figsize'] = (10, 6)
     plt.rcParams['font.size'] = 12
@@ -53,16 +51,24 @@ def load_data(file_path):
     Returns:
         pd.DataFrame: DataFrame com os dados dos PRs
     """
-    df = pd.read_csv(file_path)
+    df = pd.read_csv(file_path, sep=';')
+
+    # Calcula o tamanho da descrição (em número de caracteres)
+    df["body_length"] = df["body"].fillna("").apply(len)
+
     # Limpa e prepara os dados
     df.dropna(subset=["closed_at"], inplace=True)
+
     # Adiciona coluna com status final (MERGED ou CLOSED)
     df["status"] = df["merged"].apply(lambda x: "MERGED" if x else "CLOSED")
+
     # Converte datas para datetime
     for col in ["created_at", "closed_at", "merged_at"]:
         if col in df.columns:
             df[col] = pd.to_datetime(df[col])
+    
     return df
+
 
 def save_figure_to_file(fig, filename, dpi=300):
     """
@@ -159,7 +165,7 @@ def create_boxplot(df, x_col, y_col, title, xlabel, ylabel):
         matplotlib.figure.Figure: Figura com o boxplot
     """
     fig, ax = plt.subplots()
-    sns.boxplot(x=x_col, y=y_col, data=df, ax=ax, palette="Set2")
+    sns.boxplot(x=x_col, y=y_col, data=df, ax=ax, palette="Set2", hue=x_col, legend=False)
     sns.stripplot(x=x_col, y=y_col, data=df, ax=ax, size=4, alpha=0.3, jitter=True, color='black')
     ax.set_title(title)
     ax.set_xlabel(xlabel)
@@ -364,7 +370,6 @@ def analyze_description_vs_status(df):
     
     return results
 
-
 def analyze_interactions_vs_status(df):
     results = {}
     part_status_corr, part_status_pval = calculate_correlation(df, "participant_count", "merged", method='spearman')
@@ -407,7 +412,6 @@ def analyze_interactions_vs_status(df):
         save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", f"rq04_{col}_boxplot.png"))
     
     return results
-
 
 def analyze_size_vs_reviews(df):
     results = {}
@@ -506,8 +510,9 @@ def analyze_description_vs_reviews(df):
     save_figure_to_file(fig, os.path.join(DATA_DIR, "visualizations", "rq07_description_scatter.png"))
     
     fig, ax = plt.subplots()
+    last_bin = max(2001, df['body_length'].max())
     df['desc_bins'] = pd.cut(df['body_length'],
-                            bins=[0, 100, 500, 1000, 2000, df['body_length'].max()],
+                            bins=[0, 100, 500, 1000, 2000, last_bin],
                             labels=['0-100', '100-500', '500-1000', '1000-2000', '> 2000'])
     desc_bin_means = df.groupby('desc_bins', observed=False)['review_count'].mean().reset_index()
     desc_bin_counts = df.groupby('desc_bins', observed=False).size().reset_index(name='count')
@@ -574,179 +579,128 @@ def analyze_interactions_vs_reviews(df):
 def generate_report(all_results, output_file="report.md"):
     os.makedirs("data/visualizations", exist_ok=True)
     report = []
-    
+
     # Título
-    report.append("📄 **Relatório de Análise da Atividade de Code Review no GitHub**\n")
-    
+    report.append("\n#📄 **Relatório de Análise da Atividade de Code Review no GitHub**\n")
+
     # Introdução
     report.append("\n## 📋 **Introdução**\n")
-    report.append("    Este relatório apresenta os resultados da análise da atividade de code review em repositórios populares do GitHub. O objetivo é identificar variáveis que influenciam no merge de um PR, sob a perspectiva de desenvolvedores que submetem código aos repositórios selecionados.\n")
-    
+    report.append("Este relatório apresenta os resultados da análise da atividade de code review em repositórios populares do GitHub. O objetivo é identificar variáveis que influenciam no merge de um PR, sob a perspectiva de desenvolvedores que submetem código aos repositórios selecionados.\n")
+
     report.append("\n### ✨ **Hipóteses Informais**\n")
-    report.append("    1. PRs menores têm maior probabilidade de serem aprovados. ✂️\n")
-    report.append("    2. PRs que levam mais tempo para serem analisados têm menor probabilidade de serem aprovados. ⏳❌\n")
-    report.append("    3. PRs com descrições mais detalhadas têm maior probabilidade de serem aprovados. 📑👍\n")
-    report.append("    4. PRs com mais interações têm maior probabilidade de serem aprovados. 💬🔄\n")
-    report.append("    5. PRs maiores requerem mais revisões. 📂🔍\n")
-    report.append("    6. PRs que levam mais tempo para serem analisados têm mais revisões. ⏱️🔄\n")
-    report.append("    7. PRs com descrições mais detalhadas têm menos revisões. ✍️📉\n")
-    report.append("    8. PRs com mais interações têm mais revisões. 💬🔄✅\n")
-    
+    report.append("1. PRs menores têm maior probabilidade de serem aprovados. ✂️\n")
+    report.append("2. PRs que levam mais tempo para serem analisados têm menor probabilidade de serem aprovados. ⏳❌\n")
+    report.append("3. PRs com descrições mais detalhadas têm maior probabilidade de serem aprovados. 📑👍\n")
+    report.append("4. PRs com mais interações têm maior probabilidade de serem aprovados. 💬🔄\n")
+    report.append("5. PRs maiores requerem mais revisões. 📂🔍\n")
+    report.append("6. PRs que levam mais tempo para serem analisados têm mais revisões. ⏱️🔄\n")
+    report.append("7. PRs com descrições mais detalhadas têm menos revisões. ✍️📉\n")
+    report.append("8. PRs com mais interações têm mais revisões. 💬🔄✅\n")
+
     # Metodologia
     report.append("\n## 🧑‍🔬 **Metodologia**\n")
-    report.append("    Para realizar esta análise, seguimos os seguintes passos:\n")
-    report.append("    1. **Coleta de dados**: Selecionamos os 200 repositórios mais populares do GitHub com pelo menos 100 PRs (MERGED + CLOSED). 📊📈\n")
-    report.append("    2. **Filtragem dos dados**: Selecionamos apenas PRs com status MERGED ou CLOSED, que possuíam pelo menos uma revisão e cuja análise levou pelo menos uma hora. ⏱️✅\n")
-    report.append("    3. **Análise estatística**: Utilizamos o coeficiente de correlação de Spearman para analisar as relações entre as variáveis, pois esse método não assume que os dados seguem uma distribuição normal e é menos sensível a outliers. 🔍📉\n")
-    report.append("    4. **Interpretação dos resultados**: Interpretamos os coeficientes de correlação da seguinte forma: 🎯📊\n")
-    report.append("        - |r| < 0.1: Correlação insignificante 🔴\n")
-    report.append("        - 0.1 ≤ |r| < 0.3: Correlação fraca 🟠\n")
-    report.append("        - 0.3 ≤ |r| < 0.5: Correlação moderada 🟡\n")
-    report.append("        - 0.5 ≤ |r| < 0.7: Correlação forte 🟢\n")
-    report.append("        - |r| ≥ 0.7: Correlação muito forte 🔵\n")
-    report.append("\n    Consideramos correlações estatisticamente significativas aquelas com p-valor < 0.05. 🔒💡")
-    
+    report.append("1. Coleta de dados: Selecionamos os 200 repositórios mais populares do GitHub com pelo menos 100 PRs (MERGED + CLOSED).\n")
+    report.append("2. Filtragem dos dados: Selecionamos apenas PRs com status MERGED ou CLOSED, que possuíam pelo menos uma revisão e cuja análise levou pelo menos uma hora.\n")
+    report.append("3. Análise estatística: Utilizamos o coeficiente de correlação de Spearman para analisar as relações entre as variáveis.\n")
+    report.append("4. Interpretação dos resultados: Interpretamos os coeficientes de correlação conforme faixas de força e p-valores.\n")
+
     # Resultados
     report.append("\n## 📊 **Resultados**\n")
-    
-    # RQ 01: Tamanho dos PRs
+
     report.append("\n### RQ 01: Relação entre o tamanho dos PRs e o feedback final das revisões\n")
     if "size_vs_status" in all_results:
         results = all_results["size_vs_status"]
-        report.append("    **📏 Correlação entre métricas de tamanho e status:**\n")
-        report.append(f"    ![Correlação entre Tamanho dos PRs e Status](data/visualizations/rq01_correlation.png) 📈")
-        report.append("    **📂 Correlação entre número de arquivos alterados e status:**\n")
-        report.append(f"    - Coeficiente de correlação: {results['files_vs_status']['correlation']:.4f} 🔢")
-        report.append(f"    - P-valor: {results['files_vs_status']['p_value']:.4e} 🔍")
-        report.append(f"    - Interpretação: {results['files_vs_status']['interpretation']} 📊")
-        report.append(f"    - Estatisticamente significativo: {'✅ Sim' if results['files_vs_status']['significant'] else '❌ Não'}")
-        report.append(f"    ![Distribuição de Arquivos por Status](data/visualizations/rq01_files_changed_boxplot.png) 📊")
-    
-    # RQ 02: Tempo de Análise
+        report.append("**📏 Correlação entre métricas de tamanho e status:**\n")
+        report.append("![Correlação entre Tamanho dos PRs e Status](./visualizations/rq01_correlation.png)\n")
+        report.append("**📂 Correlação entre número de arquivos alterados e status:**\n")
+        report.append(f"- Coeficiente de correlação: {results['files_vs_status']['correlation']:.4f}\n")
+        report.append(f"- P-valor: {results['files_vs_status']['p_value']:.4e}\n")
+        report.append(f"- Interpretação: {results['files_vs_status']['interpretation']}\n")
+        report.append(f"- Estatisticamente significativo: {'✅ Sim' if results['files_vs_status']['significant'] else '❌ Não'}\n")
+        report.append("![Distribuição de Arquivos por Status](./visualizations/rq01_files_changed_boxplot.png)\n")
+
     report.append("\n### RQ 02: Relação entre o tempo de análise dos PRs e o feedback final das revisões\n")
     if "time_vs_status" in all_results:
         results = all_results["time_vs_status"]
-        report.append("    **⏱️ Correlação entre tempo de análise e status:**\n")
-        report.append(f"    - Coeficiente de correlação: {results['time_vs_status']['correlation']:.4f} 🔢")
-        report.append(f"    - P-valor: {results['time_vs_status']['p_value']:.4e} 🔍")
-        report.append(f"    - Interpretação: {results['time_vs_status']['interpretation']} 📊")
-        report.append(f"    - Estatisticamente significativo: {'✅ Sim' if results['time_vs_status']['significant'] else '❌ Não'}")
-        report.append(f"    ![Distribuição do Tempo de Análise por Status](data/visualizations/rq02_time_boxplot.png) ⏱️")
-        report.append(f"    ![Histograma do Tempo de Análise por Status](data/visualizations/rq02_time_histogram.png) 📊")
-        if "median_stats" in results:
-            report.append(f"\n    **⏱️ Tempo Mediano de Análise por Status:**")
-            for status, row in results["median_stats"].iterrows():
-                horas = row["time_to_close_hours"]
-                tempo_formatado = format_seconds(horas * 3600)
-                report.append(f"    - {status}: {tempo_formatado} (≈ {horas:.2f}h)")
+        report.append("**⏱️ Correlação entre tempo de análise e status:**\n")
+        report.append(f"- Coeficiente de correlação: {results['time_vs_status']['correlation']:.4f}\n")
+        report.append(f"- P-valor: {results['time_vs_status']['p_value']:.4e}\n")
+        report.append(f"- Interpretação: {results['time_vs_status']['interpretation']}\n")
+        report.append(f"- Estatisticamente significativo: {'✅ Sim' if results['time_vs_status']['significant'] else '❌ Não'}\n")
+        report.append("![Distribuição do Tempo de Análise por Status](./visualizations/rq02_time_boxplot.png)\n")
+        report.append("![Histograma do Tempo de Análise por Status](./visualizations/rq02_time_histogram.png)\n")
 
-    
-    # RQ 03: Descrição dos PRs
-    report.append("\n### RQ 03: Relação entre a descrição dos PRs e o feedback final das revisões\n")
-    if "description_vs_status" in all_results:
-        results = all_results["description_vs_status"]
-        report.append("    **📄 Correlação entre tamanho da descrição e status:**\n")
-        report.append(f"    - Coeficiente de correlação: {results['description_vs_status']['correlation']:.4f} 🔢")
-        report.append(f"    - P-valor: {results['description_vs_status']['p_value']:.4e} 🔍")
-        report.append(f"    - Interpretação: {results['description_vs_status']['interpretation']} 📊")
-        report.append(f"    - Estatisticamente significativo: {'✅ Sim' if results['description_vs_status']['significant'] else '❌ Não'}")
-        report.append(f"    ![Distribuição do Tamanho da Descrição por Status](data/visualizations/rq03_description_boxplot.png) 📊")
-        report.append(f"    ![Mediana do Tamanho da Descrição por Status](data/visualizations/rq03_description_bars.png) 📊")
-    
-    # Discussão
-    report.append("\n## 📝 **Discussão**\n")
-    report.append("    Nesta seção, discutimos os resultados obtidos em relação às nossas hipóteses iniciais.\n")
-    report.append("\n### RQ 01: Relação entre o tamanho dos PRs e o feedback final das revisões\n")
-    report.append("    **Hipótese:** PRs menores têm maior probabilidade de serem aprovados. ✂️📈")
-    if "size_vs_status" in all_results:
-        results = all_results["size_vs_status"]
-        if results['files_vs_status']['correlation'] < 0 and results['files_vs_status']['significant']:
-            report.append("\n    🟢 **Os resultados suportam nossa hipótese.** Encontramos uma correlação " +
-                        results['files_vs_status']['interpretation'].lower() +
-                        " e estatisticamente significativa entre o número de arquivos alterados e a aprovação do PR. " +
-                        "PRs com menos arquivos alterados têm maior probabilidade de serem aprovados. ✅")
-        else:
-            report.append("\n    🔴 **Os resultados não suportam completamente nossa hipótese.** A correlação entre o tamanho do PR e sua aprovação não foi tão forte ou significativa como esperávamos. ❌")
-    
     # Conclusão
     report.append("\n## 🔍 **Conclusão**\n")
-    report.append("\n    Este estudo analisou a relação entre diversas características dos PRs e seu feedback final, bem como o número de revisões realizadas. Os resultados fornecem insights valiosos sobre como melhorar a chance de aprovação de PRs e otimizar o processo de code review em projetos open source. 🚀")
-    report.append("\n    Com base nos resultados, podemos sugerir as seguintes práticas para melhorar a aprovação de PRs:\n")
-    report.append("    1. Manter os PRs pequenos, afetando poucos arquivos e com poucas linhas alteradas. ✂️\n")
-    report.append("    2. Incluir descrições detalhadas e claras, explicando o propósito e o contexto do PR. 📝\n")
-    report.append("    3. Promover interações construtivas durante o processo de revisão, respondendo prontamente aos comentários. 💬\n")
-    report.append("    4. Evitar PRs que levem muito tempo para serem analisados, dividindo mudanças grandes em PRs menores e mais focados. ⏳\n")
-    report.append("\n    🎯 **Esperamos que estes insights ajudem desenvolvedores e mantenedores de projetos open source a otimizar seus processos de code review, melhorando a qualidade do código e a experiência dos contribuidores.**")
-    
+    report.append("Este estudo analisou a relação entre diversas características dos PRs e seu feedback final, bem como o número de revisões realizadas.\n")
+    report.append("Com base nos resultados, podemos sugerir boas práticas para submissão de PRs mais eficazes.\n")
+
     with open(output_file, "w", encoding="utf-8") as f:
         f.write("\n".join(report))
-    print(f"📄 **Relatório gerado com sucesso em** {output_file}")
+    print(f"📄 Relatório gerado com sucesso em {output_file}")
 
 def main():
-    # Converter .csv dos PRs para JSON
     converter_csv_json()
 
-    # Caminho da pasta atual (Lab3S01/scripts/)
     os.makedirs(DATA_DIR, exist_ok=True)
     visual_dir = os.path.join(DATA_DIR, "visualizations")
-
-    # Garantir que o diretório de visualizações exista
     os.makedirs(visual_dir, exist_ok=True)
 
-    # Caminho para salvar o arquivo CSV com os PRs coletados
     csv_path = os.path.join(DATA_DIR, "collected_prs.csv")
-    report_path = os.path.join(DATA_DIR, "report.md")
+    report_path = os.path.join(DATA_DIR, f"report.md")
 
-    # Imprimir o caminho onde os dados serão salvos
-    print("📂 Arquivos de Dados e Relatórios\n")
+    print("\n📂 Arquivos de Dados e Relatórios")
     print(f"   📊 Arquivo de dados dos PRs a ser analisado: {csv_path}")
     print(f"   📈 Relatório final será salvo em: {report_path}")
-    print(f"   📊 Visualizações serão salvas em: {visual_dir}\n")
+    print(f"   📊 Visualizações serão salvas em: {visual_dir}")
 
-    print("📂 Diretórios de Salvamento\n")
+    print("\n📂 Diretórios de Salvamento")
     print(f"   📍 Os dados serão salvos no diretório: {DATA_DIR}")
     print(f"   📍 Caminho para o arquivo de PRs coletados: {csv_path}")
     print(f"   📍 Caminho para o relatório final: {report_path}")
     print(f"   📍 Caminho para as visualizações: {visual_dir}\n")
 
-    # Carregar dados
     df = load_data(csv_path)
     print(f"📈 Dados carregados com sucesso. Total de {len(df)} PRs.\n")
 
-    # Executar todas as análises
     all_results = {}
-    print("🔍 Analisando RQ 01: Tamanho vs. Status...")
+    print("\n🔍 Analisando RQ 01: Tamanho vs. Status...")
     all_results["size_vs_status"] = analyze_size_vs_status(df)
 
-    print("🔍 Analisando RQ 02: Tempo vs. Status...")
+    print("\n🔍 Analisando RQ 02: Tempo vs. Status...")
     all_results["time_vs_status"] = analyze_time_vs_status(df)
 
-    print("🔍 Analisando RQ 03: Descrição vs. Status...")
+    print("\n🔍 Analisando RQ 03: Descrição vs. Status...")
     all_results["description_vs_status"] = analyze_description_vs_status(df)
 
-    print("🔍 Analisando RQ 04: Interações vs. Status...")
+    print("\n🔍 Analisando RQ 04: Interações vs. Status...")
     all_results["interactions_vs_status"] = analyze_interactions_vs_status(df)
 
-    print("🔍 Analisando RQ 05: Tamanho vs. Revisões...")
+    print("\n🔍 Analisando RQ 05: Tamanho vs. Revisões...")
     all_results["size_vs_reviews"] = analyze_size_vs_reviews(df)
 
-    print("🔍 Analisando RQ 06: Tempo vs. Revisões...")
+    print("\n🔍 Analisando RQ 06: Tempo vs. Revisões...")
     all_results["time_vs_reviews"] = analyze_time_vs_reviews(df)
 
-    print("🔍 Analisando RQ 07: Descrição vs. Revisões...")
+    print("\n🔍 Analisando RQ 07: Descrição vs. Revisões...")
     all_results["description_vs_reviews"] = analyze_description_vs_reviews(df)
 
-    print("🔍 Analisando RQ 08: Interações vs. Revisões...")
+    print("\n🔍 Analisando RQ 08: Interações vs. Revisões...")
     all_results["interactions_vs_reviews"] = analyze_interactions_vs_reviews(df)
 
-    print("📑 Gerando relatório final...")
+    print("\n📑 Gerando relatório final...")
     generate_report(all_results, output_file=report_path)
 
-    # ✅ Descrição final dos arquivos gerados
+    # Remover colunas temporárias se existirem
+    if 'time_bins' in df.columns:
+        df.drop(columns=['time_bins'], inplace=True)
+    if 'desc_bins' in df.columns:
+        df.drop(columns=['desc_bins'], inplace=True)
+
     print("\n📦 Resumo dos arquivos gerados:\n")
     print(f"🔹 {os.path.relpath(csv_path)}")
     print("    ↪️ Arquivo CSV contendo todos os Pull Requests analisados (dados brutos, um por linha).")
-    
+
     print(f"🔹 {os.path.relpath(report_path)}")
     print("    ↪️ Relatório completo em Markdown com todas as análises, gráficos e interpretações.")
 
@@ -754,6 +708,7 @@ def main():
     print("    ↪️ Pasta com os gráficos PNG gerados para cada pergunta de pesquisa (RQ01 a RQ08).\n")
 
     print(f"✅ Análise concluída com sucesso! Relatório salvo em {os.path.relpath(report_path)}")
+
 
 if __name__ == "__main__":
     main()
