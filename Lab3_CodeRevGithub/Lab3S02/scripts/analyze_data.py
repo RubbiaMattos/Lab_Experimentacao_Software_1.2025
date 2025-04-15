@@ -16,13 +16,13 @@ from config_token import configurar_token
 
 TOKEN = configurar_token()
 
-BASE_DIR = os.path.join("Lab3_CodeRevGithub", "Lab3S01")
+BASE_DIR = os.path.join("Lab3_CodeRevGithub", "Lab3S02")
 DATA_DIR = os.path.join(BASE_DIR, "data")
 
 def format_seconds(seconds):
     return time.strftime('%H:%M:%S', time.gmtime(seconds))
 
-def mover_pycache(destino="Lab3_CodeRevGithub/Lab3S01/__pycache__"):
+def mover_pycache(destino="Lab3_CodeRevGithub/Lab3S02/__pycache__"):
     for root, dirs, files in os.walk("."):
         if "__pycache__" in dirs:
             origem = os.path.join(root, "__pycache__")

@@ -15,7 +15,7 @@ import io
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..")))
 from config_token import configurar_token
 
-BASE_DIR = os.path.join("Lab3_CodeRevGithub", "Lab3S01")
+BASE_DIR = os.path.join("Lab3_CodeRevGithub", "Lab3S02")
 DATA_DIR = os.path.join(BASE_DIR, "data")
 REPO_FILE = os.path.join(DATA_DIR, "selected_repos.csv")
 COLLECTED_FILE = os.path.join(DATA_DIR, "collected_prs.csv")
@@ -24,7 +24,7 @@ os.makedirs(DATA_DIR, exist_ok=True)
 def format_seconds(seconds):
     return time.strftime('%H:%M:%S', time.gmtime(seconds))
 
-def mover_pycache(destino="Lab3_CodeRevGithub/Lab3S01/__pycache__"):
+def mover_pycache(destino="Lab3_CodeRevGithub/Lab3S02/__pycache__"):
     for root, dirs, files in os.walk("."):
         if "__pycache__" in dirs:
             origem = os.path.join(root, "__pycache__")

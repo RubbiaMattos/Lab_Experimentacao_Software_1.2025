@@ -6,7 +6,7 @@ import csv
 import json
 from collections import Counter
 
-BASE_DIR = os.path.join("Lab3_CodeRevGithub", "Lab3S01")
+BASE_DIR = os.path.join("Lab3_CodeRevGithub", "Lab3S02")
 DATA_DIR = os.path.join(BASE_DIR, "data")
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..")))
