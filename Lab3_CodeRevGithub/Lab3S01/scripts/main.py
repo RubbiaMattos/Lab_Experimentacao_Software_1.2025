@@ -1,13 +1,30 @@
 import subprocess
 import sys
 import importlib.metadata
+from datetime import datetime
+
+start_time = datetime.now()
+print(f"🕒 Início da execução: {start_time.strftime('%d/%m/%Y %H:%M:%S')}")
 
 # Lista de dependências essenciais para o projeto
 dependencias = [
-    'requests', 'pandas', 'numpy', 'matplotlib', 'seaborn',
-    'scipy', 'tqdm', 'tabulate', 'python-dotenv', 'openpyxl',
-    'PyGithub', 'scikit-learn', 'importlib-metadata', 'plotly', 'polars',
-    'pyarrow', 'pydantic', 'typer', 'rich', 'beautifulsoup4'
+    # 📦 Essenciais para o projeto
+    'requests',          # Requisições HTTP (GraphQL, REST)
+    'pandas',            # Manipulação de CSV/DataFrame
+    'numpy',             # Cálculos numéricos
+    'scipy',             # Correlações estatísticas
+    'tqdm',              # Barras de progresso
+    'PyGithub',          # Integração com GitHub API
+    'openpyxl',          # Exportação para Excel
+    'matplotlib',        # Visualização gráfica
+    'seaborn',           # Visualização estatística
+    'plotly',            # Visualizações interativas
+
+    # 🧰 Opcionais úteis e estilização
+    'tabulate',          # Tabelas no terminal
+    'rich',              # Output bonito e colorido no terminal
+    'typer',             # Criação de CLI elegante
+    'python-dotenv',     # Variáveis de ambiente (.env)
 ]
 
 print("\n🔍 Verificando e instalando dependências...")
@@ -147,6 +164,11 @@ def menu():
         else:
             print("🚫 Opção inválida.")
             print("\n" + "-" * 120)
+            
+    end_time = datetime.now()
+    duration = end_time - start_time
+    print(f"\n🕔 Fim da execução: {end_time.strftime('%d/%m/%Y %H:%M:%S')}")
+    print(f"⏱️ Duração total: {str(duration)}\n")
 
 if __name__ == "__main__":
     menu()

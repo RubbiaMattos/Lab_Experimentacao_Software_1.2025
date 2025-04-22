@@ -11,8 +11,10 @@ DATA_DIR = os.path.join(BASE_DIR, "data")
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..")))
 from config_token import configurar_token
+from config_token_rotator import TokenRotator
 
-TOKEN = configurar_token()
+tokens = configurar_token()
+rotator = TokenRotator(tokens)
 
 def calculate_correlation(data, x_column, y_column, method='spearman'):
     """
@@ -87,12 +89,11 @@ def check_correlation_significance(p_value, alpha=0.05):
 
 
 def converter_csv_json():
-
     # Caminho dos arquivos
     csv_file_path = os.path.join(DATA_DIR, "collected_prs.csv")
     json_file_path = os.path.join(DATA_DIR, "collected_prs.json")
     
-   # Leitura do CSV e escrita no JSON
+    # Leitura do CSV e escrita no JSON
     with open(csv_file_path, mode='r', encoding='utf-8') as csv_file, \
         open(json_file_path, mode='w', encoding='utf-8') as json_file:
         
@@ -100,13 +101,24 @@ def converter_csv_json():
         json.dump(dados, json_file, indent=4, ensure_ascii=False)
         print(f"Arquivo convertido e salvo como {json_file_path}")
 
-    # Leitura do JSON e contagem de valores da chave "repo_name"
-    with open(json_file_path, "r", encoding="utf-8") as f:
-        dados = json.load(f)
+    # Contagem de valores da chave "repo_name", normalizando para lowercase
+    repo_counter = Counter(
+        obj["repo_name"].strip().lower()
+        for obj in dados 
+        if "repo_name" in obj and obj["repo_name"].strip()
+    )
 
-    repo_counter = Counter(obj["repo_name"] for obj in dados if "repo_name" in obj)
+    # Cabeçalho centralizado
+    print("\nFrequência dos valores da chave 'repo_name':\n")
+    print(f"{'#':^4} {'Repositório':<50} {'PRs Coletados':^14}")
+    print(f"{'-'*4} {'-'*50} {'-'*14}")
 
-    print(f"\nNúmero total de objetos no JSON: {len(dados)}")
-    print("\nFrequência dos valores da chave 'repo_name':")
-    for i, (repo, count) in enumerate(repo_counter.items(), start=1):
-        print(f"{i}. {repo}: {count}")
+    # Linhas centralizadas
+    for i, (repo, count) in enumerate(
+            sorted(repo_counter.items(), key=lambda x: x[0]),
+            start=1
+        ):
+        print(f"{i:^4} {repo:<50} {count:^14}")
+
+
+converter_csv_json()

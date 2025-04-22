@@ -10,11 +10,17 @@ from utils import calculate_correlation, interpret_correlation, check_correlatio
 import base64
 from io import BytesIO
 import shutil
+from datetime import datetime
+
+start_time = datetime.now()
+print(f"🕒 Início da execução: {start_time.strftime('%d/%m/%Y %H:%M:%S')}\n")
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..")))
 from config_token import configurar_token
+from config_token_rotator import TokenRotator
 
-TOKEN = configurar_token()
+tokens = configurar_token()
+rotator = TokenRotator(tokens)
 
 BASE_DIR = os.path.join("Lab3_CodeRevGithub", "Lab3S01")
 DATA_DIR = os.path.join(BASE_DIR, "data")
@@ -709,6 +715,10 @@ def main():
 
     print(f"✅ Análise concluída com sucesso! Relatório salvo em {os.path.relpath(report_path)}")
 
+    end_time = datetime.now()
+    duration = end_time - start_time
+    print(f"\n🕔 Fim da execução: {end_time.strftime('%d/%m/%Y %H:%M:%S')}")
+    print(f"⏱️ Duração total: {str(duration)}\n")
 
 if __name__ == "__main__":
     main()

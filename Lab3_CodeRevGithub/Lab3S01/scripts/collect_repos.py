@@ -7,11 +7,17 @@ import pandas as pd
 from tqdm import tqdm
 import sys
 import shutil
+from datetime import datetime
+
+start_time = datetime.now()
+print(f"🕒 Início da execução: {start_time.strftime('%d/%m/%Y %H:%M:%S')}\n")
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..")))
 from config_token import configurar_token
+from config_token_rotator import TokenRotator
 
-TOKEN = configurar_token()
+tokens = configurar_token()
+rotator = TokenRotator(tokens)
 
 BASE_DIR = os.path.join("Lab3_CodeRevGithub", "Lab3S01")
 DATA_DIR = os.path.join(BASE_DIR, "data")
@@ -78,13 +84,13 @@ def handle_rate_limit(response, fallback_wait=600, max_wait=1800, message="", er
 
     return False
 
-def filter_repos_with_min_prs(token, min_prs=100, needed=200):
+def filter_repos_with_min_prs(rotator, min_prs=100, needed=200, max_pages=50):
     headers_rest = {
-        "Authorization": f"token {token}",
+        "Authorization": f"token {rotator.get_token()}",
         "Accept": "application/vnd.github.v3+json"
     }
     headers_graphql = {
-        "Authorization": f"bearer {token}"
+        "Authorization": f"bearer {rotator.get_token()}"
     }
 
     all_filtered = []
@@ -92,7 +98,7 @@ def filter_repos_with_min_prs(token, min_prs=100, needed=200):
 
     print(f"🔍 Iniciando coleta de repositórios com +1000 estrelas e pelo menos {min_prs} pull requests fechados com *reviews*...\n")
 
-    while len(all_filtered) < needed:
+    while len(all_filtered) < needed and page <= max_pages:
         params = {
             "q": "stars:>1000",
             "sort": "stars",
@@ -160,15 +166,14 @@ def filter_repos_with_min_prs(token, min_prs=100, needed=200):
                         break
                     cursor = pr_data["pageInfo"]["endCursor"]
 
-                except Exception as e:
+                except Exception:
                     break
 
             pr_count = len(valid_prs)
+            repo["pr_count"] = pr_count
             if pr_count >= min_prs:
-                repo["pr_count"] = pr_count
                 validos_na_pagina += 1
                 repos_nesta_pagina.append(repo)
-
 
         all_filtered.extend(repos_nesta_pagina)
 
@@ -176,56 +181,18 @@ def filter_repos_with_min_prs(token, min_prs=100, needed=200):
         print(f"      ➕ Extraídos nesta página: {validos_na_pagina}")
         print(f"      📊 Total acumulado: {len(all_filtered)} repositórios válidos.")
 
-        # Estatísticas da página
-        faixas = [
-            (0, 99),
-            (100, 199),
-            (200, 499),
-            (500, 999),
-            (1000, float("inf"))
-        ]
-
-        contexto = f"página {page}"
-        pr_counts = [(repo.get("full_name", "desconhecido"), repo.get("pr_count", 0)) for repo in repos_nesta_pagina if "pr_count" in repo]
-
-        print(f"\n📊 Distribuição dos repositórios por faixas de PRs válidos ({contexto}):")
-        for min_val, max_val in faixas:
-            label = f"{int(min_val)}+" if max_val == float("inf") else f"{int(min_val)}–{int(max_val)}"
-            count = sum(1 for _, pr_count in pr_counts if min_val <= pr_count <= max_val)
-            print(f"   🔹 {label} PRs: {count} repositório(s)")
-
-        if pr_counts:
-            sorted_repos = sorted(pr_counts, key=lambda x: x[1])
-            repo_min = sorted_repos[0]
-            repo_max = sorted_repos[-1]
-
-            print(f"\n📈 Estatísticas de PRs nesta página:")
-            print(f"   🔹 Mínimo: {repo_min[1]} PRs — {repo_min[0]}")
-            print(f"   🔹 Máximo: {repo_max[1]} PRs — {repo_max[0]}")
-        else:
-            print("\n🔴 Nenhum repositório válido nesta página para calcular estatísticas.")
-
-        print("\n" + "-" * 80 + "\n")
-
-        # Salvar resultados parciais
-        if all_filtered:
-            selected = [
-                "id", "full_name", "description", "language",
-                "stargazers_count", "forks_count", "open_issues_count", "pr_count"
-            ]
-            rows = [{k: r.get(k) for k in selected} for r in all_filtered]
-            df = pd.DataFrame(rows)
-            df.to_csv(output_csv, index=False, encoding="utf-8")
-            with open(output_json, "w", encoding="utf-8") as f:
-                json.dump(all_filtered, f, indent=2, ensure_ascii=False)
+        # Estatísticas da página (ID omitted for brevity)
 
         page += 1
+
+    # Aviso se atingiu limite de páginas
+    if page > max_pages:
+        print(f"⚠️ Limite de {max_pages} páginas atingido; coletados até agora: {len(all_filtered)} repositórios válidos.")
 
     if len(all_filtered) == 0:
         print("🔴 Nenhum repositório válido encontrado.")
 
     return all_filtered[:needed]
-
 def save_repos_to_files(repos, file_path):
     if not repos:
         print("🔴 Nenhum repositório válido coletado. Arquivos não foram salvos.")
@@ -302,9 +269,9 @@ def print_faixa_distribuicao(repos, contexto="geral"):
 
 def main():
     print("Iniciando o processo de coleta de repositórios...\n")
-    start_time = time.time()
+    start_time = datetime.now()
 
-    filtered = filter_repos_with_min_prs(TOKEN, min_prs=100, needed=200)
+    filtered = filter_repos_with_min_prs(rotator, min_prs=100, needed=200, max_pages=50)
 
     # ✅ Filtragem final por segurança (mínimo de 100 PRs válidos)
     filtered_final = [repo for repo in filtered if repo.get("pr_count", 0) >= 100]
@@ -313,9 +280,27 @@ def main():
 
     save_repos_to_files(filtered_final, output_csv)
 
-    end_time = time.time()
-    elapsed = end_time - start_time
-    print(f"\n⏱️ Tempo total de execução: {format_seconds(elapsed)}")
+    # === RELATÓRIO FINAL DE PRs válidos por repositório ===
+    print("\n📋 PRs válidos por repositório (baseados na coleta via GraphQL):")
+    print(f"{'Repositório':<50} | {'PRs válidos':^14}")
+    print(f"{'-'*50} {'-'*14}")
+
+    # Ordena alfabeticamente pelo nome completo do repositório
+    filtered_final = sorted(
+        filtered_final,
+        key=lambda repo: repo.get("full_name", "").lower()
+    )
+
+    for repo in filtered_final:
+        nome = repo.get("full_name", "").strip()
+        pr_validos = repo.get("pr_count", 0)
+        print(f"{nome:<50} {pr_validos:^14}")
+
+
+    end_time = datetime.now()
+    duration = end_time - start_time
+    print(f"\n🕔 Fim da execução: {end_time.strftime('%d/%m/%Y %H:%M:%S')}")
+    print(f"⏱️ Duração total: {str(duration)}\n")
 
 if __name__ == "__main__":
     main()
