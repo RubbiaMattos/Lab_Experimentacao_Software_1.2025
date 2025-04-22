@@ -1,25 +1,33 @@
 import json
-from github import Github
 import os
 import time
 from statistics import mean, median
 import pandas as pd
-import requests
 from tqdm import tqdm
-import random
 import sys
 import shutil
 import contextlib
 import io
+from datetime import datetime
+
+start_time = datetime.now()
+print(f"🕒 Início da execução: {start_time.strftime('%d/%m/%Y %H:%M:%S')}\n")
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..")))
 from config_token import configurar_token
+from config_token_rotator import TokenRotator
+
+tokens = configurar_token()
+rotator = TokenRotator(tokens)
 
 BASE_DIR = os.path.join("Lab3_CodeRevGithub", "Lab3S01")
 DATA_DIR = os.path.join(BASE_DIR, "data")
 REPO_FILE = os.path.join(DATA_DIR, "selected_repos.csv")
 COLLECTED_FILE = os.path.join(DATA_DIR, "collected_prs.csv")
 os.makedirs(DATA_DIR, exist_ok=True)
+
+# Define margem de tolerância para pr_count
+MARGIN = 5
 
 def format_seconds(seconds):
     return time.strftime('%H:%M:%S', time.gmtime(seconds))
@@ -40,79 +48,23 @@ def mover_pycache(destino="Lab3_CodeRevGithub/Lab3S01/__pycache__"):
             shutil.rmtree(origem)
             tqdm.write(f"📦 Pycache movido para: {destino}")
 
-def handle_error_and_rate_limit(g, error=None, fallback_wait=600, max_wait=1800):
-    wait_seconds = None
-    status_info = ""
-    handled = False
+def handle_error_and_rate_limit(rotator, error=None, threshold=100, fallback_wait=60, max_wait=1800, retries=0):
+    g = rotator.get()
 
-    try:
-        if isinstance(error, Exception):
-            status_info = f"{type(error).__name__} — {error}"
+    core = g.get_rate_limit().core
+    if core.remaining <= threshold:
+        tqdm.write(f"🔄 Token com apenas {core.remaining} requisições restantes. Alternando imediatamente para prevenir erro.")
+        rotator.switch()
+        g = rotator.get()  # Atualiza imediatamente o cliente GitHub após a troca
+        return g
 
-            # Verifica se é uma exceção do PyGithub com headers
-            if hasattr(error, 'status') or hasattr(error, 'status_code'):
-                status_code = getattr(error, 'status', None) or getattr(error, 'status_code', None)
-                if status_code == 403:
-                    try:
-                        core = g.get_rate_limit().core
-                        remaining = core.remaining
-                        reset_timestamp = core.reset.timestamp()
-                        now = time.time()
+    return g
 
-
-
-                        if remaining == 0:
-                            wait_seconds = max(int(reset_timestamp - now + 10), 10)
-                        else:
-                            wait_seconds = random.randint(fallback_wait, max_wait)
-
-                        handled = True
-                    except Exception as fallback_check:
-                        status_info += f" | Erro ao checar rate limit: {fallback_check}"
-                        wait_seconds = random.randint(fallback_wait, max_wait)
-                        handled = True
-
-
-            # Trata timeout, conexão recusada, e erros comuns de rede
-            elif isinstance(error, (
-                ConnectionError,
-                TimeoutError,
-                OSError,
-                requests.exceptions.RequestException,
-                requests.exceptions.ConnectionError,
-                requests.exceptions.HTTPError,
-                requests.exceptions.Timeout,
-                requests.exceptions.TooManyRedirects,
-            )):
-                wait_seconds = random.randint(60, 180)
-                handled = True
-
-
-            # Catch-all para outros erros — imprime stacktrace para depuração
-            else:
-                wait_seconds = random.randint(fallback_wait, max_wait)
-                handled = True
-
-    except Exception as e:
-        status_info = f"Erro ao lidar com erro: {type(e).__name__} — {e}"
-        wait_seconds = random.randint(fallback_wait, max_wait)
-        handled = True
-
-    if wait_seconds and handled:
-        if wait_seconds > max_wait:
-            wait_seconds = random.randint(fallback_wait, max_wait)
-
-        tqdm.write(f"\n⚠️ Erro: {status_info}")
-        tqdm.write(f"🚦 Limite de requisições da API atingido ou outro erro - Iniciando pausa temporária..")
-        tqdm.write(f"⏳ Estimativa de espera: {wait_seconds} segundos até a liberação de novas requisições...\n")
-        time.sleep(wait_seconds)
-        return True  # Pausou
-
-    return False  # Não pausou (não foi erro esperado)
-
-def collect_prs_from_repo(g, repo_name, min_valid_prs=100, max_valid_prs=None, max_pages=50):
+def collect_prs_from_repo(rotator, repo_name, min_valid_prs=100, max_valid_prs=None, max_pages=50):
+    g = rotator.get()
     collected = []
     try:
+        g = handle_error_and_rate_limit(rotator)
         repo = g.get_repo(repo_name)
         page = 0
         valid_count = 0
@@ -120,7 +72,7 @@ def collect_prs_from_repo(g, repo_name, min_valid_prs=100, max_valid_prs=None, m
 
         total_prs_fechados = repo.get_pulls(state="closed").totalCount
 
-        with tqdm(ncols=120, bar_format="    ⏳{l_bar}{bar}| {n_fmt} PRs válidos coletados", leave=True, total=total_prs_fechados) as pbar:
+        with tqdm(ncols=120, bar_format="   ⏳ {l_bar}{bar}| {n_fmt} PRs válidos coletados", leave=True, total=total_prs_fechados) as pbar:
             while page < max_pages:
                 prs = repo.get_pulls(state="closed", sort="created", direction="desc").get_page(page)
 
@@ -142,7 +94,7 @@ def collect_prs_from_repo(g, repo_name, min_valid_prs=100, max_valid_prs=None, m
 
                         with contextlib.redirect_stdout(io.StringIO()):
                             reviews = list(pr.get_reviews())
-                        if not reviews:
+                        if not reviews or len(reviews) == 0:
                             continue
 
                         participants = set()
@@ -152,7 +104,14 @@ def collect_prs_from_repo(g, repo_name, min_valid_prs=100, max_valid_prs=None, m
                         try:
                             comments = list(pr.get_issue_comments())
                         except:
-                            comments = list(pr.get_comments())
+                            try:
+                                comments = list(pr.get_comments())
+                            except Exception as e:
+                                if handle_error_and_rate_limit(rotator, error=e):
+                                    g = rotator.get()
+                                    continue
+                                else:
+                                    raise e
 
                         for comment in comments:
                             if comment.user and comment.user.login:
@@ -179,7 +138,8 @@ def collect_prs_from_repo(g, repo_name, min_valid_prs=100, max_valid_prs=None, m
                             "comments": pr.comments,
                             "review_comments": pr.review_comments,
                             "time_to_close_hours": time_diff.total_seconds() / 3600,
-                            "participant_count": len(participants)
+                            "participant_count": len(participants),
+                            "language": repo.language   # <— adiciona o idioma do repositório
                         })
 
                         valid_count += 1
@@ -187,7 +147,8 @@ def collect_prs_from_repo(g, repo_name, min_valid_prs=100, max_valid_prs=None, m
                         pbar.update(1)
 
                     except Exception as e:
-                        if handle_error_and_rate_limit(g, error=e):
+                        if handle_error_and_rate_limit(rotator, error=e):
+                            g = rotator.get()
                             continue
                         else:
                             raise e
@@ -206,7 +167,7 @@ def collect_prs_from_repo(g, repo_name, min_valid_prs=100, max_valid_prs=None, m
         return collected
 
     except Exception as e:
-        if handle_error_and_rate_limit(g, error=e):
+        if handle_error_and_rate_limit(rotator, error=e):
             return []
         else:
             raise e
@@ -255,7 +216,7 @@ def save_prs_to_files(prs, file_path):
 def load_repos(file_path, required_columns=None):
     if required_columns is None:
         if "selected" in file_path:
-            required_columns = ["full_name"]
+            required_columns = ["full_name", "pr_count"]
         else:
             required_columns = [
                 "repo_name", "pr_number", "title", "body", "state",
@@ -276,65 +237,98 @@ def load_repos(file_path, required_columns=None):
             except Exception:
                 continue
 
-    # Se não conseguiu carregar, recria o arquivo
     print(f"⚠️ Arquivo '{file_path}' inválido ou ausente. Criando novo com colunas padrão.")
     df = pd.DataFrame(columns=required_columns)
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
     df.to_csv(file_path, index=False, sep=";")
     return df
 
-
-def repo_has_valid_prs(collected_prs_df, repo_name, min_prs=100, max_prs=1000):
+def repo_has_valid_prs(collected_prs_df, repo_name, expected_total):
     repo_data = collected_prs_df[collected_prs_df['repo_name'] == repo_name]
     valid_prs = repo_data.dropna(subset=["pr_number", "title", "body", "state", "created_at", "closed_at"])
-    return min_prs <= valid_prs.shape[0] <= max_prs
+    return valid_prs.shape[0] >= expected_total
 
-def compare_repositories(selected_repos_df, collected_prs_df, g):
-    # Normaliza: converte para string, tira espaços e transforma para minúsculas
-    selected_repos = selected_repos_df['full_name'].astype(str).str.strip().str.lower().tolist()
-    collected_repos = collected_prs_df['repo_name'].astype(str).str.strip().str.lower().unique().tolist()
-
-    valid_repos = []
-    invalid_repos = []
-
-    tqdm.write("    🔍 Verificando Repositórios Selecionados...")
-    with tqdm(total=len(selected_repos), ncols=120, 
-              bar_format="    ⏳ {l_bar}{bar}| {n:03d}/{total:03d} {percentage:3.0f}% {remaining}",
-              leave=True, position=0) as pbar:
-        for repo_name in selected_repos:
-            try:
-                g.get_repo(repo_name)
-                valid_repos.append(repo_name)
-            except Exception:
-                invalid_repos.append(repo_name)
-            pbar.update(1)
-
-    removed_repos = [repo for repo in collected_repos if repo not in selected_repos]
-    collected_in_selected = [repo for repo in collected_repos if repo in selected_repos]
-
-    complete_repos = []
-    incomplete_repos = []
-
-    for repo in collected_in_selected:
-        try:
-            total_prs_repo = g.get_repo(repo).get_pulls(state="all").totalCount
-            is_valid = repo_has_valid_prs(collected_prs_df, repo, min_prs=100, max_prs=total_prs_repo)
-            if is_valid:
-                complete_repos.append(repo)
-            else:
-                incomplete_repos.append(repo)
-        except Exception as e:
-            pass
-
-    return complete_repos, incomplete_repos, len(removed_repos), len(collected_repos), len(collected_in_selected), valid_repos, invalid_repos, removed_repos
-
-def filter_remaining_repos(selected_df, collected_df):
+def compare_repositories(selected_repos_df, collected_prs_df):
     """
-    Retorna uma lista de repositórios selecionados que ainda não foram coletados.
+    Compara localmente o número de PRs válidos coletados vs esperado,
+    exibindo tabela com colunas: #, Repositório, Esperado, Coletado, Completo, Remover.
     """
-    selected = set(selected_df["full_name"])
-    collected = set(collected_df["repo_name"])
-    return list(selected - collected)
+    # 1) Normaliza as listas de selecionados e coletados
+    selected_repos  = selected_repos_df['full_name'].str.lower().str.strip().tolist()
+    collected_repos = collected_prs_df['repo_name'].str.lower().str.strip().unique().tolist()
+
+    # 2) Determina quais já não estão na lista atual (para coluna Remover)
+    removed_repos          = [r for r in collected_repos if r not in selected_repos]
+    collected_in_selected  = [r for r in collected_repos if r in selected_repos]
+    len_removed            = len(removed_repos)
+    total_collected        = len(collected_repos)
+    total_in_selected      = len(collected_in_selected)
+
+    complete_repos, incomplete_repos = [], []
+    tabela_resultados = []
+
+    tqdm.write("\n    🧮 Avaliando completude dos PRs coletados...\n")
+    barra = tqdm(total=len(selected_repos), ncols=120,
+                    bar_format="        ⏳ {l_bar}{bar}| {n_fmt}/{total_fmt} {percentage:3.0f}% {remaining}",
+                    leave=True)
+
+    # 4) Filtra apenas os PRs válidos localmente
+    df = collected_prs_df.copy()
+    df['created_at'] = pd.to_datetime(df['created_at'])
+    df['closed_at']  = pd.to_datetime(df['closed_at'])
+    mask = (
+        df['state'].str.lower().isin(['closed','merged']) &
+        (df['review_count'].fillna(0).astype(int) > 0) &
+        ((df['closed_at'] - df['created_at']).dt.total_seconds() > 3600)
+    )
+    valid_local_counts = df[mask] \
+        .groupby(df['repo_name'].str.lower().str.strip()) \
+        .size() \
+        .to_dict()
+
+    # 6) Monta o cabeçalho completo
+    tqdm.write(f"{'#':^5} {'Repositório':<50} {'Esperado':^10} {'Coletado':^10} {'Completo':^10} {'Remover':^10}")
+
+    # 7) Para cada selecionado, calcula esperado/coletado e sinaliza
+    for idx, repo in enumerate(sorted(selected_repos, key=lambda r: r.lower()), start=1):
+        exp = int(
+            selected_repos_df.loc[
+                selected_repos_df['full_name'].str.lower().str.strip() == repo,
+                'pr_count'
+            ].iloc[0]
+        )
+        loc = valid_local_counts.get(repo, 0)
+
+        # completo?
+        is_complete = (loc >= exp) or (loc >= exp - MARGIN)
+        emoji_flag  = '✅' if is_complete else '❌'
+        (complete_repos   if is_complete else incomplete_repos).append(repo)
+
+        # remover?
+        remover_emoji = '🗑️' if repo in removed_repos else '📌'
+
+        # imprime linha
+        tqdm.write(
+            f"{str(idx).zfill(3):^5} {repo:<50}"
+            f" {str(exp):^10} {str(loc):^10}"
+            f" {emoji_flag:^10} {remover_emoji:^10}"
+        )
+        barra.update(1)
+
+    barra.close()
+
+    # 8) Retorna completos, incompletos e contagens
+    return (
+        complete_repos,
+        incomplete_repos,
+        len_removed,
+        total_collected,
+        total_in_selected,
+        [],           # valid_repos (não usado)
+        [],           # invalid_repos (não usado)
+        removed_repos,
+        valid_local_counts
+    )
 
 def show_initial_info():
     tqdm.write(f"📁 Caminho dos repositórios: {REPO_FILE}")
@@ -342,51 +336,57 @@ def show_initial_info():
     tqdm.write("-" * 120 + "\n")
 
 def summarize_collection_results(
-    selected_repos_df, collected_prs_df,
-    complete_repos, incomplete_repos,
-    repos_pendentes_set, removidos_set,
-    collected_file
+    selected_df, collected_df, complete_repos, incomplete_repos,
+    missing_in_collected, extra_in_collected, output_file, valid_local_counts
 ):
-    total_collected_repos = len(collected_prs_df["repo_name"].unique())
+    """
+    Remove repositórios não selecionados, limita a 200, e escreve o resumo de completude.
+    """
+    # 🔥 Filtra PRs apenas dos repositórios selecionados
+    if not collected_df.empty:
+        selected_set = set(selected_df["full_name"].str.lower().str.strip())
+        before = len(collected_df)
+        collected_df = collected_df[collected_df["repo_name"].str.lower().str.strip().isin(selected_set)].reset_index(drop=True)
+        if len(collected_df) != before:
+            collected_df.to_csv(output_file, index=False, sep=";", encoding="utf-8")
+            tqdm.write(f"🧹 {before - len(collected_df)} PRs removidos de repositórios não selecionados.")
 
-    tqdm.write("\n📊 Resumo da Coleta de PRs\n")
-    tqdm.write(f"   📋 Repositórios selecionados: {len(selected_repos_df)}")
-    tqdm.write(f"   📋 Repositórios processados: {total_collected_repos}")
-    tqdm.write(f"   📋 Repositórios com PRs completos: {len(complete_repos)}")
-    tqdm.write(f"   📋 Repositórios com PRs incompletos: {len(incomplete_repos)}")
-    tqdm.write(f"   🗑️  Repositórios anteriormente coletados, mas removidos da lista atual: {len(removidos_set)}")
-    tqdm.write(f"\n   📋 Repositórios pendentes de coleta: {len(repos_pendentes_set)}\n")
+    # 🔥 Limita a 200 repositórios
+    unique_repos = collected_df["repo_name"].str.lower().str.strip().unique()
+    if len(unique_repos) > 200:
+        tqdm.write(f"⚠️ Mais de 200 repositórios detectados ({len(unique_repos)}). Mantendo apenas os 200 primeiros.")
+        keep = list(selected_df["full_name"].str.lower().str.strip())[:200]
+        before = len(collected_df)
+        collected_df = collected_df[collected_df["repo_name"].str.lower().str.strip().isin(keep)].reset_index(drop=True)
+        tqdm.write(f"✅ PRs filtrados para manter somente 200 repositórios ({before - len(collected_df)} removidos)")
+        collected_df.to_csv(output_file, index=False, sep=";", encoding="utf-8")
+
+    # ✅ Relatório da Coleta de PRs (corrigido)
+    total_sel     = len(selected_df)
+    # Conjunto de repos que realmente fizeram parte do DataFrame final
+    processed_set = set(collected_df["repo_name"].str.lower().str.strip())
+    total_proc    = len(processed_set)
+    # Quantos não tiveram NENHUM PR coletado
+    total_missing = len(missing_in_collected)
+    # Dentre os processados, quantos ficaram completos/incompletos
+    total_comp    = len([r for r in complete_repos   if r in processed_set])
+    total_incmp   = len([r for r in incomplete_repos if r in processed_set])
+    # Quantos foram removidos (extras)
+    total_rmvd    = len(extra_in_collected)
+    total_missing = len(missing_in_collected)
+
+    tqdm.write("\n" + "-" * 120)
+    tqdm.write("\n📈  Resumo da Coleta de PRs")
+    tqdm.write(f"   📋  Repositórios selecionados: {total_sel}")
+    tqdm.write(f"   🔄  Repositórios processados: {total_proc}")
+    tqdm.write(f"   ✅  Repositórios com PRs completos: {total_comp}")
+    tqdm.write(f"   ⚠️  Repositórios com PRs incompletos: {total_incmp}")
+    tqdm.write(f"   🗑️  Repositórios removidos da lista atual: {total_rmvd}\n")
+    tqdm.write(f"   🚫  Repositórios sem nenhum PR coletado: {total_missing}\n")
     tqdm.write("-" * 120 + "\n")
 
-    # 🔥 Remove PRs de repositórios que não estão mais na lista selecionada
-    if not collected_prs_df.empty:
-        selected_set_lower = set(selected_repos_df["full_name"].str.lower().str.strip())
-        before = len(collected_prs_df)
-        collected_prs_df = collected_prs_df[
-            collected_prs_df["repo_name"].str.lower().str.strip().isin(selected_set_lower)
-        ].reset_index(drop=True)
-        after = len(collected_prs_df)
-
-        if before != after:
-            collected_prs_df.to_csv(collected_file, index=False, encoding='utf-8')
-            tqdm.write(f"🧹 PRs de repositórios não selecionados foram excluídos ({before - after} linhas removidas).")
-
-    # 🔥 Limita o total de repositórios para no máximo 200
-    unique_repos = collected_prs_df["repo_name"].str.lower().str.strip().unique()
-    if len(unique_repos) > 200:
-        tqdm.write(f"⚠️ Mais de 200 repositórios com PRs detectados ({len(unique_repos)}). Serão mantidos apenas os 200 primeiros.")
-        repos_a_manter = list(selected_repos_df["full_name"].str.lower().str.strip())[:200]
-
-        antes = len(collected_prs_df)
-        collected_prs_df = collected_prs_df[
-            collected_prs_df["repo_name"].str.lower().str.strip().isin(repos_a_manter)
-        ].reset_index(drop=True)
-        depois = len(collected_prs_df)
-
-        collected_prs_df.to_csv(collected_file, index=False, encoding='utf-8')
-        tqdm.write(f"✅ PRs filtrados para manter somente 200 repositórios. ({antes - depois} linhas removidas)")
-
-    return collected_prs_df
+    collected_df.to_csv(output_file, index=False, sep=";", encoding="utf-8")
+    return collected_df
 
 def filter_collected_repositories(selected_repos_df, collected_prs_df, output_path) -> pd.DataFrame:
     selected_repos_set = set(selected_repos_df['full_name'].str.lower().str.strip())
@@ -398,67 +398,131 @@ def filter_collected_repositories(selected_repos_df, collected_prs_df, output_pa
     filtered_collected_repos_df.to_csv(output_path, index=False, sep=";", encoding="utf-8")
     return filtered_collected_repos_df
 
-# Carregamento dos arquivos CSV
-selected_repos_df = pd.read_csv(REPO_FILE, sep=";")
-collected_prs_df = pd.read_csv(COLLECTED_FILE, sep=";")
+def is_repo_complete(g, collected_df, repo_name, selected_df=None, save_path=None):
+    """
+    Verifica se um repositório está completo com base na contagem de PRs coletados.
+    Considera completo se:
+    - Número de PRs válidos localmente >= esperado remoto (cumpriu ou excedeu).
+    - Ou número de PRs válidos localmente está dentro da margem de até 5 a menos do esperado.
+    """
+    repo_name_clean = repo_name.strip().lower()
 
-# Chama a função para filtrar os repositórios coletados
-output_path = COLLECTED_FILE
-filtered_collected_repos_df = filter_collected_repositories(selected_repos_df, collected_prs_df, output_path)
+    # Conta PRs válidos localmente (fechados e com comentários de revisão)
+    local_valid = collected_df[
+        (collected_df["repo_name"].str.strip().str.lower() == repo_name_clean) &
+        (collected_df["state"].str.lower() == "closed") &
+        (collected_df["review_comments"].fillna(0).astype(int) > 0)
+    ].shape[0]
 
-# Retorna o número de repositórios após a filtragem
-filtered_collected_repos_df['repo_name'].nunique(), output_path
+    # Obtém o pr_count remoto pré-calculado em selected_df, se disponível
+    expected_remote = 0
+    if selected_df is not None and "pr_count" in selected_df.columns:
+        mask = selected_df["full_name"].str.strip().str.lower() == repo_name_clean
+        if mask.any():
+            expected_remote = int(selected_df.loc[mask, "pr_count"].iloc[0])
 
+    # Marca como completo se exceder o esperado ou estiver dentro da margem inferior
+    if local_valid >= expected_remote:
+        completo = True
+    elif local_valid >= expected_remote - MARGIN:
+        completo = True
+    else:
+        completo = False
 
-def coletar_prs_dos_repos(remaining_repos, collected_file, g, incomplete_repos):
-    tqdm.write(f"\n📄 Coletando PRs dos repositórios restantes ({len(remaining_repos)})...")
+    # (Opcional) grava log de comparação
+    if save_path:
+        try:
+            os.makedirs(os.path.dirname(save_path), exist_ok=True)
+            with open(save_path, "a", encoding="utf-8") as f:
+                json.dump({
+                    "repo": repo_name,
+                    "esperado": expected_remote,
+                    "coletado": local_valid
+                }, f)
+                f.write("\n")
+        except Exception as e:
+            tqdm.write(f"⚠️ Erro ao salvar log de comparação: {e}")
+
+    return completo, expected_remote, local_valid
+
+def coletar_prs_dos_repos(
+    remaining_repos,
+    missing_in_collected,
+    collected_file,
+    g,
+    incomplete_repos,
+    selected_repos_df,
+    repo_to_idx    
+):
+    total_restantes = len(remaining_repos)
+    tqdm.write(f"📄 Coletando PRs dos repositórios restantes ({total_restantes})...\n")
+
     total_prs_collected = 0
     repo_times = {}
-
     collected_df = load_repos(collected_file)
 
-    for idx, repo_name in enumerate(remaining_repos):
-        tipo_coleta = "♻️  RECOLETA" if repo_name in incomplete_repos else "🆕 NOVO"
-        tqdm.write(f"\n🔄 {str(idx + 1).zfill(2)}/{len(remaining_repos)} Coletando PRs de repositório: {repo_name} ({tipo_coleta})")
+    for local_idx, repo_name in enumerate(remaining_repos, start=1):
+        id_str = str(local_idx).zfill(3)
+        idx = repo_to_idx.get(repo_name, 0)
+        idx_str = str(idx).zfill(3)
+        expected = int(
+            selected_repos_df.loc[
+                selected_repos_df["full_name"].str.lower().str.strip() == repo_name,
+                "pr_count"
+            ].iloc[0]
+        )
+        tipo = "\n   ♻️  RECOLETA" if repo_name in incomplete_repos else "\n   🆕  NOVO"
+        tqdm.write(f"🔄 {id_str}/{total_restantes}   {tipo} ➜  {idx_str}  {repo_name} (esperado: {expected})")
 
         inicio = time.time()
         try:
-            prs = collect_prs_from_repo(g, repo_name, min_valid_prs=100)
+            prs = collect_prs_from_repo(rotator, repo_name, min_valid_prs=100, max_valid_prs=None, max_pages=50)
         except Exception as e:
-            tqdm.write(f"   ⚠️ Erro ao coletar PRs de '{repo_name}': {e}")
+            tqdm.write(f"   ⚠️ Erro em {repo_name}: {e}")
             continue
         fim = time.time()
+        tempo_str = format_seconds(fim - inicio)
 
-        tempo = fim - inicio
-        repo_times[repo_name] = tempo
-        tempo_str = format_seconds(tempo)
+        count = len(prs)
+        if count < 100:
+            tqdm.write(f"   ⚠️ Ignorado — menos de 100 PRs válidos. ⏱️ {tempo_str}")
+            continue
 
+        total_prs_collected += count
         if prs:
-            validos = len(prs)
-            total_prs_collected += validos
-            tqdm.write(f"   📦 PRs válidos coletados de '{repo_name}': {validos} ⏱️ Tempo: {tempo_str}")
-
+            # concatena e deduplica
             new_df = pd.DataFrame(prs)
-            
-            if new_df.empty:
-                continue
-            if collected_df.empty and not new_df.empty:
-                collected_df = pd.DataFrame(columns=new_df.columns)
-
             collected_df = pd.concat([collected_df, new_df], ignore_index=True)
-
-            antes = collected_df.shape[0]
+            before = collected_df.shape[0]
             collected_df.drop_duplicates(subset=["repo_name", "pr_number"], inplace=True)
-            depois = collected_df.shape[0]
-            removidos = antes - depois
-            if removidos > 0:
-                tqdm.write(f"   🔍 {removidos} PRs duplicados removidos.")
+            removed = before - collected_df.shape[0]
+            if removed > 0:
+                tqdm.write(f"   🔍 {removed} duplicados removidos.")
+            collected_df.to_csv(collected_file, index=False, sep=";", encoding="utf-8")
+            tqdm.write(f"📊 Salvando coletado: {collected_df.shape[0]} PRs em {collected_file}")
 
-            save_prs_to_files(collected_df.to_dict(orient="records"), collected_file)
-        else:
-            tqdm.write(f"   ⚠️ Repositório '{repo_name}' ignorado — menos de 100 PRs válidos. ⏱️ Tempo: {tempo_str}")
+        # ——— aqui atualiza o pr_count e grava os dois CSVs
+        sel = pd.read_csv(REPO_FILE, sep=";")
+        old = int(sel.loc[
+            sel["full_name"].str.lower().str.strip() == repo_name,
+            "pr_count"
+        ].iloc[0])
+        # total realmente coletado até agora
+        total_local = collected_df[
+            collected_df["repo_name"].str.lower().str.strip() == repo_name
+        ].shape[0]
 
-    tqdm.write(f"\n📊 Total acumulado de PRs válidos coletados nesta execução: {total_prs_collected}")
+        if total_local < old - MARGIN:
+            sel.loc[
+            sel["full_name"].str.lower().str.strip() == repo_name,
+                "pr_count"
+            ] = total_local
+            sel.to_csv(REPO_FILE, index=False, sep=";")
+            tqdm.write(f"🔄 Atualizando pr_count: {old} → {total_local}")
+
+        print("\n")
+
+    tqdm.write(f"\n📊 Total acumulado nesta execução: {total_prs_collected} PRs")
 
     tempos = list(repo_times.values())
     if tempos:
@@ -471,61 +535,98 @@ def coletar_prs_dos_repos(remaining_repos, collected_file, g, incomplete_repos):
         tqdm.write(f"   🔹 Tempo médio por repositório: {format_seconds(media_tempo)}")
         tqdm.write(f"   🔹 Tempo mediano por repositório: {format_seconds(mediana_tempo)}")
 
-def main():
-    g = Github(configurar_token())
-    selected_repos_df = load_repos(REPO_FILE)
-    collected_prs_df = load_repos(COLLECTED_FILE)
 
+def main():
+    # 1) Carrega DataFrames de selecionados e coletados
+    selected_repos_df = load_repos(REPO_FILE)
     if selected_repos_df.empty or 'full_name' not in selected_repos_df.columns:
         tqdm.write("❌ Arquivo de repositórios selecionados está vazio ou mal formatado. Verifique o arquivo.")
         return
 
-    show_initial_info()
+    collected_prs_df = load_repos(COLLECTED_FILE)
+    collected_prs_df = collected_prs_df[
+        collected_prs_df['repo_name'].str.lower().str.strip()
+        .isin(selected_repos_df['full_name'].str.lower().str.strip())
+    ].copy()
+    collected_prs_df.to_csv(COLLECTED_FILE, index=False, sep=';', encoding='utf-8')
 
-    # 🔃 Filtra os repositórios para garantir no máximo 200 antes de avaliar completude
-    filtered_collected_repos_df = filter_collected_repositories(selected_repos_df, collected_prs_df, COLLECTED_FILE)
+    # 2) Compara localmente os repositórios (sem API externa)
+    complete_repos, incomplete_repos, len_removed, total_collected, total_in_selected, _, _, removed_repos, valid_local_counts = \
+        compare_repositories(selected_repos_df, collected_prs_df)
 
-    # Usa o DataFrame filtrado para verificar completude
-    complete_repos, incomplete_repos, _, _, _, _, _, _ = compare_repositories(selected_repos_df, filtered_collected_repos_df, g)
+    # 3) Calcula quais não tiveram NENHUM PR coletado
+    selected_set  = set(selected_repos_df["full_name"].str.lower().str.strip())
+    collected_set = set(collected_prs_df['repo_name'].str.lower().str.strip())
+    missing_in_collected = list(selected_set - collected_set)
 
-    # Atualiza o DataFrame usado para o restante do fluxo
-    collected_prs_df = filtered_collected_repos_df
+    # 4) Determina lista de repositórios a coletar (incompletos ∪ sem PR), exclui removidos
+    pending = set(incomplete_repos) | set(missing_in_collected)
+    remaining_repos = sorted(pending - set(removed_repos))
 
-    # Padroniza nomes de repositórios selecionados
-    selected_set = set(selected_repos_df['full_name'].astype(str).str.strip().str.lower())
-    collected_set = set(collected_prs_df['repo_name'].astype(str).str.strip().str.lower())
-    removidos_set = collected_set - selected_set
-    repos_pendentes_set = selected_set - collected_set
+    # ⬇︎ Mapeia cada repo ao seu índice da listagem de comparação
+    selected_repos = selected_repos_df['full_name'] \
+        .str.lower().str.strip().tolist()
+    repo_to_idx = {
+        repo: idx
+        for idx, repo in enumerate(
+            sorted(selected_repos, key=lambda r: r.lower()),
+            start=1
+        )
+    }
 
-    # Atualiza após remoções e resumo
+    # 5) Exibe e salva o resumo de completude
     collected_prs_df = summarize_collection_results(
-        selected_repos_df, collected_prs_df,
-        complete_repos, incomplete_repos,
-        repos_pendentes_set, removidos_set,
-        COLLECTED_FILE
+        selected_repos_df,
+        collected_prs_df,
+        complete_repos,
+        incomplete_repos,
+        missing_in_collected,
+        list(collected_set - selected_set),
+        COLLECTED_FILE,
+        valid_local_counts
     )
 
-    # Filtra repositórios incompletos que ainda estão entre os selecionados
-    incomplete_set = {r.strip().lower() for r in incomplete_repos if r.strip().lower() in selected_set}
-
-    # Garante que só os repositórios válidos sejam considerados
-    remaining_repos = sorted(list((repos_pendentes_set | incomplete_set) & selected_set))
-
+    # 6) Coleta PRs dos repositórios restantes
     if remaining_repos:
-        coletar_prs_dos_repos(remaining_repos, COLLECTED_FILE, g, incomplete_repos)
+        coletar_prs_dos_repos(
+            remaining_repos,
+            missing_in_collected,
+            COLLECTED_FILE,
+            rotator,
+            incomplete_repos,
+            selected_repos_df,
+            repo_to_idx        
+        )
     else:
         tqdm.write("🔴 Não há repositórios restantes para coletar.")
 
-    # Verifica quantos repositórios únicos estão presentes no CSV final
-    if os.path.exists(COLLECTED_FILE):
-        try:
-            final_df = pd.read_csv(COLLECTED_FILE, sep=";")
-            repos_unicos = final_df["repo_name"].dropna().str.lower().str.strip().unique()
-            tqdm.write(f"\n📦 Total final de repositórios com PRs coletados no CSV: {len(repos_unicos)}")
-        except Exception as e:
-            tqdm.write(f"\n⚠️ Erro ao ler 'collected_prs.csv': {e}")
-    else:
-        tqdm.write("\n⚠️ Arquivo 'collected_prs.csv' não encontrado para contagem final de repositórios.")
+    # 7) Exibe contagem final por repositório
+    print("\n📋 PRs válidos por repositório (baseados na coleta via GraphQL):")
+    print(f"{'Repositório':<50} | {'PRs válidos':^14}")
+    print(f"{'-'*50} {'-'*14}")
+
+    # Ordena alfabeticamente pelo nome completo do repositório
+    filtered_final = sorted(
+        filtered_final,
+        key=lambda repo: repo.get("full_name", "").lower()
+    )
+
+    for repo in filtered_final:
+        nome = repo.get("full_name", "").strip()
+        pr_validos = repo.get("pr_count", 0)
+        print(f"{nome:<50} {pr_validos:^14}")
+
+    # Ajuste para usar a própria lista ordenada no total
+    tqdm.write(f"\n📦 Total de repositórios no relatório final: {len(filtered_final)}")
+
+    # 8) Finaliza
+    end_time = datetime.now()
+    duration = end_time - start_time
+    print(f"\n🕔 Fim da execução: {end_time.strftime('%d/%m/%Y %H:%M:%S')}")
+    print(f"⏱️ Duração total: {duration}\n")
+
+    # 9) Sobrescreve o arquivo de selecionados (caso tenha mudado)
+    selected_repos_df.to_csv(REPO_FILE, index=False, sep=';', encoding='utf-8')
 
 # === EXECUÇÃO PRINCIPAL ===
 if __name__ == "__main__":
