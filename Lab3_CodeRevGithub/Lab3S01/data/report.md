@@ -48,13 +48,13 @@ Este relatório apresenta os resultados da análise da atividade de code review 
 
 **📂 Correlação entre número de arquivos alterados e status:**
 
-- Coeficiente de correlação: 0.0486
+- Coeficiente de correlação: 0.0588
 
-- P-valor: 4.9446e-01
+- P-valor: 5.6406e-102
 
 - Interpretação: Insignificante
 
-- Estatisticamente significativo: ❌ Não
+- Estatisticamente significativo: ✅ Sim
 
 ![Distribuição de Arquivos por Status](./visualizations/rq01_files_changed_boxplot.png)
 
@@ -63,9 +63,9 @@ Este relatório apresenta os resultados da análise da atividade de code review 
 
 **⏱️ Correlação entre tempo de análise e status:**
 
-- Coeficiente de correlação: -0.1501
+- Coeficiente de correlação: -0.2376
 
-- P-valor: 3.3897e-02
+- P-valor: 0.0000e+00
 
 - Interpretação: Fraca
 

@@ -119,6 +119,3 @@ def converter_csv_json():
             start=1
         ):
         print(f"{i:^4} {repo:<50} {count:^14}")
-
-
-converter_csv_json()

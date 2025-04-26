@@ -12,7 +12,7 @@ id;full_name;description;language;stargazers_count;forks_count;open_issues_count
 291137;ohmyzsh/ohmyzsh;🙃   A delightful community-driven (with 2,400+ contributors) framework for managing your zsh configuration. Includes 300+ optional plugins (rails, git, macOS, hub, docker, homebrew, node, php, python, etc), 140+ themes to spice up your morning, and an auto-update tool that makes it easy to keep up w...;Shell;177837;26054;466;303
 614765452;Significant-Gravitas/AutoGPT;AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.;Python;174659;45590;198;414
 2126244;twbs/bootstrap;The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web.;MDX;172223;79063;540;339
-41881900;microsoft/vscode;Visual Studio Code;TypeScript;170280;31689;9966;570
+41881900;microsoft/vscode;Visual Studio Code;TypeScript;170280;31689;9966;497
 31792824;flutter/flutter;Flutter makes it easy and fast to build beautiful apps for mobile and beyond;Dart;169859;28393;13062;569
 1062897;github/gitignore;A collection of useful .gitignore templates;;165916;83072;500;176
 527591471;AUTOMATIC1111/stable-diffusion-webui;Stable Diffusion web UI;Python;151562;28190;2392;378
@@ -22,9 +22,9 @@ id;full_name;description;language;stargazers_count;forks_count;open_issues_count
 658928958;ollama/ollama;Get up and running with Llama 3.3, DeepSeek-R1, Phi-4, Gemma 3, Mistral Small 3.1 and other large language models.;Go;138121;11506;1743;450
 1039520;ytdl-org/youtube-dl;Command-line program to download videos from YouTube.com and other video sites;Python;135243;10300;4173;202
 70107786;vercel/next.js;The React Framework;JavaScript;131255;28203;3207;453
-62607227;yangshun/tech-interview-handbook;💯 Curated coding interview preparation materials for busy software engineers;TypeScript;125546;15335;53;171
+62607227;yangshun/tech-interview-handbook;💯 Curated coding interview preparation materials for busy software engineers;TypeScript;125546;15335;53;128
 112507086;Chalarangelo/30-seconds-of-code;Coding articles to level up your development skills;JavaScript;123434;12137;0;425
-111583593;Genymobile/scrcpy;Display and control your Android device;C;120932;11387;2346;102
+111583593;Genymobile/scrcpy;Display and control your Android device;C;120932;11387;2346;96
 184456251;microsoft/PowerToys;Windows system utilities to maximize productivity;C#;117563;6944;6482;535
 9384267;electron/electron;:electron: Build cross-platform desktop apps with JavaScript, HTML, and CSS;C++;116473;15997;943;584
 20580498;kubernetes/kubernetes;Production-Grade Container Scheduling and Management;Go;114576;40393;2613;393
@@ -60,7 +60,7 @@ id;full_name;description;language;stargazers_count;forks_count;open_issues_count
 54173593;storybookjs/storybook;Storybook is the industry standard workshop for building, documenting, and testing UI components in isolation;TypeScript;86434;9506;2214;582
 585146387;shadcn-ui/ui;A set of beautifully-designed, accessible components and a code distribution platform. Works with your favorite frameworks. Open Source. Open Code.;TypeScript;85712;5790;1739;187
 193215554;n8n-io/n8n;Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.;TypeScript;84187;22672;702;524
-612230;nvm-sh/nvm;Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions;Shell;84075;8685;346;502
+612230;nvm-sh/nvm;Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions;Shell;84075;8685;346;484
 160919119;fastapi/fastapi;FastAPI framework, high performance, easy to learn, fast to code, ready for production;Python;83566;7244;348;239
 4164482;django/django;The Web framework for perfectionists with deadlines.;Python;83243;32501;334;505
 1181927;bitcoin/bitcoin;Bitcoin Core integration/staging tree;C++;82995;37096;702;438
@@ -70,7 +70,7 @@ id;full_name;description;language;stargazers_count;forks_count;open_issues_count
 5108051;opencv/opencv;Open Source Computer Vision Library;C++;81796;56136;2737;436
 214587193;supabase/supabase;The open source Firebase alternative. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.;TypeScript;81258;8338;592;553
 243950408;Anduin2017/HowToCook;程序员在家做饭方法指南。Programmer's guide about how to cook at home (Simplified Chinese only).;Dockerfile;79263;9537;432;368
-655806940;microsoft/generative-ai-for-beginners;21 Lessons, Get Started Building with Generative AI  🔗 https://microsoft.github.io/generative-ai-for-beginners/;Jupyter Notebook;78702;40917;17;309
+655806940;microsoft/generative-ai-for-beginners;21 Lessons, Get Started Building with Generative AI  🔗 https://microsoft.github.io/generative-ai-for-beginners/;Jupyter Notebook;78702;40917;17;237
 612354784;ggml-org/llama.cpp;LLM inference in C/C++;C++;78535;11484;767;488
 26066727;mermaid-js/mermaid;Generation of diagrams like flowcharts or sequence diagrams from text in a similar manner as markdown;TypeScript;78413;7398;1316;205
 12888993;home-assistant/core;:house_with_garden: Open source home automation that puts local control and privacy first.;Python;78191;33352;3181;589
@@ -78,7 +78,7 @@ id;full_name;description;language;stargazers_count;forks_count;open_issues_count
 51117837;tensorflow/models;Models and examples built with TensorFlow;Python;77498;45622;1252;432
 32689863;3b1b/manim;Animation engine for explanatory math videos;Python;76913;6657;454;120
 589831718;comfyanonymous/ComfyUI;The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface.;Python;74859;8134;2310;153
-10744183;netdata/netdata;X-Ray Vision for your infrastructure!;C;74327;6044;216;546
+10744183;netdata/netdata;X-Ray Vision for your infrastructure!;C;74327;6044;216;538
 212639071;bregman-arie/devops-exercises;Linux, Jenkins, AWS, SRE, Prometheus, Docker, Python, Ansible, Git, Kubernetes, Terraform, OpenStack, SQL, NoSQL, Azure, GCP, DNS, Elastic, Network, Virtualization. DevOps Interview Questions;Python;74097;16492;39;132
 44882201;MunGell/awesome-for-beginners;A list of awesome beginners-friendly projects.;;73359;7228;14;163
 619959033;nomic-ai/gpt4all;GPT4All: Run Local LLMs on Any Device. Open-source and available for commercial use.;C++;73157;7972;709;536
@@ -86,7 +86,7 @@ id;full_name;description;language;stargazers_count;forks_count;open_issues_count
 278335273;anuraghazra/github-readme-stats;:zap: Dynamically generated stats for your github readmes;JavaScript;72701;24467;400;529
 507775;elastic/elasticsearch;Free and Open Source, Distributed, RESTful Search Engine;Java;72429;25177;5021;290
 257485422;vitejs/vite;Next generation frontend tooling. It's fast!;TypeScript;72239;6624;614;506
-343965132;microsoft/ML-For-Beginners;12 weeks, 26 lessons, 52 quizzes, classic Machine Learning for all;HTML;71943;15514;8;336
+343965132;microsoft/ML-For-Beginners;12 weeks, 26 lessons, 52 quizzes, classic Machine Learning for all;HTML;71943;15514;8;283
 221981891;microsoft/playwright;Playwright is a framework for Web Testing and Automation. It allows testing Chromium, Firefox and WebKit with a single API. ;TypeScript;71889;4081;789;477
 203587744;hoppscotch/hoppscotch;Open source API development ecosystem - https://hoppscotch.io (open-source alternative to Postman, Insomnia);TypeScript;71285;4890;529;518
 172953845;coder/code-server;VS Code in the browser;TypeScript;71216;5891;150;412
@@ -95,7 +95,7 @@ id;full_name;description;language;stargazers_count;forks_count;open_issues_count
 14712850;syncthing/syncthing;Open Source Continuous File Synchronization;Go;69559;4485;381;283
 156018;redis/redis;Redis is an in-memory database that persists on disk. The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes, Streams, HyperLogLogs, Bitmaps.;C;68772;23974;2589;532
 101138315;d2l-ai/d2l-zh;《动手学深度学习》：面向中文读者、能运行、可讨论。中英文版被70多个国家的500多所大学用于教学。;Python;68612;11562;109;210
-596115135;base/node;Everything required to run your own Base node;Shell;68505;2679;62;154
+596115135;base/node;Everything required to run your own Base node;Shell;68505;2679;62;0
 44838949;swiftlang/swift;The Swift Programming Language;C++;68479;10461;8198;430
 15111821;grafana/grafana;The open and composable observability and data visualization platform. Visualize metrics, logs, and traces from multiple sources like Prometheus, Loki, Elasticsearch, InfluxDB, Postgres and many more. ;TypeScript;67592;12551;3955;569
 382496361;louislam/uptime-kuma;A fancy self-hosted monitoring tool;JavaScript;67498;5929;797;229
@@ -108,14 +108,14 @@ id;full_name;description;language;stargazers_count;forks_count;open_issues_count
 3678731;webpack/webpack;"A bundler for javascript and friends. Packs many modules into a few bundled assets. Code Splitting allows for loading parts of the application on demand. Through ""loaders"", modules can be CommonJs, AMD, ES6 modules, CSS, Images, JSON, Coffeescript, LESS, ... and your custom stuff.";JavaScript;65216;9078;241;234
 3638964;ansible/ansible;Ansible is a radically simple IT automation platform that makes your applications and systems easier to deploy and maintain. Automate everything from code deployment to network configuration to cloud management, in a language that approaches plain English, using SSH, with no agents to install on rem...;Python;64786;24013;853;230
 455229168;immich-app/immich;High performance self-hosted photo and video management solution.;TypeScript;64089;3363;482;543
-620936652;xtekky/gpt4free;The official gpt4free repository | various collection of powerful language models | o4, o3 and deepseek r1, gpt-4.1, gemini 2.5;Python;64087;13604;34;202
-191529732;lydiahallie/javascript-questions;A long list of (advanced) JavaScript questions, and their explanations :sparkles:  ;;63799;9075;41;366
+620936652;xtekky/gpt4free;The official gpt4free repository | various collection of powerful language models | o4, o3 and deepseek r1, gpt-4.1, gemini 2.5;Python;64087;13604;34;163
+191529732;lydiahallie/javascript-questions;A long list of (advanced) JavaScript questions, and their explanations :sparkles:  ;;63799;9075;41;341
 162998479;sherlock-project/sherlock;Hunt down social media accounts by username across social networks;Python;63784;7376;216;215
 29207621;caddyserver/caddy;Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS;Go;63686;4265;178;523
 13233158;obsproject/obs-studio;OBS Studio - Free and open source software for live streaming and screen recording;C;63662;8345;916;482
 468576060;openai/openai-cookbook;Examples and guides for using the OpenAI API;MDX;63369;10293;67;385
 9185792;apache/echarts;Apache ECharts is a powerful, interactive charting and data visualization library for browser;TypeScript;63292;19710;2119;514
-619859161;twitter/the-algorithm;Source code for Twitter's Recommendation Algorithm;Scala;63115;12162;458;131
+619859161;twitter/the-algorithm;Source code for Twitter's Recommendation Algorithm;Scala;63115;12162;458;115
 33015583;keras-team/keras;Deep Learning for humans;Python;62904;19574;308;494
 331107018;FuelLabs/sway;🌴 Empowering everyone to build reliable and efficient smart contracts.;Rust;62343;5385;861;548
 377496562;AppFlowy-IO/AppFlowy;Bring projects, wikis, and teams together with AI. AppFlowy is the AI collaborative workspace where you achieve more without losing control of your data. The leading open source Notion alternative.;Dart;62252;4188;974;189
@@ -125,7 +125,7 @@ id;full_name;description;language;stargazers_count;forks_count;open_issues_count
 261787758;bradtraversy/design-resources-for-developers;Curated list of design and UI resources from stock photos, web templates, CSS frameworks, UI libraries, tools and much more;;60445;11693;0;198
 3228505;atom/atom;:atom: The hackable text editor;JavaScript;60405;17350;993;182
 3955647;lodash/lodash;A modern JavaScript utility library delivering modularity, performance, & extras.;JavaScript;60359;7064;99;111
-3402537;h5bp/Front-end-Developer-Interview-Questions;A list of helpful front-end related questions you can use to interview potential candidates, test yourself or completely ignore.;Nunjucks;60252;11098;42;168
+3402537;h5bp/Front-end-Developer-Interview-Questions;A list of helpful front-end related questions you can use to interview potential candidates, test yourself or completely ignore.;Nunjucks;60252;11098;42;160
 163883279;nektos/act;Run your GitHub Actions locally 🚀;Go;60025;1528;225;254
 167174;jquery/jquery;jQuery JavaScript Library;JavaScript;59493;20615;94;447
 94911145;facebook/docusaurus;Easy to maintain open source documentation websites.;TypeScript;59469;8991;353;152
@@ -137,16 +137,16 @@ id;full_name;description;language;stargazers_count;forks_count;open_issues_count
 6838921;prometheus/prometheus;The Prometheus monitoring system and time series database.;Go;58232;9524;696;470
 42489829;rust-lang/rustlings;:crab: Small exercises to get you used to reading and writing Rust code!;Rust;57790;10551;70;166
 290882787;FuelLabs/fuel-core;Rust full node implementation of the Fuel v2 protocol.;Rust;57707;2841;158;509
-881458615;browser-use/browser-use;Make websites accessible for AI agents;Python;57196;6139;424;125
+881458615;browser-use/browser-use;Make websites accessible for AI agents;Python;57196;6139;424;117
 486550;h5bp/html5-boilerplate;A professional front-end template for building fast, robust, and adaptable web apps or sites.;JavaScript;56895;12284;12;202
 71995937;nuxt/nuxt;The Intuitive Vue Framework.;TypeScript;56855;5228;875;505
 8514;rails/rails;Ruby on Rails;Ruby;56776;21822;1302;220
 173228436;NationalSecurityAgency/ghidra;Ghidra is a software reverse engineering (SRE) framework;Java;56423;6310;1704;159
 594155488;Stirling-Tools/Stirling-PDF;#1 Locally hosted web application that allows you to perform various operations on PDF files;Java;56229;4692;214;487
 36040894;gatsbyjs/gatsby;The best React-based framework with performance, scalability and security built in.;JavaScript;55821;10291;429;291
-635240594;zylon-ai/private-gpt;Interact with your documents using the power of GPT, 100% privately, no data leaks;Python;55671;7462;268;293
+635240594;zylon-ai/private-gpt;Interact with your documents using the power of GPT, 100% privately, no data leaks;Python;55671;7462;268;240
 599320067;langflow-ai/langflow;Langflow is a powerful tool for building and deploying AI-powered agents and workflows.;Python;55580;6097;972;456
-127407957;azl397985856/leetcode;LeetCode Solutions: A Record of My Problem Solving Journey.( leetcode题解，记录自己的leetcode解题之路。);JavaScript;55261;9480;11;126
+127407957;azl397985856/leetcode;LeetCode Solutions: A Record of My Problem Solving Journey.( leetcode题解，记录自己的leetcode解题之路。);JavaScript;55261;9480;11;104
 529502;scrapy/scrapy;Scrapy, a fast high-level web crawling & scraping framework for Python.;Python;54952;10752;628;422
 15019962;tldr-pages/tldr;📚 Collaborative cheatsheets for console commands;Markdown;54840;4422;192;587
 660551251;geekan/MetaGPT;🌟 The Multi-Agent Framework: First AI Software Company, Towards Natural Language Programming;Python;54830;6509;101;318
@@ -170,7 +170,7 @@ id;full_name;description;language;stargazers_count;forks_count;open_issues_count
 699532645;astral-sh/uv;An extremely fast Python package and project manager, written in Rust.;Rust;50695;1424;1664;317
 130688011;meilisearch/meilisearch;A lightning-fast search engine API bringing AI-powered hybrid search to your sites and applications.;Rust;50604;1999;227;535
 348060227;withastro/astro;The web framework for content-driven websites. ⭐️ Star to support our work!;TypeScript;50603;2701;195;449
-695864515;hacksider/Deep-Live-Cam;real time face swap and one-click video deepfake with only a single image;Python;50556;7500;24;164
+695864515;hacksider/Deep-Live-Cam;real time face swap and one-click video deepfake with only a single image;Python;50556;7500;24;112
 1663468;mozilla/pdf.js;PDF Reader in JavaScript;JavaScript;50496;10255;410;531
 133251103;wagoodman/dive;A tool for exploring each layer in a docker image;Go;50395;1868;160;105
 3432266;JetBrains/kotlin;The Kotlin Programming Language. ;Kotlin;50379;5897;184;287
