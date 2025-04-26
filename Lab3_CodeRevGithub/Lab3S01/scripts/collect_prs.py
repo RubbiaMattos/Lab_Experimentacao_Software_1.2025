@@ -151,7 +151,8 @@ def collect_prs_from_repo(rotator, repo_name, min_valid_prs=100, max_valid_prs=N
                             g = rotator.get()
                             continue
                         else:
-                            raise e
+                            raise e        
+                time.sleep(1)
 
                 if max_valid_prs and valid_count >= max_valid_prs:
                     break  # Limite máximo atingido
@@ -160,9 +161,9 @@ def collect_prs_from_repo(rotator, repo_name, min_valid_prs=100, max_valid_prs=N
 
         tqdm.write(f"   🔍 {valid_count} PRs válidos encontrados entre {analisados} PRs avaliados em '{repo_name}'")
 
-        if valid_count < min_valid_prs:
-            tqdm.write(f"⚠️ Apenas {valid_count} PRs válidos encontrados em '{repo_name}' — abaixo do mínimo ({min_valid_prs}).")
-            return []
+        #if valid_count < min_valid_prs:
+           # tqdm.write(f"⚠️ Apenas {valid_count} PRs válidos encontrados em '{repo_name}' — abaixo do mínimo ({min_valid_prs}).")
+           # return []
 
         return collected
 
@@ -482,11 +483,10 @@ def coletar_prs_dos_repos(
             continue
         fim = time.time()
         tempo_str = format_seconds(fim - inicio)
-
         count = len(prs)
-        if count < 100:
-            tqdm.write(f"   ⚠️ Ignorado — menos de 100 PRs válidos. ⏱️ {tempo_str}")
-            continue
+       # if count < 100:
+           # tqdm.write(f"   ⚠️ Ignorado — menos de 100 PRs válidos. ⏱️ {tempo_str}")
+           # continue
 
         total_prs_collected += count
         if prs:
@@ -496,10 +496,10 @@ def coletar_prs_dos_repos(
             before = collected_df.shape[0]
             collected_df.drop_duplicates(subset=["repo_name", "pr_number"], inplace=True)
             removed = before - collected_df.shape[0]
-            if removed > 0:
-                tqdm.write(f"   🔍 {removed} duplicados removidos.")
             collected_df.to_csv(collected_file, index=False, sep=";", encoding="utf-8")
-            tqdm.write(f"📊 Salvando coletado: {collected_df.shape[0]} PRs em {collected_file}")
+            tqdm.write(f"   📊 Salvando coletado: {collected_df.shape[0]} PRs em {collected_file}")
+        
+        time.sleep(5)
 
         # ——— aqui atualiza o pr_count e grava os dois CSVs
         sel = pd.read_csv(REPO_FILE, sep=";")
@@ -518,7 +518,7 @@ def coletar_prs_dos_repos(
                 "pr_count"
             ] = total_local
             sel.to_csv(REPO_FILE, index=False, sep=";")
-            tqdm.write(f"🔄 Atualizando pr_count: {old} → {total_local}")
+            tqdm.write(f"   🔄 Atualizando pr_count: {old} → {total_local}")
 
         print("\n")
 
