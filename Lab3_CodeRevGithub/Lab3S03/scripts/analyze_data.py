@@ -632,17 +632,30 @@ def generate_report(df, all_results, output_file="report.md"):
         report.append("\n**Estatísticas descritivas (medianas):**")
 
         # Calcular as medianas por status
-        median_stats = df.groupby("status")[['files_changed', 'additions', 'deletions']].median()
+        median_stats_mediana = df.groupby("status")[['files_changed', 'additions', 'deletions']].median()
+        median_stats_media = df.groupby("status")[['files_changed', 'additions', 'deletions']].mean()
 
-        # Adicionar as informações ao relatório
+        # Adicionar as informações ao relatório - Mediana
         report.append(f"- PRs mesclados (MERGED):")
-        report.append(f"  - Arquivos alterados: {median_stats.loc['MERGED', 'files_changed']:.2f}")
-        report.append(f"  - Linhas adicionadas: {median_stats.loc['MERGED', 'additions']:.2f}")
-        report.append(f"  - Linhas removidas: {median_stats.loc['MERGED', 'deletions']:.2f}")
+        report.append(f"  - Arquivos alterados: {median_stats_mediana.loc['MERGED', 'files_changed']:.2f}")
+        report.append(f"  - Linhas adicionadas: {median_stats_mediana.loc['MERGED', 'additions']:.2f}")
+        report.append(f"  - Linhas removidas: {median_stats_mediana.loc['MERGED', 'deletions']:.2f}")
         report.append(f"- PRs fechados sem merge (CLOSED):")
-        report.append(f"  - Arquivos alterados: {median_stats.loc['CLOSED', 'files_changed']:.2f}")
-        report.append(f"  - Linhas adicionadas: {median_stats.loc['CLOSED', 'additions']:.2f}")
-        report.append(f"  - Linhas removidas: {median_stats.loc['CLOSED', 'deletions']:.2f}")
+        report.append(f"  - Arquivos alterados: {median_stats_mediana.loc['CLOSED', 'files_changed']:.2f}")
+        report.append(f"  - Linhas adicionadas: {median_stats_mediana.loc['CLOSED', 'additions']:.2f}")
+        report.append(f"  - Linhas removidas: {median_stats_mediana.loc['CLOSED', 'deletions']:.2f}")
+
+        report.append("\n**Estatísticas descritivas (média):**")
+
+        # Adicionar as informações ao relatório - Média
+        report.append(f"- PRs mesclados (MERGED):")
+        report.append(f"  - Arquivos alterados: {median_stats_media.loc['MERGED', 'files_changed']:.2f}")
+        report.append(f"  - Linhas adicionadas: {median_stats_media.loc['MERGED', 'additions']:.2f}")
+        report.append(f"  - Linhas removidas: {median_stats_mediana.loc['MERGED', 'deletions']:.2f}")
+        report.append(f"- PRs fechados sem merge (CLOSED):")
+        report.append(f"  - Arquivos alterados: {median_stats_media.loc['CLOSED', 'files_changed']:.2f}")
+        report.append(f"  - Linhas adicionadas: {median_stats_media.loc['CLOSED', 'additions']:.2f}")
+        report.append(f"  - Linhas removidas: {median_stats_media.loc['CLOSED', 'deletions']:.2f}")
     
     # RQ 02
     report.append("\n### RQ 02: Relação entre o tempo de análise dos PRs e o feedback final das revisões")
@@ -886,7 +899,7 @@ def generate_report(df, all_results, output_file="report.md"):
     print(f"📄 Relatório gerado com sucesso em {output_file}")
 
 def main():
-    # converter_csv_json()
+    converter_csv_json()
 
     os.makedirs(DATA_DIR, exist_ok=True)
     visual_dir = os.path.join(DATA_DIR, "visualizations")
