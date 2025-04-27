@@ -76,6 +76,16 @@ Para realizar esta análise, seguimos os seguintes passos:
   - Linhas adicionadas: 18.00
   - Linhas removidas: 2.00
 
+**Estatísticas descritivas (média):**
+- PRs mesclados (MERGED):
+  - Arquivos alterados: 8.95
+  - Linhas adicionadas: 287.06
+  - Linhas removidas: 5.00
+- PRs fechados sem merge (CLOSED):
+  - Arquivos alterados: 19.88
+  - Linhas adicionadas: 814.51
+  - Linhas removidas: 930.39
+
 ### RQ 02: Relação entre o tempo de análise dos PRs e o feedback final das revisões
 
 **Correlação entre tempo de análise e status:**
