@@ -576,71 +576,317 @@ def analyze_interactions_vs_reviews(df):
     return results
 
 
-def generate_report(all_results, output_file="report.md"):
+def generate_report(df, all_results, output_file="report.md"):
     os.makedirs("data/visualizations", exist_ok=True)
     report = []
-
-    # Título
-    report.append("\n#📄 **Relatório de Análise da Atividade de Code Review no GitHub**\n")
-
-    # Introdução
-    report.append("\n## 📋 **Introdução**\n")
-    report.append("Este relatório apresenta os resultados da análise da atividade de code review em repositórios populares do GitHub. O objetivo é identificar variáveis que influenciam no merge de um PR, sob a perspectiva de desenvolvedores que submetem código aos repositórios selecionados.\n")
-
-    report.append("\n### ✨ **Hipóteses Informais**\n")
-    report.append("1. PRs menores têm maior probabilidade de serem aprovados. ✂️\n")
-    report.append("2. PRs que levam mais tempo para serem analisados têm menor probabilidade de serem aprovados. ⏳❌\n")
-    report.append("3. PRs com descrições mais detalhadas têm maior probabilidade de serem aprovados. 📑👍\n")
-    report.append("4. PRs com mais interações têm maior probabilidade de serem aprovados. 💬🔄\n")
-    report.append("5. PRs maiores requerem mais revisões. 📂🔍\n")
-    report.append("6. PRs que levam mais tempo para serem analisados têm mais revisões. ⏱️🔄\n")
-    report.append("7. PRs com descrições mais detalhadas têm menos revisões. ✍️📉\n")
-    report.append("8. PRs com mais interações têm mais revisões. 💬🔄✅\n")
-
-    # Metodologia
-    report.append("\n## 🧑‍🔬 **Metodologia**\n")
-    report.append("1. Coleta de dados: Selecionamos os 200 repositórios mais populares do GitHub com pelo menos 100 PRs (MERGED + CLOSED).\n")
-    report.append("2. Filtragem dos dados: Selecionamos apenas PRs com status MERGED ou CLOSED, que possuíam pelo menos uma revisão e cuja análise levou pelo menos uma hora.\n")
-    report.append("3. Análise estatística: Utilizamos o coeficiente de correlação de Spearman para analisar as relações entre as variáveis.\n")
-    report.append("4. Interpretação dos resultados: Interpretamos os coeficientes de correlação conforme faixas de força e p-valores.\n")
-
-    # Resultados
-    report.append("\n## 📊 **Resultados**\n")
-
-    report.append("\n### RQ 01: Relação entre o tamanho dos PRs e o feedback final das revisões\n")
+    report.append("# Relatório de Análise da Atividade de Code Review no GitHub")
+    report.append("\n## Introdução")
+    report.append("\nEste relatório apresenta os resultados da análise da atividade de code review em repositórios populares do GitHub. O objetivo é identificar variáveis que influenciam no merge de um PR, sob a perspectiva de desenvolvedores que submetem código aos repositórios selecionados.")
+    report.append("\n### Hipóteses Informais")
+    report.append("\n1. PRs menores têm maior probabilidade de serem aprovados.")
+    report.append("2. PRs que levam mais tempo para serem analisados têm menor probabilidade de serem aprovados.")
+    report.append("3. PRs com descrições mais detalhadas têm maior probabilidade de serem aprovados.")
+    report.append("4. PRs com mais interações têm maior probabilidade de serem aprovados.")
+    report.append("5. PRs maiores requerem mais revisões.")
+    report.append("6. PRs que levam mais tempo para serem analisados têm mais revisões.")
+    report.append("7. PRs com descrições mais detalhadas têm menos revisões.")
+    report.append("8. PRs com mais interações têm mais revisões.")
+    report.append("\n## Metodologia")
+    report.append("\nPara realizar esta análise, seguimos os seguintes passos:")
+    report.append("\n1. **Coleta de dados**: Selecionamos os 200 repositórios mais populares do GitHub com pelo menos 100 PRs (MERGED + CLOSED).")
+    report.append("\n2. **Filtragem dos dados**: Selecionamos apenas PRs com status MERGED ou CLOSED, que possuíam pelo menos uma revisão e cuja análise levou pelo menos uma hora.")
+    report.append("\n3. **Análise estatística**: Utilizamos o coeficiente de correlação de Spearman para analisar as relações entre as variáveis, pois esse método não assume que os dados seguem uma distribuição normal e é menos sensível a outliers. O coeficiente de Spearman é adequado para dados que não necessariamente têm uma relação linear, medindo a força e direção de uma associação monotônica entre duas variáveis.")
+    report.append("\n4. **Interpretação dos resultados**: Interpretamos os coeficientes de correlação da seguinte forma:")
+    report.append("   - |r| < 0.1: Correlação insignificante")
+    report.append("   - 0.1 ≤ |r| < 0.3: Correlação fraca")
+    report.append("   - 0.3 ≤ |r| < 0.5: Correlação moderada")
+    report.append("   - 0.5 ≤ |r| < 0.7: Correlação forte")
+    report.append("   - |r| ≥ 0.7: Correlação muito forte")
+    report.append("\n   Consideramos correlações estatisticamente significativas aquelas com p-valor < 0.05.")
+    report.append("\n## Resultados")
+    
+    # RQ 01
+    report.append("\n### RQ 01: Relação entre o tamanho dos PRs e o feedback final das revisões")
     if "size_vs_status" in all_results:
         results = all_results["size_vs_status"]
-        report.append("**📏 Correlação entre métricas de tamanho e status:**\n")
-        report.append("![Correlação entre Tamanho dos PRs e Status](./visualizations/rq01_correlation.png)\n")
-        report.append("**📂 Correlação entre número de arquivos alterados e status:**\n")
-        report.append(f"- Coeficiente de correlação: {results['files_vs_status']['correlation']:.4f}\n")
-        report.append(f"- P-valor: {results['files_vs_status']['p_value']:.4e}\n")
-        report.append(f"- Interpretação: {results['files_vs_status']['interpretation']}\n")
-        report.append(f"- Estatisticamente significativo: {'✅ Sim' if results['files_vs_status']['significant'] else '❌ Não'}\n")
-        report.append("![Distribuição de Arquivos por Status](./visualizations/rq01_files_changed_boxplot.png)\n")
+        report.append("\n**Correlação entre métricas de tamanho e status:**")
+        report.append(f"\n![Correlação entre Tamanho dos PRs e Status](data/visualizations/rq01_correlation.png)")
+        report.append("\n**Correlação entre número de arquivos alterados e status:**")
+        report.append(f"- Coeficiente de correlação: {results['files_vs_status']['correlation']:.4f}")
+        report.append(f"- P-valor: {results['files_vs_status']['p_value']:.4e}")
+        report.append(f"- Interpretação: {results['files_vs_status']['interpretation']}")
+        report.append(f"- Estatisticamente significativo: {'Sim' if results['files_vs_status']['significant'] else 'Não'}")
+        report.append(f"\n![Distribuição de Arquivos por Status](data/visualizations/rq01_files_changed_boxplot.png)")
+        report.append("\n**Correlação entre linhas adicionadas e status:**")
+        report.append(f"- Coeficiente de correlação: {results['additions_vs_status']['correlation']:.4f}")
+        report.append(f"- P-valor: {results['additions_vs_status']['p_value']:.4e}")
+        report.append(f"- Interpretação: {results['additions_vs_status']['interpretation']}")
+        report.append(f"- Estatisticamente significativo: {'Sim' if results['additions_vs_status']['significant'] else 'Não'}")
+        report.append(f"\n![Distribuição de Linhas Adicionadas por Status](data/visualizations/rq01_additions_boxplot.png)")
+        report.append("\n**Correlação entre linhas removidas e status:**")
+        report.append(f"- Coeficiente de correlação: {results['deletions_vs_status']['correlation']:.4f}")
+        report.append(f"- P-valor: {results['deletions_vs_status']['p_value']:.4e}")
+        report.append(f"- Interpretação: {results['deletions_vs_status']['interpretation']}")
+        report.append(f"- Estatisticamente significativo: {'Sim' if results['deletions_vs_status']['significant'] else 'Não'}")
+        report.append(f"\n![Distribuição de Linhas Removidas por Status](data/visualizations/rq01_deletions_boxplot.png)")
+        report.append("\n**Estatísticas descritivas (medianas):**")
 
-    report.append("\n### RQ 02: Relação entre o tempo de análise dos PRs e o feedback final das revisões\n")
+        # Calcular as medianas por status
+        median_stats = df.groupby("status")[['files_changed', 'additions', 'deletions']].median()
+
+        # Adicionar as informações ao relatório
+        report.append(f"- PRs mesclados (MERGED):")
+        report.append(f"  - Arquivos alterados: {median_stats.loc['MERGED', 'files_changed']:.2f}")
+        report.append(f"  - Linhas adicionadas: {median_stats.loc['MERGED', 'additions']:.2f}")
+        report.append(f"  - Linhas removidas: {median_stats.loc['MERGED', 'deletions']:.2f}")
+        report.append(f"- PRs fechados sem merge (CLOSED):")
+        report.append(f"  - Arquivos alterados: {median_stats.loc['CLOSED', 'files_changed']:.2f}")
+        report.append(f"  - Linhas adicionadas: {median_stats.loc['CLOSED', 'additions']:.2f}")
+        report.append(f"  - Linhas removidas: {median_stats.loc['CLOSED', 'deletions']:.2f}")
+    
+    # RQ 02
+    report.append("\n### RQ 02: Relação entre o tempo de análise dos PRs e o feedback final das revisões")
     if "time_vs_status" in all_results:
         results = all_results["time_vs_status"]
-        report.append("**⏱️ Correlação entre tempo de análise e status:**\n")
-        report.append(f"- Coeficiente de correlação: {results['time_vs_status']['correlation']:.4f}\n")
-        report.append(f"- P-valor: {results['time_vs_status']['p_value']:.4e}\n")
-        report.append(f"- Interpretação: {results['time_vs_status']['interpretation']}\n")
-        report.append(f"- Estatisticamente significativo: {'✅ Sim' if results['time_vs_status']['significant'] else '❌ Não'}\n")
-        report.append("![Distribuição do Tempo de Análise por Status](./visualizations/rq02_time_boxplot.png)\n")
-        report.append("![Histograma do Tempo de Análise por Status](./visualizations/rq02_time_histogram.png)\n")
-
-    # Conclusão
-    report.append("\n## 🔍 **Conclusão**\n")
-    report.append("Este estudo analisou a relação entre diversas características dos PRs e seu feedback final, bem como o número de revisões realizadas.\n")
-    report.append("Com base nos resultados, podemos sugerir boas práticas para submissão de PRs mais eficazes.\n")
-
+        report.append("\n**Correlação entre tempo de análise e status:**")
+        report.append(f"- Coeficiente de correlação: {results['time_vs_status']['correlation']:.4f}")
+        report.append(f"- P-valor: {results['time_vs_status']['p_value']:.4e}")
+        report.append(f"- Interpretação: {results['time_vs_status']['interpretation']}")
+        report.append(f"- Estatisticamente significativo: {'Sim' if results['time_vs_status']['significant'] else 'Não'}")
+        report.append(f"\n![Distribuição do Tempo de Análise por Status](data/visualizations/rq02_time_boxplot.png)")
+        report.append(f"\n![Histograma do Tempo de Análise por Status](data/visualizations/rq02_time_histogram.png)")
+        report.append("\n**Estatísticas descritivas (medianas):**")
+        report.append(f"- PRs mesclados (MERGED): {results['median_stats'].loc['MERGED', 'time_to_close_hours']:.2f} horas")
+        report.append(f"- PRs fechados sem merge (CLOSED): {results['median_stats'].loc['CLOSED', 'time_to_close_hours']:.2f} horas")
+    
+    # RQ 03
+    report.append("\n### RQ 03: Relação entre a descrição dos PRs e o feedback final das revisões")
+    if "description_vs_status" in all_results:
+        results = all_results["description_vs_status"]
+        report.append("\n**Correlação entre tamanho da descrição e status:**")
+        report.append(f"- Coeficiente de correlação: {results['description_vs_status']['correlation']:.4f}")
+        report.append(f"- P-valor: {results['description_vs_status']['p_value']:.4e}")
+        report.append(f"- Interpretação: {results['description_vs_status']['interpretation']}")
+        report.append(f"- Estatisticamente significativo: {'Sim' if results['description_vs_status']['significant'] else 'Não'}")
+        report.append(f"\n![Distribuição do Tamanho da Descrição por Status](data/visualizations/rq03_description_boxplot.png)")
+        report.append(f"\n![Mediana do Tamanho da Descrição por Status](data/visualizations/rq03_description_bars.png)")
+        report.append("\n**Estatísticas descritivas (medianas):**")
+        report.append(f"- PRs mesclados (MERGED): {results['median_stats'].loc['MERGED', 'body_length']:.2f} caracteres")
+        report.append(f"- PRs fechados sem merge (CLOSED): {results['median_stats'].loc['CLOSED', 'body_length']:.2f} caracteres")
+    
+    # RQ 04
+    report.append("\n### RQ 04: Relação entre as interações nos PRs e o feedback final das revisões")
+    if "interactions_vs_status" in all_results:
+        results = all_results["interactions_vs_status"]
+        report.append("\n**Correlação entre métricas de interação e status:**")
+        report.append(f"\n![Correlação entre Interações e Status](data/visualizations/rq04_correlation.png)")
+        report.append("\n**Correlação entre número de participantes e status:**")
+        report.append(f"- Coeficiente de correlação: {results['participants_vs_status']['correlation']:.4f}")
+        report.append(f"- P-valor: {results['participants_vs_status']['p_value']:.4e}")
+        report.append(f"- Interpretação: {results['participants_vs_status']['interpretation']}")
+        report.append(f"- Estatisticamente significativo: {'Sim' if results['participants_vs_status']['significant'] else 'Não'}")
+        report.append(f"\n![Distribuição de Participantes por Status](data/visualizations/rq04_participant_count_boxplot.png)")
+        report.append("\n**Correlação entre número de comentários e status:**")
+        report.append(f"- Coeficiente de correlação: {results['comments_vs_status']['correlation']:.4f}")
+        report.append(f"- P-valor: {results['comments_vs_status']['p_value']:.4e}")
+        report.append(f"- Interpretação: {results['comments_vs_status']['interpretation']}")
+        report.append(f"- Estatisticamente significativo: {'Sim' if results['comments_vs_status']['significant'] else 'Não'}")
+        report.append(f"\n![Distribuição de Comentários por Status](data/visualizations/rq04_comments_boxplot.png)")
+        report.append("\n**Correlação entre número de comentários de revisão e status:**")
+        report.append(f"- Coeficiente de correlação: {results['review_comments_vs_status']['correlation']:.4f}")
+        report.append(f"- P-valor: {results['review_comments_vs_status']['p_value']:.4e}")
+        report.append(f"- Interpretação: {results['review_comments_vs_status']['interpretation']}")
+        report.append(f"- Estatisticamente significativo: {'Sim' if results['review_comments_vs_status']['significant'] else 'Não'}")
+        report.append(f"\n![Distribuição de Comentários de Revisão por Status](data/visualizations/rq04_review_comments_boxplot.png)")
+        report.append("\n**Estatísticas descritivas (medianas):**")
+        report.append(f"- PRs mesclados (MERGED):")
+        report.append(f"  - Participantes: {results['median_stats'].loc['MERGED', 'participant_count']:.2f}")
+        report.append(f"  - Comentários: {results['median_stats'].loc['MERGED', 'comments']:.2f}")
+        report.append(f"  - Comentários de revisão: {results['median_stats'].loc['MERGED', 'review_comments']:.2f}")
+        report.append(f"- PRs fechados sem merge (CLOSED):")
+        report.append(f"  - Participantes: {results['median_stats'].loc['CLOSED', 'participant_count']:.2f}")
+        report.append(f"  - Comentários: {results['median_stats'].loc['CLOSED', 'comments']:.2f}")
+        report.append(f"  - Comentários de revisão: {results['median_stats'].loc['CLOSED', 'review_comments']:.2f}")
+    
+    # RQ 05
+    report.append("\n### RQ 05: Relação entre o tamanho dos PRs e o número de revisões realizadas")
+    if "size_vs_reviews" in all_results:
+        results = all_results["size_vs_reviews"]
+        report.append("\n**Correlação entre métricas de tamanho e número de revisões:**")
+        report.append(f"\n![Correlação entre Tamanho dos PRs e Número de Revisões](data/visualizations/rq05_correlation.png)")
+        report.append("\n**Correlação entre número de arquivos alterados e número de revisões:**")
+        report.append(f"- Coeficiente de correlação: {results['files_vs_reviews']['correlation']:.4f}")
+        report.append(f"- P-valor: {results['files_vs_reviews']['p_value']:.4e}")
+        report.append(f"- Interpretação: {results['files_vs_reviews']['interpretation']}")
+        report.append(f"- Estatisticamente significativo: {'Sim' if results['files_vs_reviews']['significant'] else 'Não'}")
+        report.append(f"\n![Relação entre Número de Arquivos e Revisões](data/visualizations/rq05_files_changed_scatter.png)")
+        report.append("\n**Correlação entre linhas adicionadas e número de revisões:**")
+        report.append(f"- Coeficiente de correlação: {results['additions_vs_reviews']['correlation']:.4f}")
+        report.append(f"- P-valor: {results['additions_vs_reviews']['p_value']:.4e}")
+        report.append(f"- Interpretação: {results['additions_vs_reviews']['interpretation']}")
+        report.append(f"- Estatisticamente significativo: {'Sim' if results['additions_vs_reviews']['significant'] else 'Não'}")
+        report.append(f"\n![Relação entre Linhas Adicionadas e Revisões](data/visualizations/rq05_additions_scatter.png)")
+        report.append("\n**Correlação entre linhas removidas e número de revisões:**")
+        report.append(f"- Coeficiente de correlação: {results['deletions_vs_reviews']['correlation']:.4f}")
+        report.append(f"- P-valor: {results['deletions_vs_reviews']['p_value']:.4e}")
+        report.append(f"- Interpretação: {results['deletions_vs_reviews']['interpretation']}")
+        report.append(f"- Estatisticamente significativo: {'Sim' if results['deletions_vs_reviews']['significant'] else 'Não'}")
+        report.append(f"\n![Relação entre Linhas Removidas e Revisões](data/visualizations/rq05_deletions_scatter.png)")
+    
+    # RQ 06
+    report.append("\n### RQ 06: Relação entre o tempo de análise dos PRs e o número de revisões realizadas")
+    if "time_vs_reviews" in all_results:
+        results = all_results["time_vs_reviews"]
+        report.append("\n**Correlação entre tempo de análise e número de revisões:**")
+        report.append(f"- Coeficiente de correlação: {results['time_vs_reviews']['correlation']:.4f}")
+        report.append(f"- P-valor: {results['time_vs_reviews']['p_value']:.4e}")
+        report.append(f"- Interpretação: {results['time_vs_reviews']['interpretation']}")
+        report.append(f"- Estatisticamente significativo: {'Sim' if results['time_vs_reviews']['significant'] else 'Não'}")
+        report.append(f"\n![Relação entre Tempo de Análise e Revisões](data/visualizations/rq06_time_scatter.png)")
+        report.append(f"\n![Média de Revisões por Faixa de Tempo](data/visualizations/rq06_time_bins.png)")
+    
+    # RQ 07
+    report.append("\n### RQ 07: Relação entre a descrição dos PRs e o número de revisões realizadas")
+    if "description_vs_reviews" in all_results:
+        results = all_results["description_vs_reviews"]
+        report.append("\n**Correlação entre tamanho da descrição e número de revisões:**")
+        report.append(f"- Coeficiente de correlação: {results['description_vs_reviews']['correlation']:.4f}")
+        report.append(f"- P-valor: {results['description_vs_reviews']['p_value']:.4e}")
+        report.append(f"- Interpretação: {results['description_vs_reviews']['interpretation']}")
+        report.append(f"- Estatisticamente significativo: {'Sim' if results['description_vs_reviews']['significant'] else 'Não'}")
+        report.append(f"\n![Relação entre Tamanho da Descrição e Revisões](data/visualizations/rq07_description_scatter.png)")
+        report.append(f"\n![Média de Revisões por Tamanho de Descrição](data/visualizations/rq07_desc_bins.png)")
+    
+    # RQ 08
+    report.append("\n### RQ 08: Relação entre as interações nos PRs e o número de revisões realizadas")
+    if "interactions_vs_reviews" in all_results:
+        results = all_results["interactions_vs_reviews"]
+        report.append("\n**Correlação entre métricas de interação e número de revisões:**")
+        report.append(f"\n![Correlação entre Interações e Número de Revisões](data/visualizations/rq08_correlation.png)")
+        report.append("\n**Correlação entre número de participantes e número de revisões:**")
+        report.append(f"- Coeficiente de correlação: {results['participants_vs_reviews']['correlation']:.4f}")
+        report.append(f"- P-valor: {results['participants_vs_reviews']['p_value']:.4e}")
+        report.append(f"- Interpretação: {results['participants_vs_reviews']['interpretation']}")
+        report.append(f"- Estatisticamente significativo: {'Sim' if results['participants_vs_reviews']['significant'] else 'Não'}")
+        report.append(f"\n![Relação entre Número de Participantes e Revisões](data/visualizations/rq08_participant_count_scatter.png)")
+        report.append("\n**Correlação entre número de comentários e número de revisões:**")
+        report.append(f"- Coeficiente de correlação: {results['comments_vs_reviews']['correlation']:.4f}")
+        report.append(f"- P-valor: {results['comments_vs_reviews']['p_value']:.4e}")
+        report.append(f"- Interpretação: {results['comments_vs_reviews']['interpretation']}")
+        report.append(f"- Estatisticamente significativo: {'Sim' if results['comments_vs_reviews']['significant'] else 'Não'}")
+        report.append(f"\n![Relação entre Número de Comentários e Revisões](data/visualizations/rq08_comments_scatter.png)")
+        report.append("\n**Correlação entre número de comentários de revisão e número de revisões:**")
+        report.append(f"- Coeficiente de correlação: {results['review_comments_vs_reviews']['correlation']:.4f}")
+        report.append(f"- P-valor: {results['review_comments_vs_reviews']['p_value']:.4e}")
+        report.append(f"- Interpretação: {results['review_comments_vs_reviews']['interpretation']}")
+        report.append(f"- Estatisticamente significativo: {'Sim' if results['review_comments_vs_reviews']['significant'] else 'Não'}")
+        report.append(f"\n![Relação entre Número de Comentários de Revisão e Revisões](data/visualizations/rq08_review_comments_scatter.png)")
+    
+    # Discussão e Conclusão
+    report.append("\n## Discussão")
+    report.append("\nNesta seção, discutimos os resultados obtidos em relação às nossas hipóteses iniciais.")
+    report.append("\n### RQ 01: Relação entre o tamanho dos PRs e o feedback final das revisões")
+    report.append("\nHipótese: PRs menores têm maior probabilidade de serem aprovados.")
+    if "size_vs_status" in all_results:
+        results = all_results["size_vs_status"]
+        if results['files_vs_status']['correlation'] < 0 and results['files_vs_status']['significant']:
+            report.append("\nOs resultados suportam nossa hipótese. Encontramos uma correlação " +
+                          results['files_vs_status']['interpretation'].lower() +
+                          " e estatisticamente significativa entre o número de arquivos alterados e a aprovação do PR. " +
+                          "PRs com menos arquivos alterados têm maior probabilidade de serem aprovados.")
+        else:
+            report.append("\nOs resultados não suportam completamente nossa hipótese. A correlação entre o tamanho do PR e sua aprovação não foi tão forte ou significativa como esperávamos.")
+    report.append("\n### RQ 02: Relação entre o tempo de análise dos PRs e o feedback final das revisões")
+    report.append("\nHipótese: PRs que levam mais tempo para serem analisados têm menor probabilidade de serem aprovados.")
+    if "time_vs_status" in all_results:
+        results = all_results["time_vs_status"]
+        if results['time_vs_status']['correlation'] < 0 and results['time_vs_status']['significant']:
+            report.append("\nOs resultados suportam nossa hipótese. Encontramos uma correlação " +
+                          results['time_vs_status']['interpretation'].lower() +
+                          " e estatisticamente significativa entre o tempo de análise e a aprovação do PR. " +
+                          "PRs que levam mais tempo para serem analisados têm menor probabilidade de serem aprovados.")
+        else:
+            report.append("\nOs resultados não suportam completamente nossa hipótese. A correlação entre o tempo de análise e a aprovação do PR não foi tão forte ou significativa como esperávamos.")
+    report.append("\n### RQ 03: Relação entre a descrição dos PRs e o feedback final das revisões")
+    report.append("\nHipótese: PRs com descrições mais detalhadas têm maior probabilidade de serem aprovados.")
+    if "description_vs_status" in all_results:
+        results = all_results["description_vs_status"]
+        if results['description_vs_status']['correlation'] > 0 and results['description_vs_status']['significant']:
+            report.append("\nOs resultados suportam nossa hipótese. Encontramos uma correlação " +
+                          results['description_vs_status']['interpretation'].lower() +
+                          " e estatisticamente significativa entre o tamanho da descrição e a aprovação do PR. " +
+                          "PRs com descrições mais detalhadas têm maior probabilidade de serem aprovados.")
+        else:
+            report.append("\nOs resultados não suportam completamente nossa hipótese. A correlação entre o tamanho da descrição e a aprovação do PR não foi tão forte ou significativa como esperávamos.")
+    report.append("\n### RQ 04: Relação entre as interações nos PRs e o feedback final das revisões")
+    report.append("\nHipótese: PRs com mais interações têm maior probabilidade de serem aprovados.")
+    if "interactions_vs_status" in all_results:
+        results = all_results["interactions_vs_status"]
+        if (results['participants_vs_status']['correlation'] > 0 and results['participants_vs_status']['significant']) or \
+           (results['comments_vs_status']['correlation'] > 0 and results['comments_vs_status']['significant']) or \
+           (results['review_comments_vs_status']['correlation'] > 0 and results['review_comments_vs_status']['significant']):
+            report.append("\nOs resultados suportam parcialmente nossa hipótese. Encontramos correlações significativas entre algumas métricas de interação e a aprovação do PR. " +
+                          "PRs com mais interações tendem a ter maior probabilidade de serem aprovados, possivelmente porque problemas são identificados e resolvidos durante o processo de revisão.")
+        else:
+            report.append("\nOs resultados não suportam nossa hipótese. As correlações entre as métricas de interação e a aprovação do PR não foram tão fortes ou significativas como esperávamos.")
+    report.append("\n### RQ 05: Relação entre o tamanho dos PRs e o número de revisões realizadas")
+    report.append("\nHipótese: PRs maiores requerem mais revisões.")
+    if "size_vs_reviews" in all_results:
+        results = all_results["size_vs_reviews"]
+        if (results['files_vs_reviews']['correlation'] > 0 and results['files_vs_reviews']['significant']) or \
+           (results['additions_vs_reviews']['correlation'] > 0 and results['additions_vs_reviews']['significant']) or \
+           (results['deletions_vs_reviews']['correlation'] > 0 and results['deletions_vs_reviews']['significant']):
+            report.append("\nOs resultados suportam nossa hipótese. Encontramos correlações significativas entre o tamanho do PR e o número de revisões realizadas. " +
+                          "PRs maiores tendem a requerer mais revisões, possivelmente porque contêm mais código a ser analisado e mais problemas potenciais a serem identificados.")
+        else:
+            report.append("\nOs resultados não suportam completamente nossa hipótese. As correlações entre o tamanho do PR e o número de revisões não foram tão fortes ou significativas como esperávamos.")
+    report.append("\n### RQ 06: Relação entre o tempo de análise dos PRs e o número de revisões realizadas")
+    report.append("\nHipótese: PRs que levam mais tempo para serem analisados têm mais revisões.")
+    if "time_vs_reviews" in all_results:
+        results = all_results["time_vs_reviews"]
+        if results['time_vs_reviews']['correlation'] > 0 and results['time_vs_reviews']['significant']:
+            report.append("\nOs resultados suportam nossa hipótese. Encontramos uma correlação " +
+                          results['time_vs_reviews']['interpretation'].lower() +
+                          " e estatisticamente significativa entre o tempo de análise e o número de revisões. " +
+                          "PRs que levam mais tempo para serem analisados têm mais revisões, possivelmente porque revisões adicionais são necessárias para resolver problemas identificados.")
+        else:
+            report.append("\nOs resultados não suportam completamente nossa hipótese. A correlação entre o tempo de análise e o número de revisões não foi tão forte ou significativa como esperávamos.")
+    report.append("\n### RQ 07: Relação entre a descrição dos PRs e o número de revisões realizadas")
+    report.append("\nHipótese: PRs com descrições mais detalhadas têm menos revisões.")
+    if "description_vs_reviews" in all_results:
+        results = all_results["description_vs_reviews"]
+        if results['description_vs_reviews']['correlation'] < 0 and results['description_vs_reviews']['significant']:
+            report.append("\nOs resultados suportam nossa hipótese. Encontramos uma correlação " +
+                          results['description_vs_reviews']['interpretation'].lower() +
+                          " e estatisticamente significativa entre o tamanho da descrição e o número de revisões. " +
+                          "PRs com descrições mais detalhadas têm menos revisões, possivelmente porque os revisores entendem melhor o propósito e o contexto do PR.")
+        else:
+            report.append("\nOs resultados não suportam nossa hipótese. A correlação entre o tamanho da descrição e o número de revisões não foi negativa ou significativa como esperávamos.")
+    report.append("\n### RQ 08: Relação entre as interações nos PRs e o número de revisões realizadas")
+    report.append("\nHipótese: PRs com mais interações têm mais revisões.")
+    if "interactions_vs_reviews" in all_results:
+        results = all_results["interactions_vs_reviews"]
+        if (results['participants_vs_reviews']['correlation'] > 0 and results['participants_vs_reviews']['significant']) or \
+           (results['comments_vs_reviews']['correlation'] > 0 and results['comments_vs_reviews']['significant']) or \
+           (results['review_comments_vs_reviews']['correlation'] > 0 and results['review_comments_vs_reviews']['significant']):
+            report.append("\nOs resultados suportam nossa hipótese. Encontramos correlações significativas entre as métricas de interação e o número de revisões. " +
+                          "PRs com mais interações têm mais revisões, possivelmente porque cada revisão gera comentários e discussões que podem levar a revisões adicionais.")
+        else:
+            report.append("\nOs resultados não suportam completamente nossa hipótese. As correlações entre as métricas de interação e o número de revisões não foram tão fortes ou significativas como esperávamos.")
+    report.append("\n## Conclusão")
+    report.append("\nEste estudo analisou a relação entre diversas características dos PRs e seu feedback final, bem como o número de revisões realizadas. Os resultados fornecem insights valiosos sobre como melhorar a chance de aprovação de PRs e otimizar o processo de code review em projetos open source.")
+    report.append("\nCom base nos resultados, podemos sugerir as seguintes práticas para melhorar a aprovação de PRs:")
+    report.append("\n1. Manter os PRs pequenos, afetando poucos arquivos e com poucas linhas alteradas.")
+    report.append("2. Incluir descrições detalhadas e claras, explicando o propósito e o contexto do PR.")
+    report.append("3. Promover interações construtivas durante o processo de revisão, respondendo prontamente aos comentários.")
+    report.append("4. Evitar PRs que levem muito tempo para serem analisados, dividindo mudanças grandes em PRs menores e mais focados.")
+    report.append("\nEsperamos que estes insights ajudem desenvolvedores e mantenedores de projetos open source a otimizar seus processos de code review, melhorando a qualidade do código e a experiência dos contribuidores.")
     with open(output_file, "w", encoding="utf-8") as f:
         f.write("\n".join(report))
     print(f"📄 Relatório gerado com sucesso em {output_file}")
 
 def main():
-    converter_csv_json()
+    # converter_csv_json()
 
     os.makedirs(DATA_DIR, exist_ok=True)
     visual_dir = os.path.join(DATA_DIR, "visualizations")
@@ -689,7 +935,7 @@ def main():
     all_results["interactions_vs_reviews"] = analyze_interactions_vs_reviews(df)
 
     print("\n📑 Gerando relatório final...")
-    generate_report(all_results, output_file=report_path)
+    generate_report(df, all_results, output_file=report_path)
 
     # Remover colunas temporárias se existirem
     if 'time_bins' in df.columns:
