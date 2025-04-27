@@ -1,2 +1,4 @@
 Lab3_CodeRevGithub/Lab3S01/data/collected_prs.csv filter=lfs diff=lfs merge=lfs -text
 Lab3_CodeRevGithub/Lab3S01/data/collected_prs.json filter=lfs diff=lfs merge=lfs -text
+*.csv filter=lfs diff=lfs merge=lfs -text
+*.json filter=lfs diff=lfs merge=lfs -text
