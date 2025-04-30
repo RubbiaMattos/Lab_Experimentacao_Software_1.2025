@@ -3,7 +3,11 @@
 ## 🎯 **Objetivo**
 
 Este laboratório tem como objetivo **utilizar ferramentas de Business Intelligence (BI)** (Microsoft Power BI, Tableau ou Google Data Studio) para melhor apresentar resultados de experimentação e análise de dados.
+Este repositório contém os artefatos produzidos durante o desenvolvimento da disciplina **Laboratório de Experimentação em Software** no curso de Engenharia de Software (1º semestre de 2025).
 
+## 📊 Tema do Projeto
+
+Análise exploratória dos dados do **CAGED (Cadastro Geral de Empregados e Desempregados)** com foco em geração de insights através de dashboards no **Power BI**.
 ---
 
 ## 🔎 **Etapas do Dashboard**
