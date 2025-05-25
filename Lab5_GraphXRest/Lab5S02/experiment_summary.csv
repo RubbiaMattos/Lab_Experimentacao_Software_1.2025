@@ -1,0 +1,3 @@
+API_Type,Response_Time_mean,Response_Time_std,Response_Size_mean,Response_Size_std
+GraphQL,0.34613513946533203,0.05568078369390498,51.0,0.0
+REST,0.32885012626647947,0.03771855663600965,6719.0,0.0
