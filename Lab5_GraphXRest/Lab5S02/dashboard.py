@@ -1,11 +1,17 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import argparse
+import os
 
-# Gera os histogramas de tempo e tamanho de resposta
-# Leitura
-df = pd.read_csv("experiment_results.csv")
+# Diretórios e leitura dos dados
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+GRAPH_DIR = os.path.join(BASE_DIR, "Gráficos")
+os.makedirs(GRAPH_DIR, exist_ok=True)
 
+CSV_PATH = os.path.join(BASE_DIR, "experiment_results.csv")
+df = pd.read_csv(CSV_PATH)
+
+# Histograma para Response_Time
 def plot_hist(col, title, xlabel, out_file):
     plt.figure()
     for api in df["API_Type"].unique():
@@ -15,10 +21,29 @@ def plot_hist(col, title, xlabel, out_file):
     plt.xlabel(xlabel)
     plt.ylabel("Frequência")
     plt.legend()
-    plt.savefig(out_file)
+    output_path = os.path.join(GRAPH_DIR, out_file)
+    plt.savefig(output_path)
     plt.close()
-    print(f"✅ Gráfico salvo: {out_file}")
+    print(f"✅ Gráfico salvo: {output_path}")
 
+# Gráfico de barras para Response_Size
+def plot_bar_response_size(out_file):
+    df_means = df.groupby("API_Type")["Response_Size"].mean()
+
+    plt.figure()
+    df_means.plot(kind="bar", color=["skyblue", "orange"])
+    plt.title("Tamanho Médio da Resposta por Tipo de API")
+    plt.ylabel("Tamanho da Resposta (bytes)")
+    plt.xlabel("Tipo de API")
+    plt.xticks(rotation=0)
+    plt.tight_layout()
+
+    output_path = os.path.join(GRAPH_DIR, out_file)
+    plt.savefig(output_path)
+    plt.close()
+    print(f"✅ Gráfico salvo: {output_path}")
+
+# Execução principal
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--time-out", default="response_time_distribution.png")
@@ -31,9 +56,5 @@ if __name__ == "__main__":
         "Tempo (s)",
         args.time_out
     )
-    plot_hist(
-        "Response_Size",
-        "Distribuição do Tamanho da Resposta (GitHub API)",
-        "Tamanho (bytes)",
-        args.size_out
-    )
+
+    plot_bar_response_size(args.size_out)

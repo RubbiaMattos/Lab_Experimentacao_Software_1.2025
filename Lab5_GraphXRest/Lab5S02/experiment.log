@@ -1,0 +1,308 @@
+2025-06-14 11:13:48,158 - INFO - Iniciando experimento com 30 execuções para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:48,162 - INFO - Execução 1/30
+2025-06-14 11:13:48,162 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:48,445 - INFO - Chamada REST concluída em 0.2813s
+2025-06-14 11:13:48,455 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\respostas\rest_response.json
+2025-06-14 11:13:48,457 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:48,829 - INFO - Chamada GraphQL concluída em 0.3698s
+2025-06-14 11:13:48,836 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\respostas\graphql_response_full.json
+2025-06-14 11:13:48,838 - INFO - Execução 2/30
+2025-06-14 11:13:48,838 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:49,086 - INFO - Chamada REST concluída em 0.2484s
+2025-06-14 11:13:49,088 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:49,458 - INFO - Chamada GraphQL concluída em 0.3681s
+2025-06-14 11:13:49,460 - INFO - Execução 3/30
+2025-06-14 11:13:49,461 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:49,806 - INFO - Chamada REST concluída em 0.3456s
+2025-06-14 11:13:49,808 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:50,134 - INFO - Chamada GraphQL concluída em 0.3251s
+2025-06-14 11:13:50,137 - INFO - Execução 4/30
+2025-06-14 11:13:50,138 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:50,441 - INFO - Chamada REST concluída em 0.3036s
+2025-06-14 11:13:50,443 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:50,815 - INFO - Chamada GraphQL concluída em 0.3718s
+2025-06-14 11:13:50,817 - INFO - Execução 5/30
+2025-06-14 11:13:50,818 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:51,106 - INFO - Chamada REST concluída em 0.2868s
+2025-06-14 11:13:51,108 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:51,492 - INFO - Chamada GraphQL concluída em 0.3817s
+2025-06-14 11:13:51,494 - INFO - Execução 6/30
+2025-06-14 11:13:51,495 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:51,778 - INFO - Chamada REST concluída em 0.2816s
+2025-06-14 11:13:51,780 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:52,188 - INFO - Chamada GraphQL concluída em 0.4064s
+2025-06-14 11:13:52,190 - INFO - Execução 7/30
+2025-06-14 11:13:52,191 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:52,464 - INFO - Chamada REST concluída em 0.2715s
+2025-06-14 11:13:52,465 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:52,826 - INFO - Chamada GraphQL concluída em 0.3606s
+2025-06-14 11:13:52,828 - INFO - Execução 8/30
+2025-06-14 11:13:52,829 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:53,106 - INFO - Chamada REST concluída em 0.2762s
+2025-06-14 11:13:53,109 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:53,495 - INFO - Chamada GraphQL concluída em 0.3852s
+2025-06-14 11:13:53,496 - INFO - Execução 9/30
+2025-06-14 11:13:53,497 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:53,828 - INFO - Chamada REST concluída em 0.3291s
+2025-06-14 11:13:53,830 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:54,282 - INFO - Chamada GraphQL concluída em 0.4517s
+2025-06-14 11:13:54,284 - INFO - Execução 10/30
+2025-06-14 11:13:54,285 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:54,565 - INFO - Chamada REST concluída em 0.2784s
+2025-06-14 11:13:54,567 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:54,911 - INFO - Chamada GraphQL concluída em 0.3437s
+2025-06-14 11:13:54,913 - INFO - Execução 11/30
+2025-06-14 11:13:54,914 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:55,219 - INFO - Chamada REST concluída em 0.3052s
+2025-06-14 11:13:55,220 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:55,607 - INFO - Chamada GraphQL concluída em 0.3870s
+2025-06-14 11:13:55,608 - INFO - Execução 12/30
+2025-06-14 11:13:55,610 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:55,890 - INFO - Chamada REST concluída em 0.2800s
+2025-06-14 11:13:55,892 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:56,334 - INFO - Chamada GraphQL concluída em 0.4411s
+2025-06-14 11:13:56,337 - INFO - Execução 13/30
+2025-06-14 11:13:56,337 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:56,598 - INFO - Chamada REST concluída em 0.2595s
+2025-06-14 11:13:56,600 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:57,015 - INFO - Chamada GraphQL concluída em 0.4143s
+2025-06-14 11:13:57,018 - INFO - Execução 14/30
+2025-06-14 11:13:57,019 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:57,321 - INFO - Chamada REST concluída em 0.3016s
+2025-06-14 11:13:57,324 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:57,756 - INFO - Chamada GraphQL concluída em 0.4311s
+2025-06-14 11:13:57,757 - INFO - Execução 15/30
+2025-06-14 11:13:57,758 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:58,048 - INFO - Chamada REST concluída em 0.2899s
+2025-06-14 11:13:58,052 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:58,482 - INFO - Chamada GraphQL concluída em 0.4291s
+2025-06-14 11:13:58,484 - INFO - Execução 16/30
+2025-06-14 11:13:58,486 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:58,790 - INFO - Chamada REST concluída em 0.3037s
+2025-06-14 11:13:58,791 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:59,211 - INFO - Chamada GraphQL concluída em 0.4197s
+2025-06-14 11:13:59,212 - INFO - Execução 17/30
+2025-06-14 11:13:59,212 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:59,478 - INFO - Chamada REST concluída em 0.2659s
+2025-06-14 11:13:59,480 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:13:59,908 - INFO - Chamada GraphQL concluída em 0.4279s
+2025-06-14 11:13:59,908 - INFO - Execução 18/30
+2025-06-14 11:13:59,909 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:00,209 - INFO - Chamada REST concluída em 0.3005s
+2025-06-14 11:14:00,212 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:00,552 - INFO - Chamada GraphQL concluída em 0.3396s
+2025-06-14 11:14:00,553 - INFO - Execução 19/30
+2025-06-14 11:14:00,553 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:00,838 - INFO - Chamada REST concluída em 0.2849s
+2025-06-14 11:14:00,839 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:01,182 - INFO - Chamada GraphQL concluída em 0.3431s
+2025-06-14 11:14:01,183 - INFO - Execução 20/30
+2025-06-14 11:14:01,183 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:01,497 - INFO - Chamada REST concluída em 0.3133s
+2025-06-14 11:14:01,497 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:01,853 - INFO - Chamada GraphQL concluída em 0.3563s
+2025-06-14 11:14:01,854 - INFO - Execução 21/30
+2025-06-14 11:14:01,854 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:02,163 - INFO - Chamada REST concluída em 0.3075s
+2025-06-14 11:14:02,164 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:02,537 - INFO - Chamada GraphQL concluída em 0.3739s
+2025-06-14 11:14:02,539 - INFO - Execução 22/30
+2025-06-14 11:14:02,540 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:02,830 - INFO - Chamada REST concluída em 0.2896s
+2025-06-14 11:14:02,831 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:03,201 - INFO - Chamada GraphQL concluída em 0.3703s
+2025-06-14 11:14:03,202 - INFO - Execução 23/30
+2025-06-14 11:14:03,203 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:03,468 - INFO - Chamada REST concluída em 0.2650s
+2025-06-14 11:14:03,469 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:03,808 - INFO - Chamada GraphQL concluída em 0.3389s
+2025-06-14 11:14:03,809 - INFO - Execução 24/30
+2025-06-14 11:14:03,809 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:04,090 - INFO - Chamada REST concluída em 0.2808s
+2025-06-14 11:14:04,090 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:04,459 - INFO - Chamada GraphQL concluída em 0.3682s
+2025-06-14 11:14:04,460 - INFO - Execução 25/30
+2025-06-14 11:14:04,460 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:04,708 - INFO - Chamada REST concluída em 0.2478s
+2025-06-14 11:14:04,708 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:05,045 - INFO - Chamada GraphQL concluída em 0.3375s
+2025-06-14 11:14:05,047 - INFO - Execução 26/30
+2025-06-14 11:14:05,048 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:05,359 - INFO - Chamada REST concluída em 0.3110s
+2025-06-14 11:14:05,360 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:05,891 - INFO - Chamada GraphQL concluída em 0.5309s
+2025-06-14 11:14:05,892 - INFO - Execução 27/30
+2025-06-14 11:14:05,893 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:06,159 - INFO - Chamada REST concluída em 0.2658s
+2025-06-14 11:14:06,160 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:06,589 - INFO - Chamada GraphQL concluída em 0.4290s
+2025-06-14 11:14:06,590 - INFO - Execução 28/30
+2025-06-14 11:14:06,590 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:06,891 - INFO - Chamada REST concluída em 0.3010s
+2025-06-14 11:14:06,892 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:07,284 - INFO - Chamada GraphQL concluída em 0.3912s
+2025-06-14 11:14:07,285 - INFO - Execução 29/30
+2025-06-14 11:14:07,285 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:07,558 - INFO - Chamada REST concluída em 0.2738s
+2025-06-14 11:14:07,558 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:07,901 - INFO - Chamada GraphQL concluída em 0.3416s
+2025-06-14 11:14:07,902 - INFO - Execução 30/30
+2025-06-14 11:14:07,902 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:08,177 - INFO - Chamada REST concluída em 0.2732s
+2025-06-14 11:14:08,177 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:14:08,517 - INFO - Chamada GraphQL concluída em 0.3397s
+2025-06-14 11:14:08,520 - INFO - Experimento concluído com sucesso.
+2025-06-14 11:16:18,490 - INFO - Iniciando experimento com 30 execuções para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:18,491 - INFO - Execução 1/30
+2025-06-14 11:16:18,491 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:18,773 - INFO - Chamada REST concluída em 0.2815s
+2025-06-14 11:16:18,778 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\respostas_json\rest_response.json
+2025-06-14 11:16:18,779 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:19,135 - INFO - Chamada GraphQL concluída em 0.3546s
+2025-06-14 11:16:19,137 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\respostas_json\graphql_response.json
+2025-06-14 11:16:19,137 - INFO - Execução 2/30
+2025-06-14 11:16:19,138 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:19,408 - INFO - Chamada REST concluída em 0.2701s
+2025-06-14 11:16:19,411 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:19,745 - INFO - Chamada GraphQL concluída em 0.3333s
+2025-06-14 11:16:19,748 - INFO - Execução 3/30
+2025-06-14 11:16:19,748 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:20,013 - INFO - Chamada REST concluída em 0.2636s
+2025-06-14 11:16:20,015 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:20,429 - INFO - Chamada GraphQL concluída em 0.4126s
+2025-06-14 11:16:20,430 - INFO - Execução 4/30
+2025-06-14 11:16:20,431 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:20,727 - INFO - Chamada REST concluída em 0.2949s
+2025-06-14 11:16:20,728 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:21,225 - INFO - Chamada GraphQL concluída em 0.4962s
+2025-06-14 11:16:21,227 - INFO - Execução 5/30
+2025-06-14 11:16:21,227 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:21,500 - INFO - Chamada REST concluída em 0.2716s
+2025-06-14 11:16:21,502 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:21,837 - INFO - Chamada GraphQL concluída em 0.3326s
+2025-06-14 11:16:21,838 - INFO - Execução 6/30
+2025-06-14 11:16:21,839 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:22,147 - INFO - Chamada REST concluída em 0.3062s
+2025-06-14 11:16:22,149 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:22,576 - INFO - Chamada GraphQL concluída em 0.4265s
+2025-06-14 11:16:22,579 - INFO - Execução 7/30
+2025-06-14 11:16:22,580 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:22,908 - INFO - Chamada REST concluída em 0.3262s
+2025-06-14 11:16:22,910 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:23,300 - INFO - Chamada GraphQL concluída em 0.3895s
+2025-06-14 11:16:23,302 - INFO - Execução 8/30
+2025-06-14 11:16:23,303 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:23,580 - INFO - Chamada REST concluída em 0.2757s
+2025-06-14 11:16:23,582 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:23,940 - INFO - Chamada GraphQL concluída em 0.3570s
+2025-06-14 11:16:23,941 - INFO - Execução 9/30
+2025-06-14 11:16:23,942 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:24,220 - INFO - Chamada REST concluída em 0.2785s
+2025-06-14 11:16:24,222 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:24,630 - INFO - Chamada GraphQL concluída em 0.4065s
+2025-06-14 11:16:24,632 - INFO - Execução 10/30
+2025-06-14 11:16:24,633 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:24,906 - INFO - Chamada REST concluída em 0.2718s
+2025-06-14 11:16:24,907 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:25,236 - INFO - Chamada GraphQL concluída em 0.3287s
+2025-06-14 11:16:25,237 - INFO - Execução 11/30
+2025-06-14 11:16:25,238 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:25,507 - INFO - Chamada REST concluída em 0.2682s
+2025-06-14 11:16:25,509 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:25,866 - INFO - Chamada GraphQL concluída em 0.3564s
+2025-06-14 11:16:25,868 - INFO - Execução 12/30
+2025-06-14 11:16:25,869 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:26,158 - INFO - Chamada REST concluída em 0.2871s
+2025-06-14 11:16:26,159 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:26,521 - INFO - Chamada GraphQL concluída em 0.3605s
+2025-06-14 11:16:26,524 - INFO - Execução 13/30
+2025-06-14 11:16:26,525 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:26,798 - INFO - Chamada REST concluída em 0.2725s
+2025-06-14 11:16:26,801 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:27,248 - INFO - Chamada GraphQL concluída em 0.4471s
+2025-06-14 11:16:27,250 - INFO - Execução 14/30
+2025-06-14 11:16:27,251 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:27,576 - INFO - Chamada REST concluída em 0.3241s
+2025-06-14 11:16:27,577 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:27,965 - INFO - Chamada GraphQL concluída em 0.3877s
+2025-06-14 11:16:27,966 - INFO - Execução 15/30
+2025-06-14 11:16:27,967 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:28,245 - INFO - Chamada REST concluída em 0.2779s
+2025-06-14 11:16:28,246 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:28,616 - INFO - Chamada GraphQL concluída em 0.3694s
+2025-06-14 11:16:28,618 - INFO - Execução 16/30
+2025-06-14 11:16:28,619 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:28,897 - INFO - Chamada REST concluída em 0.2783s
+2025-06-14 11:16:28,898 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:29,264 - INFO - Chamada GraphQL concluída em 0.3645s
+2025-06-14 11:16:29,266 - INFO - Execução 17/30
+2025-06-14 11:16:29,267 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:29,550 - INFO - Chamada REST concluída em 0.2824s
+2025-06-14 11:16:29,552 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:29,930 - INFO - Chamada GraphQL concluída em 0.3764s
+2025-06-14 11:16:29,931 - INFO - Execução 18/30
+2025-06-14 11:16:29,932 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:30,258 - INFO - Chamada REST concluída em 0.3256s
+2025-06-14 11:16:30,259 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:30,676 - INFO - Chamada GraphQL concluída em 0.4162s
+2025-06-14 11:16:30,678 - INFO - Execução 19/30
+2025-06-14 11:16:30,679 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:30,978 - INFO - Chamada REST concluída em 0.2984s
+2025-06-14 11:16:30,981 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:31,378 - INFO - Chamada GraphQL concluída em 0.3968s
+2025-06-14 11:16:31,380 - INFO - Execução 20/30
+2025-06-14 11:16:31,381 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:31,669 - INFO - Chamada REST concluída em 0.2873s
+2025-06-14 11:16:31,672 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:32,124 - INFO - Chamada GraphQL concluída em 0.4512s
+2025-06-14 11:16:32,127 - INFO - Execução 21/30
+2025-06-14 11:16:32,127 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:32,440 - INFO - Chamada REST concluída em 0.3112s
+2025-06-14 11:16:32,441 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:32,768 - INFO - Chamada GraphQL concluída em 0.3264s
+2025-06-14 11:16:32,770 - INFO - Execução 22/30
+2025-06-14 11:16:32,771 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:33,056 - INFO - Chamada REST concluída em 0.2836s
+2025-06-14 11:16:33,057 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:33,411 - INFO - Chamada GraphQL concluída em 0.3525s
+2025-06-14 11:16:33,413 - INFO - Execução 23/30
+2025-06-14 11:16:33,413 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:33,706 - INFO - Chamada REST concluída em 0.2916s
+2025-06-14 11:16:33,709 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:34,156 - INFO - Chamada GraphQL concluída em 0.4460s
+2025-06-14 11:16:34,158 - INFO - Execução 24/30
+2025-06-14 11:16:34,158 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:34,449 - INFO - Chamada REST concluída em 0.2898s
+2025-06-14 11:16:34,451 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:34,846 - INFO - Chamada GraphQL concluída em 0.3948s
+2025-06-14 11:16:34,848 - INFO - Execução 25/30
+2025-06-14 11:16:34,849 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:35,136 - INFO - Chamada REST concluída em 0.2862s
+2025-06-14 11:16:35,139 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:35,656 - INFO - Chamada GraphQL concluída em 0.5173s
+2025-06-14 11:16:35,658 - INFO - Execução 26/30
+2025-06-14 11:16:35,659 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:35,968 - INFO - Chamada REST concluída em 0.3080s
+2025-06-14 11:16:35,969 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:36,321 - INFO - Chamada GraphQL concluída em 0.3508s
+2025-06-14 11:16:36,323 - INFO - Execução 27/30
+2025-06-14 11:16:36,324 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:36,647 - INFO - Chamada REST concluída em 0.3224s
+2025-06-14 11:16:36,649 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:37,379 - INFO - Chamada GraphQL concluída em 0.7278s
+2025-06-14 11:16:37,382 - INFO - Execução 28/30
+2025-06-14 11:16:37,383 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:37,664 - INFO - Chamada REST concluída em 0.2808s
+2025-06-14 11:16:37,666 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:38,090 - INFO - Chamada GraphQL concluída em 0.4233s
+2025-06-14 11:16:38,092 - INFO - Execução 29/30
+2025-06-14 11:16:38,093 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:38,412 - INFO - Chamada REST concluída em 0.3176s
+2025-06-14 11:16:38,414 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:38,764 - INFO - Chamada GraphQL concluída em 0.3490s
+2025-06-14 11:16:38,766 - INFO - Execução 30/30
+2025-06-14 11:16:38,766 - INFO - Iniciando chamada REST para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:39,037 - INFO - Chamada REST concluída em 0.2696s
+2025-06-14 11:16:39,040 - INFO - Iniciando chamada GraphQL para RubbiaMattos/Lab_Experimentacao_Software_1.2025
+2025-06-14 11:16:39,411 - INFO - Chamada GraphQL concluída em 0.3699s
+2025-06-14 11:16:39,413 - INFO - Experimento concluído com sucesso.

@@ -1,0 +1,33 @@
+{
+  "data": {
+    "repository": {
+      "name": "Lab_Experimentacao_Software_1.2025",
+      "createdAt": "2025-02-12T00:21:01Z",
+      "updatedAt": "2025-06-02T18:34:31Z",
+      "stargazerCount": 1,
+      "forkCount": 0,
+      "watchers": {
+        "totalCount": 1
+      },
+      "issues": {
+        "totalCount": 0
+      },
+      "pullRequests": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "size": 80449,
+            "node": {
+              "name": "Python"
+            }
+          }
+        ]
+      },
+      "repositoryTopics": {
+        "nodes": []
+      }
+    }
+  }
+}

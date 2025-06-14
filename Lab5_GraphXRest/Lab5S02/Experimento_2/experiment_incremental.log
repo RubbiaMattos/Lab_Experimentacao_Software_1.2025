@@ -1,0 +1,2026 @@
+2025-06-13 21:46:48,653 - INFO - Iniciando experimento incremental com 10 execuções por nível de campos.
+2025-06-13 21:46:48,661 - INFO - 
+Trial 1/10 - Campos: 1campos
+2025-06-13 21:46:48,662 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 21:46:48,993 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\Experimento_2\respostas_incremental\graphql_response_1campos.json
+2025-06-13 21:46:48,994 - INFO - 1campos - Tempo: 0.3196s - Tamanho: 69 bytes
+2025-06-13 21:46:48,997 - INFO - 
+Trial 2/10 - Campos: 1campos
+2025-06-13 21:46:48,999 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 21:46:49,268 - INFO - 1campos - Tempo: 0.2679s - Tamanho: 69 bytes
+2025-06-13 21:46:49,270 - INFO - 
+Trial 3/10 - Campos: 1campos
+2025-06-13 21:46:49,272 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 21:46:49,562 - INFO - 1campos - Tempo: 0.2904s - Tamanho: 69 bytes
+2025-06-13 21:46:49,565 - INFO - 
+Trial 4/10 - Campos: 1campos
+2025-06-13 21:46:49,566 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 21:46:49,838 - INFO - 1campos - Tempo: 0.2719s - Tamanho: 69 bytes
+2025-06-13 21:46:49,840 - INFO - 
+Trial 5/10 - Campos: 1campos
+2025-06-13 21:46:49,841 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 21:46:50,127 - INFO - 1campos - Tempo: 0.2860s - Tamanho: 69 bytes
+2025-06-13 21:46:50,130 - INFO - 
+Trial 6/10 - Campos: 1campos
+2025-06-13 21:46:50,131 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 21:46:50,408 - INFO - 1campos - Tempo: 0.2761s - Tamanho: 69 bytes
+2025-06-13 21:46:50,409 - INFO - 
+Trial 7/10 - Campos: 1campos
+2025-06-13 21:46:50,409 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 21:46:50,724 - INFO - 1campos - Tempo: 0.3147s - Tamanho: 69 bytes
+2025-06-13 21:46:50,725 - INFO - 
+Trial 8/10 - Campos: 1campos
+2025-06-13 21:46:50,726 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 21:46:51,016 - INFO - 1campos - Tempo: 0.2882s - Tamanho: 69 bytes
+2025-06-13 21:46:51,017 - INFO - 
+Trial 9/10 - Campos: 1campos
+2025-06-13 21:46:51,017 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 21:46:51,342 - INFO - 1campos - Tempo: 0.3237s - Tamanho: 69 bytes
+2025-06-13 21:46:51,345 - INFO - 
+Trial 10/10 - Campos: 1campos
+2025-06-13 21:46:51,346 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 21:46:51,655 - INFO - 1campos - Tempo: 0.3089s - Tamanho: 69 bytes
+2025-06-13 21:46:51,658 - INFO - 
+Trial 1/10 - Campos: 2campos
+2025-06-13 21:46:51,659 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 21:46:51,957 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\Experimento_2\respostas_incremental\graphql_response_2campos.json
+2025-06-13 21:46:51,958 - INFO - 2campos - Tempo: 0.2940s - Tamanho: 104 bytes
+2025-06-13 21:46:51,961 - INFO - 
+Trial 2/10 - Campos: 2campos
+2025-06-13 21:46:51,962 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 21:46:52,303 - INFO - 2campos - Tempo: 0.3407s - Tamanho: 104 bytes
+2025-06-13 21:46:52,306 - INFO - 
+Trial 3/10 - Campos: 2campos
+2025-06-13 21:46:52,307 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 21:46:52,584 - INFO - 2campos - Tempo: 0.2773s - Tamanho: 104 bytes
+2025-06-13 21:46:52,585 - INFO - 
+Trial 4/10 - Campos: 2campos
+2025-06-13 21:46:52,585 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 21:46:52,878 - INFO - 2campos - Tempo: 0.2926s - Tamanho: 104 bytes
+2025-06-13 21:46:52,878 - INFO - 
+Trial 5/10 - Campos: 2campos
+2025-06-13 21:46:52,880 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 21:46:53,167 - INFO - 2campos - Tempo: 0.2870s - Tamanho: 104 bytes
+2025-06-13 21:46:53,169 - INFO - 
+Trial 6/10 - Campos: 2campos
+2025-06-13 21:46:53,170 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 21:46:53,475 - INFO - 2campos - Tempo: 0.3036s - Tamanho: 104 bytes
+2025-06-13 21:46:53,477 - INFO - 
+Trial 7/10 - Campos: 2campos
+2025-06-13 21:46:53,478 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 21:46:53,793 - INFO - 2campos - Tempo: 0.3143s - Tamanho: 104 bytes
+2025-06-13 21:46:53,795 - INFO - 
+Trial 8/10 - Campos: 2campos
+2025-06-13 21:46:53,796 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 21:46:54,071 - INFO - 2campos - Tempo: 0.2743s - Tamanho: 104 bytes
+2025-06-13 21:46:54,073 - INFO - 
+Trial 9/10 - Campos: 2campos
+2025-06-13 21:46:54,075 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 21:46:54,358 - INFO - 2campos - Tempo: 0.2828s - Tamanho: 104 bytes
+2025-06-13 21:46:54,360 - INFO - 
+Trial 10/10 - Campos: 2campos
+2025-06-13 21:46:54,361 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 21:46:54,673 - INFO - 2campos - Tempo: 0.3119s - Tamanho: 104 bytes
+2025-06-13 21:46:54,675 - INFO - 
+Trial 1/10 - Campos: 3campos
+2025-06-13 21:46:54,677 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 21:46:54,937 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\Experimento_2\respostas_incremental\graphql_response_3campos.json
+2025-06-13 21:46:54,938 - INFO - 3campos - Tempo: 0.2522s - Tamanho: 139 bytes
+2025-06-13 21:46:54,938 - INFO - 
+Trial 2/10 - Campos: 3campos
+2025-06-13 21:46:54,938 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 21:46:55,188 - INFO - 3campos - Tempo: 0.2493s - Tamanho: 139 bytes
+2025-06-13 21:46:55,190 - INFO - 
+Trial 3/10 - Campos: 3campos
+2025-06-13 21:46:55,191 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 21:46:55,483 - INFO - 3campos - Tempo: 0.2919s - Tamanho: 139 bytes
+2025-06-13 21:46:55,486 - INFO - 
+Trial 4/10 - Campos: 3campos
+2025-06-13 21:46:55,487 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 21:46:55,802 - INFO - 3campos - Tempo: 0.3150s - Tamanho: 139 bytes
+2025-06-13 21:46:55,804 - INFO - 
+Trial 5/10 - Campos: 3campos
+2025-06-13 21:46:55,805 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 21:46:56,089 - INFO - 3campos - Tempo: 0.2832s - Tamanho: 139 bytes
+2025-06-13 21:46:56,092 - INFO - 
+Trial 6/10 - Campos: 3campos
+2025-06-13 21:46:56,093 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 21:46:56,465 - INFO - 3campos - Tempo: 0.3720s - Tamanho: 139 bytes
+2025-06-13 21:46:56,466 - INFO - 
+Trial 7/10 - Campos: 3campos
+2025-06-13 21:46:56,466 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 21:46:56,757 - INFO - 3campos - Tempo: 0.2906s - Tamanho: 139 bytes
+2025-06-13 21:46:56,759 - INFO - 
+Trial 8/10 - Campos: 3campos
+2025-06-13 21:46:56,760 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 21:46:57,205 - INFO - 3campos - Tempo: 0.4442s - Tamanho: 139 bytes
+2025-06-13 21:46:57,207 - INFO - 
+Trial 9/10 - Campos: 3campos
+2025-06-13 21:46:57,209 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 21:46:57,518 - INFO - 3campos - Tempo: 0.3094s - Tamanho: 139 bytes
+2025-06-13 21:46:57,518 - INFO - 
+Trial 10/10 - Campos: 3campos
+2025-06-13 21:46:57,518 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 21:46:57,818 - INFO - 3campos - Tempo: 0.2987s - Tamanho: 139 bytes
+2025-06-13 21:46:57,819 - INFO - 
+Trial 1/10 - Campos: 4campos
+2025-06-13 21:46:57,819 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 21:46:58,257 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\Experimento_2\respostas_incremental\graphql_response_4campos.json
+2025-06-13 21:46:58,258 - INFO - 4campos - Tempo: 0.4348s - Tamanho: 158 bytes
+2025-06-13 21:46:58,258 - INFO - 
+Trial 2/10 - Campos: 4campos
+2025-06-13 21:46:58,259 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 21:46:58,555 - INFO - 4campos - Tempo: 0.2964s - Tamanho: 158 bytes
+2025-06-13 21:46:58,557 - INFO - 
+Trial 3/10 - Campos: 4campos
+2025-06-13 21:46:58,557 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 21:46:58,825 - INFO - 4campos - Tempo: 0.2671s - Tamanho: 158 bytes
+2025-06-13 21:46:58,828 - INFO - 
+Trial 4/10 - Campos: 4campos
+2025-06-13 21:46:58,829 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 21:46:59,144 - INFO - 4campos - Tempo: 0.3147s - Tamanho: 158 bytes
+2025-06-13 21:46:59,146 - INFO - 
+Trial 5/10 - Campos: 4campos
+2025-06-13 21:46:59,146 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 21:46:59,442 - INFO - 4campos - Tempo: 0.2950s - Tamanho: 158 bytes
+2025-06-13 21:46:59,444 - INFO - 
+Trial 6/10 - Campos: 4campos
+2025-06-13 21:46:59,445 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 21:46:59,734 - INFO - 4campos - Tempo: 0.2882s - Tamanho: 158 bytes
+2025-06-13 21:46:59,736 - INFO - 
+Trial 7/10 - Campos: 4campos
+2025-06-13 21:46:59,737 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 21:47:00,025 - INFO - 4campos - Tempo: 0.2885s - Tamanho: 158 bytes
+2025-06-13 21:47:00,028 - INFO - 
+Trial 8/10 - Campos: 4campos
+2025-06-13 21:47:00,028 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 21:47:00,303 - INFO - 4campos - Tempo: 0.2741s - Tamanho: 158 bytes
+2025-06-13 21:47:00,305 - INFO - 
+Trial 9/10 - Campos: 4campos
+2025-06-13 21:47:00,306 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 21:47:00,643 - INFO - 4campos - Tempo: 0.3366s - Tamanho: 158 bytes
+2025-06-13 21:47:00,645 - INFO - 
+Trial 10/10 - Campos: 4campos
+2025-06-13 21:47:00,647 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 21:47:00,966 - INFO - 4campos - Tempo: 0.3196s - Tamanho: 158 bytes
+2025-06-13 21:47:00,968 - INFO - 
+Trial 1/10 - Campos: 5campos
+2025-06-13 21:47:00,969 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 21:47:01,264 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\Experimento_2\respostas_incremental\graphql_response_5campos.json
+2025-06-13 21:47:01,266 - INFO - 5campos - Tempo: 0.2920s - Tamanho: 172 bytes
+2025-06-13 21:47:01,268 - INFO - 
+Trial 2/10 - Campos: 5campos
+2025-06-13 21:47:01,269 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 21:47:01,579 - INFO - 5campos - Tempo: 0.3095s - Tamanho: 172 bytes
+2025-06-13 21:47:01,580 - INFO - 
+Trial 3/10 - Campos: 5campos
+2025-06-13 21:47:01,580 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 21:47:01,863 - INFO - 5campos - Tempo: 0.2826s - Tamanho: 172 bytes
+2025-06-13 21:47:01,865 - INFO - 
+Trial 4/10 - Campos: 5campos
+2025-06-13 21:47:01,865 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 21:47:02,148 - INFO - 5campos - Tempo: 0.2828s - Tamanho: 172 bytes
+2025-06-13 21:47:02,150 - INFO - 
+Trial 5/10 - Campos: 5campos
+2025-06-13 21:47:02,151 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 21:47:02,439 - INFO - 5campos - Tempo: 0.2876s - Tamanho: 172 bytes
+2025-06-13 21:47:02,441 - INFO - 
+Trial 6/10 - Campos: 5campos
+2025-06-13 21:47:02,442 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 21:47:02,725 - INFO - 5campos - Tempo: 0.2817s - Tamanho: 172 bytes
+2025-06-13 21:47:02,727 - INFO - 
+Trial 7/10 - Campos: 5campos
+2025-06-13 21:47:02,728 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 21:47:03,021 - INFO - 5campos - Tempo: 0.2918s - Tamanho: 172 bytes
+2025-06-13 21:47:03,023 - INFO - 
+Trial 8/10 - Campos: 5campos
+2025-06-13 21:47:03,024 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 21:47:03,344 - INFO - 5campos - Tempo: 0.3202s - Tamanho: 172 bytes
+2025-06-13 21:47:03,347 - INFO - 
+Trial 9/10 - Campos: 5campos
+2025-06-13 21:47:03,348 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 21:47:03,644 - INFO - 5campos - Tempo: 0.2951s - Tamanho: 172 bytes
+2025-06-13 21:47:03,646 - INFO - 
+Trial 10/10 - Campos: 5campos
+2025-06-13 21:47:03,647 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 21:47:03,914 - INFO - 5campos - Tempo: 0.2669s - Tamanho: 172 bytes
+2025-06-13 21:47:03,915 - INFO - 
+Trial 1/10 - Campos: 6campos
+2025-06-13 21:47:03,915 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 21:47:04,259 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\Experimento_2\respostas_incremental\graphql_response_6campos.json
+2025-06-13 21:47:04,260 - INFO - 6campos - Tempo: 0.3390s - Tamanho: 200 bytes
+2025-06-13 21:47:04,263 - INFO - 
+Trial 2/10 - Campos: 6campos
+2025-06-13 21:47:04,264 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 21:47:04,644 - INFO - 6campos - Tempo: 0.3802s - Tamanho: 200 bytes
+2025-06-13 21:47:04,646 - INFO - 
+Trial 3/10 - Campos: 6campos
+2025-06-13 21:47:04,647 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 21:47:04,937 - INFO - 6campos - Tempo: 0.2896s - Tamanho: 200 bytes
+2025-06-13 21:47:04,939 - INFO - 
+Trial 4/10 - Campos: 6campos
+2025-06-13 21:47:04,940 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 21:47:05,236 - INFO - 6campos - Tempo: 0.2950s - Tamanho: 200 bytes
+2025-06-13 21:47:05,239 - INFO - 
+Trial 5/10 - Campos: 6campos
+2025-06-13 21:47:05,239 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 21:47:05,573 - INFO - 6campos - Tempo: 0.3324s - Tamanho: 200 bytes
+2025-06-13 21:47:05,575 - INFO - 
+Trial 6/10 - Campos: 6campos
+2025-06-13 21:47:05,576 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 21:47:05,851 - INFO - 6campos - Tempo: 0.2746s - Tamanho: 200 bytes
+2025-06-13 21:47:05,853 - INFO - 
+Trial 7/10 - Campos: 6campos
+2025-06-13 21:47:05,854 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 21:47:06,146 - INFO - 6campos - Tempo: 0.2911s - Tamanho: 200 bytes
+2025-06-13 21:47:06,152 - INFO - 
+Trial 8/10 - Campos: 6campos
+2025-06-13 21:47:06,153 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 21:47:06,489 - INFO - 6campos - Tempo: 0.3361s - Tamanho: 200 bytes
+2025-06-13 21:47:06,490 - INFO - 
+Trial 9/10 - Campos: 6campos
+2025-06-13 21:47:06,491 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 21:47:06,763 - INFO - 6campos - Tempo: 0.2724s - Tamanho: 200 bytes
+2025-06-13 21:47:06,765 - INFO - 
+Trial 10/10 - Campos: 6campos
+2025-06-13 21:47:06,766 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 21:47:07,049 - INFO - 6campos - Tempo: 0.2819s - Tamanho: 200 bytes
+2025-06-13 21:47:07,051 - INFO - 
+Trial 1/10 - Campos: 7campos
+2025-06-13 21:47:07,052 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 21:47:07,388 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\Experimento_2\respostas_incremental\graphql_response_7campos.json
+2025-06-13 21:47:07,389 - INFO - 7campos - Tempo: 0.3267s - Tamanho: 226 bytes
+2025-06-13 21:47:07,392 - INFO - 
+Trial 2/10 - Campos: 7campos
+2025-06-13 21:47:07,393 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 21:47:07,711 - INFO - 7campos - Tempo: 0.3177s - Tamanho: 226 bytes
+2025-06-13 21:47:07,713 - INFO - 
+Trial 3/10 - Campos: 7campos
+2025-06-13 21:47:07,713 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 21:47:08,050 - INFO - 7campos - Tempo: 0.3356s - Tamanho: 226 bytes
+2025-06-13 21:47:08,052 - INFO - 
+Trial 4/10 - Campos: 7campos
+2025-06-13 21:47:08,052 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 21:47:08,359 - INFO - 7campos - Tempo: 0.3053s - Tamanho: 226 bytes
+2025-06-13 21:47:08,360 - INFO - 
+Trial 5/10 - Campos: 7campos
+2025-06-13 21:47:08,361 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 21:47:08,653 - INFO - 7campos - Tempo: 0.2919s - Tamanho: 226 bytes
+2025-06-13 21:47:08,655 - INFO - 
+Trial 6/10 - Campos: 7campos
+2025-06-13 21:47:08,656 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 21:47:08,967 - INFO - 7campos - Tempo: 0.3097s - Tamanho: 226 bytes
+2025-06-13 21:47:08,970 - INFO - 
+Trial 7/10 - Campos: 7campos
+2025-06-13 21:47:08,970 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 21:47:09,250 - INFO - 7campos - Tempo: 0.2795s - Tamanho: 226 bytes
+2025-06-13 21:47:09,252 - INFO - 
+Trial 8/10 - Campos: 7campos
+2025-06-13 21:47:09,253 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 21:47:09,542 - INFO - 7campos - Tempo: 0.2891s - Tamanho: 226 bytes
+2025-06-13 21:47:09,544 - INFO - 
+Trial 9/10 - Campos: 7campos
+2025-06-13 21:47:09,545 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 21:47:09,918 - INFO - 7campos - Tempo: 0.3716s - Tamanho: 226 bytes
+2025-06-13 21:47:09,919 - INFO - 
+Trial 10/10 - Campos: 7campos
+2025-06-13 21:47:09,920 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 21:47:10,225 - INFO - 7campos - Tempo: 0.3040s - Tamanho: 226 bytes
+2025-06-13 21:47:10,226 - INFO - 
+Trial 1/10 - Campos: 8campos
+2025-06-13 21:47:10,231 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 21:47:10,563 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\Experimento_2\respostas_incremental\graphql_response_8campos.json
+2025-06-13 21:47:10,564 - INFO - 8campos - Tempo: 0.3276s - Tamanho: 258 bytes
+2025-06-13 21:47:10,567 - INFO - 
+Trial 2/10 - Campos: 8campos
+2025-06-13 21:47:10,568 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 21:47:10,884 - INFO - 8campos - Tempo: 0.3161s - Tamanho: 258 bytes
+2025-06-13 21:47:10,885 - INFO - 
+Trial 3/10 - Campos: 8campos
+2025-06-13 21:47:10,886 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 21:47:11,176 - INFO - 8campos - Tempo: 0.2896s - Tamanho: 258 bytes
+2025-06-13 21:47:11,179 - INFO - 
+Trial 4/10 - Campos: 8campos
+2025-06-13 21:47:11,180 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 21:47:11,465 - INFO - 8campos - Tempo: 0.2851s - Tamanho: 258 bytes
+2025-06-13 21:47:11,467 - INFO - 
+Trial 5/10 - Campos: 8campos
+2025-06-13 21:47:11,468 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 21:47:11,786 - INFO - 8campos - Tempo: 0.3177s - Tamanho: 258 bytes
+2025-06-13 21:47:11,787 - INFO - 
+Trial 6/10 - Campos: 8campos
+2025-06-13 21:47:11,788 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 21:47:12,433 - INFO - 8campos - Tempo: 0.6452s - Tamanho: 258 bytes
+2025-06-13 21:47:12,435 - INFO - 
+Trial 7/10 - Campos: 8campos
+2025-06-13 21:47:12,436 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 21:47:13,005 - INFO - 8campos - Tempo: 0.5680s - Tamanho: 258 bytes
+2025-06-13 21:47:13,005 - INFO - 
+Trial 8/10 - Campos: 8campos
+2025-06-13 21:47:13,006 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 21:47:13,290 - INFO - 8campos - Tempo: 0.2836s - Tamanho: 258 bytes
+2025-06-13 21:47:13,291 - INFO - 
+Trial 9/10 - Campos: 8campos
+2025-06-13 21:47:13,292 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 21:47:13,635 - INFO - 8campos - Tempo: 0.3432s - Tamanho: 258 bytes
+2025-06-13 21:47:13,637 - INFO - 
+Trial 10/10 - Campos: 8campos
+2025-06-13 21:47:13,638 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 21:47:13,918 - INFO - 8campos - Tempo: 0.2784s - Tamanho: 258 bytes
+2025-06-13 21:47:13,921 - INFO - 
+Trial 1/10 - Campos: 9campos
+2025-06-13 21:47:13,922 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 21:47:14,310 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\Experimento_2\respostas_incremental\graphql_response_9campos.json
+2025-06-13 21:47:14,311 - INFO - 9campos - Tempo: 0.3839s - Tamanho: 322 bytes
+2025-06-13 21:47:14,313 - INFO - 
+Trial 2/10 - Campos: 9campos
+2025-06-13 21:47:14,314 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 21:47:14,710 - INFO - 9campos - Tempo: 0.3942s - Tamanho: 322 bytes
+2025-06-13 21:47:14,711 - INFO - 
+Trial 3/10 - Campos: 9campos
+2025-06-13 21:47:14,712 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 21:47:15,038 - INFO - 9campos - Tempo: 0.3258s - Tamanho: 322 bytes
+2025-06-13 21:47:15,038 - INFO - 
+Trial 4/10 - Campos: 9campos
+2025-06-13 21:47:15,038 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 21:47:15,334 - INFO - 9campos - Tempo: 0.2942s - Tamanho: 322 bytes
+2025-06-13 21:47:15,337 - INFO - 
+Trial 5/10 - Campos: 9campos
+2025-06-13 21:47:15,338 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 21:47:15,727 - INFO - 9campos - Tempo: 0.3897s - Tamanho: 322 bytes
+2025-06-13 21:47:15,730 - INFO - 
+Trial 6/10 - Campos: 9campos
+2025-06-13 21:47:15,730 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 21:47:16,051 - INFO - 9campos - Tempo: 0.3201s - Tamanho: 322 bytes
+2025-06-13 21:47:16,053 - INFO - 
+Trial 7/10 - Campos: 9campos
+2025-06-13 21:47:16,054 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 21:47:16,368 - INFO - 9campos - Tempo: 0.3131s - Tamanho: 322 bytes
+2025-06-13 21:47:16,370 - INFO - 
+Trial 8/10 - Campos: 9campos
+2025-06-13 21:47:16,370 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 21:47:16,754 - INFO - 9campos - Tempo: 0.3824s - Tamanho: 322 bytes
+2025-06-13 21:47:16,755 - INFO - 
+Trial 9/10 - Campos: 9campos
+2025-06-13 21:47:16,756 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 21:47:17,141 - INFO - 9campos - Tempo: 0.3847s - Tamanho: 322 bytes
+2025-06-13 21:47:17,142 - INFO - 
+Trial 10/10 - Campos: 9campos
+2025-06-13 21:47:17,142 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 21:47:17,444 - INFO - 9campos - Tempo: 0.3023s - Tamanho: 322 bytes
+2025-06-13 21:47:17,444 - INFO - 
+Trial 1/10 - Campos: 10campos
+2025-06-13 21:47:17,445 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 21:47:17,753 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\Experimento_2\respostas_incremental\graphql_response_10campos.json
+2025-06-13 21:47:17,753 - INFO - 10campos - Tempo: 0.3062s - Tamanho: 354 bytes
+2025-06-13 21:47:17,754 - INFO - 
+Trial 2/10 - Campos: 10campos
+2025-06-13 21:47:17,754 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 21:47:18,083 - INFO - 10campos - Tempo: 0.3288s - Tamanho: 354 bytes
+2025-06-13 21:47:18,084 - INFO - 
+Trial 3/10 - Campos: 10campos
+2025-06-13 21:47:18,084 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 21:47:18,487 - INFO - 10campos - Tempo: 0.4026s - Tamanho: 354 bytes
+2025-06-13 21:47:18,488 - INFO - 
+Trial 4/10 - Campos: 10campos
+2025-06-13 21:47:18,488 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 21:47:18,833 - INFO - 10campos - Tempo: 0.3448s - Tamanho: 354 bytes
+2025-06-13 21:47:18,834 - INFO - 
+Trial 5/10 - Campos: 10campos
+2025-06-13 21:47:18,834 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 21:47:19,150 - INFO - 10campos - Tempo: 0.3148s - Tamanho: 354 bytes
+2025-06-13 21:47:19,151 - INFO - 
+Trial 6/10 - Campos: 10campos
+2025-06-13 21:47:19,151 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 21:47:19,497 - INFO - 10campos - Tempo: 0.3450s - Tamanho: 354 bytes
+2025-06-13 21:47:19,498 - INFO - 
+Trial 7/10 - Campos: 10campos
+2025-06-13 21:47:19,498 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 21:47:19,900 - INFO - 10campos - Tempo: 0.4008s - Tamanho: 354 bytes
+2025-06-13 21:47:19,901 - INFO - 
+Trial 8/10 - Campos: 10campos
+2025-06-13 21:47:19,902 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 21:47:20,282 - INFO - 10campos - Tempo: 0.3803s - Tamanho: 354 bytes
+2025-06-13 21:47:20,283 - INFO - 
+Trial 9/10 - Campos: 10campos
+2025-06-13 21:47:20,283 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 21:47:20,681 - INFO - 10campos - Tempo: 0.3964s - Tamanho: 354 bytes
+2025-06-13 21:47:20,682 - INFO - 
+Trial 10/10 - Campos: 10campos
+2025-06-13 21:47:20,682 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 21:47:20,993 - INFO - 10campos - Tempo: 0.3112s - Tamanho: 354 bytes
+2025-06-13 21:47:20,995 - INFO - 
+\u2705 Experimento incremental concluído.
+2025-06-13 22:03:32,256 - INFO - Iniciando experimento incremental com 30 execuções por nível de campos.
+2025-06-13 22:03:32,258 - INFO - 
+Trial 1/30 - Campos: 1campos
+2025-06-13 22:03:32,258 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:32,567 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\Experimento_2\respostas_incremental\graphql_response_1campos.json
+2025-06-13 22:03:32,567 - INFO - 1campos - Tempo: 0.3061s - Tamanho: 69 bytes
+2025-06-13 22:03:32,568 - INFO - 
+Trial 2/30 - Campos: 1campos
+2025-06-13 22:03:32,568 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:32,866 - INFO - 1campos - Tempo: 0.2987s - Tamanho: 69 bytes
+2025-06-13 22:03:32,868 - INFO - 
+Trial 3/30 - Campos: 1campos
+2025-06-13 22:03:32,869 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:33,150 - INFO - 1campos - Tempo: 0.2792s - Tamanho: 69 bytes
+2025-06-13 22:03:33,150 - INFO - 
+Trial 4/30 - Campos: 1campos
+2025-06-13 22:03:33,152 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:33,431 - INFO - 1campos - Tempo: 0.2789s - Tamanho: 69 bytes
+2025-06-13 22:03:33,433 - INFO - 
+Trial 5/30 - Campos: 1campos
+2025-06-13 22:03:33,434 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:33,697 - INFO - 1campos - Tempo: 0.2612s - Tamanho: 69 bytes
+2025-06-13 22:03:33,699 - INFO - 
+Trial 6/30 - Campos: 1campos
+2025-06-13 22:03:33,699 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:33,979 - INFO - 1campos - Tempo: 0.2790s - Tamanho: 69 bytes
+2025-06-13 22:03:33,981 - INFO - 
+Trial 7/30 - Campos: 1campos
+2025-06-13 22:03:33,982 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:34,257 - INFO - 1campos - Tempo: 0.2744s - Tamanho: 69 bytes
+2025-06-13 22:03:34,258 - INFO - 
+Trial 8/30 - Campos: 1campos
+2025-06-13 22:03:34,259 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:34,526 - INFO - 1campos - Tempo: 0.2668s - Tamanho: 69 bytes
+2025-06-13 22:03:34,528 - INFO - 
+Trial 9/30 - Campos: 1campos
+2025-06-13 22:03:34,529 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:34,805 - INFO - 1campos - Tempo: 0.2739s - Tamanho: 69 bytes
+2025-06-13 22:03:34,807 - INFO - 
+Trial 10/30 - Campos: 1campos
+2025-06-13 22:03:34,807 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:35,077 - INFO - 1campos - Tempo: 0.2692s - Tamanho: 69 bytes
+2025-06-13 22:03:35,079 - INFO - 
+Trial 11/30 - Campos: 1campos
+2025-06-13 22:03:35,080 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:35,350 - INFO - 1campos - Tempo: 0.2683s - Tamanho: 69 bytes
+2025-06-13 22:03:35,352 - INFO - 
+Trial 12/30 - Campos: 1campos
+2025-06-13 22:03:35,353 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:35,645 - INFO - 1campos - Tempo: 0.2921s - Tamanho: 69 bytes
+2025-06-13 22:03:35,646 - INFO - 
+Trial 13/30 - Campos: 1campos
+2025-06-13 22:03:35,646 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:35,938 - INFO - 1campos - Tempo: 0.2903s - Tamanho: 69 bytes
+2025-06-13 22:03:35,940 - INFO - 
+Trial 14/30 - Campos: 1campos
+2025-06-13 22:03:35,941 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:36,270 - INFO - 1campos - Tempo: 0.3280s - Tamanho: 69 bytes
+2025-06-13 22:03:36,272 - INFO - 
+Trial 15/30 - Campos: 1campos
+2025-06-13 22:03:36,272 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:36,575 - INFO - 1campos - Tempo: 0.3016s - Tamanho: 69 bytes
+2025-06-13 22:03:36,576 - INFO - 
+Trial 16/30 - Campos: 1campos
+2025-06-13 22:03:36,577 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:36,847 - INFO - 1campos - Tempo: 0.2687s - Tamanho: 69 bytes
+2025-06-13 22:03:36,849 - INFO - 
+Trial 17/30 - Campos: 1campos
+2025-06-13 22:03:36,850 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:37,123 - INFO - 1campos - Tempo: 0.2717s - Tamanho: 69 bytes
+2025-06-13 22:03:37,124 - INFO - 
+Trial 18/30 - Campos: 1campos
+2025-06-13 22:03:37,124 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:37,393 - INFO - 1campos - Tempo: 0.2688s - Tamanho: 69 bytes
+2025-06-13 22:03:37,395 - INFO - 
+Trial 19/30 - Campos: 1campos
+2025-06-13 22:03:37,396 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:37,726 - INFO - 1campos - Tempo: 0.3293s - Tamanho: 69 bytes
+2025-06-13 22:03:37,728 - INFO - 
+Trial 20/30 - Campos: 1campos
+2025-06-13 22:03:37,730 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:38,023 - INFO - 1campos - Tempo: 0.2923s - Tamanho: 69 bytes
+2025-06-13 22:03:38,025 - INFO - 
+Trial 21/30 - Campos: 1campos
+2025-06-13 22:03:38,026 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:38,331 - INFO - 1campos - Tempo: 0.3041s - Tamanho: 69 bytes
+2025-06-13 22:03:38,333 - INFO - 
+Trial 22/30 - Campos: 1campos
+2025-06-13 22:03:38,335 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:38,621 - INFO - 1campos - Tempo: 0.2863s - Tamanho: 69 bytes
+2025-06-13 22:03:38,623 - INFO - 
+Trial 23/30 - Campos: 1campos
+2025-06-13 22:03:38,624 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:38,912 - INFO - 1campos - Tempo: 0.2865s - Tamanho: 69 bytes
+2025-06-13 22:03:38,914 - INFO - 
+Trial 24/30 - Campos: 1campos
+2025-06-13 22:03:38,915 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:39,185 - INFO - 1campos - Tempo: 0.2689s - Tamanho: 69 bytes
+2025-06-13 22:03:39,187 - INFO - 
+Trial 25/30 - Campos: 1campos
+2025-06-13 22:03:39,188 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:39,484 - INFO - 1campos - Tempo: 0.2960s - Tamanho: 69 bytes
+2025-06-13 22:03:39,485 - INFO - 
+Trial 26/30 - Campos: 1campos
+2025-06-13 22:03:39,487 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:39,754 - INFO - 1campos - Tempo: 0.2670s - Tamanho: 69 bytes
+2025-06-13 22:03:39,756 - INFO - 
+Trial 27/30 - Campos: 1campos
+2025-06-13 22:03:39,757 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:40,013 - INFO - 1campos - Tempo: 0.2552s - Tamanho: 69 bytes
+2025-06-13 22:03:40,015 - INFO - 
+Trial 28/30 - Campos: 1campos
+2025-06-13 22:03:40,016 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:40,304 - INFO - 1campos - Tempo: 0.2872s - Tamanho: 69 bytes
+2025-06-13 22:03:40,306 - INFO - 
+Trial 29/30 - Campos: 1campos
+2025-06-13 22:03:40,307 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:40,628 - INFO - 1campos - Tempo: 0.3203s - Tamanho: 69 bytes
+2025-06-13 22:03:40,630 - INFO - 
+Trial 30/30 - Campos: 1campos
+2025-06-13 22:03:40,631 - INFO - 
+Iniciando chamada GraphQL (1campos) com campos: name
+2025-06-13 22:03:40,922 - INFO - 1campos - Tempo: 0.2908s - Tamanho: 69 bytes
+2025-06-13 22:03:40,924 - INFO - 
+Trial 1/30 - Campos: 2campos
+2025-06-13 22:03:40,925 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:41,218 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\Experimento_2\respostas_incremental\graphql_response_2campos.json
+2025-06-13 22:03:41,219 - INFO - 2campos - Tempo: 0.2882s - Tamanho: 104 bytes
+2025-06-13 22:03:41,221 - INFO - 
+Trial 2/30 - Campos: 2campos
+2025-06-13 22:03:41,222 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:41,541 - INFO - 2campos - Tempo: 0.3180s - Tamanho: 104 bytes
+2025-06-13 22:03:41,543 - INFO - 
+Trial 3/30 - Campos: 2campos
+2025-06-13 22:03:41,543 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:41,829 - INFO - 2campos - Tempo: 0.2849s - Tamanho: 104 bytes
+2025-06-13 22:03:41,831 - INFO - 
+Trial 4/30 - Campos: 2campos
+2025-06-13 22:03:41,832 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:42,155 - INFO - 2campos - Tempo: 0.3216s - Tamanho: 104 bytes
+2025-06-13 22:03:42,157 - INFO - 
+Trial 5/30 - Campos: 2campos
+2025-06-13 22:03:42,158 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:42,458 - INFO - 2campos - Tempo: 0.2991s - Tamanho: 104 bytes
+2025-06-13 22:03:42,459 - INFO - 
+Trial 6/30 - Campos: 2campos
+2025-06-13 22:03:42,459 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:42,749 - INFO - 2campos - Tempo: 0.2900s - Tamanho: 104 bytes
+2025-06-13 22:03:42,750 - INFO - 
+Trial 7/30 - Campos: 2campos
+2025-06-13 22:03:42,750 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:43,044 - INFO - 2campos - Tempo: 0.2926s - Tamanho: 104 bytes
+2025-06-13 22:03:43,050 - INFO - 
+Trial 8/30 - Campos: 2campos
+2025-06-13 22:03:43,051 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:43,362 - INFO - 2campos - Tempo: 0.3104s - Tamanho: 104 bytes
+2025-06-13 22:03:43,364 - INFO - 
+Trial 9/30 - Campos: 2campos
+2025-06-13 22:03:43,365 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:43,696 - INFO - 2campos - Tempo: 0.3298s - Tamanho: 104 bytes
+2025-06-13 22:03:43,698 - INFO - 
+Trial 10/30 - Campos: 2campos
+2025-06-13 22:03:43,699 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:44,005 - INFO - 2campos - Tempo: 0.3049s - Tamanho: 104 bytes
+2025-06-13 22:03:44,006 - INFO - 
+Trial 11/30 - Campos: 2campos
+2025-06-13 22:03:44,006 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:44,277 - INFO - 2campos - Tempo: 0.2715s - Tamanho: 104 bytes
+2025-06-13 22:03:44,279 - INFO - 
+Trial 12/30 - Campos: 2campos
+2025-06-13 22:03:44,280 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:44,621 - INFO - 2campos - Tempo: 0.3395s - Tamanho: 104 bytes
+2025-06-13 22:03:44,623 - INFO - 
+Trial 13/30 - Campos: 2campos
+2025-06-13 22:03:44,624 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:44,899 - INFO - 2campos - Tempo: 0.2736s - Tamanho: 104 bytes
+2025-06-13 22:03:44,899 - INFO - 
+Trial 14/30 - Campos: 2campos
+2025-06-13 22:03:44,899 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:45,186 - INFO - 2campos - Tempo: 0.2865s - Tamanho: 104 bytes
+2025-06-13 22:03:45,188 - INFO - 
+Trial 15/30 - Campos: 2campos
+2025-06-13 22:03:45,189 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:45,485 - INFO - 2campos - Tempo: 0.2951s - Tamanho: 104 bytes
+2025-06-13 22:03:45,487 - INFO - 
+Trial 16/30 - Campos: 2campos
+2025-06-13 22:03:45,488 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:45,758 - INFO - 2campos - Tempo: 0.2703s - Tamanho: 104 bytes
+2025-06-13 22:03:45,760 - INFO - 
+Trial 17/30 - Campos: 2campos
+2025-06-13 22:03:45,761 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:46,099 - INFO - 2campos - Tempo: 0.3370s - Tamanho: 104 bytes
+2025-06-13 22:03:46,099 - INFO - 
+Trial 18/30 - Campos: 2campos
+2025-06-13 22:03:46,099 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:46,408 - INFO - 2campos - Tempo: 0.3088s - Tamanho: 104 bytes
+2025-06-13 22:03:46,410 - INFO - 
+Trial 19/30 - Campos: 2campos
+2025-06-13 22:03:46,411 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:46,700 - INFO - 2campos - Tempo: 0.2873s - Tamanho: 104 bytes
+2025-06-13 22:03:46,702 - INFO - 
+Trial 20/30 - Campos: 2campos
+2025-06-13 22:03:46,703 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:47,045 - INFO - 2campos - Tempo: 0.3419s - Tamanho: 104 bytes
+2025-06-13 22:03:47,046 - INFO - 
+Trial 21/30 - Campos: 2campos
+2025-06-13 22:03:47,046 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:47,339 - INFO - 2campos - Tempo: 0.2931s - Tamanho: 104 bytes
+2025-06-13 22:03:47,341 - INFO - 
+Trial 22/30 - Campos: 2campos
+2025-06-13 22:03:47,342 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:47,617 - INFO - 2campos - Tempo: 0.2739s - Tamanho: 104 bytes
+2025-06-13 22:03:47,619 - INFO - 
+Trial 23/30 - Campos: 2campos
+2025-06-13 22:03:47,621 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:47,944 - INFO - 2campos - Tempo: 0.3229s - Tamanho: 104 bytes
+2025-06-13 22:03:47,946 - INFO - 
+Trial 24/30 - Campos: 2campos
+2025-06-13 22:03:47,947 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:48,262 - INFO - 2campos - Tempo: 0.3146s - Tamanho: 104 bytes
+2025-06-13 22:03:48,265 - INFO - 
+Trial 25/30 - Campos: 2campos
+2025-06-13 22:03:48,265 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:48,626 - INFO - 2campos - Tempo: 0.3603s - Tamanho: 104 bytes
+2025-06-13 22:03:48,628 - INFO - 
+Trial 26/30 - Campos: 2campos
+2025-06-13 22:03:48,629 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:48,927 - INFO - 2campos - Tempo: 0.2963s - Tamanho: 104 bytes
+2025-06-13 22:03:48,929 - INFO - 
+Trial 27/30 - Campos: 2campos
+2025-06-13 22:03:48,930 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:49,289 - INFO - 2campos - Tempo: 0.3579s - Tamanho: 104 bytes
+2025-06-13 22:03:49,291 - INFO - 
+Trial 28/30 - Campos: 2campos
+2025-06-13 22:03:49,292 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:49,593 - INFO - 2campos - Tempo: 0.3001s - Tamanho: 104 bytes
+2025-06-13 22:03:49,595 - INFO - 
+Trial 29/30 - Campos: 2campos
+2025-06-13 22:03:49,595 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:49,870 - INFO - 2campos - Tempo: 0.2746s - Tamanho: 104 bytes
+2025-06-13 22:03:49,876 - INFO - 
+Trial 30/30 - Campos: 2campos
+2025-06-13 22:03:49,877 - INFO - 
+Iniciando chamada GraphQL (2campos) com campos: name createdAt
+2025-06-13 22:03:50,168 - INFO - 2campos - Tempo: 0.2890s - Tamanho: 104 bytes
+2025-06-13 22:03:50,170 - INFO - 
+Trial 1/30 - Campos: 3campos
+2025-06-13 22:03:50,170 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:50,439 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\Experimento_2\respostas_incremental\graphql_response_3campos.json
+2025-06-13 22:03:50,440 - INFO - 3campos - Tempo: 0.2651s - Tamanho: 139 bytes
+2025-06-13 22:03:50,442 - INFO - 
+Trial 2/30 - Campos: 3campos
+2025-06-13 22:03:50,443 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:50,782 - INFO - 3campos - Tempo: 0.3392s - Tamanho: 139 bytes
+2025-06-13 22:03:50,784 - INFO - 
+Trial 3/30 - Campos: 3campos
+2025-06-13 22:03:50,786 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:51,051 - INFO - 3campos - Tempo: 0.2640s - Tamanho: 139 bytes
+2025-06-13 22:03:51,053 - INFO - 
+Trial 4/30 - Campos: 3campos
+2025-06-13 22:03:51,054 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:51,326 - INFO - 3campos - Tempo: 0.2714s - Tamanho: 139 bytes
+2025-06-13 22:03:51,327 - INFO - 
+Trial 5/30 - Campos: 3campos
+2025-06-13 22:03:51,327 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:51,620 - INFO - 3campos - Tempo: 0.2912s - Tamanho: 139 bytes
+2025-06-13 22:03:51,621 - INFO - 
+Trial 6/30 - Campos: 3campos
+2025-06-13 22:03:51,621 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:52,084 - INFO - 3campos - Tempo: 0.4628s - Tamanho: 139 bytes
+2025-06-13 22:03:52,086 - INFO - 
+Trial 7/30 - Campos: 3campos
+2025-06-13 22:03:52,087 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:52,382 - INFO - 3campos - Tempo: 0.2946s - Tamanho: 139 bytes
+2025-06-13 22:03:52,384 - INFO - 
+Trial 8/30 - Campos: 3campos
+2025-06-13 22:03:52,385 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:52,702 - INFO - 3campos - Tempo: 0.3162s - Tamanho: 139 bytes
+2025-06-13 22:03:52,704 - INFO - 
+Trial 9/30 - Campos: 3campos
+2025-06-13 22:03:52,705 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:52,976 - INFO - 3campos - Tempo: 0.2700s - Tamanho: 139 bytes
+2025-06-13 22:03:52,978 - INFO - 
+Trial 10/30 - Campos: 3campos
+2025-06-13 22:03:52,980 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:53,265 - INFO - 3campos - Tempo: 0.2852s - Tamanho: 139 bytes
+2025-06-13 22:03:53,267 - INFO - 
+Trial 11/30 - Campos: 3campos
+2025-06-13 22:03:53,268 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:53,596 - INFO - 3campos - Tempo: 0.3272s - Tamanho: 139 bytes
+2025-06-13 22:03:53,598 - INFO - 
+Trial 12/30 - Campos: 3campos
+2025-06-13 22:03:53,599 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:54,016 - INFO - 3campos - Tempo: 0.4162s - Tamanho: 139 bytes
+2025-06-13 22:03:54,018 - INFO - 
+Trial 13/30 - Campos: 3campos
+2025-06-13 22:03:54,019 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:54,309 - INFO - 3campos - Tempo: 0.2885s - Tamanho: 139 bytes
+2025-06-13 22:03:54,311 - INFO - 
+Trial 14/30 - Campos: 3campos
+2025-06-13 22:03:54,312 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:54,606 - INFO - 3campos - Tempo: 0.2936s - Tamanho: 139 bytes
+2025-06-13 22:03:54,609 - INFO - 
+Trial 15/30 - Campos: 3campos
+2025-06-13 22:03:54,609 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:54,918 - INFO - 3campos - Tempo: 0.3080s - Tamanho: 139 bytes
+2025-06-13 22:03:54,920 - INFO - 
+Trial 16/30 - Campos: 3campos
+2025-06-13 22:03:54,921 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:55,244 - INFO - 3campos - Tempo: 0.3220s - Tamanho: 139 bytes
+2025-06-13 22:03:55,246 - INFO - 
+Trial 17/30 - Campos: 3campos
+2025-06-13 22:03:55,247 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:55,526 - INFO - 3campos - Tempo: 0.2776s - Tamanho: 139 bytes
+2025-06-13 22:03:55,527 - INFO - 
+Trial 18/30 - Campos: 3campos
+2025-06-13 22:03:55,528 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:55,805 - INFO - 3campos - Tempo: 0.2767s - Tamanho: 139 bytes
+2025-06-13 22:03:55,806 - INFO - 
+Trial 19/30 - Campos: 3campos
+2025-06-13 22:03:55,808 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:56,111 - INFO - 3campos - Tempo: 0.3022s - Tamanho: 139 bytes
+2025-06-13 22:03:56,114 - INFO - 
+Trial 20/30 - Campos: 3campos
+2025-06-13 22:03:56,114 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:56,418 - INFO - 3campos - Tempo: 0.3032s - Tamanho: 139 bytes
+2025-06-13 22:03:56,420 - INFO - 
+Trial 21/30 - Campos: 3campos
+2025-06-13 22:03:56,420 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:56,742 - INFO - 3campos - Tempo: 0.3209s - Tamanho: 139 bytes
+2025-06-13 22:03:56,744 - INFO - 
+Trial 22/30 - Campos: 3campos
+2025-06-13 22:03:56,745 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:57,059 - INFO - 3campos - Tempo: 0.3124s - Tamanho: 139 bytes
+2025-06-13 22:03:57,061 - INFO - 
+Trial 23/30 - Campos: 3campos
+2025-06-13 22:03:57,062 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:57,361 - INFO - 3campos - Tempo: 0.2987s - Tamanho: 139 bytes
+2025-06-13 22:03:57,362 - INFO - 
+Trial 24/30 - Campos: 3campos
+2025-06-13 22:03:57,363 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:57,649 - INFO - 3campos - Tempo: 0.2852s - Tamanho: 139 bytes
+2025-06-13 22:03:57,651 - INFO - 
+Trial 25/30 - Campos: 3campos
+2025-06-13 22:03:57,652 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:57,933 - INFO - 3campos - Tempo: 0.2802s - Tamanho: 139 bytes
+2025-06-13 22:03:57,934 - INFO - 
+Trial 26/30 - Campos: 3campos
+2025-06-13 22:03:57,935 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:58,226 - INFO - 3campos - Tempo: 0.2895s - Tamanho: 139 bytes
+2025-06-13 22:03:58,228 - INFO - 
+Trial 27/30 - Campos: 3campos
+2025-06-13 22:03:58,229 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:58,553 - INFO - 3campos - Tempo: 0.3225s - Tamanho: 139 bytes
+2025-06-13 22:03:58,555 - INFO - 
+Trial 28/30 - Campos: 3campos
+2025-06-13 22:03:58,555 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:58,834 - INFO - 3campos - Tempo: 0.2786s - Tamanho: 139 bytes
+2025-06-13 22:03:58,836 - INFO - 
+Trial 29/30 - Campos: 3campos
+2025-06-13 22:03:58,837 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:59,136 - INFO - 3campos - Tempo: 0.2974s - Tamanho: 139 bytes
+2025-06-13 22:03:59,138 - INFO - 
+Trial 30/30 - Campos: 3campos
+2025-06-13 22:03:59,138 - INFO - 
+Iniciando chamada GraphQL (3campos) com campos: name createdAt updatedAt
+2025-06-13 22:03:59,432 - INFO - 3campos - Tempo: 0.2932s - Tamanho: 139 bytes
+2025-06-13 22:03:59,434 - INFO - 
+Trial 1/30 - Campos: 4campos
+2025-06-13 22:03:59,435 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:03:59,899 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\Experimento_2\respostas_incremental\graphql_response_4campos.json
+2025-06-13 22:03:59,900 - INFO - 4campos - Tempo: 0.4605s - Tamanho: 158 bytes
+2025-06-13 22:03:59,902 - INFO - 
+Trial 2/30 - Campos: 4campos
+2025-06-13 22:03:59,903 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:00,180 - INFO - 4campos - Tempo: 0.2758s - Tamanho: 158 bytes
+2025-06-13 22:04:00,182 - INFO - 
+Trial 3/30 - Campos: 4campos
+2025-06-13 22:04:00,183 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:00,471 - INFO - 4campos - Tempo: 0.2884s - Tamanho: 158 bytes
+2025-06-13 22:04:00,472 - INFO - 
+Trial 4/30 - Campos: 4campos
+2025-06-13 22:04:00,474 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:00,863 - INFO - 4campos - Tempo: 0.3867s - Tamanho: 158 bytes
+2025-06-13 22:04:00,865 - INFO - 
+Trial 5/30 - Campos: 4campos
+2025-06-13 22:04:00,865 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:01,164 - INFO - 4campos - Tempo: 0.2987s - Tamanho: 158 bytes
+2025-06-13 22:04:01,165 - INFO - 
+Trial 6/30 - Campos: 4campos
+2025-06-13 22:04:01,165 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:01,456 - INFO - 4campos - Tempo: 0.2905s - Tamanho: 158 bytes
+2025-06-13 22:04:01,458 - INFO - 
+Trial 7/30 - Campos: 4campos
+2025-06-13 22:04:01,459 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:01,738 - INFO - 4campos - Tempo: 0.2785s - Tamanho: 158 bytes
+2025-06-13 22:04:01,739 - INFO - 
+Trial 8/30 - Campos: 4campos
+2025-06-13 22:04:01,739 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:02,029 - INFO - 4campos - Tempo: 0.2890s - Tamanho: 158 bytes
+2025-06-13 22:04:02,030 - INFO - 
+Trial 9/30 - Campos: 4campos
+2025-06-13 22:04:02,032 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:02,445 - INFO - 4campos - Tempo: 0.4121s - Tamanho: 158 bytes
+2025-06-13 22:04:02,447 - INFO - 
+Trial 10/30 - Campos: 4campos
+2025-06-13 22:04:02,448 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:02,719 - INFO - 4campos - Tempo: 0.2702s - Tamanho: 158 bytes
+2025-06-13 22:04:02,721 - INFO - 
+Trial 11/30 - Campos: 4campos
+2025-06-13 22:04:02,722 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:03,012 - INFO - 4campos - Tempo: 0.2898s - Tamanho: 158 bytes
+2025-06-13 22:04:03,014 - INFO - 
+Trial 12/30 - Campos: 4campos
+2025-06-13 22:04:03,015 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:03,301 - INFO - 4campos - Tempo: 0.2860s - Tamanho: 158 bytes
+2025-06-13 22:04:03,303 - INFO - 
+Trial 13/30 - Campos: 4campos
+2025-06-13 22:04:03,304 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:03,599 - INFO - 4campos - Tempo: 0.2939s - Tamanho: 158 bytes
+2025-06-13 22:04:03,601 - INFO - 
+Trial 14/30 - Campos: 4campos
+2025-06-13 22:04:03,602 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:03,890 - INFO - 4campos - Tempo: 0.2870s - Tamanho: 158 bytes
+2025-06-13 22:04:03,892 - INFO - 
+Trial 15/30 - Campos: 4campos
+2025-06-13 22:04:03,894 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:04,204 - INFO - 4campos - Tempo: 0.3094s - Tamanho: 158 bytes
+2025-06-13 22:04:04,205 - INFO - 
+Trial 16/30 - Campos: 4campos
+2025-06-13 22:04:04,207 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:04,500 - INFO - 4campos - Tempo: 0.2919s - Tamanho: 158 bytes
+2025-06-13 22:04:04,501 - INFO - 
+Trial 17/30 - Campos: 4campos
+2025-06-13 22:04:04,503 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:04,810 - INFO - 4campos - Tempo: 0.3070s - Tamanho: 158 bytes
+2025-06-13 22:04:04,812 - INFO - 
+Trial 18/30 - Campos: 4campos
+2025-06-13 22:04:04,813 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:05,177 - INFO - 4campos - Tempo: 0.3623s - Tamanho: 158 bytes
+2025-06-13 22:04:05,179 - INFO - 
+Trial 19/30 - Campos: 4campos
+2025-06-13 22:04:05,180 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:05,443 - INFO - 4campos - Tempo: 0.2626s - Tamanho: 158 bytes
+2025-06-13 22:04:05,445 - INFO - 
+Trial 20/30 - Campos: 4campos
+2025-06-13 22:04:05,446 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:05,766 - INFO - 4campos - Tempo: 0.3193s - Tamanho: 158 bytes
+2025-06-13 22:04:05,768 - INFO - 
+Trial 21/30 - Campos: 4campos
+2025-06-13 22:04:05,769 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:06,050 - INFO - 4campos - Tempo: 0.2798s - Tamanho: 158 bytes
+2025-06-13 22:04:06,052 - INFO - 
+Trial 22/30 - Campos: 4campos
+2025-06-13 22:04:06,053 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:06,359 - INFO - 4campos - Tempo: 0.3045s - Tamanho: 158 bytes
+2025-06-13 22:04:06,359 - INFO - 
+Trial 23/30 - Campos: 4campos
+2025-06-13 22:04:06,360 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:06,641 - INFO - 4campos - Tempo: 0.2801s - Tamanho: 158 bytes
+2025-06-13 22:04:06,643 - INFO - 
+Trial 24/30 - Campos: 4campos
+2025-06-13 22:04:06,643 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:07,032 - INFO - 4campos - Tempo: 0.3882s - Tamanho: 158 bytes
+2025-06-13 22:04:07,034 - INFO - 
+Trial 25/30 - Campos: 4campos
+2025-06-13 22:04:07,035 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:07,330 - INFO - 4campos - Tempo: 0.2935s - Tamanho: 158 bytes
+2025-06-13 22:04:07,332 - INFO - 
+Trial 26/30 - Campos: 4campos
+2025-06-13 22:04:07,333 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:07,625 - INFO - 4campos - Tempo: 0.2914s - Tamanho: 158 bytes
+2025-06-13 22:04:07,627 - INFO - 
+Trial 27/30 - Campos: 4campos
+2025-06-13 22:04:07,628 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:07,920 - INFO - 4campos - Tempo: 0.2905s - Tamanho: 158 bytes
+2025-06-13 22:04:07,922 - INFO - 
+Trial 28/30 - Campos: 4campos
+2025-06-13 22:04:07,923 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:08,221 - INFO - 4campos - Tempo: 0.2983s - Tamanho: 158 bytes
+2025-06-13 22:04:08,223 - INFO - 
+Trial 29/30 - Campos: 4campos
+2025-06-13 22:04:08,224 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:08,543 - INFO - 4campos - Tempo: 0.3182s - Tamanho: 158 bytes
+2025-06-13 22:04:08,544 - INFO - 
+Trial 30/30 - Campos: 4campos
+2025-06-13 22:04:08,545 - INFO - 
+Iniciando chamada GraphQL (4campos) com campos: name createdAt updatedAt stargazerCount
+2025-06-13 22:04:08,838 - INFO - 4campos - Tempo: 0.2933s - Tamanho: 158 bytes
+2025-06-13 22:04:08,841 - INFO - 
+Trial 1/30 - Campos: 5campos
+2025-06-13 22:04:08,842 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:09,149 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\Experimento_2\respostas_incremental\graphql_response_5campos.json
+2025-06-13 22:04:09,150 - INFO - 5campos - Tempo: 0.3042s - Tamanho: 172 bytes
+2025-06-13 22:04:09,153 - INFO - 
+Trial 2/30 - Campos: 5campos
+2025-06-13 22:04:09,154 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:09,445 - INFO - 5campos - Tempo: 0.2897s - Tamanho: 172 bytes
+2025-06-13 22:04:09,447 - INFO - 
+Trial 3/30 - Campos: 5campos
+2025-06-13 22:04:09,448 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:09,744 - INFO - 5campos - Tempo: 0.2952s - Tamanho: 172 bytes
+2025-06-13 22:04:09,747 - INFO - 
+Trial 4/30 - Campos: 5campos
+2025-06-13 22:04:09,748 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:10,196 - INFO - 5campos - Tempo: 0.4467s - Tamanho: 172 bytes
+2025-06-13 22:04:10,197 - INFO - 
+Trial 5/30 - Campos: 5campos
+2025-06-13 22:04:10,198 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:10,493 - INFO - 5campos - Tempo: 0.2937s - Tamanho: 172 bytes
+2025-06-13 22:04:10,493 - INFO - 
+Trial 6/30 - Campos: 5campos
+2025-06-13 22:04:10,493 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:10,787 - INFO - 5campos - Tempo: 0.2943s - Tamanho: 172 bytes
+2025-06-13 22:04:10,789 - INFO - 
+Trial 7/30 - Campos: 5campos
+2025-06-13 22:04:10,790 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:11,138 - INFO - 5campos - Tempo: 0.3456s - Tamanho: 172 bytes
+2025-06-13 22:04:11,139 - INFO - 
+Trial 8/30 - Campos: 5campos
+2025-06-13 22:04:11,140 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:11,398 - INFO - 5campos - Tempo: 0.2565s - Tamanho: 172 bytes
+2025-06-13 22:04:11,400 - INFO - 
+Trial 9/30 - Campos: 5campos
+2025-06-13 22:04:11,401 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:11,703 - INFO - 5campos - Tempo: 0.3019s - Tamanho: 172 bytes
+2025-06-13 22:04:11,705 - INFO - 
+Trial 10/30 - Campos: 5campos
+2025-06-13 22:04:11,705 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:11,997 - INFO - 5campos - Tempo: 0.2911s - Tamanho: 172 bytes
+2025-06-13 22:04:11,999 - INFO - 
+Trial 11/30 - Campos: 5campos
+2025-06-13 22:04:12,001 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:12,319 - INFO - 5campos - Tempo: 0.3173s - Tamanho: 172 bytes
+2025-06-13 22:04:12,321 - INFO - 
+Trial 12/30 - Campos: 5campos
+2025-06-13 22:04:12,321 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:12,608 - INFO - 5campos - Tempo: 0.2860s - Tamanho: 172 bytes
+2025-06-13 22:04:12,610 - INFO - 
+Trial 13/30 - Campos: 5campos
+2025-06-13 22:04:12,611 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:12,902 - INFO - 5campos - Tempo: 0.2900s - Tamanho: 172 bytes
+2025-06-13 22:04:12,903 - INFO - 
+Trial 14/30 - Campos: 5campos
+2025-06-13 22:04:12,903 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:13,159 - INFO - 5campos - Tempo: 0.2558s - Tamanho: 172 bytes
+2025-06-13 22:04:13,161 - INFO - 
+Trial 15/30 - Campos: 5campos
+2025-06-13 22:04:13,162 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:13,473 - INFO - 5campos - Tempo: 0.3099s - Tamanho: 172 bytes
+2025-06-13 22:04:13,475 - INFO - 
+Trial 16/30 - Campos: 5campos
+2025-06-13 22:04:13,475 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:13,766 - INFO - 5campos - Tempo: 0.2898s - Tamanho: 172 bytes
+2025-06-13 22:04:13,768 - INFO - 
+Trial 17/30 - Campos: 5campos
+2025-06-13 22:04:13,769 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:14,090 - INFO - 5campos - Tempo: 0.3207s - Tamanho: 172 bytes
+2025-06-13 22:04:14,092 - INFO - 
+Trial 18/30 - Campos: 5campos
+2025-06-13 22:04:14,094 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:14,380 - INFO - 5campos - Tempo: 0.2864s - Tamanho: 172 bytes
+2025-06-13 22:04:14,382 - INFO - 
+Trial 19/30 - Campos: 5campos
+2025-06-13 22:04:14,382 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:14,664 - INFO - 5campos - Tempo: 0.2802s - Tamanho: 172 bytes
+2025-06-13 22:04:14,666 - INFO - 
+Trial 20/30 - Campos: 5campos
+2025-06-13 22:04:14,667 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:15,011 - INFO - 5campos - Tempo: 0.3435s - Tamanho: 172 bytes
+2025-06-13 22:04:15,013 - INFO - 
+Trial 21/30 - Campos: 5campos
+2025-06-13 22:04:15,014 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:15,341 - INFO - 5campos - Tempo: 0.3256s - Tamanho: 172 bytes
+2025-06-13 22:04:15,343 - INFO - 
+Trial 22/30 - Campos: 5campos
+2025-06-13 22:04:15,343 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:15,636 - INFO - 5campos - Tempo: 0.2922s - Tamanho: 172 bytes
+2025-06-13 22:04:15,639 - INFO - 
+Trial 23/30 - Campos: 5campos
+2025-06-13 22:04:15,640 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:15,922 - INFO - 5campos - Tempo: 0.2795s - Tamanho: 172 bytes
+2025-06-13 22:04:15,924 - INFO - 
+Trial 24/30 - Campos: 5campos
+2025-06-13 22:04:15,924 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:16,205 - INFO - 5campos - Tempo: 0.2796s - Tamanho: 172 bytes
+2025-06-13 22:04:16,207 - INFO - 
+Trial 25/30 - Campos: 5campos
+2025-06-13 22:04:16,208 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:16,514 - INFO - 5campos - Tempo: 0.3056s - Tamanho: 172 bytes
+2025-06-13 22:04:16,516 - INFO - 
+Trial 26/30 - Campos: 5campos
+2025-06-13 22:04:16,517 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:16,871 - INFO - 5campos - Tempo: 0.3526s - Tamanho: 172 bytes
+2025-06-13 22:04:16,873 - INFO - 
+Trial 27/30 - Campos: 5campos
+2025-06-13 22:04:16,874 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:17,184 - INFO - 5campos - Tempo: 0.3096s - Tamanho: 172 bytes
+2025-06-13 22:04:17,185 - INFO - 
+Trial 28/30 - Campos: 5campos
+2025-06-13 22:04:17,185 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:17,448 - INFO - 5campos - Tempo: 0.2617s - Tamanho: 172 bytes
+2025-06-13 22:04:17,449 - INFO - 
+Trial 29/30 - Campos: 5campos
+2025-06-13 22:04:17,449 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:17,734 - INFO - 5campos - Tempo: 0.2852s - Tamanho: 172 bytes
+2025-06-13 22:04:17,736 - INFO - 
+Trial 30/30 - Campos: 5campos
+2025-06-13 22:04:17,737 - INFO - 
+Iniciando chamada GraphQL (5campos) com campos: name createdAt updatedAt stargazerCount forkCount
+2025-06-13 22:04:18,025 - INFO - 5campos - Tempo: 0.2864s - Tamanho: 172 bytes
+2025-06-13 22:04:18,027 - INFO - 
+Trial 1/30 - Campos: 6campos
+2025-06-13 22:04:18,028 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:18,338 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\Experimento_2\respostas_incremental\graphql_response_6campos.json
+2025-06-13 22:04:18,339 - INFO - 6campos - Tempo: 0.3048s - Tamanho: 200 bytes
+2025-06-13 22:04:18,341 - INFO - 
+Trial 2/30 - Campos: 6campos
+2025-06-13 22:04:18,342 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:18,662 - INFO - 6campos - Tempo: 0.3187s - Tamanho: 200 bytes
+2025-06-13 22:04:18,664 - INFO - 
+Trial 3/30 - Campos: 6campos
+2025-06-13 22:04:18,665 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:18,978 - INFO - 6campos - Tempo: 0.3136s - Tamanho: 200 bytes
+2025-06-13 22:04:18,980 - INFO - 
+Trial 4/30 - Campos: 6campos
+2025-06-13 22:04:18,981 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:19,313 - INFO - 6campos - Tempo: 0.3300s - Tamanho: 200 bytes
+2025-06-13 22:04:19,315 - INFO - 
+Trial 5/30 - Campos: 6campos
+2025-06-13 22:04:19,315 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:19,614 - INFO - 6campos - Tempo: 0.2980s - Tamanho: 200 bytes
+2025-06-13 22:04:19,614 - INFO - 
+Trial 6/30 - Campos: 6campos
+2025-06-13 22:04:19,616 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:19,938 - INFO - 6campos - Tempo: 0.3228s - Tamanho: 200 bytes
+2025-06-13 22:04:19,941 - INFO - 
+Trial 7/30 - Campos: 6campos
+2025-06-13 22:04:19,942 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:20,269 - INFO - 6campos - Tempo: 0.3259s - Tamanho: 200 bytes
+2025-06-13 22:04:20,271 - INFO - 
+Trial 8/30 - Campos: 6campos
+2025-06-13 22:04:20,272 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:20,567 - INFO - 6campos - Tempo: 0.2943s - Tamanho: 200 bytes
+2025-06-13 22:04:20,569 - INFO - 
+Trial 9/30 - Campos: 6campos
+2025-06-13 22:04:20,570 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:20,926 - INFO - 6campos - Tempo: 0.3555s - Tamanho: 200 bytes
+2025-06-13 22:04:20,928 - INFO - 
+Trial 10/30 - Campos: 6campos
+2025-06-13 22:04:20,929 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:21,240 - INFO - 6campos - Tempo: 0.3096s - Tamanho: 200 bytes
+2025-06-13 22:04:21,242 - INFO - 
+Trial 11/30 - Campos: 6campos
+2025-06-13 22:04:21,242 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:21,547 - INFO - 6campos - Tempo: 0.3034s - Tamanho: 200 bytes
+2025-06-13 22:04:21,549 - INFO - 
+Trial 12/30 - Campos: 6campos
+2025-06-13 22:04:21,550 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:21,849 - INFO - 6campos - Tempo: 0.2977s - Tamanho: 200 bytes
+2025-06-13 22:04:21,851 - INFO - 
+Trial 13/30 - Campos: 6campos
+2025-06-13 22:04:21,852 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:22,141 - INFO - 6campos - Tempo: 0.2883s - Tamanho: 200 bytes
+2025-06-13 22:04:22,143 - INFO - 
+Trial 14/30 - Campos: 6campos
+2025-06-13 22:04:22,144 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:22,432 - INFO - 6campos - Tempo: 0.2871s - Tamanho: 200 bytes
+2025-06-13 22:04:22,434 - INFO - 
+Trial 15/30 - Campos: 6campos
+2025-06-13 22:04:22,435 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:22,724 - INFO - 6campos - Tempo: 0.2883s - Tamanho: 200 bytes
+2025-06-13 22:04:22,726 - INFO - 
+Trial 16/30 - Campos: 6campos
+2025-06-13 22:04:22,726 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:23,046 - INFO - 6campos - Tempo: 0.3194s - Tamanho: 200 bytes
+2025-06-13 22:04:23,048 - INFO - 
+Trial 17/30 - Campos: 6campos
+2025-06-13 22:04:23,049 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:23,332 - INFO - 6campos - Tempo: 0.2819s - Tamanho: 200 bytes
+2025-06-13 22:04:23,334 - INFO - 
+Trial 18/30 - Campos: 6campos
+2025-06-13 22:04:23,335 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:23,676 - INFO - 6campos - Tempo: 0.3397s - Tamanho: 200 bytes
+2025-06-13 22:04:23,678 - INFO - 
+Trial 19/30 - Campos: 6campos
+2025-06-13 22:04:23,679 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:23,973 - INFO - 6campos - Tempo: 0.2936s - Tamanho: 200 bytes
+2025-06-13 22:04:23,975 - INFO - 
+Trial 20/30 - Campos: 6campos
+2025-06-13 22:04:23,976 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:24,303 - INFO - 6campos - Tempo: 0.3257s - Tamanho: 200 bytes
+2025-06-13 22:04:24,304 - INFO - 
+Trial 21/30 - Campos: 6campos
+2025-06-13 22:04:24,305 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:24,633 - INFO - 6campos - Tempo: 0.3278s - Tamanho: 200 bytes
+2025-06-13 22:04:24,635 - INFO - 
+Trial 22/30 - Campos: 6campos
+2025-06-13 22:04:24,636 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:24,943 - INFO - 6campos - Tempo: 0.3068s - Tamanho: 200 bytes
+2025-06-13 22:04:24,945 - INFO - 
+Trial 23/30 - Campos: 6campos
+2025-06-13 22:04:24,946 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:25,252 - INFO - 6campos - Tempo: 0.3047s - Tamanho: 200 bytes
+2025-06-13 22:04:25,254 - INFO - 
+Trial 24/30 - Campos: 6campos
+2025-06-13 22:04:25,255 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:25,529 - INFO - 6campos - Tempo: 0.2726s - Tamanho: 200 bytes
+2025-06-13 22:04:25,531 - INFO - 
+Trial 25/30 - Campos: 6campos
+2025-06-13 22:04:25,532 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:25,844 - INFO - 6campos - Tempo: 0.3115s - Tamanho: 200 bytes
+2025-06-13 22:04:25,846 - INFO - 
+Trial 26/30 - Campos: 6campos
+2025-06-13 22:04:25,847 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:26,164 - INFO - 6campos - Tempo: 0.3158s - Tamanho: 200 bytes
+2025-06-13 22:04:26,166 - INFO - 
+Trial 27/30 - Campos: 6campos
+2025-06-13 22:04:26,167 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:26,489 - INFO - 6campos - Tempo: 0.3211s - Tamanho: 200 bytes
+2025-06-13 22:04:26,490 - INFO - 
+Trial 28/30 - Campos: 6campos
+2025-06-13 22:04:26,491 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:26,784 - INFO - 6campos - Tempo: 0.2929s - Tamanho: 200 bytes
+2025-06-13 22:04:26,786 - INFO - 
+Trial 29/30 - Campos: 6campos
+2025-06-13 22:04:26,787 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:27,072 - INFO - 6campos - Tempo: 0.2844s - Tamanho: 200 bytes
+2025-06-13 22:04:27,074 - INFO - 
+Trial 30/30 - Campos: 6campos
+2025-06-13 22:04:27,075 - INFO - 
+Iniciando chamada GraphQL (6campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount }
+2025-06-13 22:04:27,376 - INFO - 6campos - Tempo: 0.2993s - Tamanho: 200 bytes
+2025-06-13 22:04:27,377 - INFO - 
+Trial 1/30 - Campos: 7campos
+2025-06-13 22:04:27,379 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:27,667 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\Experimento_2\respostas_incremental\graphql_response_7campos.json
+2025-06-13 22:04:27,669 - INFO - 7campos - Tempo: 0.2853s - Tamanho: 226 bytes
+2025-06-13 22:04:27,671 - INFO - 
+Trial 2/30 - Campos: 7campos
+2025-06-13 22:04:27,672 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:27,953 - INFO - 7campos - Tempo: 0.2804s - Tamanho: 226 bytes
+2025-06-13 22:04:27,955 - INFO - 
+Trial 3/30 - Campos: 7campos
+2025-06-13 22:04:27,956 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:28,247 - INFO - 7campos - Tempo: 0.2904s - Tamanho: 226 bytes
+2025-06-13 22:04:28,249 - INFO - 
+Trial 4/30 - Campos: 7campos
+2025-06-13 22:04:28,250 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:28,576 - INFO - 7campos - Tempo: 0.3260s - Tamanho: 226 bytes
+2025-06-13 22:04:28,579 - INFO - 
+Trial 5/30 - Campos: 7campos
+2025-06-13 22:04:28,580 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:28,857 - INFO - 7campos - Tempo: 0.2764s - Tamanho: 226 bytes
+2025-06-13 22:04:28,857 - INFO - 
+Trial 6/30 - Campos: 7campos
+2025-06-13 22:04:28,858 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:29,176 - INFO - 7campos - Tempo: 0.3174s - Tamanho: 226 bytes
+2025-06-13 22:04:29,178 - INFO - 
+Trial 7/30 - Campos: 7campos
+2025-06-13 22:04:29,179 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:29,503 - INFO - 7campos - Tempo: 0.3231s - Tamanho: 226 bytes
+2025-06-13 22:04:29,505 - INFO - 
+Trial 8/30 - Campos: 7campos
+2025-06-13 22:04:29,506 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:29,806 - INFO - 7campos - Tempo: 0.2991s - Tamanho: 226 bytes
+2025-06-13 22:04:29,808 - INFO - 
+Trial 9/30 - Campos: 7campos
+2025-06-13 22:04:29,809 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:30,108 - INFO - 7campos - Tempo: 0.2985s - Tamanho: 226 bytes
+2025-06-13 22:04:30,110 - INFO - 
+Trial 10/30 - Campos: 7campos
+2025-06-13 22:04:30,111 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:30,460 - INFO - 7campos - Tempo: 0.3484s - Tamanho: 226 bytes
+2025-06-13 22:04:30,463 - INFO - 
+Trial 11/30 - Campos: 7campos
+2025-06-13 22:04:30,464 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:30,789 - INFO - 7campos - Tempo: 0.3251s - Tamanho: 226 bytes
+2025-06-13 22:04:30,792 - INFO - 
+Trial 12/30 - Campos: 7campos
+2025-06-13 22:04:30,794 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:31,091 - INFO - 7campos - Tempo: 0.2971s - Tamanho: 226 bytes
+2025-06-13 22:04:31,092 - INFO - 
+Trial 13/30 - Campos: 7campos
+2025-06-13 22:04:31,093 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:31,392 - INFO - 7campos - Tempo: 0.2973s - Tamanho: 226 bytes
+2025-06-13 22:04:31,392 - INFO - 
+Trial 14/30 - Campos: 7campos
+2025-06-13 22:04:31,393 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:31,693 - INFO - 7campos - Tempo: 0.3001s - Tamanho: 226 bytes
+2025-06-13 22:04:31,695 - INFO - 
+Trial 15/30 - Campos: 7campos
+2025-06-13 22:04:31,695 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:32,003 - INFO - 7campos - Tempo: 0.3044s - Tamanho: 226 bytes
+2025-06-13 22:04:32,005 - INFO - 
+Trial 16/30 - Campos: 7campos
+2025-06-13 22:04:32,006 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:32,321 - INFO - 7campos - Tempo: 0.3143s - Tamanho: 226 bytes
+2025-06-13 22:04:32,323 - INFO - 
+Trial 17/30 - Campos: 7campos
+2025-06-13 22:04:32,324 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:32,692 - INFO - 7campos - Tempo: 0.3671s - Tamanho: 226 bytes
+2025-06-13 22:04:32,694 - INFO - 
+Trial 18/30 - Campos: 7campos
+2025-06-13 22:04:32,695 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:32,990 - INFO - 7campos - Tempo: 0.2946s - Tamanho: 226 bytes
+2025-06-13 22:04:32,992 - INFO - 
+Trial 19/30 - Campos: 7campos
+2025-06-13 22:04:32,993 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:33,322 - INFO - 7campos - Tempo: 0.3272s - Tamanho: 226 bytes
+2025-06-13 22:04:33,323 - INFO - 
+Trial 20/30 - Campos: 7campos
+2025-06-13 22:04:33,325 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:33,638 - INFO - 7campos - Tempo: 0.3128s - Tamanho: 226 bytes
+2025-06-13 22:04:33,641 - INFO - 
+Trial 21/30 - Campos: 7campos
+2025-06-13 22:04:33,642 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:33,946 - INFO - 7campos - Tempo: 0.3043s - Tamanho: 226 bytes
+2025-06-13 22:04:33,949 - INFO - 
+Trial 22/30 - Campos: 7campos
+2025-06-13 22:04:33,950 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:34,261 - INFO - 7campos - Tempo: 0.3103s - Tamanho: 226 bytes
+2025-06-13 22:04:34,263 - INFO - 
+Trial 23/30 - Campos: 7campos
+2025-06-13 22:04:34,264 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:34,578 - INFO - 7campos - Tempo: 0.3136s - Tamanho: 226 bytes
+2025-06-13 22:04:34,579 - INFO - 
+Trial 24/30 - Campos: 7campos
+2025-06-13 22:04:34,580 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:34,917 - INFO - 7campos - Tempo: 0.3359s - Tamanho: 226 bytes
+2025-06-13 22:04:34,919 - INFO - 
+Trial 25/30 - Campos: 7campos
+2025-06-13 22:04:34,920 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:35,290 - INFO - 7campos - Tempo: 0.3682s - Tamanho: 226 bytes
+2025-06-13 22:04:35,292 - INFO - 
+Trial 26/30 - Campos: 7campos
+2025-06-13 22:04:35,293 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:35,679 - INFO - 7campos - Tempo: 0.3863s - Tamanho: 226 bytes
+2025-06-13 22:04:35,681 - INFO - 
+Trial 27/30 - Campos: 7campos
+2025-06-13 22:04:35,682 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:35,969 - INFO - 7campos - Tempo: 0.2858s - Tamanho: 226 bytes
+2025-06-13 22:04:35,970 - INFO - 
+Trial 28/30 - Campos: 7campos
+2025-06-13 22:04:35,971 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:36,369 - INFO - 7campos - Tempo: 0.3972s - Tamanho: 226 bytes
+2025-06-13 22:04:36,370 - INFO - 
+Trial 29/30 - Campos: 7campos
+2025-06-13 22:04:36,370 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:36,672 - INFO - 7campos - Tempo: 0.3021s - Tamanho: 226 bytes
+2025-06-13 22:04:36,674 - INFO - 
+Trial 30/30 - Campos: 7campos
+2025-06-13 22:04:36,675 - INFO - 
+Iniciando chamada GraphQL (7campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount }
+2025-06-13 22:04:36,972 - INFO - 7campos - Tempo: 0.2954s - Tamanho: 226 bytes
+2025-06-13 22:04:36,974 - INFO - 
+Trial 1/30 - Campos: 8campos
+2025-06-13 22:04:36,975 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:37,300 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\Experimento_2\respostas_incremental\graphql_response_8campos.json
+2025-06-13 22:04:37,301 - INFO - 8campos - Tempo: 0.3205s - Tamanho: 258 bytes
+2025-06-13 22:04:37,303 - INFO - 
+Trial 2/30 - Campos: 8campos
+2025-06-13 22:04:37,304 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:37,600 - INFO - 8campos - Tempo: 0.2950s - Tamanho: 258 bytes
+2025-06-13 22:04:37,602 - INFO - 
+Trial 3/30 - Campos: 8campos
+2025-06-13 22:04:37,602 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:37,930 - INFO - 8campos - Tempo: 0.3266s - Tamanho: 258 bytes
+2025-06-13 22:04:37,932 - INFO - 
+Trial 4/30 - Campos: 8campos
+2025-06-13 22:04:37,933 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:38,278 - INFO - 8campos - Tempo: 0.3445s - Tamanho: 258 bytes
+2025-06-13 22:04:38,280 - INFO - 
+Trial 5/30 - Campos: 8campos
+2025-06-13 22:04:38,281 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:38,711 - INFO - 8campos - Tempo: 0.4282s - Tamanho: 258 bytes
+2025-06-13 22:04:38,712 - INFO - 
+Trial 6/30 - Campos: 8campos
+2025-06-13 22:04:38,713 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:39,076 - INFO - 8campos - Tempo: 0.3632s - Tamanho: 258 bytes
+2025-06-13 22:04:39,078 - INFO - 
+Trial 7/30 - Campos: 8campos
+2025-06-13 22:04:39,079 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:39,384 - INFO - 8campos - Tempo: 0.3045s - Tamanho: 258 bytes
+2025-06-13 22:04:39,386 - INFO - 
+Trial 8/30 - Campos: 8campos
+2025-06-13 22:04:39,388 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:39,715 - INFO - 8campos - Tempo: 0.3275s - Tamanho: 258 bytes
+2025-06-13 22:04:39,717 - INFO - 
+Trial 9/30 - Campos: 8campos
+2025-06-13 22:04:39,718 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:40,088 - INFO - 8campos - Tempo: 0.3690s - Tamanho: 258 bytes
+2025-06-13 22:04:40,090 - INFO - 
+Trial 10/30 - Campos: 8campos
+2025-06-13 22:04:40,090 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:40,418 - INFO - 8campos - Tempo: 0.3265s - Tamanho: 258 bytes
+2025-06-13 22:04:40,420 - INFO - 
+Trial 11/30 - Campos: 8campos
+2025-06-13 22:04:40,421 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:40,722 - INFO - 8campos - Tempo: 0.2999s - Tamanho: 258 bytes
+2025-06-13 22:04:40,724 - INFO - 
+Trial 12/30 - Campos: 8campos
+2025-06-13 22:04:40,725 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:41,030 - INFO - 8campos - Tempo: 0.3050s - Tamanho: 258 bytes
+2025-06-13 22:04:41,033 - INFO - 
+Trial 13/30 - Campos: 8campos
+2025-06-13 22:04:41,034 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:41,364 - INFO - 8campos - Tempo: 0.3293s - Tamanho: 258 bytes
+2025-06-13 22:04:41,364 - INFO - 
+Trial 14/30 - Campos: 8campos
+2025-06-13 22:04:41,365 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:41,675 - INFO - 8campos - Tempo: 0.3093s - Tamanho: 258 bytes
+2025-06-13 22:04:41,678 - INFO - 
+Trial 15/30 - Campos: 8campos
+2025-06-13 22:04:41,679 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:42,002 - INFO - 8campos - Tempo: 0.3225s - Tamanho: 258 bytes
+2025-06-13 22:04:42,005 - INFO - 
+Trial 16/30 - Campos: 8campos
+2025-06-13 22:04:42,005 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:42,366 - INFO - 8campos - Tempo: 0.3586s - Tamanho: 258 bytes
+2025-06-13 22:04:42,368 - INFO - 
+Trial 17/30 - Campos: 8campos
+2025-06-13 22:04:42,368 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:42,708 - INFO - 8campos - Tempo: 0.3387s - Tamanho: 258 bytes
+2025-06-13 22:04:42,711 - INFO - 
+Trial 18/30 - Campos: 8campos
+2025-06-13 22:04:42,712 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:43,017 - INFO - 8campos - Tempo: 0.3053s - Tamanho: 258 bytes
+2025-06-13 22:04:43,020 - INFO - 
+Trial 19/30 - Campos: 8campos
+2025-06-13 22:04:43,024 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:43,332 - INFO - 8campos - Tempo: 0.3068s - Tamanho: 258 bytes
+2025-06-13 22:04:43,334 - INFO - 
+Trial 20/30 - Campos: 8campos
+2025-06-13 22:04:43,335 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:43,709 - INFO - 8campos - Tempo: 0.3726s - Tamanho: 258 bytes
+2025-06-13 22:04:43,709 - INFO - 
+Trial 21/30 - Campos: 8campos
+2025-06-13 22:04:43,710 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:44,115 - INFO - 8campos - Tempo: 0.4055s - Tamanho: 258 bytes
+2025-06-13 22:04:44,117 - INFO - 
+Trial 22/30 - Campos: 8campos
+2025-06-13 22:04:44,119 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:44,423 - INFO - 8campos - Tempo: 0.3032s - Tamanho: 258 bytes
+2025-06-13 22:04:44,424 - INFO - 
+Trial 23/30 - Campos: 8campos
+2025-06-13 22:04:44,424 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:44,740 - INFO - 8campos - Tempo: 0.3158s - Tamanho: 258 bytes
+2025-06-13 22:04:44,742 - INFO - 
+Trial 24/30 - Campos: 8campos
+2025-06-13 22:04:44,743 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:45,146 - INFO - 8campos - Tempo: 0.4031s - Tamanho: 258 bytes
+2025-06-13 22:04:45,148 - INFO - 
+Trial 25/30 - Campos: 8campos
+2025-06-13 22:04:45,149 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:45,524 - INFO - 8campos - Tempo: 0.3745s - Tamanho: 258 bytes
+2025-06-13 22:04:45,526 - INFO - 
+Trial 26/30 - Campos: 8campos
+2025-06-13 22:04:45,527 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:45,832 - INFO - 8campos - Tempo: 0.3036s - Tamanho: 258 bytes
+2025-06-13 22:04:45,834 - INFO - 
+Trial 27/30 - Campos: 8campos
+2025-06-13 22:04:45,835 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:46,178 - INFO - 8campos - Tempo: 0.3423s - Tamanho: 258 bytes
+2025-06-13 22:04:46,180 - INFO - 
+Trial 28/30 - Campos: 8campos
+2025-06-13 22:04:46,181 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:46,564 - INFO - 8campos - Tempo: 0.3822s - Tamanho: 258 bytes
+2025-06-13 22:04:46,566 - INFO - 
+Trial 29/30 - Campos: 8campos
+2025-06-13 22:04:46,567 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:46,884 - INFO - 8campos - Tempo: 0.3171s - Tamanho: 258 bytes
+2025-06-13 22:04:46,886 - INFO - 
+Trial 30/30 - Campos: 8campos
+2025-06-13 22:04:46,887 - INFO - 
+Iniciando chamada GraphQL (8campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount }
+2025-06-13 22:04:47,217 - INFO - 8campos - Tempo: 0.3285s - Tamanho: 258 bytes
+2025-06-13 22:04:47,219 - INFO - 
+Trial 1/30 - Campos: 9campos
+2025-06-13 22:04:47,220 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:47,550 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\Experimento_2\respostas_incremental\graphql_response_9campos.json
+2025-06-13 22:04:47,551 - INFO - 9campos - Tempo: 0.3251s - Tamanho: 322 bytes
+2025-06-13 22:04:47,553 - INFO - 
+Trial 2/30 - Campos: 9campos
+2025-06-13 22:04:47,554 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:47,892 - INFO - 9campos - Tempo: 0.3375s - Tamanho: 322 bytes
+2025-06-13 22:04:47,894 - INFO - 
+Trial 3/30 - Campos: 9campos
+2025-06-13 22:04:47,895 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:48,217 - INFO - 9campos - Tempo: 0.3212s - Tamanho: 322 bytes
+2025-06-13 22:04:48,219 - INFO - 
+Trial 4/30 - Campos: 9campos
+2025-06-13 22:04:48,220 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:48,598 - INFO - 9campos - Tempo: 0.3770s - Tamanho: 322 bytes
+2025-06-13 22:04:48,599 - INFO - 
+Trial 5/30 - Campos: 9campos
+2025-06-13 22:04:48,601 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:48,918 - INFO - 9campos - Tempo: 0.3166s - Tamanho: 322 bytes
+2025-06-13 22:04:48,919 - INFO - 
+Trial 6/30 - Campos: 9campos
+2025-06-13 22:04:48,919 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:49,248 - INFO - 9campos - Tempo: 0.3288s - Tamanho: 322 bytes
+2025-06-13 22:04:49,250 - INFO - 
+Trial 7/30 - Campos: 9campos
+2025-06-13 22:04:49,251 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:49,561 - INFO - 9campos - Tempo: 0.3091s - Tamanho: 322 bytes
+2025-06-13 22:04:49,564 - INFO - 
+Trial 8/30 - Campos: 9campos
+2025-06-13 22:04:49,564 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:49,915 - INFO - 9campos - Tempo: 0.3501s - Tamanho: 322 bytes
+2025-06-13 22:04:49,917 - INFO - 
+Trial 9/30 - Campos: 9campos
+2025-06-13 22:04:49,918 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:50,341 - INFO - 9campos - Tempo: 0.4235s - Tamanho: 322 bytes
+2025-06-13 22:04:50,343 - INFO - 
+Trial 10/30 - Campos: 9campos
+2025-06-13 22:04:50,344 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:50,722 - INFO - 9campos - Tempo: 0.3773s - Tamanho: 322 bytes
+2025-06-13 22:04:50,724 - INFO - 
+Trial 11/30 - Campos: 9campos
+2025-06-13 22:04:50,724 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:51,050 - INFO - 9campos - Tempo: 0.3255s - Tamanho: 322 bytes
+2025-06-13 22:04:51,053 - INFO - 
+Trial 12/30 - Campos: 9campos
+2025-06-13 22:04:51,053 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:51,392 - INFO - 9campos - Tempo: 0.3380s - Tamanho: 322 bytes
+2025-06-13 22:04:51,394 - INFO - 
+Trial 13/30 - Campos: 9campos
+2025-06-13 22:04:51,395 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:51,741 - INFO - 9campos - Tempo: 0.3449s - Tamanho: 322 bytes
+2025-06-13 22:04:51,742 - INFO - 
+Trial 14/30 - Campos: 9campos
+2025-06-13 22:04:51,743 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:52,072 - INFO - 9campos - Tempo: 0.3281s - Tamanho: 322 bytes
+2025-06-13 22:04:52,075 - INFO - 
+Trial 15/30 - Campos: 9campos
+2025-06-13 22:04:52,075 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:52,392 - INFO - 9campos - Tempo: 0.3157s - Tamanho: 322 bytes
+2025-06-13 22:04:52,394 - INFO - 
+Trial 16/30 - Campos: 9campos
+2025-06-13 22:04:52,395 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:52,734 - INFO - 9campos - Tempo: 0.3382s - Tamanho: 322 bytes
+2025-06-13 22:04:52,737 - INFO - 
+Trial 17/30 - Campos: 9campos
+2025-06-13 22:04:52,738 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:53,241 - INFO - 9campos - Tempo: 0.5030s - Tamanho: 322 bytes
+2025-06-13 22:04:53,243 - INFO - 
+Trial 18/30 - Campos: 9campos
+2025-06-13 22:04:53,244 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:53,613 - INFO - 9campos - Tempo: 0.3688s - Tamanho: 322 bytes
+2025-06-13 22:04:53,615 - INFO - 
+Trial 19/30 - Campos: 9campos
+2025-06-13 22:04:53,616 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:53,984 - INFO - 9campos - Tempo: 0.3661s - Tamanho: 322 bytes
+2025-06-13 22:04:53,985 - INFO - 
+Trial 20/30 - Campos: 9campos
+2025-06-13 22:04:53,985 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:54,321 - INFO - 9campos - Tempo: 0.3344s - Tamanho: 322 bytes
+2025-06-13 22:04:54,323 - INFO - 
+Trial 21/30 - Campos: 9campos
+2025-06-13 22:04:54,324 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:54,725 - INFO - 9campos - Tempo: 0.3997s - Tamanho: 322 bytes
+2025-06-13 22:04:54,727 - INFO - 
+Trial 22/30 - Campos: 9campos
+2025-06-13 22:04:54,728 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:55,036 - INFO - 9campos - Tempo: 0.3073s - Tamanho: 322 bytes
+2025-06-13 22:04:55,038 - INFO - 
+Trial 23/30 - Campos: 9campos
+2025-06-13 22:04:55,039 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:55,355 - INFO - 9campos - Tempo: 0.3157s - Tamanho: 322 bytes
+2025-06-13 22:04:55,357 - INFO - 
+Trial 24/30 - Campos: 9campos
+2025-06-13 22:04:55,358 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:55,696 - INFO - 9campos - Tempo: 0.3386s - Tamanho: 322 bytes
+2025-06-13 22:04:55,697 - INFO - 
+Trial 25/30 - Campos: 9campos
+2025-06-13 22:04:55,697 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:56,058 - INFO - 9campos - Tempo: 0.3610s - Tamanho: 322 bytes
+2025-06-13 22:04:56,060 - INFO - 
+Trial 26/30 - Campos: 9campos
+2025-06-13 22:04:56,061 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:56,417 - INFO - 9campos - Tempo: 0.3554s - Tamanho: 322 bytes
+2025-06-13 22:04:56,418 - INFO - 
+Trial 27/30 - Campos: 9campos
+2025-06-13 22:04:56,418 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:56,759 - INFO - 9campos - Tempo: 0.3394s - Tamanho: 322 bytes
+2025-06-13 22:04:56,761 - INFO - 
+Trial 28/30 - Campos: 9campos
+2025-06-13 22:04:56,761 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:57,066 - INFO - 9campos - Tempo: 0.3038s - Tamanho: 322 bytes
+2025-06-13 22:04:57,068 - INFO - 
+Trial 29/30 - Campos: 9campos
+2025-06-13 22:04:57,069 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:57,390 - INFO - 9campos - Tempo: 0.3204s - Tamanho: 322 bytes
+2025-06-13 22:04:57,392 - INFO - 
+Trial 30/30 - Campos: 9campos
+2025-06-13 22:04:57,394 - INFO - 
+Iniciando chamada GraphQL (9campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } }
+2025-06-13 22:04:57,784 - INFO - 9campos - Tempo: 0.3903s - Tamanho: 322 bytes
+2025-06-13 22:04:57,786 - INFO - 
+Trial 1/30 - Campos: 10campos
+2025-06-13 22:04:57,787 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:04:58,107 - INFO - Resposta salva em: c:\Users\natan\PUCMG_LAB_2025_1\Lab_Experimentacao_Software_1.2025\Lab5_GraphXRest\Lab5S02\Experimento_2\respostas_incremental\graphql_response_10campos.json
+2025-06-13 22:04:58,108 - INFO - 10campos - Tempo: 0.3148s - Tamanho: 354 bytes
+2025-06-13 22:04:58,110 - INFO - 
+Trial 2/30 - Campos: 10campos
+2025-06-13 22:04:58,111 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:04:58,405 - INFO - 10campos - Tempo: 0.2930s - Tamanho: 354 bytes
+2025-06-13 22:04:58,407 - INFO - 
+Trial 3/30 - Campos: 10campos
+2025-06-13 22:04:58,408 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:04:58,828 - INFO - 10campos - Tempo: 0.4195s - Tamanho: 354 bytes
+2025-06-13 22:04:58,830 - INFO - 
+Trial 4/30 - Campos: 10campos
+2025-06-13 22:04:58,831 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:04:59,238 - INFO - 10campos - Tempo: 0.4073s - Tamanho: 354 bytes
+2025-06-13 22:04:59,241 - INFO - 
+Trial 5/30 - Campos: 10campos
+2025-06-13 22:04:59,242 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:04:59,562 - INFO - 10campos - Tempo: 0.3204s - Tamanho: 354 bytes
+2025-06-13 22:04:59,563 - INFO - 
+Trial 6/30 - Campos: 10campos
+2025-06-13 22:04:59,564 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:04:59,863 - INFO - 10campos - Tempo: 0.2984s - Tamanho: 354 bytes
+2025-06-13 22:04:59,865 - INFO - 
+Trial 7/30 - Campos: 10campos
+2025-06-13 22:04:59,866 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:00,214 - INFO - 10campos - Tempo: 0.3465s - Tamanho: 354 bytes
+2025-06-13 22:05:00,216 - INFO - 
+Trial 8/30 - Campos: 10campos
+2025-06-13 22:05:00,217 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:00,652 - INFO - 10campos - Tempo: 0.4345s - Tamanho: 354 bytes
+2025-06-13 22:05:00,654 - INFO - 
+Trial 9/30 - Campos: 10campos
+2025-06-13 22:05:00,655 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:00,989 - INFO - 10campos - Tempo: 0.3325s - Tamanho: 354 bytes
+2025-06-13 22:05:00,991 - INFO - 
+Trial 10/30 - Campos: 10campos
+2025-06-13 22:05:00,991 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:01,310 - INFO - 10campos - Tempo: 0.3177s - Tamanho: 354 bytes
+2025-06-13 22:05:01,312 - INFO - 
+Trial 11/30 - Campos: 10campos
+2025-06-13 22:05:01,313 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:01,638 - INFO - 10campos - Tempo: 0.3247s - Tamanho: 354 bytes
+2025-06-13 22:05:01,640 - INFO - 
+Trial 12/30 - Campos: 10campos
+2025-06-13 22:05:01,641 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:01,994 - INFO - 10campos - Tempo: 0.3516s - Tamanho: 354 bytes
+2025-06-13 22:05:01,996 - INFO - 
+Trial 13/30 - Campos: 10campos
+2025-06-13 22:05:01,997 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:02,323 - INFO - 10campos - Tempo: 0.3264s - Tamanho: 354 bytes
+2025-06-13 22:05:02,324 - INFO - 
+Trial 14/30 - Campos: 10campos
+2025-06-13 22:05:02,324 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:02,628 - INFO - 10campos - Tempo: 0.3024s - Tamanho: 354 bytes
+2025-06-13 22:05:02,629 - INFO - 
+Trial 15/30 - Campos: 10campos
+2025-06-13 22:05:02,630 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:03,070 - INFO - 10campos - Tempo: 0.4390s - Tamanho: 354 bytes
+2025-06-13 22:05:03,072 - INFO - 
+Trial 16/30 - Campos: 10campos
+2025-06-13 22:05:03,073 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:03,404 - INFO - 10campos - Tempo: 0.3300s - Tamanho: 354 bytes
+2025-06-13 22:05:03,405 - INFO - 
+Trial 17/30 - Campos: 10campos
+2025-06-13 22:05:03,406 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:03,715 - INFO - 10campos - Tempo: 0.3078s - Tamanho: 354 bytes
+2025-06-13 22:05:03,718 - INFO - 
+Trial 18/30 - Campos: 10campos
+2025-06-13 22:05:03,718 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:04,056 - INFO - 10campos - Tempo: 0.3372s - Tamanho: 354 bytes
+2025-06-13 22:05:04,058 - INFO - 
+Trial 19/30 - Campos: 10campos
+2025-06-13 22:05:04,059 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:04,478 - INFO - 10campos - Tempo: 0.4180s - Tamanho: 354 bytes
+2025-06-13 22:05:04,480 - INFO - 
+Trial 20/30 - Campos: 10campos
+2025-06-13 22:05:04,481 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:04,816 - INFO - 10campos - Tempo: 0.3352s - Tamanho: 354 bytes
+2025-06-13 22:05:04,818 - INFO - 
+Trial 21/30 - Campos: 10campos
+2025-06-13 22:05:04,819 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:05,616 - INFO - 10campos - Tempo: 0.7957s - Tamanho: 354 bytes
+2025-06-13 22:05:05,618 - INFO - 
+Trial 22/30 - Campos: 10campos
+2025-06-13 22:05:05,619 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:05,956 - INFO - 10campos - Tempo: 0.3352s - Tamanho: 354 bytes
+2025-06-13 22:05:05,958 - INFO - 
+Trial 23/30 - Campos: 10campos
+2025-06-13 22:05:05,958 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:06,337 - INFO - 10campos - Tempo: 0.3771s - Tamanho: 354 bytes
+2025-06-13 22:05:06,338 - INFO - 
+Trial 24/30 - Campos: 10campos
+2025-06-13 22:05:06,339 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:06,669 - INFO - 10campos - Tempo: 0.3291s - Tamanho: 354 bytes
+2025-06-13 22:05:06,671 - INFO - 
+Trial 25/30 - Campos: 10campos
+2025-06-13 22:05:06,673 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:07,000 - INFO - 10campos - Tempo: 0.3272s - Tamanho: 354 bytes
+2025-06-13 22:05:07,003 - INFO - 
+Trial 26/30 - Campos: 10campos
+2025-06-13 22:05:07,003 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:07,343 - INFO - 10campos - Tempo: 0.3386s - Tamanho: 354 bytes
+2025-06-13 22:05:07,345 - INFO - 
+Trial 27/30 - Campos: 10campos
+2025-06-13 22:05:07,346 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:07,692 - INFO - 10campos - Tempo: 0.3456s - Tamanho: 354 bytes
+2025-06-13 22:05:07,694 - INFO - 
+Trial 28/30 - Campos: 10campos
+2025-06-13 22:05:07,695 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:08,063 - INFO - 10campos - Tempo: 0.3656s - Tamanho: 354 bytes
+2025-06-13 22:05:08,065 - INFO - 
+Trial 29/30 - Campos: 10campos
+2025-06-13 22:05:08,065 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:08,388 - INFO - 10campos - Tempo: 0.3217s - Tamanho: 354 bytes
+2025-06-13 22:05:08,390 - INFO - 
+Trial 30/30 - Campos: 10campos
+2025-06-13 22:05:08,391 - INFO - 
+Iniciando chamada GraphQL (10campos) com campos: name createdAt updatedAt stargazerCount forkCount watchers { totalCount } issues { totalCount } pullRequests { totalCount } languages(first: 5) { edges { size node { name } } } repositoryTopics(first: 5) { nodes { topic { name } } }
+2025-06-13 22:05:08,700 - INFO - 10campos - Tempo: 0.3077s - Tamanho: 354 bytes
+2025-06-13 22:05:08,703 - INFO - 
+\u2705 Experimento incremental concluído.

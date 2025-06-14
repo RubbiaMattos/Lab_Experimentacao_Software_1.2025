@@ -1,0 +1,57 @@
+{
+  "data": {
+    "repository": {
+      "name": "Lab_Experimentacao_Software_1.2025",
+      "nameWithOwner": "RubbiaMattos/Lab_Experimentacao_Software_1.2025",
+      "description": null,
+      "descriptionHTML": "<div></div>",
+      "shortDescriptionHTML": "",
+      "homepageUrl": null,
+      "url": "https://github.com/RubbiaMattos/Lab_Experimentacao_Software_1.2025",
+      "resourcePath": "/RubbiaMattos/Lab_Experimentacao_Software_1.2025",
+      "sshUrl": "git@github.com:RubbiaMattos/Lab_Experimentacao_Software_1.2025.git",
+      "createdAt": "2025-02-12T00:21:01Z",
+      "updatedAt": "2025-06-02T18:34:31Z",
+      "pushedAt": "2025-06-02T18:34:28Z",
+      "visibility": "PUBLIC",
+      "isPrivate": false,
+      "diskUsage": 192580,
+      "forkCount": 0,
+      "forks": {
+        "totalCount": 0,
+        "nodes": []
+      },
+      "stargazerCount": 1,
+      "watchers": {
+        "totalCount": 1
+      },
+      "issues": {
+        "totalCount": 0
+      },
+      "pullRequests": {
+        "totalCount": 0
+      },
+      "licenseInfo": null,
+      "languages": {
+        "edges": [
+          {
+            "size": 80449,
+            "node": {
+              "name": "Python"
+            }
+          }
+        ]
+      },
+      "repositoryTopics": {
+        "nodes": []
+      },
+      "defaultBranchRef": {
+        "name": "main",
+        "prefix": "refs/heads/"
+      },
+      "primaryLanguage": {
+        "name": "Python"
+      }
+    }
+  }
+}

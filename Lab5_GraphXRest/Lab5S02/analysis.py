@@ -1,7 +1,15 @@
 import pandas as pd
-# faz a análise estatística dos resultados CSV
+import os
+# Faz a análise estatística dos resultados CSV
 # Carrega os resultados
-df = pd.read_csv("experiment_results.csv")
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Caminhos completos dos arquivos
+RESULTS_FILE = os.path.join(BASE_DIR, "experiment_results.csv")
+SUMMARY_FILE = os.path.join(BASE_DIR, "experiment_summary.csv")
+
+df = pd.read_csv(RESULTS_FILE)
 
 # Estatísticas descritivas por API
 for api in df["API_Type"].unique():
@@ -19,5 +27,6 @@ summary = df.groupby("API_Type").agg(
     Response_Size_mean =("Response_Size", "mean"),
     Response_Size_std  =("Response_Size", "std")
 )
-summary.to_csv("experiment_summary.csv")
-print("\n✅ Resumo salvo em 'experiment_summary.csv'.")
+summary.to_csv(SUMMARY_FILE)
+
+print(f"\n✅ Resumo salvo em '{os.path.basename(SUMMARY_FILE)}'.")
