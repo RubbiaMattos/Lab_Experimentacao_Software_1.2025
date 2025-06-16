@@ -1,326 +1,190 @@
-# 📌 **Laboratório 02 - Qualidade de Sistemas Java**  
+# 🧪 Laboratório 02 — Análise de Qualidade em Repositórios Java
 
-## 🎯 **Objetivo**  
+## 🎯 Objetivo
 
-Este laboratório tem como objetivo **avaliar a qualidade de repositórios Java open-source**, analisando métricas de código e características do desenvolvimento. Utilizaremos a ferramenta **CK** para extrair métricas como **acoplamento, herança e coesão**, além de coletar dados sobre **popularidade, maturidade e atividade dos repositórios**.  
+Investigar a relação entre métricas de qualidade de código-fonte (CBO, DIT, LCOM) e características de desenvolvimento de repositórios populares em **Java**, como:
 
----
-
-## 🔎 **Questões de Pesquisa**  
-
-1️⃣ **Popularidade x Qualidade** → Repositórios com mais estrelas têm código de melhor qualidade?  
-2️⃣ **Maturidade x Qualidade** → Projetos mais antigos são mais bem estruturados?  
-3️⃣ **Atividade x Manutenibilidade** → Repositórios mais ativos têm código mais modular?  
-4️⃣ **Tamanho x Complexidade** → Repositórios maiores possuem mais acoplamento e menor coesão?  
+* Popularidade (estrelas)
+* Maturidade (idade)
+* Atividade (releases)
+* Tamanho (LOC e comentários)
 
 ---
 
-## 📂 **Estrutura do Projeto**  
+## 🗂️ Etapas do Projeto
+
+1. **Coleta dos Repositórios Java via API do GitHub**
+
+   * Filtro por licença open-source
+   * Ordenação por número de estrelas
+
+2. **Clonagem Automatizada dos Repositórios**
+
+   * Verificação de integridade (`.git`)
+   * Tolerância a falhas e re-clone quando necessário
+
+3. **Extração de Métricas CK**
+
+   * Utilização do `ck.jar` para gerar métricas de qualidade: CBO, DIT, LCOM, LOC, Comentários
+
+4. **Análise Estatística e Visualizações**
+
+   * Estatísticas descritivas
+   * Histogramas, boxplots
+   * Correlações (Pearson e Spearman)
+   * Regressão linear múltipla
+
+---
+
+## 🛠️ Como Executar
+
+### 🔐 Configuração do Token
+
+Crie o arquivo `env.config` no caminho:
+
 ```
-📂 Lab2_QualiJava
-├─ 📂 Lab2S01 *(Coleta e Análise Inicial)*
-│  ├─ 🐍 coleta_repositorios.py
-│  ├─ 🐍 automacao_clone.py
-│  ├─ 🐍 coletar_dados.py
-│  ├─ 🐍 analisar_dados.py
-│  ├─ 🐍 main.py
-│  ├─ 📄 ck.jar
-│  ├─ 📂 Data
-│  │  ├─ repositorios_list.csv
-│  │  ├─ resultados_totais.csv
-│  │  ├─ analise_metrica_ck.csv
-│  │  ├─ 📂 ck_output_* *(Diretórios por repositório - saída do CK)*
-│  ├─ 📂 Repos *(Repositórios clonados)*
-│  ├─ 📂 Relatórios
-│  │  ├─ clone_repositorios_log.log
-│  │  ├─ coleta_repositorios_log.log
-│  │  ├─ coletar_dados_log.log
-│  │  ├─ correlacao_p_values_rq01.csv
-│  │  ├─ correlacao_p_values_rq02.csv
-│  │  ├─ correlacao_p_values_rq03.csv
-│  │  ├─ correlacao_p_values_rq04.csv
-│  │  ├─ boxplot_LOC.png
-│  │  ├─ boxplot_LOC_log.png
-│  │  ├─ histograma_CBO.png
-│  │  ├─ histograma_DIT.png
-│  │  ├─ histograma_LCOM.png
-│  │  ├─ histograma_LOC.png
-│  │  ├─ histograma_Comments.png
-│  │  ├─ histograma_Maturity.png
-│  │  ├─ histograma_Release.png
-│  │  ├─ histograma_Stars.png
-│  │  ├─ popularidade_qualidade_CBO.png
-│  │  ├─ popularidade_qualidade_DIT.png
-│  │  ├─ popularidade_qualidade_LCOM.png
-│  │  ├─ maturidade_qualidade_CBO.png
-│  │  ├─ maturidade_qualidade_DIT.png
-│  │  ├─ maturidade_qualidade_LCOM.png
-│  │  ├─ release_qualidade_CBO.png
-│  │  ├─ release_qualidade_DIT.png
-│  │  ├─ release_qualidade_LCOM.png
-│  │  ├─ loc_qualidade_CBO.png
-│  │  ├─ loc_qualidade_DIT.png
-│  │  ├─ loc_qualidade_LCOM.png
-│
-├─ 📂 Lab2S02 *(Sprint 2 - Análises Finais e Relatório)*
-│  ├─ 🐍 coleta_repositorios.py
-│  ├─ 🐍 automacao_clone.py
-│  ├─ 🐍 coletar_dados.py
-│  ├─ 🐍 analisar_dados.py
-│  ├─ 🐍 main.py
-│  ├─ 📄 ck.jar
-│  ├─ 📂 data
-│  │  ├─ repositorios_list.csv
-│  │  ├─ resultados_totais.csv
-│  │  ├─ analise_metrica_ck.csv
-│  ├─ 📂 Repos *(Repositórios clonados)*
-│  ├─ 📂 Relatórios
-│  │  ├─ Logs (clone, coleta, análise)
-│  │  ├─ histogramas e boxplots
-│  │  ├─ gráficos de correlação das 4 RQs
-│  │  ├─ correlações (rq01 → rq04)
-│  │  ├─ 📄 Análise de Repositórios Populares Java GitHub.docx
-│  │  ├─ 📄 Análise de Repositórios Populares Java GitHub.pdf
-│
-├─ 📜 LABORATÓRIO_02.pdf
-├─ 📜 README_Lab2.md
+2025-1 - 2º, 6º PERÍODO\LABORATÓRIO DE EXPERIMENTAÇÃO DE SOFTWARE\Lab_Experimentacao_Software_1.2025\env.config
 ```
 
----
-
-## 🔑 **Configuração do Token da API GitHub**  
-
-O script de coleta requer um **token de autenticação** do GitHub. O token pode ser configurado automaticamente via terminal ou salvo em um arquivo `env.config` na raiz do projeto, no seguinte formato:
+Com o seguinte conteúdo:
 
 ```
 GITHUB_TOKEN=seu_token_aqui
 ```
 
-Caso precise gerar um token, siga os passos:  
-1. Acesse [GitHub Developer Settings](https://github.com/settings/tokens).  
-2. Clique em **"Generate new token (classic)"**.  
-3. Selecione as permissões:  
-   - `repo` → Acesso a repositórios públicos  
-   - `read:org` → Acesso a informações organizacionais (se necessário)  
-4. Copie o token gerado e adicione ao projeto.  
+Para gerar o token, acesse: [GitHub Developer Settings](https://github.com/settings/tokens)
+→ Clique em **Generate new token (classic)** e selecione o escopo `repo`.
+
+> ⚠️ **Importante:** Nunca compartilhe seu token publicamente.
 
 ---
 
-## 🚀 **Sprints do Projeto**  
+### ▶️ Etapas de Execução
 
-### 📌 **Sprint 1 - Coleta de Dados e Análise Inicial**  
+1. **Instale as dependências:**
 
-🔹 **Objetivos:**  
-- Coletar **1000 repositórios Java** populares via **API do GitHub**.  
-- Clonar os repositórios coletados automaticamente.  
-- Extrair métricas de código usando a ferramenta **CK**.  
-- Organizar e armazenar os dados coletados para análise.  
-
-🔹 **Dependências:**  
 ```bash
-pip install requests pandas python-dotenv gitpython matplotlib seaborn
+py -3.12 -m pip install pandas requests matplotlib seaborn python-dotenv statsmodels scipy tabulate tqdm psutil
 ```
 
-## 🚀 **Como Executar o Projeto (Completo ou Etapas Individuais)**
+2. **Execute o pipeline completo:**
 
-### 📦 **1. Instalar dependências**
-```bash
-pip install requests pandas python-dotenv gitpython matplotlib seaborn scipy numpy statsmodels tabulate tqdm
-```
-
----
-
-### ⚙ **2. Configurar o Token GitHub**
-No arquivo:
-```
-Lab_Experimentacao_Software_1.2025\env.config
-```
-Exemplo:
-```
-GITHUB_TOKEN=seu_token_aqui
-```
-
----
-
-### ▶ **3. Executar o pipeline**
-Dentro da pasta `Lab2S02`, rode o pipeline com:
 ```bash
 python main.py --step all
 ```
 
-O sistema:
-✅ Pergunta se deseja limpar as pastas `Data/` e `Repos/`  
-✅ Caso SIM, limpa as pastas  
-✅ **Após limpar**, o pipeline **executa automaticamente todas as etapas** na sequência:
-1. Buscar repositórios
-2. Clonar repositórios
-3. Rodar o CK
-4. Analisar os dados e gerar os relatórios
+3. **Ou execute por etapas:**
 
----
-
-### ✅ **4. Executar apenas a limpeza e escolher a etapa**
-Se você quiser **limpar e rodar só uma parte**, execute direto com:
 ```bash
-python main.py --step buscar      # Apenas busca os repositórios
-python main.py --step clone       # Apenas clona os repositórios
-python main.py --step coletar     # Apenas executa o CK e coleta dados
-python main.py --step analisar    # Apenas analisa e gera os gráficos/relatórios
+python main.py --step buscar      # Buscar repositórios Java via API
+python main.py --step clone       # Clonar os repositórios
+python main.py --step coletar     # Executar ck.jar e extrair métricas
+python main.py --step analisar    # Analisar métricas e gerar gráficos
 ```
----
 
-### 📊 **Resultados da Sprint 1**  
-
-📂 **Lab2S01/data/** gerou os seguintes arquivos:  
-- **📂 ck_output/** → Métricas extraídas pelo CK (**class.csv, method.csv, field.csv, variable.csv**).  
-- **📂 repos/** → Repositórios clonados para análise.  
-- **📄 repositorios_list.csv** → Lista dos 1000 repositórios Java coletados.  
-- **📄 resultados_totais.csv** → Consolidação das métricas extraídas.  
-- **📄 matriz_correlacao.png** → Gráfico de correlação das métricas.  
-- **📄 analise_metrica_ck.csv** → Estatísticas descritivas.  
-
-🔹 **Principais Insights:**  
-📌 Possível relação entre **tamanho do código (LOC)** e **acoplamento (CBO)**.  
-📌 Projetos **mais antigos** tendem a apresentar **menor coesão (LCOM alto)**.  
-📌 Repositórios **mais populares** podem ter código de **melhor qualidade**.  
-
-🚀 *Próximos passos na Sprint 2: análise detalhada e geração de relatórios!*  
+> Também é possível executar os scripts individualmente:
+> `coleta_repositorios.py`, `automacao_clone.py`, `coletar_dados.py`, `analisar_dados.py`
 
 ---
 
-## 📌 **Sprint 2 - Análise Estatística, Gráficos e Relatório Final**
+### 📂 Saídas esperadas
 
-### 🔧 **Atividades Executadas**
-✅ Recoleta e verificação dos repositórios  
-✅ Reexecução da coleta de métricas CK  
-✅ Geração de análises estatísticas e matrizes de correlação  
-✅ Geração de histogramas, boxplots e gráficos das RQs  
-✅ Aplicação dos testes estatísticos (Pearson e Spearman)  
-✅ Geração do relatório final `.pdf` e `.docx`
+* `data/resultados_totais.csv`: arquivo com métricas extraídas (CBO, DIT, LCOM etc.)
+* Diretório `Repos/`: repositórios Java clonados
+* Diretório `Relatórios/`:
 
----
-
-## 🚀 **Como Executar o Projeto (Completo ou Etapas Individuais)**
-
-### 📦 **1. Instalar dependências**
-```bash
-pip install requests pandas python-dotenv gitpython matplotlib seaborn scipy numpy statsmodels tabulate tqdm
-```
+  * Gráficos `.png` gerados pela análise
+  * Relatórios em `.docx`, `.pdf`, `.pptx`
+  * Logs de execução `.log`
 
 ---
 
-### ⚙ **2. Configurar o Token GitHub**
-No arquivo:
-```
-Lab_Experimentacao_Software_1.2025\env.config
-```
-Exemplo:
-```
-GITHUB_TOKEN=seu_token_aqui
-```
+## ❓ Questões de Pesquisa (RQs)
+
+| RQ  | Pergunta                                                             | Hipótese                                   |
+| --- | -------------------------------------------------------------------- | ------------------------------------------ |
+| RQ1 | Qual a relação entre a **popularidade** e atributos de qualidade?    | Populares têm melhor qualidade             |
+| RQ2 | Qual a relação entre a **maturidade** e qualidade?                   | Repositórios antigos têm melhor qualidade  |
+| RQ3 | Repositórios com mais **atividade** (releases) têm melhor qualidade? | Atividade pode afetar coesão e acoplamento |
+| RQ4 | Repositórios maiores (em **LOC**) têm pior qualidade?                | Tamanho pode aumentar complexidade         |
 
 ---
 
-### ▶ **3. Executar o pipeline**
-Dentro da pasta `Lab2S02`, rode o pipeline com:
-```bash
-python main.py --step all
-```
+## 📈 Métricas Utilizadas
 
-O sistema:
-✅ Pergunta se deseja limpar as pastas `Data/` e `Repos/`  
-✅ Caso SIM, limpa as pastas  
-✅ **Após limpar**, o pipeline **executa automaticamente todas as etapas** na sequência:
-1. Buscar repositórios
-2. Clonar repositórios
-3. Rodar o CK
-4. Analisar os dados e gerar os relatórios
+| Categoria    | Métricas                     |
+| ------------ | ---------------------------- |
+| Qualidade    | CBO, DIT, LCOM               |
+| Tamanho      | LOC, Comentários             |
+| Popularidade | Estrelas (Stars)             |
+| Atividade    | Número de releases           |
+| Maturidade   | Tempo desde a criação (anos) |
 
 ---
 
-### 📊 **Saídas da Sprint 2**
+## 👥 Equipe
 
-#### 📂 **Lab2S02/data**
-```
-📄 repositorios_list.csv      -> Lista dos repositórios coletados
-📄 resultados_totais.csv      -> Todas as métricas coletadas por repositório
-📄 analise_metrica_ck.csv     -> Estatísticas descritivas das métricas
-```
+* **Nataniel Geraldo Mendes Peixoto**
+* **Nelson de Campos Nolasco**
+* **Rubia Coelho de Matos**
 
 ---
 
-#### 📂 **Lab2S02/Relatórios**
+## 📁 Estrutura do Projeto
+
 ```
-📄 clone_repositorios_log.log
-📄 coleta_repositorios_log.log
-📄 coletar_dados_log.log
-📄 analisar_dados_log.log
-
-📄 correlacao_p_values_rq01.csv   -> Popularidade x Qualidade
-📄 correlacao_p_values_rq02.csv   -> Maturidade x Qualidade
-📄 correlacao_p_values_rq03.csv   -> Atividade x Qualidade
-📄 correlacao_p_values_rq04.csv   -> Tamanho (LOC) x Qualidade
-
-📊 boxplot_LOC.png
-
-📊 Histogramas:
-   - histograma_CBO.png
-   - histograma_DIT.png
-   - histograma_LCOM.png
-   - histograma_LOC.png
-   - histograma_Comments.png
-   - histograma_Maturity.png
-   - histograma_Release.png
-   - histograma_Stars.png
-
-📊 Gráficos de correlação:
-   - popularidade_qualidade_CBO.png / DIT / LCOM
-   - maturidade_qualidade_CBO.png / DIT / LCOM
-   - release_qualidade_CBO.png / DIT / LCOM
-   - loc_qualidade_CBO.png / DIT / LCOM
-
-📄 Análise de Repositórios Populares Java GitHub.pdf (Relatório final)
-📄 Análise de Repositórios Populares Java GitHub.docx
+📦 Lab2_QualiJava/
+├── 📄 main.py                         # Gerencia a execução por etapas
+├── 📄 LABORATÓRIO_02.pdf             # Enunciado do laboratório
+├── 📄 README_Lab2.md                 # Documentação do projeto
+│
+├── 🐍 coleta_repositorios.py         # Coleta repositórios Java via GitHub API
+├── 🐍 automacao_clone.py            # Clona repositórios encontrados
+├── 🐍 coletar_dados.py              # Executa CK (ck.jar) e extrai métricas
+├── 🐍 analisar_dados.py             # Gera gráficos e análises estatísticas
+├── 📄 ck.jar                         # Ferramenta para extração de métricas CK
+├── 📄 env.config                     # Token pessoal do GitHub (não versionar)
+│
+├── 📂 data/
+│   └── resultados_totais.csv        # Métricas extraídas com o CK
+│
+├── 📂 Repos/
+│   └── ... (repositórios Java clonados)
+│
+├── 📂 Relatórios/
+│   ├── 📄 Análise de Repositórios Populares Java GitHub.docx
+│   ├── 📄 Análise de Repositórios Populares Java GitHub.pdf
+│   ├── 📄 Analise Características Qualidade Repositórios Java.pptx
+│   ├── 📄 analisar_dados_log.log
+│   ├── 📄 clone_repositorios_log.log
+│   ├── 📄 coleta_repositorios_log.log
+│   ├── 📄 coletar_dados_log.log
+│
+│   ├── 📊 boxplot_LOC.png
+│   ├── 📊 histograma_CBO.png
+│   ├── 📊 histograma_Comments.png
+│   ├── 📊 histograma_DIT.png
+│   ├── 📊 histograma_LCOM.png
+│   ├── 📊 histograma_LOC.png
+│   ├── 📊 histograma_Maturity.png
+│   ├── 📊 histograma_Release.png
+│   ├── 📊 histograma_Stars.png
+│
+│   ├── 📊 loc_qualidade_CBO.png
+│   ├── 📊 loc_qualidade_DIT.png
+│   ├── 📊 loc_qualidade_LCOM.png
+│
+│   ├── 📊 maturidade_qualidade_CBO.png
+│   ├── 📊 maturidade_qualidade_DIT.png
+│   ├── 📊 maturidade_qualidade_LCOM.png
+│
+│   ├── 📊 popularidade_qualidade_CBO.png
+│   ├── 📊 popularidade_qualidade_DIT.png
+│   ├── 📊 popularidade_qualidade_LCOM.png
+│
+│   ├── 📊 release_qualidade_CBO.png
+│   ├── 📊 release_qualidade_DIT.png
+│   └── 📊 release_qualidade_LCOM.png
 ```
 
 ---
-
-### 📜 **Resumo Estatístico da Sprint 2 (Extraído do PDF)**
-✔ Total de repositórios analisados: **979**  
-✔ Principais médias:
-- **CBO**: 5 (baixo acoplamento)
-- **DIT**: 4 (herança moderada)
-- **LCOM**: 115 (baixa coesão com outliers)
-- **LOC**: 180 mil linhas de código em média
-- **Maturidade**: 9 anos
-- **Releases**: 14 em média
-- **Estrelas**: 9.281 (mín. 3.301 - máx. 148.824)
-
----
-
-### 📈 **Resultados das RQs**
-- **RQ1 (Popularidade)** → Popularidade está associada a menor CBO e DIT (menos acoplamento e herança).
-- **RQ2 (Maturidade)** → Mais maturidade → maior DIT e menor coesão (LCOM).
-- **RQ3 (Atividade - Releases)** → Mais releases aumentam CBO, DIT e impactam negativamente na coesão.
-- **RQ4 (Tamanho - LOC)** → Repositórios grandes têm mais acoplamento, herança e menor coesão.
-
----
-
-### ✅ **Entrega Final (Sprint 2)**
-- Relatório **Análise de Repositórios Populares Java GitHub.pdf**
-- CSVs de correlações
-- Todos os gráficos e histogramas
-
----
-
-🔹 **Ferramentas e Bibliotecas:**  
-- **Linguagem:** Python 3.8+  
-- **Bibliotecas:** `pandas`, `numpy`, `matplotlib`, `seaborn`, `scipy`  
-
----
-
-## 📢 **Equipe do Projeto**  
-
-👥 **Nataniel Geraldo Mendes Peixoto**  
-👥 **Nelson de Campos Nolasco**  
-👥 **Rubia Coelho de Matos**  
