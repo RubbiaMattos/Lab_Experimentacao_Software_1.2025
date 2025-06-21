@@ -1,108 +1,131 @@
-# 📌 **Laboratório 05 - GraphQL vs REST - Um Experimento Controlado**
+# 🧪 Laboratório 05 — GraphQL vs REST — Um Experimento Controlado
 
-## 🎯 **Objetivo**
+## 🎯 Objetivo
 
-Este laboratório busca **avaliar quantitativamente os benefícios da adoção de GraphQL em comparação com REST** em APIs Web.
+Este laboratório tem como objetivo avaliar quantitativamente as diferenças de desempenho entre chamadas REST e GraphQL à GitHub API, por meio de:
 
----
-
-## 🔎 **Questões de Pesquisa**
-
-1. **Consultas GraphQL são mais rápidas que consultas REST?**  
-2. **As respostas GraphQL são menores que as respostas REST?**
+- **Medição de latência:** comparar o tempo médio de resposta (em segundos) de consultas equivalentes em ambas as APIs.  
+- **Avaliação de payload:** comparar o tamanho médio (em bytes) dos dados retornados pelas mesmas consultas.  
+- **Análise de consistência:** verificar a variabilidade das medições realizando múltiplas repetições e calculando desvio-padrão.  
+- **Pareamento experimental:** garantir que as comparações sejam feitas sobre o mesmo conjunto de repositórios, controlando fatores externos.  
 
 ---
 
-## 📂 **Estrutura do Projeto** (Proposta)
+## 🗂️ Etapas do Projeto
+
+1. **Desenho do Experimento**  
+   - Definição de hipóteses (H0 e H1).  
+   - Variáveis: **Tempo** (s), **Tamanho** (bytes) e **Tipo de API** (REST vs GraphQL).  
+   - Documentação em `Desenho do Experimento.pdf`.  
+
+2. **Implementação**  
+   - `experiment.py`: executa 30 repetições de chamadas REST e GraphQL para cada repositório.  
+   - Leitura de token GitHub via variável de ambiente `GITHUB_TOKEN`.  
+
+3. **Coleta de Dados**  
+   - Gera `experiment_results.csv` com colunas: `API_Type`, `Trial`, `Response_Time`, `Response_Size`.  
+
+4. **Análise Estatística**  
+   - `analysis.py`: agrega médias e desvios-padrão, produz `experiment_summary.csv`.  
+
+5. **Visualização dos Resultados**  
+   - `dashboard.py`: gera gráficos em `Gráficos/` (histograma de tempos e gráfico de barras de tamanho médio).  
+
+6. **Documentação Final**  
+   - Consolidação em `RelatorioFinal.docx`/`.pdf` e apresentação em PowerPoint.
+
+---
+
+## 🛠️ Como Executar
+
+1. **Configurar token GitHub**  
+```bash
+   echo "GITHUB_TOKEN=seu_token_aqui" > .env
+````
+
+2. **Instalar dependências**
+
+   ```bash
+   pip install requests pandas matplotlib python-dotenv
+   ```
+
+3. **Pipeline completo**
+
+   ```bash
+   python experiment.py --owner <usuário> --repo <repositório> --trials 30
+   python analysis.py
+   python dashboard.py
+   ```
+
+---
+
+## 📂 Saídas Esperadas
+
+* `experiment_results.csv` — medições brutas de tempo e tamanho por trial
+* `experiment_summary.csv` — estatísticas agregadas (média, desvio-padrão)
+* Diretório `respostas_json/` — exemplos de payloads JSON (REST e GraphQL)
+* Diretório `Gráficos/` —
+
+  * `response_time_distribution.png`
+  * `response_size_distribution.png`
+* Diretório `Artefatos/` —
+
+  * `RelatorioFinal.docx`
+  * `RelatorioFinal.pdf`
+  * `Apresentacao_Final.pptx`
+
+---
+
+## 🔎 Questões de Pesquisa (RQs)
+
+| RQ   | Pergunta                                                                    |
+| ---- | --------------------------------------------------------------------------- |
+| RQ1  | Consultas GraphQL são mais rápidas que consultas REST?                      |
+| RQ2  | As respostas GraphQL têm tamanho menor que as respostas REST?               |
+
+---
+
+## 📈 Métricas Utilizadas
+
+| Categoria              | Métrica                                         |
+| ---------------------- | ----------------------------------------------- |
+| **Tempo de Resposta**  | Segundos entre requisição e chegada da resposta |
+| **Tamanho de Payload** | Bytes do corpo da resposta                      |
+
+---
+
+## 👥 Equipe
+
+* Nataniel Geraldo Mendes Peixoto
+* Nelson de Campos Nolasco
+* Rubia Coelho de Matos
+
+---
+
+## 📁 Estrutura do Projeto
 
 ```
-📂 Lab5_Experiment
-├─ 📂 Lab05S01 *(Sprint 1: Desenho e Preparação do Experimento)*
-│  ├─ 🐍 design_experimento.md *(hipóteses, variáveis, etc.)*
-│  ├─ 🐍 setup_ambiente.py *(scripts de teste, se necessário)*
-│
-├─ 📂 Lab05S02 *(Sprint 2: Execução e Análise dos Resultados)*
-│  ├─ 📂 data *(coleta dos dados - CSVs com tempos de resposta e tamanhos)*
-│  ├─ 🐍 analisar_resultados.py *(cálculos estatísticos)*
-│
-├─ 📂 Lab05S03 *(Sprint 3: Criação do Dashboard de Visualização)*
-│  ├─ 📂 dashboard *(arquivos .pbix, .twb, ou gráficos em .png)*
-│  ├─ 📂 relatorio *(relatório final consolidado)*
-│
-├─ 📜 LABORATÓRIO_05.pdf *(Descrição da atividade)*
-├─ 📜 README_Lab5.md *(Arquivo explicativo do laboratório)*
+Lab5_GraphXRest/
+├── 📄 experiment.py                     # Script de execução do experimento
+├── 📄 analysis.py                       # Gera estatísticas agregadas
+├── 📄 dashboard.py                      # Cria histogramas e gráficos de barras
+├── 📄 Desenho do Experimento.pdf        # Documento de desenho experimental
+├── 📄 LABORATÓRIO_05.pdf                # Enunciado oficial do laboratório
+├── 📄 README_Lab5.md                    # Documentação deste projeto
+
+├── 📂 respostas_json/                   # Exemplos de payloads JSON
+│   ├── graphql_response.json
+│   └── rest_response.json
+
+├── 📄 experiment_results.csv           # Dados brutos do experimento
+├── 📄 experiment_summary.csv           # Estatísticas agregadas
+
+├── 📂 Gráficos/                         # Visualizações geradas
+│   ├── response_time_distribution.png
+│   └── response_size_distribution.png
+
+└── 📂 Artefatos/                        # Documentos finais
+    ├── RelatorioFinal.docx
+    ├── RelatorioFinal.pdf
+    └── Apresentacao_Final.pptx
 ```
-
----
-
-## 🔑 **Dependências** (Possíveis)
-
-- **Python 3.8+**
-- `requests` (para enviar requisições REST e GraphQL)
-- `pandas`, `numpy` (para manipulação dos dados coletados)
-- `scipy` ou `statsmodels` (para testes estatísticos)
-- Ferramenta de BI ou bibliotecas de visualização (`matplotlib`, `seaborn`) na Sprint 3
-
----
-
-## 🚀 Sprints do Projeto
-
-### 📌 Sprint 1 - Desenho e Preparação
-**Tarefas**  
-- Definir hipóteses (H0, H1) sobre tempo de resposta e tamanho.  
-- Planejar número de medições, endpoints e amostras.  
-- Preparar scripts de teste para REST e GraphQL.
-
-**Como Executar (Futuro)**  
-1. Criar endpoints de teste ou identificar APIs reais.  
-2. Implementar `setup_ambiente.py` para configuração local.
-
-**Resultados Esperados**  
-- `design_experimento.md` detalhando hipóteses e variáveis.  
-- Scripts básicos para rodar consultas.
-
-**Status**  
-❌ Ainda não iniciado
-
----
-
-### 📌 Sprint 2 - Execução + Análise
-**Tarefas**  
-- Rodar experimentos, coletar dados (tempo, tamanho das respostas).  
-- Analisar estatisticamente (média, mediana, desvio padrão, teste t, etc.).
-
-**Como Executar (Futuro)**  
-1. `python run_experimento.py` (exemplo) para gerar `resultados_experimento.csv`.  
-2. `python analisar_resultados.py` para obter estatísticas e gráficos simples.
-
-**Resultados Esperados**  
-- `resultados_experimento.csv` com todas as medições.  
-- Estatísticas iniciais comparando REST e GraphQL.
-
-**Status**  
-❌ Ainda não iniciado
-
----
-
-### 📌 Sprint 3 - Dashboard + Relatório
-**Tarefas**  
-- Criar um dashboard (BI ou bibliotecas de visualização).  
-- Redigir relatório final com conclusões e discussões.
-
-**Como Executar (Futuro)**  
-1. Importar `resultados_experimento.csv` na ferramenta escolhida.  
-2. Gerar visualizações comparativas.  
-3. Consolidar tudo em `relatorio_final.pdf`.
-
-**Resultados Esperados**  
-- Gráficos finais mostrando diferenças de performance.  
-- Documento final com resposta às RQs (mais rápido? menor?).
-
-**Status**  
-❌ Ainda não iniciado
-
----
-
-## 📝 Observações
-- Nenhuma implementação foi iniciada.  
-- As instruções são **planos** e podem mudar conforme o experimento for desenhado.

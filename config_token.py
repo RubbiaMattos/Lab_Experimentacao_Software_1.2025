@@ -1,97 +1,74 @@
-import os 
-import logging 
-from dotenv import load_dotenv 
-from typing import List ,Optional 
 from github import Github 
 from datetime import datetime ,timezone 
+import time 
 
-os .environ ['PYTHONDONTWRITEBYTECODE']='1'
-
-script_dir =os .path .dirname (os .path .abspath (__file__ ))
-
-def setup_logger (name :str ,level :int =logging .INFO )->logging .Logger :
-    """Configura o logger com o nível especificado."""
-    logger =logging .getLogger (name )
-    handler =logging .StreamHandler ()
-    formatter =logging .Formatter ('%(asctime)s - %(levelname)s - %(message)s')
-    handler .setFormatter (formatter )
-    logger .addHandler (handler )
-    logger .setLevel (level )
-    return logger 
-
-logger =setup_logger (__name__ )
-
-def format_duration (seconds :float )->str :
-    """Converte segundos em string HH:MM:SS."""
-    seconds =max (0 ,int (seconds ))
-    h =seconds //3600 
-    m =(seconds %3600 )//60 
-    s =seconds %60 
-    return f"{h :02d}:{m :02d}:{s :02d}"
-
-def configurar_token (
-prefix :str ="GITHUB_TOKEN",
-caminho_env :Optional [str ]=None ,
-log_ambiente :bool =True ,
-log_level :int =logging .INFO 
-)->List [str ]:
+class TokenRotator :
     """
-    Carrega um ou mais tokens a partir de um arquivo de configuração .env e exibe status de rate-limit.
+    Gerencia múltiplos tokens do GitHub e alterna automaticamente quando um token está baixo.
 
-    :param prefix: Prefixo das variáveis de ambiente (ex: "GITHUB_TOKEN" ou "GITHUB_TOKEN_1").
-    :param caminho_env: Caminho para o arquivo .env (se None, usa 'env.config' no mesmo diretório).
-    :param log_ambiente: Se True, exibe logs informativos.
-    :param log_level: Nível do log (DEBUG, INFO, ERROR).
-    :return: Lista de tokens encontrados.
+    :param tokens: lista de Personal Access Tokens.
+    :param threshold: chamadas mínimas antes de trocar de token.
+    :param low_wait: espera, em segundos, quando usar token abaixo do threshold.
     """
-    logger .setLevel (log_level )
+    def __init__ (self ,tokens :list [str ],threshold :int =100 ,low_wait :int =60 ):
+        if not tokens :
+            raise ValueError ("Lista de tokens não pode estar vazia.")
+        self .tokens =tokens 
+        self .threshold =threshold 
+        self .low_wait =low_wait 
 
+        self .clients =[Github (t )for t in tokens ]
+        self .idx =0 
 
-    if caminho_env is None :
-        caminho_env =os .path .abspath (os .path .join (script_dir ,"env.config"))
+    def switch (self ):
+        """
+        Alterna manualmente para o próximo token.
+        """
+        self .idx =(self .idx +1 )%len (self .clients )
+        print (f"🔄 Switch manual para token #{self .idx +1 }")
 
+    def get (self )->Github :
+        """
+        Retorna um cliente válido:
+        - se current.remaining > threshold, usa mesmo token;
+        - senão, busca próximo > threshold;
+        - senão, busca qualquer >0 (com um delay low_wait);
+        - se todos zerados, aguarda reset e retorna current.
+        """
+        now =datetime .now (timezone .utc )
 
-    if os .path .exists (caminho_env ):
-        load_dotenv (dotenv_path =caminho_env )
-        if log_ambiente :
-            print (f"🔄 Arquivo de ambiente carregado: {os .path .relpath (caminho_env )}")
-    else :
-        raise FileNotFoundError (f"❌ ERRO: Arquivo env.config não encontrado: {caminho_env }")
+        client =self .clients [self .idx ]
+        core =client .get_rate_limit ().core 
+        if core .remaining >self .threshold :
+            return client 
 
+        for _ in range (1 ,len (self .clients )):
+            self .idx =(self .idx +1 )%len (self .clients )
+            client =self .clients [self .idx ]
+            core =client .get_rate_limit ().core 
+            if core .remaining >self .threshold :
+                print (f"🔄 Threshold atingido, token #{self .idx +1 } com remaining={core .remaining }")
+                return client 
 
-    tokens :List [str ]=[]
-    var_names :List [str ]=[]
+        for _ in range (len (self .clients )):
+            client =self .clients [self .idx ]
+            core =client .get_rate_limit ().core 
+            if core .remaining >0 :
+                print (f"⚠️ Token #{self .idx +1 } com remaining baixo ({core .remaining }), aguardando {self .low_wait }s")
+                time .sleep (self .low_wait )
+                return client 
+            self .idx =(self .idx +1 )%len (self .clients )
 
+        resets =[c .get_rate_limit ().core .reset for c in self .clients ]
+        earliest =min (resets )
+        wait =max ((earliest -now ).total_seconds ()+5 ,0 )
+        reset_str =earliest .astimezone (timezone ).strftime ('%d/%m/%Y %H:%M:%S')
+        print (f"⏳ Todos tokens zerados, aguardando {int (wait )}s até reset ({reset_str })")
+        time .sleep (wait )
 
-    token_base =os .getenv (prefix )
-    if token_base :
-        tokens .append (token_base )
-        var_names .append (prefix )
+        client =self .clients [self .idx ]
+        return client 
 
-    idx =1 
-    while True :
-        name =f"{prefix }_{idx }"
-        value =os .getenv (name )
-        if not value :
-            break 
-        tokens .append (value )
-        var_names .append (name )
-        idx +=1 
-
-    if not tokens :
-        raise ValueError (f"❌ ERRO: Nenhum token encontrado para prefixo '{prefix }' em {caminho_env }")
-
-    if log_ambiente :
-
-        print (f"🔑 Tokens carregados ({len (tokens )}):")
-        for name ,token in zip (var_names ,tokens ):
-            gh =Github (token )
-            core =gh .get_rate_limit ().core 
-            now =datetime .now (timezone .utc )
-            wait =(core .reset -now ).total_seconds ()
-            print (f"    🔒 {name } →")
-            print (f"        💚 Limite restante:  {core .remaining }")
-            print (f"        ⏰ Próximo reset em: {format_duration (wait )}\n")
-        print ()
-
-    return tokens 
+    def get_token (self )->str :
+        """Retorna o token atual como string (útil para chamadas REST diretas)."""
+        return self .tokens [self .idx ]

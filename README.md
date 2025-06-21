@@ -1,136 +1,193 @@
 # 📊 Laboratórios de Experimentação de Software
 
-Este repositório contém os **laboratórios de experimentação** realizados na disciplina **Laboratório de Experimentação de Software** do curso de **Engenharia de Software** da **PUC Minas**, com foco em boas práticas de desenvolvimento de software e tecnologias emergentes. Cada laboratório tem um conjunto específico de objetivos, análises e resultados esperados.
+Bem-vindo(a) ao repositório dos **Laboratórios de Experimentação de Software** da disciplina de **Engenharia de Software** (PUC Minas). Aqui você encontrará cinco experimentos práticos que abordam desde análise de repositórios GitHub até criação de dashboards e comparação de APIs.
 
 ---
 
-## 📌 **Laboratórios e Instruções em Cada Pasta**
+## 📑 Sumário
 
-Cada pasta de laboratório contém um **README** detalhado com as instruções específicas para execução do experimento. Abaixo, você encontrará uma visão geral do que cada pasta contém e o que você pode esperar em cada uma delas.
-
-### 🔹 **[Laboratório 01 - Características de Repositórios Populares](Lab1_RepoPop)**
-
-**Objetivo:** Analisar as características dos repositórios mais populares do GitHub, como maturidade, atividade e contribuições externas.
-
-**Instruções na pasta:**
-- Como configurar o **token de autenticação** do GitHub.
-- Passos para executar o script `RepoPop100.py`, que coleta dados de repositórios populares utilizando **GraphQL**.
-- Detalhes sobre os arquivos gerados, como gráficos e arquivos CSV com métricas (Pull Requests, Releases, etc.).
-- Como visualizar os resultados utilizando ferramentas como Excel, Google Sheets ou Python.
+1. [Visão Geral](#-visão-geral)
+2. [Pré-requisitos](#-pré-requisitos)
+3. [Laboratórios](#-laboratórios)
+4. [Como Executar](#-como-executar)
+5. [Saídas Esperadas](#-saídas-esperadas)
+6. [Tecnologias e Ferramentas](#-tecnologias-e-ferramentas)
+7. [Estrutura do Repositório](#-estrutura-do-repositório)
+8. [Equipe e Contato](#-equipe-e-contato)
 
 ---
 
-### 🔹 **[Laboratório 02 - Qualidade de Sistemas Java](Lab2_QualiJava)**
+## 🔍 Visão Geral
 
-**Objetivo:** Analisar a qualidade de código de repositórios Java open-source utilizando métricas como **acoplamento**, **coesão** e **complexidade**.
+Este repositório centraliza todos os laboratórios realizados na disciplina de **Laboratório de Experimentação de Software**, com foco em:
 
-**Instruções na pasta:**
-- Como configurar o **token do GitHub** para coletar dados dos repositórios.
-- Passos para rodar os scripts de coleta de repositórios (`coleta_repositorios.py`) e análise de métricas com a ferramenta **CK** (`coletar_dados.py`).
-- Instruções para instalar as dependências e como gerar os arquivos de saída contendo métricas de código (como `class.csv`, `method.csv`, etc.).
-- Como analisar os dados coletados para correlacionar métricas de qualidade com popularidade, maturidade e atividade.
+* **Design Experimental:** definição de hipóteses, variáveis e tratamentos.
+* **Automação:** coleta e análise de dados via scripts em Python e Java.
+* **Análise Estatística:** uso de correlações, testes de hipóteses e visualizações.
+* **Visualização:** criação de dashboards interativos e gráficos informativos.
 
----
-
-### 🔹 **[Laboratório 03 - Code Review no GitHub](Lab3_)**
-
-**Objetivo:** Analisar a atividade de **code review** nos repositórios populares do GitHub e identificar fatores que influenciam a aceitação de Pull Requests (PRs).
-
-**Instruções na pasta:**
-- Como configurar o ambiente e o **token GitHub** para acessar os dados dos repositórios.
-- Passos para executar os scripts `coletar_repositorios.py` e `coletar_prs.py` para coletar dados sobre Pull Requests.
-- Como gerar um **dataset completo** contendo métricas sobre os PRs, como tempo de análise, tamanho e interações.
-- Detalhes sobre como realizar análises exploratórias dos dados e testar hipóteses relacionadas aos fatores que influenciam a aceitação de PRs.
+Cada laboratório documenta seu objetivo, passos de execução, saídas esperadas e resultados.
 
 ---
 
-### 🔹 **[Laboratório 04 - Visualização de Dados com BI](Lab4_)**
+## ⚙️ Pré-requisitos
 
-**Objetivo:** Utilizar ferramentas de **Business Intelligence (BI)**, como Power BI, Tableau ou Google Data Studio, para criar visualizações interativas dos dados experimentais.
+Antes de começar, certifique-se de ter instalado:
 
-**Instruções na pasta:**
-- Definição do **dataset** utilizado, com informações sobre a origem e as métricas relevantes a serem visualizadas.
-- Como preparar os dados para importar para a ferramenta de BI escolhida.
-- Passos para criar **dashboards** interativos que respondem às questões de pesquisa do laboratório.
-- Detalhes sobre como exportar o dashboard final e gerar relatórios que sintetizam as visualizações e insights.
-
----
-
-### 🔹 **[Laboratório 05 - GraphQL vs REST](Lab5_)**
-
-**Objetivo:** Comparar as tecnologias **GraphQL** e **REST** em termos de desempenho, eficiência no consumo de dados e complexidade de implementação.
-
-**Instruções na pasta:**
-- Como configurar os **scripts de teste** para avaliar as APIs REST e GraphQL.
-- Passos para realizar experimentos, coletar **tempos de resposta** e medir o **tamanho das respostas**.
-- Como analisar os resultados experimentais, aplicando estatísticas descritivas e testes de hipóteses.
-- Instruções para visualizar os resultados utilizando gráficos e relatórios comparativos.
+* **Python 3.8+** (com `pip`)
+* **Java Runtime Environment (JRE) 8+** (para executar `ck.jar` no Lab 2)
+* **Git** (para clonar o repositório)
+* **Ferramenta de BI** (Power BI Desktop, Tableau ou Google Data Studio) – necessária para o Lab 4
+* **Variável de ambiente** `GITHUB_TOKEN` configurada para acessar a GitHub API (Lab 1, 2, 3 e 5)
 
 ---
 
-## 🛠️ **Tecnologias e Ferramentas Utilizadas**
+## 📌 Laboratórios
 
-### **Linguagens de Programação e Tecnologias**
-- **Python 3.8+ / 3.12**: Linguagem principal utilizada em todos os experimentos para automação, coleta de dados e análise de resultados.
-- **GitHub API (GraphQL/REST)**: Utilizada para coletar dados sobre repositórios, Pull Requests, issues e outros dados dos repositórios do GitHub.
-- **Java**: Para análise de qualidade de código em repositórios Java no Laboratório 02.
+| Lab | Tema                                                   | Diretório         |
+| :-: | ------------------------------------------------------ | ----------------- |
+|  1  | Características de Repositórios Populares (GitHub API) | `Lab1_RepoPop`    |
+|  2  | Qualidade de Sistemas Java (Métricas CK)               | `Lab2_QualiJava`  |
+|  3  | Atividade de Code Review no GitHub                     | `Lab3_CodeReview` |
+|  4  | Visualização de Dados com BI (CAGED)                   | `Lab4_BI`         |
+|  5  | GraphQL vs REST (GitHub API)                           | `Lab5_GraphXRest` |
 
-### **Ferramentas de BI**
-- **Power BI**: Para criação de dashboards interativos e visualizações dinâmicas de dados experimentais.
-- **Tableau**: Ferramenta alternativa para visualização de dados em tempo real.
-- **Google Data Studio**: Ferramenta de visualização gratuita do Google, utilizada para criar relatórios e dashboards.
+Cada pasta contém:
 
-### **Ferramentas e Bibliotecas de Análise de Dados**
-- **CK**: Ferramenta para análise de métricas de código Java, utilizada para calcular acoplamento, coesão e complexidade.
-- **Pandas**: Biblioteca essencial para manipulação e análise de dados tabulares (CSV, Excel).
-- **Matplotlib**: Biblioteca para visualização de dados, gerando gráficos como linhas, barras e dispersões.
-- **Seaborn**: Complemento ao **Matplotlib**, facilita a criação de gráficos complexos e estatísticas visuais.
-- **Requests**: Biblioteca para fazer requisições HTTP, fundamental para acessar a API do GitHub e coletar dados.
-- **GitPython**: Biblioteca para interação com repositórios Git, utilizada no Laboratório 02 para clonar repositórios.
-- **Jupyter Notebook**: Ambiente interativo para análise de dados e exploração de resultados.
-
-### **Ferramentas para Análise Estatística e Testes**
-- **SciPy**: Para testes estatísticos avançados, como **teste t** e **análises de correlação** (Pearson, Spearman).
-- **Statsmodels**: Outra ferramenta para análise estatística que pode ser utilizada para modelagem de dados.
-
-### **Gerenciamento de Ambiente e Dependências**
-- **pip**: Gerenciador de pacotes Python utilizado para instalar as dependências necessárias para cada laboratório.
-- **virtualenv**: Para criar ambientes isolados para garantir que as dependências não conflitem com outros projetos.
-- **dotenv**: Para gerenciar variáveis de ambiente de forma segura, como o **token do GitHub** necessário para a API.
+* **Enunciado** (`.pdf`)
+* **README** específico com instruções detalhadas
+* **Scripts** para coleta, análise e geração de relatórios
+* **Pastas** de resultados: CSVs, gráficos, dashboards e artefatos finais
 
 ---
 
-## 🛠️ **Bibliotecas Externas Usadas**
+## 🚀 Como Executar
 
-1. **Pandas**: Para análise de dados estruturados.
-2. **Matplotlib & Seaborn**: Para visualização de gráficos e dados.
-3. **Requests**: Para interagir com APIs externas, como a do GitHub.
-4. **Dotenv**: Para configuração de variáveis de ambiente (como o **GITHUB_TOKEN**).
-5. **GitPython**: Para interagir com repositórios Git programaticamente.
-6. **Jupyter Notebook**: Para trabalhar de forma interativa, principalmente na análise de dados e experimentação.
-7. **SciPy**: Para realizar testes estatísticos e análises avançadas de dados.
-8. **Statsmodels**: Para modelos e testes estatísticos mais complexos.
+Para qualquer laboratório, siga estes passos:
 
----
+1. **Clone o repositório**
 
-## 📖 **Como Executar os Laboratórios**
-
-Cada laboratório possui instruções detalhadas em seu respectivo **README**. Em geral, os passos para executar são os seguintes:
-
-1. **Clonar o repositório**:
    ```bash
    git clone https://github.com/RubbiaMattos/Lab_Experimentacao_Software_1.2025.git
-   cd Lab_Experimentacao_Software_1.2025/[nome_do_laboratorio]
    ```
 
-2. **Instalar as dependências**:
+2. **Acesse o diretório do laboratório**
+
    ```bash
-   pip install -r requirements.txt
+   cd LabX_NomeDoLab
    ```
 
-3. **Executar o script principal**:
+3. **Instale as dependências**
+
+   Execute o comando abaixo para instalar todas as bibliotecas Python necessárias para todos os laboratórios:
+
    ```bash
-   python [script_principal].py
+   pip install requests pandas matplotlib seaborn python-dotenv scipy statsmodels GitPython jupyter PyGithub python-dateutil tqdm pyodbc tabulate
    ```
 
-Cada laboratório contém instruções específicas para a execução completa do experimento, coleta de dados e geração dos resultados.
+4. **Configure o token GitHub**
+
+   * Edite o arquivo `env.config` (na raiz do repositório) e defina:
+
+     ```ini
+     GITHUB_TOKEN=seu_token_aqui
+     ```
+   * O script `config_token.py` carregará essa variável para os demais pipelines.
+
+5. **Execute o pipeline principal**
+
+   ```bash
+   python main.py --step all
+   ```
+
+   ou siga as instruções passo a passo no README de cada laboratório.
+
+---
+
+## 📂 Saídas Esperadas
+
+| Lab | Principais Arquivos de Saída                                           |
+| :-: | ---------------------------------------------------------------------- |
+|  1  | CSV de métricas (`*.csv`), gráficos (`.png`), relatório (`.pdf/.pptx`) |
+|  2  | `resultados_totais.csv`, gráficos CK (`.png`), relatório final         |
+|  3  | `selected_repos.csv`, `collected_prs.csv`, `report.md`, `Figuras/`     |
+|  4  | Arquivo Power BI (`.pbix`), exportações PDF, relatório Word/DOCX       |
+|  5  | `experiment_results.csv`, `experiment_summary.csv`, `Gráficos/`, JSON  |
+
+---
+
+## 🛠️ Tecnologias e Ferramentas
+
+* **Linguagens:** Python (3.8+), Java (Lab 2)
+* **API:** GitHub REST & GraphQL
+* **BI:** Power BI Desktop, Tableau, Google Data Studio
+* **Análise Java:** `ck.jar` para métricas de código
+
+## 📚 Bibliotecas Python Utilizadas
+
+A seguir, todas as bibliotecas Python necessárias, agrupadas por laboratório:
+
+**Em todos os laboratórios:**
+
+* `requests`
+* `pandas`
+* `matplotlib`
+* `seaborn`
+* `python-dotenv`
+* `scipy`
+* `statsmodels`
+* `GitPython`
+* `jupyter`
+
+**Lab 1 – `Lab1_RepoPop`:**
+
+* `PyGithub` (para interagir com GraphQL/REST)
+* `tqdm` (barra de progresso opcional)
+
+**Lab 2 – `Lab2_QualiJava`:**
+
+* nenhuma biblioteca adicional em Python (uso de `subprocess` para executar `ck.jar`)
+
+**Lab 3 – `Lab3_CodeReview`:**
+
+* `PyGithub`
+* `python-dateutil` (para manipulação avançada de datas)
+
+**Lab 4 – `Lab4_BI`:**
+
+* `pyodbc` ou `pandas` (para preparar dados de entrada)
+* `tabulate` (para exportar tabelas, opcional)
+
+**Lab 5 – `Lab5_GraphXRest`:**
+
+* nenhuma biblioteca adicional além das comuns (uso de `requests` para REST/GraphQL)
+
+---
+
+## 🗂️ Estrutura Geral do Repositório
+
+```
+Lab_Experimentacao_Software_1.2025
+├── Lab1_RepoPop/                       # Lab 1: Repositórios Populares (GraphQL/REST)
+├── Lab2_QualiJava/                     # Lab 2: Métricas CK em Java
+├── Lab3_CodeReview/                    # Lab 3: Atividade de Code Review
+├── Lab4_BI/                            # Lab 4: Dashboards BI (CAGED)
+├── Lab5_GraphXRest/                    # Lab 5: GraphQL vs REST
+├── 📄 README.md                        # Visão geral (este arquivo)
+├── 📄 config_token.py                  # Carrega token GitHub (.env) para os scripts
+├── 📄 config_token_rotator.py          # Gerencia rotação automática de tokens
+└── 📄 env.config                       # Armazena variáveis de ambiente (GITHUB_TOKEN)
+```
+
+---
+
+## 👥 Equipe e Contato
+
+* **Nataniel Geraldo Mendes Peixoto**
+* **Nelson de Campos Nolasco**
+* **Rubia Coelho de Matos**
+
+---
+
+*Disciplina: Laboratório de Experimentação de Software — PUC Minas*
+

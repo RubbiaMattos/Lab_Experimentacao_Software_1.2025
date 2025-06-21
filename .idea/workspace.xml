@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="60bf9421-48b5-4d09-877c-3855bc8fb9ce" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Lab1_RepoPop/README_Lab1.md" beforeDir="false" afterPath="$PROJECT_DIR$/Lab1_RepoPop/README_Lab1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab2_QualiJava/README_Lab2.md" beforeDir="false" afterPath="$PROJECT_DIR$/Lab2_QualiJava/README_Lab2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab3_CodeRevGithub/README_Lab3.md" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3_CodeRevGithub/README_Lab3.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab4_VizuDadosFerBI/README_Lab4.md" beforeDir="false" afterPath="$PROJECT_DIR$/Lab4_VizuDadosFerBI/README_Lab4.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/.idea/Lab5_GraphXRest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S01/Desenho do Experimento.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/.idea/Lab5S02.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/.idea/csv-editor.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/Experimento_2/Graficos_Incremental/tamanho_vs_trialname.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/Experimento_2/Graficos_Incremental/tempo_vs_trialname.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/Experimento_2/analysis.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/Experimento_2/experiment_2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/Experimento_2/experiment_graphql_incremental.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/Experimento_2/experiment_incremental.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/Experimento_2/respostas_incremental/graphql_response_10campos.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/Experimento_2/respostas_incremental/graphql_response_1campos.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/Experimento_2/respostas_incremental/graphql_response_2campos.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/Experimento_2/respostas_incremental/graphql_response_3campos.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/Experimento_2/respostas_incremental/graphql_response_4campos.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/Experimento_2/respostas_incremental/graphql_response_5campos.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/Experimento_2/respostas_incremental/graphql_response_6campos.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/Experimento_2/respostas_incremental/graphql_response_7campos.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/Experimento_2/respostas_incremental/graphql_response_8campos.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/Experimento_2/respostas_incremental/graphql_response_9campos.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/Gráficos/response_size_distribution.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/Gráficos/response_time_distribution.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/RelatorioFinal.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/analysis.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/dashboard.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/experiment.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/experiment.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/experiment_results.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/experiment_summary.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/report.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/respostas_json/graphql_response.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/Lab5S02/respostas_json/rest_response.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab5_GraphXRest/README_Lab5.md" beforeDir="false" afterPath="$PROJECT_DIR$/Lab5_GraphXRest/README_Lab5.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/config_token.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "RubbiaMattos"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/RubbiaMattos/Lab_Experimentacao_Software_1.2025.git",
+    "accountId": "4e80f7e1-8cf2-4a52-b0d5-c62813e7bd36"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2yotL1MIOoJZGpvlcav2JZ6vkBt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.26053.29" />
+        <option value="bundled-python-sdk-b1dbf8ef85a6-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.26053.29" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="60bf9421-48b5-4d09-877c-3855bc8fb9ce" name="Changes" comment="" />
+      <created>1750512702054</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1750512702054</updated>
+      <workItem from="1750512702481" duration="1380000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

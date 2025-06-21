@@ -75,6 +75,21 @@ A proposta visa analisar e apresentar de forma visual as seguintes questões:
 
 ---
 
+### 📂 Saídas Esperadas
+
+* `PUCMG - Laboratório 04.pbix`
+  Arquivo do dashboard desenvolvido no Power BI.
+* PDF exportado do dashboard
+  (por exemplo, via **Arquivo → Exportar → PDF** no Power BI; nome sugerido: `Dashboard_CAGED.pdf`).
+* `Relatorio CAGED - Tecnologia.docx`
+  Relatório analítico em Word com interpretações dos achados.
+* `Apresentação - Explorando o Dataset CAGED_Reduzido.pdf`
+  Slides em PDF usados em sala.
+* `Apresentação - Explorando o Dataset CAGED.pptx`
+  Arquivo de apresentação em PowerPoint.
+
+---
+
 ## ❓ Questões de Pesquisa (RQs)
 
 | RQ  | Pergunta                                                                                |

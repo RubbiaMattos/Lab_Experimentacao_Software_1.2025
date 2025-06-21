@@ -134,32 +134,22 @@ python main.py --step analisar    # Analisar métricas e gerar gráficos
 
 ```
 📦 Lab2_QualiJava/
-├── 📄 main.py                         # Gerencia a execução por etapas
-├── 📄 LABORATÓRIO_02.pdf             # Enunciado do laboratório
-├── 📄 README_Lab2.md                 # Documentação do projeto
-│
-├── 🐍 coleta_repositorios.py         # Coleta repositórios Java via GitHub API
-├── 🐍 automacao_clone.py            # Clona repositórios encontrados
-├── 🐍 coletar_dados.py              # Executa CK (ck.jar) e extrai métricas
-├── 🐍 analisar_dados.py             # Gera gráficos e análises estatísticas
-├── 📄 ck.jar                         # Ferramenta para extração de métricas CK
-├── 📄 env.config                     # Token pessoal do GitHub (não versionar)
-│
-├── 📂 data/
-│   └── resultados_totais.csv        # Métricas extraídas com o CK
-│
-├── 📂 Repos/
-│   └── ... (repositórios Java clonados)
-│
-├── 📂 Relatórios/
+├── 📄 main.py                         # Script principal de orquestração do pipeline
+├── 📄 LABORATÓRIO_02.pdf              # Enunciado do laboratório
+├── 📄 README_Lab2.md                  # Documentação do projeto
+├── 📄 coleta_repositorios.py          # Coleta repositórios via GitHub API
+├── 📄 automacao_clone.py              # Clona repositórios localmente
+├── 📄 coletar_dados.py                # Executa CK e extrai métricas
+├── 📄 analisar_dados.py               # Analisa dados e gera gráficos
+├── 📄 ck.jar                          # Ferramenta CK para métricas
+├── 📂 Relatórios/                     # Logs, documentos e gráficos finais
+│   ├── 📄 coleta_repositorios_log.log
+│   ├── 📄 automacao_clone_log.log
+│   ├── 📄 coletar_dados_log.log
+│   ├── 📄 analisar_dados_log.log
 │   ├── 📄 Análise de Repositórios Populares Java GitHub.docx
 │   ├── 📄 Análise de Repositórios Populares Java GitHub.pdf
 │   ├── 📄 Analise Características Qualidade Repositórios Java.pptx
-│   ├── 📄 analisar_dados_log.log
-│   ├── 📄 clone_repositorios_log.log
-│   ├── 📄 coleta_repositorios_log.log
-│   ├── 📄 coletar_dados_log.log
-│
 │   ├── 📊 boxplot_LOC.png
 │   ├── 📊 histograma_CBO.png
 │   ├── 📊 histograma_Comments.png
@@ -169,22 +159,16 @@ python main.py --step analisar    # Analisar métricas e gerar gráficos
 │   ├── 📊 histograma_Maturity.png
 │   ├── 📊 histograma_Release.png
 │   ├── 📊 histograma_Stars.png
-│
 │   ├── 📊 loc_qualidade_CBO.png
 │   ├── 📊 loc_qualidade_DIT.png
 │   ├── 📊 loc_qualidade_LCOM.png
-│
 │   ├── 📊 maturidade_qualidade_CBO.png
 │   ├── 📊 maturidade_qualidade_DIT.png
 │   ├── 📊 maturidade_qualidade_LCOM.png
-│
 │   ├── 📊 popularidade_qualidade_CBO.png
 │   ├── 📊 popularidade_qualidade_DIT.png
 │   ├── 📊 popularidade_qualidade_LCOM.png
-│
 │   ├── 📊 release_qualidade_CBO.png
 │   ├── 📊 release_qualidade_DIT.png
 │   └── 📊 release_qualidade_LCOM.png
 ```
-
----

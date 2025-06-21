@@ -70,15 +70,15 @@ py -3.12 -m pip install pandas requests matplotlib seaborn python-dotenv
 ```bash
 python Lab1_RepoPop/Lab01S03/RepoPop1000Final.py
 ```
+--- 
 
-3. **Saídas esperadas:**
+### 📂 Saídas esperadas
 
-* `github_analysis.csv`: dados coletados e analisados
-* Gráficos `.png` com visualizações por métrica
-* Relatório final em `.docx`, `.pdf` e `.pptx` na pasta `Relatórios`
+* `github_analysis.csv`: dados coletados e analisados&#x20;
+* Gráficos `.png` com visualizações por métrica&#x20;
+* Relatório final em `.docx`, `.pdf` e `.pptx` na pasta `Relatórios`&#x20;
 
 ---
-
 ## ❓ Questões de Pesquisa (RQs)
 
 | RQ  | Pergunta                                                                  | Métrica                                    |
@@ -143,5 +143,3 @@ python Lab1_RepoPop/Lab01S03/RepoPop1000Final.py
 │       ├── qtd_releases.png
 │       └── top_languages.png
 ```
-
----
